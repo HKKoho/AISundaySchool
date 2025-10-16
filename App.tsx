@@ -42,7 +42,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
+    <div
+      className={`min-h-screen text-gray-100 flex flex-col ${
+        appState === AppState.LANDING
+          ? 'bg-cover bg-center bg-no-repeat'
+          : 'bg-gray-900'
+      }`}
+      style={
+        appState === AppState.LANDING
+          ? {
+              backgroundImage: 'url(/sunday-school.png)',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              backgroundBlendMode: 'darken'
+            }
+          : undefined
+      }
+    >
       <main className="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
         {renderContent()}
       </main>

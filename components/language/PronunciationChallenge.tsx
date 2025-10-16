@@ -130,7 +130,7 @@ const PronunciationChallenge: React.FC<PronunciationChallengeProps> = ({
             ← 返回
           </button>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="bg-amber-50 rounded-2xl shadow-xl p-8 text-center">
             <div className="text-6xl mb-6">🎯</div>
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
               發音挑戰
@@ -200,7 +200,7 @@ const PronunciationChallenge: React.FC<PronunciationChallengeProps> = ({
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 p-6">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="bg-amber-50 rounded-2xl shadow-xl p-8 text-center">
             <div className="text-6xl mb-6">
               {isExcellent ? '🏆' : isGood ? '🎯' : '💪'}
             </div>
@@ -281,7 +281,7 @@ const PronunciationChallenge: React.FC<PronunciationChallengeProps> = ({
         </div>
 
         {/* Word Display */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <div className="bg-amber-50 rounded-2xl shadow-xl p-8 mb-8">
           <div className="text-center">
             <h2 className="text-xl font-semibold text-gray-600 mb-4">
               哪個是正確的發音？
@@ -331,8 +331,8 @@ const PronunciationChallenge: React.FC<PronunciationChallengeProps> = ({
                     : showResult && isSelected && !option.isCorrect
                     ? 'bg-red-100 border-red-500'
                     : gameState === 'playing'
-                    ? 'bg-white border-gray-300'
-                    : 'bg-white border-gray-300'
+                    ? 'bg-amber-50 border-gray-300'
+                    : 'bg-amber-50 border-gray-300'
                 }`}
               >
                 <div className="flex items-center justify-between mb-3">

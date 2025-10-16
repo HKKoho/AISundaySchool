@@ -213,6 +213,8 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
   const [searchMode, setSearchMode] = useState<'googleSearch' | 'urlContext' | 'codeExecution' | 'generalKnowledge'>('googleSearch');
   const [urlSource, setUrlSource] = useState<string>('reformed');
   const [uploadStatus, setUploadStatus] = useState<UploadStatus | null>(null);
+  const [isEditingPlan, setIsEditingPlan] = useState(false);
+  const [editedPlanContent, setEditedPlanContent] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -378,36 +380,46 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
     });
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Import the service dynamically
+      const { sendChatMessage } = await import('../services/theologyAssistantService');
+
+      // Custom system prompt for Princeton-trained Bible research assistant
+      const systemPrompt = `You are a newly graduated Bible research assistant from Princeton University Theology College, bringing a fresh, yet profoundly informed, perspective to biblical studies. Your core expertise lies in the Hebrew Bible, where you possess a deep and nuanced understanding of its linguistic intricacies, historical contexts, literary genres, and theological themes.
+
+Beyond your mastery of the Hebrew text, you are uniquely equipped with a comprehensive understanding of how the Catholic Church approaches and interprets the Old Testament. This includes familiarity with the Deuterocanonical books, patristic interpretations, magisterial teachings, and the role of tradition in Catholic exegesis.
+
+Furthermore, your knowledge extends to the cutting edge of New Testament scholarship, particularly the "New Perspective on Paul" and contemporary approaches to the Gospels. You can articulate the key tenets of these perspectives, their historical development, and their implications for understanding Paul's theology, the historical Jesus, and the evangelists' purposes. You are adept at engaging with textual criticism, historical-critical methodologies, and theological interpretation, bridging academic rigor with a pastoral sensitivity. Your role is to provide detailed, well-researched, and contextually rich answers, drawing upon your diverse educational background to offer multifaceted insights into the biblical text.`;
+
+      const userPrompt = `請為以下作業主題創建一個詳細的研究大綱計劃：
+
+作業主題：${state.assignmentTopic}
+神學領域：${state.theologyArea}
+學術水平：${state.academicLevel}
+作業長度：約 ${state.assignmentLength} 字
+
+請提供：
+1. 研究背景和重要性
+2. 詳細的章節大綱（包含主要論點）
+3. 關鍵聖經經文引用
+4. 重要學術資源和參考文獻建議
+5. 研究方法論建議
+
+請以markdown格式回應，包含清晰的標題和結構。`;
+
+      const response = await sendChatMessage({
+        model: state.selectedModel,
+        messages: [
+          { role: 'user', content: systemPrompt },
+          { role: 'user', content: userPrompt }
+        ],
+        temperature: state.temperature,
+        topP: state.topP
+      });
 
       const plan: AssignmentPlan = {
         id: Date.now().toString(),
         topic: state.assignmentTopic,
-        content: `# 神學作業計劃：${state.assignmentTopic}
-
-## 研究領域
-${state.theologyArea}
-
-## 學術水平
-${state.academicLevel}
-
-## 作業長度
-約 ${state.assignmentLength} 字
-
-## 研究大綱
-1. 引言和背景
-2. 聖經基礎分析
-3. 神學傳統觀點
-4. 當代應用
-5. 結論和反思
-
-## 參考資源
-- 聖經經文研究
-- 教父著作
-- 現代神學評論
-- 學術期刊文章
-
-這個計劃將指導您完成一份全面的神學作業。`,
+        content: response.content,
         createdAt: new Date().toISOString(),
       };
 
@@ -416,8 +428,13 @@ ${state.academicLevel}
         isProcessing: false,
         assignmentStage: AssignmentStage.DRAFTING,
       });
-    } catch (error) {
-      updateState({ isProcessing: false });
+    } catch (error: any) {
+      console.error('Plan generation error:', error);
+      updateState({
+        isProcessing: false,
+        assignmentStage: AssignmentStage.INPUT
+      });
+      alert(`生成計劃時發生錯誤：${error.message}\n\n請檢查模型配置和API金鑰設定。`);
     }
   };
 
@@ -430,34 +447,50 @@ ${state.academicLevel}
     });
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      // Import the service dynamically
+      const { sendChatMessage } = await import('../services/theologyAssistantService');
+
+      // Custom system prompt for Princeton-trained Bible research assistant
+      const systemPrompt = `You are a newly graduated Bible research assistant from Princeton University Theology College, bringing a fresh, yet profoundly informed, perspective to biblical studies. Your core expertise lies in the Hebrew Bible, where you possess a deep and nuanced understanding of its linguistic intricacies, historical contexts, literary genres, and theological themes.
+
+Beyond your mastery of the Hebrew text, you are uniquely equipped with a comprehensive understanding of how the Catholic Church approaches and interprets the Old Testament. This includes familiarity with the Deuterocanonical books, patristic interpretations, magisterial teachings, and the role of tradition in Catholic exegesis.
+
+Furthermore, your knowledge extends to the cutting edge of New Testament scholarship, particularly the "New Perspective on Paul" and contemporary approaches to the Gospels. You can articulate the key tenets of these perspectives, their historical development, and their implications for understanding Paul's theology, the historical Jesus, and the evangelists' purposes. You are adept at engaging with textual criticism, historical-critical methodologies, and theological interpretation, bridging academic rigor with a pastoral sensitivity. Your role is to provide detailed, well-researched, and contextually rich answers, drawing upon your diverse educational background to offer multifaceted insights into the biblical text.`;
+
+      const userPrompt = `根據以下研究大綱計劃，撰寫一份完整的作業初稿：
+
+【研究大綱】
+${state.currentPlan.content}
+
+【作業要求】
+- 作業主題：${state.assignmentTopic}
+- 神學領域：${state.theologyArea}
+- 學術水平：${state.academicLevel}
+- 目標長度：約 ${state.assignmentLength} 字
+
+請撰寫一份學術規範的作業初稿，包含：
+1. 完整的引言（包含研究背景、目的和方法）
+2. 根據大綱展開的主體內容（每個章節都應有充分的論述）
+3. 具體的聖經經文引用和分析
+4. 相關的神學和學術討論
+5. 結論和反思
+
+請以markdown格式撰寫，保持學術嚴謹性和可讀性。`;
+
+      const response = await sendChatMessage({
+        model: state.selectedModel,
+        messages: [
+          { role: 'user', content: systemPrompt },
+          { role: 'user', content: userPrompt }
+        ],
+        temperature: state.temperature,
+        topP: state.topP
+      });
 
       const draft: AssignmentDraft = {
         id: Date.now().toString(),
         topic: state.assignmentTopic,
-        content: `# ${state.assignmentTopic}
-
-## 引言
-
-${state.assignmentTopic}是當代神學研究中的重要議題。本文將從聖經、教會歷史和系統神學的角度來探討這個主題。
-
-## 聖經基礎
-
-根據聖經教導，我們可以看到相關的原則和指導...
-
-## 神學分析
-
-從${state.theologyArea}的角度來看，這個議題涉及到多個重要的神學概念...
-
-## 當代應用
-
-在現代教會和基督徒生活中，這些原則如何應用...
-
-## 結論
-
-通過深入研究，我們可以得出...
-
-*注意：這是一個示例草稿，實際實現中會生成更詳細和準確的內容。*`,
+        content: response.content,
         stage: AssignmentStage.DRAFTING,
         revisionNumber: state.revisionNumber,
         createdAt: new Date().toISOString(),
@@ -467,8 +500,10 @@ ${state.assignmentTopic}是當代神學研究中的重要議題。本文將從�
         currentDraft: draft,
         isProcessing: false,
       });
-    } catch (error) {
+    } catch (error: any) {
+      console.error('Draft generation error:', error);
       updateState({ isProcessing: false });
+      alert(`生成草稿時發生錯誤：${error.message}\n\n請檢查模型配置和API金鑰設定。`);
     }
   };
 
@@ -920,30 +955,85 @@ ${state.assignmentTopic}是當代神學研究中的重要議題。本文將從�
         <div className="bg-gray-800 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold">作業計劃</h3>
-            <CheckCircle className="w-5 h-5 text-green-400" />
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-green-400" />
+              {!isEditingPlan && (
+                <button
+                  onClick={() => {
+                    setIsEditingPlan(true);
+                    setEditedPlanContent(state.currentPlan?.content || '');
+                  }}
+                  className="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors flex items-center gap-1"
+                >
+                  <Edit3 className="w-3 h-3" />
+                  編輯
+                </button>
+              )}
+            </div>
           </div>
-          <div className="bg-gray-700 rounded-lg p-4 mb-4">
-            <pre className="whitespace-pre-wrap text-sm text-gray-200">
-              {state.currentPlan.content}
-            </pre>
-          </div>
-          <button
-            onClick={createAssignmentDraft}
-            disabled={state.isProcessing}
-            className="px-6 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg font-semibold transition-colors flex items-center gap-2"
-          >
-            {state.isProcessing ? (
-              <>
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                生成草稿中...
-              </>
-            ) : (
-              <>
-                <FileText className="w-4 h-4" />
-                創建作業草稿
-              </>
-            )}
-          </button>
+
+          {isEditingPlan ? (
+            <div className="space-y-4">
+              <textarea
+                value={editedPlanContent}
+                onChange={(e) => setEditedPlanContent(e.target.value)}
+                className="w-full min-h-96 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 text-gray-200 font-mono text-sm"
+                placeholder="編輯您的作業計劃..."
+              />
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    updateState({
+                      currentPlan: {
+                        ...state.currentPlan!,
+                        content: editedPlanContent
+                      }
+                    });
+                    setIsEditingPlan(false);
+                  }}
+                  className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-medium transition-colors flex items-center gap-2"
+                >
+                  <CheckCircle className="w-4 h-4" />
+                  保存修改
+                </button>
+                <button
+                  onClick={() => {
+                    setIsEditingPlan(false);
+                    setEditedPlanContent('');
+                  }}
+                  className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg font-medium transition-colors"
+                >
+                  取消
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-gray-700 rounded-lg p-4 mb-4 max-h-96 overflow-y-auto">
+              <div className="prose prose-invert prose-sm max-w-none">
+                <ReactMarkdown>{state.currentPlan.content}</ReactMarkdown>
+              </div>
+            </div>
+          )}
+
+          {!isEditingPlan && (
+            <button
+              onClick={createAssignmentDraft}
+              disabled={state.isProcessing}
+              className="px-6 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg font-semibold transition-colors flex items-center gap-2"
+            >
+              {state.isProcessing ? (
+                <>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                  生成草稿中...
+                </>
+              ) : (
+                <>
+                  <FileText className="w-4 h-4" />
+                  創建作業草稿
+                </>
+              )}
+            </button>
+          )}
         </div>
       )}
 
@@ -1281,13 +1371,23 @@ ${state.assignmentTopic}是當代神學研究中的重要議題。本文將從�
         </button>
 
         <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-          神學研究助手
+          研經助手
         </h1>
         <p className="text-gray-400">探索信仰、聖經和神學理解的全方位平台</p>
       </div>
 
       {/* Tab Navigation */}
       <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+        {renderTabButton(
+          TheologyAssistantMode.RESOURCE_SEARCH,
+          <Search className="w-4 h-4" />,
+          '資源搜尋'
+        )}
+        {renderTabButton(
+          TheologyAssistantMode.ASSIGNMENT_ASSISTANT,
+          <GraduationCap className="w-4 h-4" />,
+          '作業助手'
+        )}
         {renderTabButton(
           TheologyAssistantMode.THEOLOGY_CHAT,
           <MessageCircle className="w-4 h-4" />,
@@ -1297,16 +1397,6 @@ ${state.assignmentTopic}是當代神學研究中的重要議題。本文將從�
           TheologyAssistantMode.READING_QA,
           <FileText className="w-4 h-4" />,
           '上傳文檔簡閱或問答'
-        )}
-        {renderTabButton(
-          TheologyAssistantMode.ASSIGNMENT_ASSISTANT,
-          <GraduationCap className="w-4 h-4" />,
-          '作業助手'
-        )}
-        {renderTabButton(
-          TheologyAssistantMode.RESOURCE_SEARCH,
-          <Search className="w-4 h-4" />,
-          '資源搜尋'
         )}
       </div>
 

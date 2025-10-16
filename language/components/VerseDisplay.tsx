@@ -95,7 +95,7 @@ export const VerseDisplay: React.FC<VerseDisplayProps> = ({ verse, onBack }) => 
       </div>
 
       {/* Translation */}
-      <div className="mb-8 p-6 bg-white dark:bg-stone-800 rounded-2xl shadow-lg">
+      <div className="mb-8 p-6 bg-amber-50 rounded-2xl shadow-lg">
         <h3 className="text-sm font-semibold text-stone-500 dark:text-stone-400 mb-3 uppercase tracking-wide">
           英文翻譯
         </h3>
@@ -154,7 +154,7 @@ export const VerseDisplay: React.FC<VerseDisplayProps> = ({ verse, onBack }) => 
               className={`group p-5 rounded-xl transition-all duration-300 border-2 text-left ${
                 selectedWord?.original === word.original
                   ? 'bg-sky-100 dark:bg-sky-900/50 border-sky-500 shadow-lg scale-105'
-                  : 'bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 hover:border-sky-400 hover:shadow-md'
+                  : 'bg-amber-50 border-stone-200 dark:border-stone-700 hover:border-sky-400 hover:shadow-md'
               }`}
             >
               <div className="flex items-start justify-between mb-3">

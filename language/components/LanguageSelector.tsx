@@ -73,39 +73,39 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onSelect, on
         {/* Permissions Info */}
         <div className="w-full max-w-2xl mb-8 p-6 bg-sky-50 dark:bg-sky-900/30 border border-sky-200 dark:border-sky-700 rounded-xl">
           <div className="flex items-start gap-3 mb-4">
-            <Info className="w-5 h-5 text-sky-600 dark:text-sky-400 mt-1 flex-shrink-0" />
+            <Info className="w-5 h-5 text-gray-500 dark:text-gray-400 mt-1 flex-shrink-0" />
             <div className="flex-1">
-              <h3 className="text-lg font-semibold text-sky-900 dark:text-sky-100 mb-2">需要權限</h3>
-              <p className="text-sm text-sky-800 dark:text-sky-200 mb-3">此應用程式需要訪問您的麥克風和揚聲器才能正常運作：</p>
+              <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-400 mb-2">需要權限</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">此應用程式需要訪問您的麥克風和揚聲器才能正常運作：</p>
             </div>
           </div>
 
           <div className="space-y-3 ml-8">
             <div className="flex items-start gap-3">
-              <Volume2 className="w-5 h-5 text-sky-600 dark:text-sky-400 mt-0.5 flex-shrink-0" />
+              <Volume2 className="w-5 h-5 text-gray-500 dark:text-gray-400 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-sky-900 dark:text-sky-100">揚聲器權限</p>
-                <p className="text-xs text-sky-700 dark:text-sky-300">播放發音範例並聆聽正確的發音</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">揚聲器權限</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">播放發音範例並聆聽正確的發音</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <Mic className="w-5 h-5 text-sky-600 dark:text-sky-400 mt-0.5 flex-shrink-0" />
+              <Mic className="w-5 h-5 text-gray-500 dark:text-gray-400 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-sky-900 dark:text-sky-100">麥克風權限</p>
-                <p className="text-xs text-sky-700 dark:text-sky-300">錄製您的發音並接收 AI 反饋</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">麥克風權限</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">錄製您的發音並接收 AI 反饋</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-4 pt-4 border-t border-sky-200 dark:border-sky-700">
-            <p className="text-xs text-sky-600 dark:text-sky-400">
+          <div className="mt-4 pt-4 border-t border-gray-300 dark:border-gray-600">
+            <p className="text-xs text-gray-600 dark:text-gray-400">
               <strong>提示：</strong>瀏覽器會在需要時請求權限，請點擊「允許」以啟用所有功能。
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
             <LanguageCard
                 title="希伯來文"
                 description="舊約聖經"

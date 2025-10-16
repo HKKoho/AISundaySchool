@@ -118,7 +118,7 @@ const ListeningGame: React.FC<ListeningGameProps> = ({ language, onBack }) => {
             ← 返回
           </button>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="bg-amber-50 rounded-2xl shadow-xl p-8 text-center">
             <div className="text-6xl mb-6">👂</div>
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
               聽力理解遊戲
@@ -169,7 +169,7 @@ const ListeningGame: React.FC<ListeningGameProps> = ({ language, onBack }) => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50 p-6">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="bg-amber-50 rounded-2xl shadow-xl p-8 text-center">
             <div className="text-6xl mb-6">
               {isExcellent ? '🎉' : isGood ? '👍' : '💪'}
             </div>
@@ -248,7 +248,7 @@ const ListeningGame: React.FC<ListeningGameProps> = ({ language, onBack }) => {
         </div>
 
         {/* Audio Player Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <div className="bg-amber-50 rounded-2xl shadow-xl p-8 mb-8">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
               你聽到哪個單詞？
@@ -303,8 +303,8 @@ const ListeningGame: React.FC<ListeningGameProps> = ({ language, onBack }) => {
                     : showResult && isSelected && !isCorrect
                     ? 'bg-red-100 border-red-500'
                     : gameState === 'playing'
-                    ? 'bg-white border-gray-300 hover:border-purple-400'
-                    : 'bg-white border-gray-300'
+                    ? 'bg-amber-50 border-gray-300 hover:border-purple-400'
+                    : 'bg-amber-50 border-gray-300'
                 }`}
               >
                 <div
