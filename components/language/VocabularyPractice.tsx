@@ -202,7 +202,7 @@ const VocabularyPractice: React.FC = () => {
 
           {/* Stats Overview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="bg-amber-50 rounded-lg shadow-md p-6 text-center">
               <div className="text-3xl font-bold text-indigo-600">
                 {overallStats.totalStudied}
               </div>
@@ -212,7 +212,7 @@ const VocabularyPractice: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="bg-amber-50 rounded-lg shadow-md p-6 text-center">
               <div className="text-3xl font-bold text-amber-600">
                 {overallStats.dueToday}
               </div>
@@ -222,7 +222,7 @@ const VocabularyPractice: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="bg-amber-50 rounded-lg shadow-md p-6 text-center">
               <div className="text-3xl font-bold text-green-600">
                 {overallStats.mastered}
               </div>
@@ -286,7 +286,7 @@ const VocabularyPractice: React.FC = () => {
           </div>
 
           {/* Session Type Selection */}
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div className="bg-amber-50 rounded-lg shadow-md p-6 mb-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               選擇練習模式
             </h3>
@@ -526,7 +526,7 @@ const VocabularyPractice: React.FC = () => {
           </div>
 
           {/* Mastery Level Distribution */}
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div className="bg-amber-50 rounded-lg shadow-md p-6 mb-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               掌握程度分布
             </h3>
@@ -559,7 +559,7 @@ const VocabularyPractice: React.FC = () => {
           </div>
 
           {/* Word List with Progress */}
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-amber-50 rounded-lg shadow-md p-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               詞彙進度詳情
             </h3>

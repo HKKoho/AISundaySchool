@@ -54,7 +54,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
             <button
               key={feature.id}
               onClick={() => onNavigate(feature.id)}
-              className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${feature.color} ${feature.hoverColor} p-10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
+              className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${feature.color} ${feature.hoverColor} p-10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl bg-opacity-80 backdrop-blur-sm`}
+              style={{ opacity: 0.75 }}
             >
               <div className="relative z-10">
                 <div className="mb-6 flex justify-center">

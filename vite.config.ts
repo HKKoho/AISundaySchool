@@ -29,9 +29,12 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       define: {
-        // Only expose Gemini API key for question generator feature
-        // Other AI features use secure backend API
+        // Expose API keys for client-side AI services
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+        'process.env.OPENAI_API_KEY': JSON.stringify(env.OPENAI_API_KEY),
+        'process.env.OLLAMA_API_KEY': JSON.stringify(env.OLLAMA_API_KEY),
+        'process.env.OLLAMA_API_URL': JSON.stringify(env.OLLAMA_API_URL),
       },
       resolve: {
         alias: {

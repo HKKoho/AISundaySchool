@@ -215,7 +215,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
                       {pronunciationFeedback.feedback}
                     </div>
                     {pronunciationFeedback.suggestions && (
-                      <div className="text-xs text-gray-600 bg-white/50 p-2 rounded mt-2">
+                      <div className="text-xs text-gray-600 bg-amber-50/50 p-2 rounded mt-2">
                         💡 {pronunciationFeedback.suggestions}
                       </div>
                     )}
@@ -272,7 +272,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
 
             {/* Grammatical Notes */}
             {card.grammaticalNotes && (
-              <div className="mb-4 bg-white/50 p-3 rounded-lg">
+              <div className="mb-4 bg-amber-50/50 p-3 rounded-lg">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
                   語法筆記
                 </h3>
@@ -282,7 +282,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
 
             {/* Example */}
             {card.examples.length > 0 && (
-              <div className="mb-4 bg-white/50 p-3 rounded-lg">
+              <div className="mb-4 bg-amber-50/50 p-3 rounded-lg">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
                   聖經例句
                 </h3>
