@@ -18,10 +18,16 @@ export interface JournalEntry {
   content: string;
 }
 
+export enum QuestionCategory {
+  BIBLE_BACKGROUND = 'Bible Background', // 聖經背景
+  PERSON_IN_BIBLE = 'Person in Bible',   // 聖經人物
+}
+
 export interface Quest {
   id: string;
   character: string;
   characterImage: string;
+  category: QuestionCategory;
   question: string;
   options: string[];
   correctAnswerIndex: number;

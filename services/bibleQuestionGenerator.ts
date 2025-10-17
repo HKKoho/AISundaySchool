@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import type { Quest } from '../types';
+import type { Quest, QuestionCategory } from '../types';
 
 if (!process.env.API_KEY) {
     throw new Error("API_KEY environment variable not set");
@@ -14,6 +14,11 @@ const questionResponseSchema = {
         character: {
             type: Type.STRING,
             description: "The name of the Biblical character in Traditional Chinese (繁體中文)"
+        },
+        category: {
+            type: Type.STRING,
+            description: "The question category: either 'Bible Background' (聖經背景) for historical/contextual questions, or 'Person in Bible' (聖經人物) for character-focused questions",
+            enum: ["Bible Background", "Person in Bible"]
         },
         question: {
             type: Type.STRING,
@@ -70,6 +75,7 @@ const questionResponseSchema = {
     },
     required: [
         "character",
+        "category",
         "question",
         "options",
         "correctAnswerIndex",
@@ -80,6 +86,28 @@ const questionResponseSchema = {
         "deepDiveContent",
         "bibleSources"
     ]
+};
+
+// Utility function to randomize answer positions to avoid bias
+const randomizeAnswers = (options: string[], correctIndex: number): { options: string[], correctAnswerIndex: number } => {
+    const correctAnswer = options[correctIndex];
+
+    // Create a copy of the options array
+    const shuffledOptions = [...options];
+
+    // Fisher-Yates shuffle algorithm
+    for (let i = shuffledOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+    }
+
+    // Find the new index of the correct answer
+    const newCorrectIndex = shuffledOptions.indexOf(correctAnswer);
+
+    return {
+        options: shuffledOptions,
+        correctAnswerIndex: newCorrectIndex
+    };
 };
 
 export const generateBiblicalQuestion = async (
@@ -94,12 +122,16 @@ export const generateBiblicalQuestion = async (
 你的任務是生成一個關於聖經人物或事件的教育性問題，包含：
 
 1. **角色選擇**：選擇一個有意義的聖經人物（舊約或新約）
-2. **問題設計**：以第一人稱（角色視角）撰寫問題，讓學習者能夠代入角色思考
-3. **選項設計**：提供4個選項，其中3個是合理但錯誤的干擾項
-4. **解釋**：提供詳細的答案解釋，必須包含具體的聖經經文引用
-5. **靈修引導**：提供日誌提示，幫助學習者將聖經故事應用到現代生活
-6. **深度探索**：提供神學深度分析，探討主題、歷史背景和神學意義
-7. **經文來源**：提供2-3個相關的聖經章節引用
+2. **問題分類**：判斷問題類別
+   - "Bible Background" (聖經背景)：關於歷史背景、文化背景、地理環境、時代背景的問題
+   - "Person in Bible" (聖經人物)：關於特定聖經人物的行為、性格、經歷、信仰歷程的問題
+3. **問題設計**：以第一人稱（角色視角）撰寫問題，讓學習者能夠代入角色思考
+4. **選項設計**：提供4個選項，其中3個是合理但錯誤的干擾項
+   - **重要**：正確答案應該隨機分配在A、B、C、D選項中，避免總是出現在同一位置
+5. **解釋**：提供詳細的答案解釋，必須包含具體的聖經經文引用
+6. **靈修引導**：提供日誌提示，幫助學習者將聖經故事應用到現代生活
+7. **深度探索**：提供神學深度分析，探討主題、歷史背景和神學意義
+8. **經文來源**：提供2-3個相關的聖經章節引用
 
 要求：
 - 所有內容使用繁體中文
@@ -107,7 +139,8 @@ export const generateBiblicalQuestion = async (
 - 答案解釋要準確引用聖經經文
 - 神學內容要符合正統基督教教義
 - 語氣要尊重、教育性強
-- 適合各年齡層的基督徒學習者`,
+- 適合各年齡層的基督徒學習者
+- 正確答案的位置必須隨機化，避免偏向任何特定選項`,
             temperature: 0.9,
             topP: 0.95,
             responseMimeType: "application/json",
@@ -117,12 +150,19 @@ export const generateBiblicalQuestion = async (
 
     const parsedResponse = JSON.parse(result.text);
 
+    // Randomize the answer positions to avoid bias
+    const { options: randomizedOptions, correctAnswerIndex: randomizedIndex } = randomizeAnswers(
+        parsedResponse.options,
+        parsedResponse.correctAnswerIndex
+    );
+
     // Transform the response into Quest format
     const quest: Omit<Quest, 'id' | 'characterImage'> = {
         character: parsedResponse.character,
+        category: parsedResponse.category as QuestionCategory,
         question: parsedResponse.question,
-        options: parsedResponse.options,
-        correctAnswerIndex: parsedResponse.correctAnswerIndex,
+        options: randomizedOptions,
+        correctAnswerIndex: randomizedIndex,
         explanation: parsedResponse.explanation,
         journalPrompt: {
             title: parsedResponse.journalPromptTitle,
