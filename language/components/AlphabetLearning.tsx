@@ -47,7 +47,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Alphabet Grid */}
         <div className="lg:col-span-2">
-          <div className="bg-white dark:bg-stone-800 rounded-2xl shadow-lg p-6">
+          <div className="bg-amber-50 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl font-semibold text-stone-700 dark:text-stone-200 mb-4">
               所有字母 ({alphabet.length} 個)
             </h2>
@@ -78,7 +78,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
 
         {/* Letter Details Panel */}
         <div className="lg:col-span-1">
-          <div className="bg-white dark:bg-stone-800 rounded-2xl shadow-lg p-6 sticky top-6">
+          <div className="bg-amber-50 rounded-2xl shadow-lg p-6 sticky top-6">
             {selectedLetter ? (
               <div className="space-y-4 animate-fade-in">
                 <div className="text-center pb-4 border-b border-stone-200 dark:border-stone-700">
@@ -106,7 +106,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
                     <h4 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-1">
                       轉寫
                     </h4>
-                    <p className="text-lg text-stone-800 dark:text-stone-100 font-mono bg-stone-50 dark:bg-stone-900/50 px-3 py-2 rounded-lg">
+                    <p className="text-lg text-stone-800 dark:text-stone-100 font-mono bg-amber-100 px-3 py-2 rounded-lg">
                       {selectedLetter.transliteration}
                     </p>
                   </div>
@@ -115,7 +115,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
                     <h4 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-1">
                       發音
                     </h4>
-                    <p className="text-base text-stone-700 dark:text-stone-200 bg-stone-50 dark:bg-stone-900/50 px-3 py-2 rounded-lg">
+                    <p className="text-base text-stone-700 dark:text-stone-200 bg-amber-100 px-3 py-2 rounded-lg">
                       {selectedLetter.pronunciation}
                     </p>
                   </div>
@@ -125,7 +125,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
                       <h4 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-1">
                         數值
                       </h4>
-                      <p className="text-lg text-stone-800 dark:text-stone-100 font-mono bg-stone-50 dark:bg-stone-900/50 px-3 py-2 rounded-lg">
+                      <p className="text-lg text-stone-800 dark:text-stone-100 font-mono bg-amber-100 px-3 py-2 rounded-lg">
                         {selectedLetter.numericalValue}
                       </p>
                     </div>

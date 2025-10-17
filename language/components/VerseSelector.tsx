@@ -123,7 +123,7 @@ export const VerseSelector: React.FC<VerseSelectorProps> = ({ language, onSelect
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="搜尋經文、詞彙或翻譯..."
-            className="w-full pl-10 pr-4 py-3 bg-white dark:bg-stone-800 border border-stone-300 dark:border-stone-600 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all"
+            className="w-full pl-10 pr-4 py-3 bg-amber-50 border border-stone-300 dark:border-stone-600 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent outline-none transition-all"
           />
         </div>
 
@@ -164,7 +164,7 @@ export const VerseSelector: React.FC<VerseSelectorProps> = ({ language, onSelect
           <button
             key={verse.reference}
             onClick={() => onSelectVerse(verse)}
-            className="group p-6 bg-white dark:bg-stone-800 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-left border-2 border-transparent hover:border-sky-500"
+            className="group p-6 bg-amber-50 rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-left border-2 border-transparent hover:border-sky-500"
           >
             <div className="flex items-start gap-3">
               <div className="p-2 bg-sky-100 dark:bg-sky-900/30 rounded-lg group-hover:bg-sky-200 dark:group-hover:bg-sky-800/50 transition-colors">
