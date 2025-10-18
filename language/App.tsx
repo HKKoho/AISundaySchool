@@ -10,6 +10,7 @@ import { VerseDisplay } from './components/VerseDisplay';
 import VocabularyPractice from '../components/language/VocabularyPractice';
 import ListeningGame from '../components/language/ListeningGame';
 import PronunciationChallenge from '../components/language/PronunciationChallenge';
+import SentencePractice from './components/SentencePractice';
 import { WORD_LISTS } from './constants';
 import { getPronunciationFeedback } from './services/geminiService';
 import type { Language, Word, GameState, LearningMode } from './types';
@@ -204,6 +205,14 @@ export default function App() {
         {learningMode === 'pronunciation-challenge' && language && (
           <PronunciationChallenge
             language={language === 'Hebrew' ? 'Hebrew' : 'Greek'}
+            onBack={handleBackToModeSelection}
+          />
+        )}
+
+        {/* Sentence Practice Mode */}
+        {learningMode === 'sentence-practice' && language && (
+          <SentencePractice
+            language={language}
             onBack={handleBackToModeSelection}
           />
         )}

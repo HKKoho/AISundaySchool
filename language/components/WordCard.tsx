@@ -50,7 +50,7 @@ export const WordCard: React.FC<WordCardProps> = ({ wordData, language }) => {
         <button
           onClick={playPronunciation}
           disabled={isPlaying}
-          className="p-2 rounded-full bg-sky-500 hover:bg-sky-600 disabled:bg-stone-400 text-white transition-all transform hover:scale-110 active:scale-95"
+          className="p-2 rounded-full bg-sky-500 hover:bg-sky-600 disabled:bg-stone-400 text-stone-200 transition-all transform hover:scale-110 active:scale-95"
           title="Play pronunciation"
         >
           <Volume2 className={`w-5 h-5 ${isPlaying ? 'animate-pulse' : ''}`} />

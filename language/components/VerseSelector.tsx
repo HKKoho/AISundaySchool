@@ -137,7 +137,7 @@ export const VerseSelector: React.FC<VerseSelectorProps> = ({ language, onSelect
                 onClick={() => setSelectedBook(book)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   selectedBook === book
-                    ? 'bg-sky-600 text-white shadow-md'
+                    ? 'bg-sky-600 text-stone-200 shadow-md'
                     : 'bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-300 hover:bg-stone-300 dark:hover:bg-stone-600'
                 }`}
               >
