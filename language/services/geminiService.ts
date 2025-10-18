@@ -65,33 +65,80 @@ const sentenceResponseSchema = {
   required: ["original", "transliteration", "english", "reference"]
 };
 
+// Predefined verse references for variety
+const hebrewVerses = [
+  'Genesis 1:1', 'Psalm 23:1', 'Proverbs 3:5', 'Isaiah 40:31', 'Jeremiah 29:11',
+  'Psalm 119:105', 'Deuteronomy 6:4', 'Exodus 20:3', 'Proverbs 16:3', 'Isaiah 53:5',
+  'Psalm 46:1', 'Joshua 1:9', 'Micah 6:8', 'Ecclesiastes 3:1', 'Numbers 6:24-25'
+];
+
+const greekVerses = [
+  'John 3:16', 'Romans 8:28', 'Philippians 4:13', '1 Corinthians 13:4', 'Matthew 5:3',
+  'John 1:1', 'Romans 12:2', 'Galatians 5:22', 'Ephesians 2:8', 'James 1:2',
+  'Matthew 6:33', '1 John 4:8', 'Colossians 3:23', 'Hebrews 11:1', 'Revelation 21:4'
+];
+
+// Track recently used verses to avoid repetition
+const recentVerses: string[] = [];
+const MAX_RECENT = 5;
+
 export const generateBibleSentence = async (language: Language): Promise<BibleSentence> => {
   try {
     const languageText = language === Language.HEBREW ? 'Biblical Hebrew' : 'Koine Greek';
     const testament = language === Language.HEBREW ? 'Old Testament' : 'New Testament';
 
-    const prompt = `Generate a complete Bible verse sentence in ${languageText} from the ${testament}.
+    // Randomly select a verse reference from predefined list, avoiding recent ones
+    const verseList = language === Language.HEBREW ? hebrewVerses : greekVerses;
+    let randomVerse: string;
+    let attempts = 0;
+
+    // Try to get a verse that wasn't recently used
+    do {
+      const randomIndex = Math.floor(Math.random() * verseList.length);
+      randomVerse = verseList[randomIndex];
+      attempts++;
+    } while (recentVerses.includes(randomVerse) && attempts < 10);
+
+    // Track this verse
+    recentVerses.push(randomVerse);
+    if (recentVerses.length > MAX_RECENT) {
+      recentVerses.shift();
+    }
+
+    const timestamp = Date.now();
+    const randomId = Math.random().toString(36).substring(7);
+
+    const prompt = `[Request ID: ${randomId}] Generate the specific Bible verse "${randomVerse}" in ${languageText}.
+
+CRITICAL: You MUST provide the verse "${randomVerse}" - not any other verse.
 
 Requirements:
-- Choose a well-known, meaningful verse
-- Provide the COMPLETE original ${languageText} text with proper characters
+- Provide the COMPLETE original ${languageText} text with proper characters and vowel points if applicable
 - Include accurate transliteration for pronunciation practice
 - Provide clear English translation
-- Include the Bible reference (book chapter:verse)
+- The reference field MUST be exactly: ${randomVerse}
+
+Unique request timestamp: ${timestamp}
 
 Output in JSON format with fields: original, transliteration, english, reference`;
+
+    console.log(`%c[${randomId}] Generating verse: ${randomVerse} at ${new Date(timestamp).toLocaleTimeString()}`, 'color: blue; font-weight: bold');
+    console.log('Recent verses:', recentVerses);
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.0-flash-exp',
       contents: prompt,
       config: {
-        temperature: 0.9,
+        temperature: 0.5,
         responseMimeType: "application/json",
-        responseSchema: sentenceResponseSchema
+        responseSchema: sentenceResponseSchema,
+        candidateCount: 1
       }
     });
 
     const parsed = JSON.parse(response.text);
+
+    console.log(`%c[${randomId}] ✓ Generated: ${parsed.reference}`, 'color: green; font-weight: bold', parsed);
 
     return {
       original: parsed.original,
