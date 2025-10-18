@@ -20,52 +20,52 @@ const LanguageCard: React.FC<{
     <div className="flex flex-col gap-3">
       <button
         onClick={() => onSelectMode('alphabet-learning', language)}
-        className="p-6 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+        className="p-6 bg-gradient-to-r from-red-300 to-red-400 hover:from-red-400 hover:to-red-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="text-lg font-bold mb-1 text-stone-200">字母表學習</div>
-        <div className="text-sm opacity-90 text-stone-200">學習所有字母與發音</div>
+        <div className="text-lg font-bold mb-1 text-stone-700">字母表學習</div>
+        <div className="text-sm opacity-90 text-stone-600">學習所有字母與發音</div>
       </button>
       <button
         onClick={() => onSelectMode('word-practice', language)}
-        className="p-6 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+        className="p-6 bg-gradient-to-r from-pink-300 to-pink-400 hover:from-pink-400 hover:to-pink-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="text-lg font-bold mb-1 text-stone-200">單字練習</div>
-        <div className="text-sm opacity-90 text-stone-200">發音練習與AI反饋</div>
+        <div className="text-lg font-bold mb-1 text-stone-700">單字練習</div>
+        <div className="text-sm opacity-90 text-stone-600">發音練習與AI反饋</div>
       </button>
       <button
         onClick={() => onSelectMode('verse-learning', language)}
-        className="p-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+        className="p-6 bg-gradient-to-r from-orange-300 to-orange-400 hover:from-orange-400 hover:to-orange-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="text-lg font-bold mb-1 text-stone-200">經文學習</div>
-        <div className="text-sm opacity-90 text-stone-200">聖經經文重點詞彙</div>
+        <div className="text-lg font-bold mb-1 text-stone-700">經文學習</div>
+        <div className="text-sm opacity-90 text-stone-600">聖經經文重點詞彙</div>
       </button>
       <button
         onClick={() => onSelectMode('vocabulary-flashcards', language)}
-        className="p-6 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+        className="p-6 bg-gradient-to-r from-amber-300 to-amber-400 hover:from-amber-400 hover:to-amber-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="text-lg font-bold mb-1 text-stone-200">詞彙記憶卡</div>
-        <div className="text-sm opacity-90 text-stone-200">間隔重複法學習詞彙</div>
+        <div className="text-lg font-bold mb-1 text-stone-700">詞彙記憶卡</div>
+        <div className="text-sm opacity-90 text-stone-600">間隔重複法學習詞彙</div>
       </button>
       <button
         onClick={() => onSelectMode('listening-game', language)}
-        className="p-6 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+        className="p-6 bg-gradient-to-r from-green-300 to-green-400 hover:from-green-400 hover:to-green-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="text-lg font-bold mb-1 text-stone-200">聽力理解遊戲</div>
-        <div className="text-sm opacity-90 text-stone-200">聽音辨詞 100 詞挑戰</div>
+        <div className="text-lg font-bold mb-1 text-stone-700">聽力理解遊戲</div>
+        <div className="text-sm opacity-90 text-stone-600">聽音辨詞 100 詞挑戰</div>
       </button>
       <button
         onClick={() => onSelectMode('pronunciation-challenge', language)}
-        className="p-6 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+        className="p-6 bg-gradient-to-r from-sky-300 to-sky-400 hover:from-sky-400 hover:to-sky-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="text-lg font-bold mb-1 text-stone-200">發音挑戰</div>
-        <div className="text-sm opacity-90 text-stone-200">辨別正確與錯誤發音</div>
+        <div className="text-lg font-bold mb-1 text-stone-700">發音挑戰</div>
+        <div className="text-sm opacity-90 text-stone-600">辨別正確與錯誤發音</div>
       </button>
       <button
         onClick={() => onSelectMode('sentence-practice', language)}
-        className="p-6 bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+        className="p-6 bg-gradient-to-r from-purple-300 to-purple-400 hover:from-purple-400 hover:to-purple-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="text-lg font-bold mb-1 text-stone-200">✨ 句子練習</div>
-        <div className="text-sm opacity-90 text-stone-200">AI生成聖經句子 + 發音評分</div>
+        <div className="text-lg font-bold mb-1 text-stone-700">✨ 句子練習</div>
+        <div className="text-sm opacity-90 text-stone-600">AI生成聖經句子 + 發音評分</div>
       </button>
     </div>
   </div>
