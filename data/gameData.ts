@@ -92,7 +92,7 @@ export const quests: Quest[] = [
     options: [
       '加入當地的釣魚俱樂部。',
       '加入羅馬軍隊的入會儀式。',
-      '一個沒有意義的文化傳統。',,
+      '一個沒有意義的文化傳統。',
       '悔改的洗，使罪得赦。'
     ],
     correctAnswerIndex: 3,
@@ -119,7 +119,7 @@ export const quests: Quest[] = [
     options: [
       '為了得到一頓免費的餐點。',
       '為了使你們的罪得赦，並領受所賜的聖靈。',
-      '為了登記新社區的人口普查。',,
+      '為了登記新社區的人口普查。',
       '為了在耶路撒冷的陽光下降溫。'
     ],
     correctAnswerIndex: 1,
@@ -147,7 +147,7 @@ export const quests: Quest[] = [
     options: [
       '加入一個名為「基督」的時尚俱樂部。',
       '穿上印有基督形象的特殊服裝。',
-      '在洗禮時得到一件新斗篷。',,
+      '在洗禮時得到一件新斗篷。',
       '在上帝眼中，我們的身份完全被基督的義所覆蓋。'
     ],
     correctAnswerIndex: 3,
@@ -173,7 +173,7 @@ export const quests: Quest[] = [
     question: '當以色列人過約旦河進入應許之地時，我設立了十二塊石頭作為紀念。這個紀念碑的目的是什麼？',
     options: [
       '為了建造一個游泳池。',
-      '用來建造約書亞的新房子。',,
+      '用來建造約書亞的新房子。',
       '作為後代詢問時的見證，紀念上帝使河水乾涸的神蹟。',
       '為了練習舉重運動。'
     ],
@@ -228,7 +228,7 @@ export const quests: Quest[] = [
     options: [
       '打敗所有敵人的能力。',
       '一座更大的宮殿。',
-      '成為世界上最富有的人。',,
+      '成為世界上最富有的人。',
       '智慧來治理神的百姓。'
     ],
     correctAnswerIndex: 3,
@@ -254,7 +254,7 @@ export const quests: Quest[] = [
     question: '我預言了一位「受苦的僕人」，他將「為我們的過犯受害，為我們的罪孽壓傷」。這個預言指向誰？',
     options: [
       '彌賽亞耶穌基督。',
-      '亞述王撒珥根。',,
+      '亞述王撒珥根。',
       '巴比倫王尼布甲尼撒。',
       '波斯王居魯士。'
     ],
@@ -307,7 +307,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '我在登山寶訓中說：「虛心的人有福了」。這裡的「虛心」指的是什麼？',
     options: [
-      '很少說話的人。',,
+      '很少說話的人。',
       '沒有自信的人。',
       '心情不好的人。',
       '認識自己靈性貧乏，需要上帝的人。'
@@ -361,7 +361,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '我在約翰福音中記錄了耶穌說的「我就是道路、真理、生命」。這句話的核心信息是什麼？',
     options: [
-      '耶穌知道很多道理。',,
+      '耶穌知道很多道理。',
       '耶穌是一位偉大的哲學老師。',
       '耶穌是最好的旅行嚮導。',
       '耶穌是通往父神的唯一道路。'
@@ -417,7 +417,7 @@ export const quests: Quest[] = [
     options: [
       '所有動物都在吃這個果子。',
       '吃了就能像神一樣知道善惡。',
-      '上帝只是在開玩笑。',,
+      '上帝只是在開玩笑。',
       '果子看起來很美味。'
     ],
     correctAnswerIndex: 1,
@@ -444,7 +444,7 @@ export const quests: Quest[] = [
     options: [
       '大約120年後。',
       '立即就來。',
-      '明天。',,
+      '明天。',
       '一個月後。'
     ],
     correctAnswerIndex: 0,
@@ -496,7 +496,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '當以色列人過紅海後，我做了什麼來慶祝？',
     options: [
-      '開始抱怨食物不足。',,
+      '開始抱怨食物不足。',
       '拿著鼓跳舞唱歌讚美神。',
       '立刻倒頭就睡。',
       '準備了一場盛宴。'
@@ -523,7 +523,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '當十二個探子窺探迦南地回來後，我和約書亞說了什麼？',
     options: [
-      '讓我們先訓練軍隊十年。',,
+      '讓我們先訓練軍隊十年。',
       '我們立刻上去得那地吧！我們足能得勝。',
       '那地的人太強大了，我們無法征服。',
       '我們應該回埃及。'
@@ -550,7 +550,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '當我的婆婆拿俄米要我回摩押老家時，我對她說了什麼？',
     options: [
-      '我需要先回去看看我的家人。',,
+      '我需要先回去看看我的家人。',
       '讓我考慮一下。',
       '好的，我現在就走。',
       '妳往哪裡去，我也往那裡去；妳的神就是我的神。'
@@ -579,7 +579,7 @@ export const quests: Quest[] = [
     options: [
       '我的母親哈拿。',
       '耶和華神。',
-      '我在做夢。',,
+      '我在做夢。',
       '祭司以利。'
     ],
     correctAnswerIndex: 1,
@@ -605,7 +605,7 @@ export const quests: Quest[] = [
     question: '我的兒子所羅門能繼承大衛的王位，主要是因為什麼？',
     options: [
       '他在武術比賽中獲勝。',
-      '他賄賂了所有的大臣。',,
+      '他賄賂了所有的大臣。',
       '上帝應許他要作王，大衛也確認了這應許。',
       '他是長子。'
     ],
@@ -633,7 +633,7 @@ export const quests: Quest[] = [
     options: [
       '火從天降，燒盡了祭物、木柴、石頭和水。',
       '下了三天三夜的雨。',
-      '什麼都沒發生。',,
+      '什麼都沒發生。',
       '巴力的先知自願認輸。'
     ],
     correctAnswerIndex: 0,
@@ -659,7 +659,7 @@ export const quests: Quest[] = [
     question: '當敘利亞元帥乃縵來找我治療大痲瘋時，我叫他做什麼？',
     options: [
       '支付大筆金錢。',
-      '回家等三天。',,
+      '回家等三天。',
       '獻上一百隻羊。',
       '在約旦河沐浴七次。'
     ],
@@ -766,7 +766,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '當我需要違背律法去見王以拯救猶太人時，我說了什麼？',
     options: [
-      '讓末底改自己去處理。',,
+      '讓末底改自己去處理。',
       '我若死就死吧！',
       '這太危險了，我不能做。',
       '我要等到王主動召見我。'
@@ -795,7 +795,7 @@ export const quests: Quest[] = [
     options: [
       '我腹中的胎兒跳動，我被聖靈充滿。',
       '我們一起做飯。',
-      '什麼特別的事都沒發生。',,
+      '什麼特別的事都沒發生。',
       '我們討論天氣。'
     ],
     correctAnswerIndex: 0,
@@ -822,7 +822,7 @@ export const quests: Quest[] = [
     options: [
       '金、銀、寶石。',
       '食物、衣服、玩具。',
-      '書籍、地圖、武器。',,
+      '書籍、地圖、武器。',
       '黃金、乳香、沒藥。'
     ],
     correctAnswerIndex: 3,
@@ -849,7 +849,7 @@ export const quests: Quest[] = [
     options: [
       '必須嚴格遵守所有律法。',
       '必須重生。',
-      '必須成為法利賽人。',,
+      '必須成為法利賽人。',
       '必須奉獻所有財產。'
     ],
     correctAnswerIndex: 1,
@@ -874,7 +874,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '當耶穌在井邊向我要水喝時，祂說祂能給我什麼？',
     options: [
-      '往耶路撒冷的地圖。',,
+      '往耶路撒冷的地圖。',
       '活水，使人永遠不渴。',
       '一口新井。',
       '一個新水罐。'
@@ -955,7 +955,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '當其他門徒告訴我他們見到復活的主時，我說了什麼？',
     options: [
-      '我們去慶祝吧！',,
+      '我們去慶祝吧！',
       '我完全相信你們。',
       '我非看見他手上的釘痕，不能信。',
       '這太不可思議了！'
@@ -984,7 +984,7 @@ export const quests: Quest[] = [
     options: [
       '眾人趕走保羅。',
       '主開導我的心，使我留心聽保羅所講的話。',
-      '會堂被關閉。',,
+      '會堂被關閉。',
       '沒有人願意聽。'
     ],
     correctAnswerIndex: 1,
@@ -1036,7 +1036,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.PERSON_IN_BIBLE,
     question: '保羅寫信給我，請求我如何對待逃跑的奴隸阿尼西母？',
     options: [
-      '賣掉他。',,
+      '賣掉他。',
       '把他送回羅馬。',
       '嚴厲懲罰他。',
       '接納他，不再當奴僕，乃是高過奴僕，當作親愛的兄弟。'
@@ -1092,7 +1092,7 @@ export const quests: Quest[] = [
     options: [
       '沒有行為的信心是死的。',
       '信心不需要任何證明。',
-      '信心是私人的事，不需要表現出來。',,
+      '信心是私人的事，不需要表現出來。',
       '信心只要存在心裡就夠了。'
     ],
     correctAnswerIndex: 0,
@@ -1119,7 +1119,7 @@ export const quests: Quest[] = [
     options: [
       '大聲抱怨不公。',
       '約在半夜，我們禱告唱詩讚美神。',
-      '放棄了信仰。',,
+      '放棄了信仰。',
       '計畫逃獄。'
     ],
     correctAnswerIndex: 1,
@@ -1172,7 +1172,7 @@ export const quests: Quest[] = [
     question: '當聖靈引導我去曠野的路上時，我遇見了誰？',
     options: [
       '一位羅馬將軍。',
-      '耶路撒冷的祭司。',,
+      '耶路撒冷的祭司。',
       '一群盜賊。',
       '一位埃提阿伯的太監，正在讀以賽亞書。'
     ],
@@ -1200,7 +1200,7 @@ export const quests: Quest[] = [
     options: [
       '我在聖殿聽見聲音。',
       '透過夢。',
-      '保羅來拜訪我。',,
+      '保羅來拜訪我。',
       '天使在異象中向我顯現。'
     ],
     correctAnswerIndex: 3,
@@ -1227,7 +1227,7 @@ export const quests: Quest[] = [
     options: [
       '智慧者',
       '勸慰子',
-      '勇士',,
+      '勇士',
       '大力士'
     ],
     correctAnswerIndex: 1,
@@ -1253,7 +1253,7 @@ export const quests: Quest[] = [
     question: '保羅如何描述我為歌羅西教會的禱告？',
     options: [
       '常常竭力為你們祈求，願你們在神一切的旨意上得以完全。',
-      '只在主日為他們禱告。',,
+      '只在主日為他們禱告。',
       '從不為他們禱告。',
       '偶爾為他們禱告。'
     ],
@@ -1281,7 +1281,7 @@ export const quests: Quest[] = [
     options: [
       '堅革哩教會的女執事，素來幫助許多人。',
       '普通信徒。',
-      '一位訪客。',,
+      '一位訪客。',
       '我的學生。'
     ],
     correctAnswerIndex: 0,
@@ -1307,7 +1307,7 @@ export const quests: Quest[] = [
     question: '在第一次宣教旅程中，我做了什麼導致保羅不再信任我？',
     options: [
       '我偷了奉獻。',
-      '我從未跟他們一起去。',,
+      '我從未跟他們一起去。',
       '我在旁非利亞離開他們，回耶路撒冷去了。',
       '我公開批評保羅。'
     ],
@@ -1333,7 +1333,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '在啟示錄中，主對我們教會最嚴厲的責備是什麼？',
     options: [
-      '你們太熱心了。',,
+      '你們太熱心了。',
       '你們也不冷也不熱，我必從我口中把你吐出去。',
       '你們被迫害。',
       '你們太窮了。'
@@ -1362,7 +1362,7 @@ export const quests: Quest[] = [
     question: '希伯來聖經（Tanakh）的三個主要部分是什麼？',
     options: [
       '摩西五經、先知書、智慧文學',
-      '歷史書、詩歌書、預言書',,
+      '歷史書、詩歌書、預言書',
       '律法書（Torah）、先知書（Nevi\'im）、聖卷（Ketuvim）',
       '創世記、出埃及記、詩篇'
     ],
@@ -1389,7 +1389,7 @@ export const quests: Quest[] = [
     question: '馬索拉文本（Masoretic Text）在希伯來聖經研究中的重要性是什麼？',
     options: [
       '它是標準的希伯來聖經文本，包含母音符號和註釋系統',
-      '它是死海古卷的另一個名稱',,
+      '它是死海古卷的另一個名稱',
       '它是希伯來聖經的希臘文翻譯',
       '它是最早的希伯來文手抄本'
     ],
@@ -1416,7 +1416,7 @@ export const quests: Quest[] = [
     question: '希伯來聖經中使用的主要語言是什麼？有哪些例外？',
     options: [
       '希伯來文為主，但但以理書和以斯拉記部分用亞蘭文',
-      '亞蘭文為主，少部分希伯來文',,
+      '亞蘭文為主，少部分希伯來文',
       '希伯來文和希臘文混合',
       '全部用希伯來文書寫'
     ],
@@ -1444,7 +1444,7 @@ export const quests: Quest[] = [
     options: [
       '平行體（Parallelism）和意象',
       '十四行詩結構',
-      '無韻自由詩',,
+      '無韻自由詩',
       '押韻和格律'
     ],
     correctAnswerIndex: 0,
@@ -1498,7 +1498,7 @@ export const quests: Quest[] = [
     question: '哪一個考古發現對舊約研究最具革命性影響？',
     options: [
       '死海古卷',
-      '特洛伊遺址',,
+      '特洛伊遺址',
       '羅塞塔石碑',
       '圖坦卡門墓'
     ],
@@ -1524,7 +1524,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '「文獻假說」（Documentary Hypothesis）主要論述什麼？',
     options: [
-      '所有舊約書卷都失傳了',,
+      '所有舊約書卷都失傳了',
       '舊約全是後期偽造的',
       '摩西五經由單一作者一次寫成',
       '摩西五經是由多個文獻來源（J、E、D、P）編輯而成'
@@ -1553,7 +1553,7 @@ export const quests: Quest[] = [
     options: [
       '約只是次要主題',
       '約只出現在新約',
-      '約等同於律法',,
+      '約等同於律法',
       '約是理解神與人關係的核心框架'
     ],
     correctAnswerIndex: 3,
@@ -1579,7 +1579,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '新約的27卷書主要用什麼語言寫成？',
     options: [
-      '拉丁文',,
+      '拉丁文',
       '希伯來文',
       '通用希臘文（Koine Greek）',
       '亞蘭文'
@@ -1607,7 +1607,7 @@ export const quests: Quest[] = [
     question: '新約正典的27卷書何時最終確立？',
     options: [
       '使徒保羅時代立即確定',
-      '宗教改革時期',,
+      '宗教改革時期',
       '第四世紀（如公元367年亞他那修的復活節書信）',
       '第一世紀結束前'
     ],
@@ -1633,7 +1633,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '「符類福音問題」（Synoptic Problem）探討什麼議題？',
     options: [
-      '約翰福音為何不同',,
+      '約翰福音為何不同',
       '福音書的歷史可靠性',
       '馬太、馬可、路加三福音之間的文學關係',
       '為什麼只有三本福音書'
@@ -1660,7 +1660,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '保羅書信中哪些被普遍認為是無可爭議的真保羅書信？',
     options: [
-      '全部都有爭議',,
+      '全部都有爭議',
       '羅馬書、哥林多前後書、加拉太書、腓立比書、帖撒羅尼迦前書、腓利門書（7封）',
       '全部13封保羅書信',
       '只有羅馬書和加拉太書'
@@ -1690,7 +1690,7 @@ export const quests: Quest[] = [
     options: [
       '穆拉多利殘卷',
       '西奈抄本（Codex Sinaiticus）',
-      '武加大譯本',,
+      '武加大譯本',
       '死海古卷'
     ],
     correctAnswerIndex: 1,
@@ -1716,7 +1716,7 @@ export const quests: Quest[] = [
     question: '七十士譯本（Septuagint，LXX）對早期基督教有何重要性？',
     options: [
       '它是舊約的希臘文翻譯，被新約作者廣泛引用',
-      '它是拉丁文聖經',,
+      '它是拉丁文聖經',
       '它是死海古卷的翻譯',
       '它是新約的希臘文版本'
     ],
@@ -1771,7 +1771,7 @@ export const quests: Quest[] = [
     options: [
       '英文聖經的第一個翻譯',
       '耶柔米翻譯的拉丁文聖經，成為天主教會的標準版本',
-      '希伯來文舊約的註釋',,
+      '希伯來文舊約的註釋',
       '最早的希臘文新約'
     ],
     correctAnswerIndex: 1,
@@ -1824,7 +1824,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '第一世紀猶太教的會堂（Synagogue）有何功能？',
     options: [
-      '政府行政辦公室',,
+      '政府行政辦公室',
       '只是社交聚會場所',
       '讀經、禱告、教導的敬拜和社群中心',
       '取代聖殿的獻祭中心'
@@ -1853,7 +1853,7 @@ export const quests: Quest[] = [
     options: [
       '羅馬對基督教毫無影響',
       '羅馬完全壓制基督教',
-      '羅馬皇帝支持基督教',,
+      '羅馬皇帝支持基督教',
       '羅馬的和平（Pax Romana）、道路系統、通用語言促進福音傳播'
     ],
     correctAnswerIndex: 3,
@@ -1878,7 +1878,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '古代近東文學（如吉爾伽美什史詩、埃努瑪·埃利什創世詩）與創世記的關係是什麼？',
     options: [
-      '這些神話比創世記更可靠',,
+      '這些神話比創世記更可靠',
       '創世記抄襲這些神話',
       '創世記與這些文學有相似主題但提供獨特的一神論視角',
       '兩者毫無關係'
@@ -1905,7 +1905,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '第一世紀地中海世界的榮辱文化（Honor-Shame Culture）如何影響新約的理解？',
     options: [
-      '新約完全拒絕榮辱觀念',,
+      '新約完全拒絕榮辱觀念',
       '理解榮辱文化幫助解釋耶穌的比喻、保羅的修辭和早期信徒的行為',
       '榮辱觀念不重要',
       '只有罪疚文化影響新約'
@@ -1934,7 +1934,7 @@ export const quests: Quest[] = [
     question: '「形式批判」（Form Criticism）在聖經研究中探討什麼？',
     options: [
       '聖經的文學美感',
-      '聖經的印刷歷史',,
+      '聖經的印刷歷史',
       '聖經經文在成書前的口傳形式和生活情境（Sitz im Leben）',
       '聖經的文字格式'
     ],
@@ -1961,7 +1961,7 @@ export const quests: Quest[] = [
     question: '「編修批判」（Redaction Criticism）與「形式批判」有何不同？',
     options: [
       '編修批判只關心文法錯誤',
-      '編修批判證明聖經都是虛構的',,
+      '編修批判證明聖經都是虛構的',
       '兩者完全相同',
       '編修批判研究編輯者如何選擇和編排材料以傳達神學訊息'
     ],
@@ -1988,7 +1988,7 @@ export const quests: Quest[] = [
     question: '女性主義聖經批判（Feminist Biblical Criticism）的主要關切是什麼？',
     options: [
       '拒絕整本聖經',
-      '只研究女性作者的經文',,
+      '只研究女性作者的經文',
       '證明聖經反對女性',
       '檢視聖經文本和詮釋中的性別偏見,恢復女性聲音和經驗'
     ],
@@ -2014,7 +2014,7 @@ export const quests: Quest[] = [
     category: QuestionCategory.BIBLE_BACKGROUND,
     question: '後殖民聖經批判（Postcolonial Biblical Criticism）探討什麼議題？',
     options: [
-      '證明聖經支持殖民主義',,
+      '證明聖經支持殖民主義',
       '只研究古代殖民歷史',
       '拒絕所有西方神學',
       '檢視聖經文本中的帝國權力動態,以及聖經如何被用於殖民和解殖'
