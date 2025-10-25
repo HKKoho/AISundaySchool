@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Loader2, Mic, Square, Sparkles } from 'lucide-react';
 import { Language, type BibleSentence } from '../types';
-import { generateBibleSentence, getSentencePronunciationScore } from '../services/geminiService';
+import { generateBibleSentence, getSentencePronunciationScore } from '../services/multiProviderLanguageService';
 
 interface SentencePracticeProps {
   language: Language;
@@ -252,7 +252,7 @@ export const SentencePractice: React.FC<SentencePracticeProps> = ({ language, on
 
       {/* Powered by indicator */}
       <div className="mt-4 text-center text-xs text-stone-500">
-        Powered by <span className="font-semibold text-blue-600">Google Gemini 2.5 Flash</span>
+        Powered by <span className="font-semibold text-blue-600">Multi-AI (Ollama/Gemini/GPT-4o)</span>
       </div>
     </div>
   );
