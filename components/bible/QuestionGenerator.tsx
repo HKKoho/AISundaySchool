@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { generateBiblicalQuestion, generateBiblicalQuestionWithTopic } from '../../services/bibleQuestionGenerator';
+import { generateBiblicalQuestion, generateBiblicalQuestionWithTopic } from '../../services/multiProviderQuestionGenerator';
 import type { Quest } from '../../types';
 import Icon from './Icon';
 
