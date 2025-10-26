@@ -66,15 +66,15 @@ const OLLAMA_CLOUD_MODELS: LocalLLMModel[] = [
     description: '超大規模模型，頂級推理能力，適合高難度神學論證'
   },
   {
-    id: 'gpt-oss:120b',
-    name: 'GPT-OSS 120B Cloud',
-    size: 'Cloud (120B)',
-    description: '大型雲端模型，適合複雜的神學分析'
+    id: 'qwen2.5:7b',
+    name: 'Qwen 2.5 7B Cloud',
+    size: 'Cloud (7B)',
+    description: '強大的雲端模型，適合複雜的神學分析'
   },
   {
-    id: 'gpt-oss:20b',
-    name: 'GPT-OSS 20B Cloud',
-    size: 'Cloud (20B)',
+    id: 'llama3:8b',
+    name: 'Llama 3 8B Cloud',
+    size: 'Cloud (8B)',
     description: '平衡效能和速度，適合一般神學討論和問答'
   }
 ];
