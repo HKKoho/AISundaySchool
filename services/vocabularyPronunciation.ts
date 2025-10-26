@@ -1,13 +1,11 @@
 import { GoogleGenAI } from '@google/genai';
 import type { VocabularyCard } from '../language/vocabularyData';
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY;
 
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+// Note: This service hasn't been upgraded to multi-provider yet
+// It will only work if GEMINI_API_KEY or API_KEY is set
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 export interface PronunciationFeedback {
   isCorrect: boolean;
@@ -21,6 +19,16 @@ export const getVocabularyPronunciationFeedback = async (
   audioBase64: string,
   mimeType: string
 ): Promise<PronunciationFeedback> => {
+  // Check if API is configured
+  if (!ai) {
+    console.warn('⚠️ Vocabulary Pronunciation: GEMINI_API_KEY not configured');
+    return {
+      isCorrect: false,
+      score: 0,
+      feedback: 'AI pronunciation feedback is not available. Please configure GEMINI_API_KEY.'
+    };
+  }
+
   try {
     const model = 'gemini-2.0-flash-exp';
 

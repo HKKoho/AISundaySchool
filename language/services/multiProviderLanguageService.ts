@@ -1,11 +1,11 @@
 /**
  * Multi-Provider Language Service
- * Implements automatic failover across Ollama Cloud → Gemini → OpenAI
+ * Implements automatic failover across OpenAI → Ollama Cloud → Gemini
  *
  * Provider Priority Chain:
- * 1. Ollama Cloud (Primary) - qwen-coder:480b-cloud
- * 2. Google Gemini (Secondary) - gemini-2.0-flash-exp
- * 3. OpenAI GPT-4o (Tertiary) - gpt-4o
+ * 1. OpenAI GPT-4o (Primary) - Highest reliability, confirmed working
+ * 2. Ollama Cloud (Secondary) - qwen2.5-coder:32b (fast, cost-effective)
+ * 3. Google Gemini (Tertiary) - gemini-2.0-flash-exp (may have location restrictions)
  */
 
 import type { Word, BibleSentence } from '../types';
@@ -13,20 +13,20 @@ import { Language } from '../types';
 
 // Provider configuration
 const PROVIDERS = {
+  OPENAI: {
+    name: 'OpenAI',
+    model: 'gpt-4o',
+    endpoint: '/api/chat',
+  },
   OLLAMA: {
     name: 'Ollama Cloud',
-    model: 'qwen-coder:480b-cloud',
+    model: 'qwen2.5-coder:32b',  // Updated to valid Ollama model
     endpoint: '/api/chat',
   },
   GEMINI: {
     name: 'Google Gemini',
     model: 'gemini-2.0-flash-exp',
     apiKey: process.env.API_KEY || process.env.GEMINI_API_KEY,
-  },
-  OPENAI: {
-    name: 'OpenAI',
-    model: 'gpt-4o',
-    endpoint: '/api/chat',
   },
 };
 
@@ -170,9 +170,19 @@ async function executeWithFailover(
 ): Promise<string> {
   console.log(`🔄 ${context} - Starting provider chain...`);
 
-  // Try Ollama Cloud first
+  // Try OpenAI first (confirmed working)
   try {
-    console.log(`🔄 Trying ${PROVIDERS.OLLAMA.name} (${PROVIDERS.OLLAMA.model})...`);
+    console.log(`🔄 Trying ${PROVIDERS.OPENAI.name} (${PROVIDERS.OPENAI.model})...`);
+    const result = await callOpenAI(messages, temperature);
+    console.log(`✅ ${PROVIDERS.OPENAI.name} succeeded`);
+    return result;
+  } catch (error: any) {
+    console.warn(`⚠️ ${PROVIDERS.OPENAI.name} failed:`, error.message);
+  }
+
+  // Fallback to Ollama Cloud
+  try {
+    console.log(`↪️ Falling back to ${PROVIDERS.OLLAMA.name} (${PROVIDERS.OLLAMA.model})...`);
     const result = await callOllamaCloud(messages, temperature);
     console.log(`✅ ${PROVIDERS.OLLAMA.name} succeeded`);
     return result;
@@ -180,24 +190,14 @@ async function executeWithFailover(
     console.warn(`⚠️ ${PROVIDERS.OLLAMA.name} failed:`, error.message);
   }
 
-  // Fallback to Gemini
+  // Final fallback to Gemini
   try {
     console.log(`↪️ Falling back to ${PROVIDERS.GEMINI.name} (${PROVIDERS.GEMINI.model})...`);
     const result = await callGemini(messages, temperature);
     console.log(`✅ ${PROVIDERS.GEMINI.name} succeeded`);
     return result;
   } catch (error: any) {
-    console.warn(`⚠️ ${PROVIDERS.GEMINI.name} failed:`, error.message);
-  }
-
-  // Final fallback to OpenAI
-  try {
-    console.log(`↪️ Falling back to ${PROVIDERS.OPENAI.name} (${PROVIDERS.OPENAI.model})...`);
-    const result = await callOpenAI(messages, temperature);
-    console.log(`✅ ${PROVIDERS.OPENAI.name} succeeded`);
-    return result;
-  } catch (error: any) {
-    console.error(`❌ ${PROVIDERS.OPENAI.name} failed:`, error.message);
+    console.error(`❌ ${PROVIDERS.GEMINI.name} failed:`, error.message);
   }
 
   throw new Error('All AI providers failed. Please check your configuration and try again.');

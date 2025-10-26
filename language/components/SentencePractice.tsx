@@ -252,7 +252,7 @@ export const SentencePractice: React.FC<SentencePracticeProps> = ({ language, on
 
       {/* Powered by indicator */}
       <div className="mt-4 text-center text-xs text-stone-500">
-        Powered by <span className="font-semibold text-blue-600">Multi-AI (Ollama/Gemini/GPT-4o)</span>
+        Powered by <span className="font-semibold text-blue-600">Multi-AI (GPT-4o/Ollama/Gemini)</span>
       </div>
     </div>
   );

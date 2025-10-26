@@ -163,7 +163,7 @@ export default function App() {
         {/* Powered by indicator */}
         <div className="absolute top-4 right-4 text-xs text-stone-500 dark:text-stone-400 flex items-center gap-2">
           <span>Pronunciation powered by</span>
-          <span className="font-semibold text-blue-600 dark:text-blue-400">Multi-AI (Ollama/Gemini/GPT-4o)</span>
+          <span className="font-semibold text-blue-600 dark:text-blue-400">Multi-AI (GPT-4o/Ollama/Gemini)</span>
         </div>
         {/* Mode selection screen */}
         {!learningMode && gameState === 'selecting' && (

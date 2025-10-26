@@ -3,13 +3,10 @@ import { GoogleGenAI, Type } from '@google/genai';
 import type { Word, BibleSentence } from '../types';
 import { Language } from '../types';
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY;
 
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+// Note: Old single-provider service - use multiProviderLanguageService for failover
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 export const getPronunciationFeedback = async (
   word: Word,

@@ -10,22 +10,27 @@ Successfully implemented an intelligent automatic failover system across three A
 
 ## 📊 Provider Priority Chain
 
+**UPDATED 2025-10-26**: Reordered for maximum reliability based on testing
+
 All upgraded services now follow this automatic failover sequence:
 
-1. **Ollama Cloud (Primary)** - `qwen-coder:480b-cloud`
-   - Cost-effective
-   - High performance
+1. **OpenAI GPT-4o (Primary)** - `gpt-4o`
+   - ✅ Confirmed working in production
+   - Highest reliability globally
+   - Best general knowledge
+   - No geo-restrictions
+
+2. **Ollama Cloud (Secondary)** - `qwen2.5-coder:32b`
+   - Cost-effective fallback
+   - Updated to valid model name
+   - Fast performance
    - Cloud-based reliability
 
-2. **Google Gemini (Secondary)** - `gemini-2.0-flash-exp`
-   - Excellent for structured responses
+3. **Google Gemini (Tertiary)** - `gemini-2.0-flash-exp`
+   - May have location restrictions
+   - Excellent for structured JSON responses
    - Strong biblical knowledge
-   - JSON schema support
-
-3. **OpenAI GPT-4o (Tertiary)** - `gpt-4o`
-   - Ultimate fallback
-   - Highest reliability
-   - Best general knowledge
+   - Last resort fallback
 
 ---
 

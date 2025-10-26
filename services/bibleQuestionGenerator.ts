@@ -1,11 +1,10 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type { Quest, QuestionCategory } from '../types';
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set");
-}
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY;
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Note: Old single-provider service - use multiProviderQuestionGenerator for failover
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 // Define the schema for question generation
 const questionResponseSchema = {
