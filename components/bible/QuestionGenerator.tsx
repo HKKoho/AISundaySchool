@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { generateBiblicalQuestion, generateBiblicalQuestionWithTopic } from '../../services/bibleQuestionGenerator';
+import { generateBiblicalQuestion, generateBiblicalQuestionWithTopic } from '../../services/multiProviderQuestionGenerator';
 import type { Quest } from '../../types';
 import Icon from './Icon';
 
@@ -108,13 +108,13 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
           <div className="space-y-4 mb-6">
             <div>
               <label className="block text-sm font-semibold text-amber-900 mb-2">
-                聖經人物（選填）
+                聖經人物或聖經背景（選填）
               </label>
               <input
                 type="text"
                 value={characterName}
                 onChange={(e) => setCharacterName(e.target.value)}
-                placeholder="例如：摩西、大衛、保羅"
+                placeholder="例如：摩西、大衛、保羅、割禮、逾越節、聖殿"
                 className="w-full px-4 py-2 rounded-lg border-2 border-amber-700 bg-amber-50 text-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </div>
@@ -127,7 +127,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
                 type="text"
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
-                placeholder="例如：信心、順服、領導力"
+                placeholder="例如：信心、順服、領導力、禮儀潔淨、聖約"
                 className="w-full px-4 py-2 rounded-lg border-2 border-amber-700 bg-amber-50 text-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </div>
@@ -196,7 +196,16 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
         {/* Generated Question Preview */}
         {generatedQuestion && (
           <div className="mb-6 p-4 bg-green-50 border-2 border-green-400 rounded-lg">
-            <h3 className="text-lg font-bold text-green-900 mb-2">✓ 問題已生成</h3>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-lg font-bold text-green-900">✓ 問題已生成</h3>
+              <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                generatedQuestion.category === 'Person in Bible'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-purple-600 text-white'
+              }`}>
+                {generatedQuestion.category === 'Person in Bible' ? '📖 聖經人物' : '🏛️ 聖經背景'}
+              </span>
+            </div>
             <p className="text-sm text-green-800 mb-2">
               <strong>角色：</strong>{generatedQuestion.character}
             </p>

@@ -115,8 +115,8 @@ export const VerseDisplay: React.FC<VerseDisplayProps> = ({ verse, onBack }) => 
               onClick={isPlayingVerse ? stopVerse : playEntireVerse}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all ${
                 isPlayingVerse
-                  ? 'bg-red-600 hover:bg-red-700 text-white'
-                  : 'bg-amber-600 hover:bg-amber-700 text-white'
+                  ? 'bg-red-600 hover:bg-red-700 text-stone-200'
+                  : 'bg-amber-600 hover:bg-amber-700 text-stone-200'
               }`}
             >
               <Volume2 className={`w-5 h-5 ${isPlayingVerse ? 'animate-pulse' : ''}`} />
@@ -171,7 +171,7 @@ export const VerseDisplay: React.FC<VerseDisplayProps> = ({ verse, onBack }) => 
                   }}
                   className={`p-2 rounded-full transition-colors ${
                     playingWord === word.original
-                      ? 'bg-sky-500 text-white'
+                      ? 'bg-sky-500 text-stone-200'
                       : 'bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 hover:bg-sky-200 dark:hover:bg-sky-800/50'
                   }`}
                 >
@@ -193,7 +193,7 @@ export const VerseDisplay: React.FC<VerseDisplayProps> = ({ verse, onBack }) => 
 
       {/* Selected Word Details */}
       {selectedWord && (
-        <div className="p-6 bg-gradient-to-r from-sky-500 to-indigo-600 rounded-2xl shadow-xl text-white animate-fade-in">
+        <div className="p-6 bg-gradient-to-r from-sky-500 to-indigo-600 rounded-2xl shadow-xl text-stone-200 animate-fade-in">
           <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 opacity-90">
             當前選擇的詞彙
           </h3>

@@ -11,21 +11,33 @@ import { dirname, join } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load environment variables from .env.local
-const envPath = join(__dirname, '.env.local');
-try {
-  const envContent = readFileSync(envPath, 'utf-8');
-  envContent.split('\n').forEach(line => {
-    const match = line.match(/^([^=]+)=(.*)$/);
-    if (match) {
-      const key = match[1].trim();
-      const value = match[2].trim().replace(/^['"]|['"]$/g, '');
-      process.env[key] = value;
-    }
-  });
-  console.log('✓ Loaded environment variables from .env.local');
-} catch (error) {
-  console.warn('⚠ Could not load .env.local file');
+// Load environment variables from .env.local and .env
+const envFiles = ['.env.local', '.env'];
+let loaded = false;
+
+for (const envFile of envFiles) {
+  const envPath = join(__dirname, envFile);
+  try {
+    const envContent = readFileSync(envPath, 'utf-8');
+    envContent.split('\n').forEach(line => {
+      const match = line.match(/^([^=]+)=(.*)$/);
+      if (match) {
+        const key = match[1].trim();
+        const value = match[2].trim().replace(/^['"]|['"]$/g, '');
+        if (!process.env[key]) { // Don't override already set values
+          process.env[key] = value;
+        }
+      }
+    });
+    console.log(`✓ Loaded environment variables from ${envFile}`);
+    loaded = true;
+  } catch (error) {
+    // Try next file
+  }
+}
+
+if (!loaded) {
+  console.warn('⚠ Could not load any .env files');
 }
 
 const PORT = 3001;

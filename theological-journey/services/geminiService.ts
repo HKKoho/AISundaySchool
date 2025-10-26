@@ -1,13 +1,10 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ChatMessage, TheologicalPerspective, MindMapData, ClassificationResult, EntryClassification } from "../types";
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY;
 
-if (!API_KEY) {
-    throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+// Note: This service hasn't been upgraded to multi-provider yet
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 const getPerspectiveSystemInstruction = (perspective: TheologicalPerspective): string => {
   switch (perspective) {

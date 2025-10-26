@@ -10,8 +10,9 @@ import { VerseDisplay } from './components/VerseDisplay';
 import VocabularyPractice from '../components/language/VocabularyPractice';
 import ListeningGame from '../components/language/ListeningGame';
 import PronunciationChallenge from '../components/language/PronunciationChallenge';
+import SentencePractice from './components/SentencePractice';
 import { WORD_LISTS } from './constants';
-import { getPronunciationFeedback } from './services/geminiService';
+import { getPronunciationFeedback } from './services/multiProviderLanguageService';
 import type { Language, Word, GameState, LearningMode } from './types';
 import type { BibleVerse } from './bibleVerses';
 
@@ -162,7 +163,7 @@ export default function App() {
         {/* Powered by indicator */}
         <div className="absolute top-4 right-4 text-xs text-stone-500 dark:text-stone-400 flex items-center gap-2">
           <span>Pronunciation powered by</span>
-          <span className="font-semibold text-blue-600 dark:text-blue-400">Google Gemini 2.5 Flash</span>
+          <span className="font-semibold text-blue-600 dark:text-blue-400">Multi-AI (GPT-4o/Ollama/Gemini)</span>
         </div>
         {/* Mode selection screen */}
         {!learningMode && gameState === 'selecting' && (
@@ -204,6 +205,14 @@ export default function App() {
         {learningMode === 'pronunciation-challenge' && language && (
           <PronunciationChallenge
             language={language === 'Hebrew' ? 'Hebrew' : 'Greek'}
+            onBack={handleBackToModeSelection}
+          />
+        )}
+
+        {/* Sentence Practice Mode */}
+        {learningMode === 'sentence-practice' && language && (
+          <SentencePractice
+            language={language}
             onBack={handleBackToModeSelection}
           />
         )}

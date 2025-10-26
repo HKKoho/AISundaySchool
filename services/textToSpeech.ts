@@ -1,13 +1,11 @@
 import { GoogleGenAI } from '@google/genai';
 import type { VocabularyCard } from '../language/vocabularyData';
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY;
 
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+// Note: This service hasn't been upgraded to multi-provider yet
+// It will only work if GEMINI_API_KEY or API_KEY is set
+const ai = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 /**
  * Generate speech audio for a vocabulary word using Gemini

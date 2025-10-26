@@ -40,7 +40,7 @@ export const RecordButton: React.FC<RecordButtonProps> = ({ gameState, onClick }
         <button
             onClick={onClick}
             disabled={isProcessing}
-            className={`w-24 h-24 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800 ${getButtonClasses()} ${isIdle ? 'hover:scale-110' : ''}`}
+            className={`w-24 h-24 rounded-full flex items-center justify-center text-stone-200 shadow-lg transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800 ${getButtonClasses()} ${isIdle ? 'hover:scale-110' : ''}`}
             aria-label={isRecording ? 'Stop recording' : 'Start recording'}
         >
             {isProcessing && <LoadingSpinner />}

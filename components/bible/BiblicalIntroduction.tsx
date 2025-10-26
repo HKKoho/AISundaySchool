@@ -124,7 +124,7 @@ const BiblicalIntroduction: React.FC<BiblicalIntroductionProps> = ({ onBack }) =
         },
         body: JSON.stringify({
           provider: selectedModel,
-          model: selectedModel === 'gemini' ? 'gemini-2.5-flash' : selectedModel === 'openai' ? 'gpt-4o-mini' : 'gpt-oss:120b-cloud',
+          model: selectedModel === 'gemini' ? 'gemini-2.5-flash' : selectedModel === 'openai' ? 'gpt-4o-mini' : 'gpt-oss:120b',
           messages: [
             { role: 'system', content: agentConfig.systemPrompt },
             ...conversationHistory,
