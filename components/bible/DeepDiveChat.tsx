@@ -92,7 +92,7 @@ Based on this context and general biblical knowledge, answer the user's question
         },
         body: JSON.stringify({
           provider: selectedModel,
-          model: selectedModel === 'gemini' ? 'gemini-2.5-flash' : selectedModel === 'openai' ? 'gpt-4o-mini' : 'qwen2.5:7b',
+          model: selectedModel === 'gemini' ? 'gemini-2.5-flash' : selectedModel === 'openai' ? 'gpt-4o-mini' : 'qwen3-vl:235-cloud',
           messages: [
             { role: 'system', content: systemInstruction },
             ...conversationHistory,

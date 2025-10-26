@@ -66,10 +66,10 @@ const OLLAMA_CLOUD_MODELS: LocalLLMModel[] = [
     description: '超大規模模型，頂級推理能力，適合高難度神學論證'
   },
   {
-    id: 'qwen2.5:7b',
-    name: 'Qwen 2.5 7B Cloud',
-    size: 'Cloud (7B)',
-    description: '強大的雲端模型，適合複雜的神學分析'
+    id: 'qwen3-vl:235-cloud',
+    name: 'Qwen3-VL 235B Cloud',
+    size: 'Cloud (235B)',
+    description: '超大規模視覺語言模型，頂級推理能力，適合複雜的神學分析'
   },
   {
     id: 'llama3:8b',
