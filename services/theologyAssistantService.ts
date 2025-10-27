@@ -216,9 +216,14 @@ async function callLocalOllama(request: ChatRequest): Promise<ChatResponse> {
 }
 
 // Define which models should use Ollama Cloud (actual models available)
+// All models ending with -cloud suffix OR listed in TheologyAssistant should use cloud
 const OLLAMA_CLOUD_MODELS = [
   'kimi-k2:1t',
+  'qwen3-coder:480b',
+  'deepseek-v3.1:671b',
   'qwen3-vl:235b-cloud',
+  'llama4:scout',
+  'deepseek-r1:32b',
   'glm-4.6:cloud',
   'qwen3:14b',
   'deepseek-r1:8b',
