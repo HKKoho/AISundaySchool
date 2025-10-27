@@ -217,7 +217,7 @@ async function callLocalOllama(request: ChatRequest): Promise<ChatResponse> {
 
 // Define which models should use Ollama Cloud (actual models available)
 const OLLAMA_CLOUD_MODELS = [
-  'qwen3-vl:235-cloud',
+  'qwen3-vl:235b-cloud',
   'glm-4.6:cloud',
   'qwen3:14b',
   'deepseek-r1:8b',
