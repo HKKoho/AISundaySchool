@@ -51,7 +51,7 @@ const OLLAMA_CLOUD_MODELS: LocalLLMModel[] = [
     id: 'kimi-k2:1t',
     name: 'Kimi K2 1T Cloud',
     size: 'Cloud (1T)',
-    description: '超大參數模型，極致的理解和生成能力'
+    description: '超超大規模模型，1T參數，業界領先的推理能力'
   },
   {
     id: 'qwen3-coder:480b',
