@@ -1,10 +1,26 @@
 {
-  "appName": "AI Sunday School",
+  "appName": "AI Christian Sunday School Platform",
+  "subtitle": "Christian Sunday School AI Tools - Explore Faith, Learn Scripture",
   "navigation": {
     "home": "Home",
-    "bibleGame": "Bible Game",
-    "language": "Biblical Language",
-    "explore": "Bible Explore"
+    "bibleGame": "Bible Exploration",
+    "language": "Original Language Learning",
+    "explore": "Bible Study Assistant"
+  },
+  "features": {
+    "bibleGame": {
+      "description": "Explore Bible stories and background knowledge through interactive games, learning with AI"
+    },
+    "language": {
+      "description": "Learn biblical original languages: Hebrew and Greek pronunciation practice and AI dialogue"
+    },
+    "explore": {
+      "description": "Comprehensive Bible theology research platform: AI interaction, document analysis, assignment guidance, and resource search"
+    }
+  },
+  "footer": {
+    "choose": "Choose a feature to begin your Bible exploration journey",
+    "chooseEn": "Choose a feature to begin your faith exploration journey"
   },
   "buttons": {
     "start": "Start",
@@ -14,6 +30,7 @@
     "cancel": "Cancel",
     "close": "Close",
     "back": "Back",
+    "backToHome": "Back to Home",
     "continue": "Continue",
     "retry": "Retry"
   },

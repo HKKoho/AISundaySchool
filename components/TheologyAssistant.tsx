@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowLeft, MessageCircle, Settings, FileText, Upload,
   Send, Trash2, Save, Edit3, CheckCircle, AlertCircle,
@@ -23,113 +24,110 @@ interface TheologyAssistantProps {
   onBack: () => void;
 }
 
-// Cloud AI Models (API-based)
-const CLOUD_AI_MODELS: LocalLLMModel[] = [
+// Cloud AI Models (API-based) - descriptions will be translated
+const getCloudAIModels = (t: any): LocalLLMModel[] => [
   {
     id: 'gemini-2.0-flash',
     name: 'Google Gemini 2.0 Flash',
     size: 'Cloud',
-    description: '最新的Google AI模型，多模態支援，快速回應'
+    description: t('models.gemini2Flash')
   },
   {
     id: 'gpt-4o',
     name: 'OpenAI GPT-4o',
     size: 'Cloud',
-    description: 'OpenAI最先進模型，卓越的理解和生成能力'
+    description: t('models.gpt4o')
   },
   {
     id: 'gpt-4o-mini',
     name: 'OpenAI GPT-4o Mini',
     size: 'Cloud',
-    description: '輕量快速版本，性價比高'
+    description: t('models.gpt4oMini')
   }
 ];
 
-// Ollama Cloud Models (actual available models in your account)
-const OLLAMA_CLOUD_MODELS: LocalLLMModel[] = [
+// Ollama Cloud Models (actual available models in your account) - descriptions will be translated
+const getOllamaCloudModels = (t: any): LocalLLMModel[] => [
   {
     id: 'kimi-k2:1t',
     name: 'Kimi K2 1T Cloud',
     size: 'Cloud (1T)',
-    description: '超超大規模模型，1T參數，業界領先的推理能力'
+    description: t('models.kimiK2')
   },
   {
     id: 'qwen3-coder:480b',
     name: 'Qwen3 Coder 480B Cloud',
     size: 'Cloud (480B)',
-    description: '超大規模編碼模型，適合結構化內容生成'
+    description: t('models.qwen3Coder')
   },
   {
     id: 'deepseek-v3.1:671b',
     name: 'DeepSeek V3.1 671B Cloud',
     size: 'Cloud (671B)',
-    description: '超大規模模型，頂級推理能力，適合高難度神學論證'
+    description: t('models.deepseekV3')
   },
   {
     id: 'qwen3-vl:235b-cloud',
     name: 'Qwen3-VL 235B Cloud',
     size: 'Cloud (235B)',
-    description: '超大規模視覺語言模型，頂級推理能力，適合複雜的神學分析'
+    description: t('models.qwen3VL')
   },
   {
     id: 'llama3:8b',
     name: 'Llama 3 8B Cloud',
     size: 'Cloud (8B)',
-    description: '平衡效能和速度，適合一般神學討論和問答'
+    description: t('models.llama38b')
   }
 ];
 
-// Local Ollama Models (locally installed - only models you actually have)
-const LOCAL_OLLAMA_MODELS: LocalLLMModel[] = [
+// Local Ollama Models (locally installed - only models you actually have) - descriptions will be translated
+const getLocalOllamaModels = (t: any): LocalLLMModel[] => [
   {
     id: 'qwen2.5vl:32b',
     name: 'Qwen 2.5 VL 32B',
     size: '32 GB',
-    description: '中英雙語視覺語言模型，適合繁體中文神學討論',
+    description: t('models.qwen25VL'),
     hasVision: true
   },
   {
     id: 'llama4:scout',
     name: 'Llama 4 Scout',
     size: '67 GB',
-    description: '最新版本的Llama模型，適合複雜的神學討論和分析'
+    description: t('models.llama4Scout')
   },
   {
     id: 'mistral-small:24b',
     name: 'Mistral Small 24B',
     size: '14 GB',
-    description: '輕量高效的模型，快速回應神學問題'
+    description: t('models.mistralSmall')
   },
   {
     id: 'llama3.3:latest',
     name: 'Llama 3.3',
     size: '42 GB',
-    description: '高性能的通用語言模型，平衡效率與質量'
+    description: t('models.llama33')
   },
   {
     id: 'llava:34b',
     name: 'LLaVA 34B',
     size: '20 GB',
-    description: '多模態模型，支援圖像和文字的神學資料分析',
+    description: t('models.llava34b'),
     hasVision: true
   },
   {
     id: 'deepseek-r1:32b',
     name: 'DeepSeek R1 32B',
     size: '19 GB',
-    description: '推理能力強的模型，適合深度神學分析'
+    description: t('models.deepseekR1')
   },
   {
     id: 'llama3.2-vision:latest',
     name: 'Llama 3.2 Vision',
     size: '7.9 GB',
-    description: '視覺語言模型，可分析聖經插圖和神學圖表',
+    description: t('models.llama32Vision'),
     hasVision: true
   }
 ];
-
-// Combined list for backward compatibility
-const LOCAL_LLM_MODELS = [...CLOUD_AI_MODELS, ...OLLAMA_CLOUD_MODELS, ...LOCAL_OLLAMA_MODELS];
 
 const INITIAL_STATE: TheologyAssistantState = {
   mode: TheologyAssistantMode.THEOLOGY_CHAT,
@@ -204,6 +202,7 @@ const mockResults: SearchResult[] = [
 ];
 
 export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) => {
+  const { t } = useTranslation('theologyAssistant');
   const [state, setState] = useState<TheologyAssistantState>(INITIAL_STATE);
   const [currentMessage, setCurrentMessage] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -217,6 +216,12 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
   const [editedPlanContent, setEditedPlanContent] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Get translated model lists
+  const CLOUD_AI_MODELS = getCloudAIModels(t);
+  const OLLAMA_CLOUD_MODELS = getOllamaCloudModels(t);
+  const LOCAL_OLLAMA_MODELS = getLocalOllamaModels(t);
+  const LOCAL_LLM_MODELS = [...CLOUD_AI_MODELS, ...OLLAMA_CLOUD_MODELS, ...LOCAL_OLLAMA_MODELS];
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -253,10 +258,10 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
       // If in Reading Q&A mode and documents are uploaded, include document context
       if (state.mode === TheologyAssistantMode.READING_QA && state.documents.length > 0) {
         const documentsContext = state.documents.map(doc =>
-          `\n\n--- 文檔: ${doc.name} ---\n${doc.content.substring(0, 10000)}\n--- 文檔結束 ---`
+          `\n\n${t('readingQA.documentStart', { name: doc.name })}\n${doc.content.substring(0, 10000)}\n${t('readingQA.documentEnd')}`
         ).join('\n');
 
-        systemPrompt += `\n\n你現在正在分析以下上傳的神學文檔。請根據這些文檔的內容來回答用戶的問題：${documentsContext}\n\n請基於上述文檔內容回答問題，並在適當時引用文檔中的具體內容。`;
+        systemPrompt += `${t('readingQA.documentContext')}${documentsContext}${t('readingQA.answerInstruction')}`;
       }
 
       const conversationMessages = [
@@ -288,7 +293,7 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
 
       const errorMessage: ChatMessage = {
         role: 'assistant',
-        content: `❌ 錯誤：${error.message}\n\n請檢查：\n1. 模型配置是否正確\n2. API 金鑰是否已設置\n3. 網絡連接是否正常`,
+        content: t('chat.errorPrefix', { message: error.message }) + t('chat.errorChecklist'),
         timestamp: new Date().toISOString(),
       };
 
@@ -342,7 +347,7 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
         } catch (error) {
           console.error('PDF parsing error:', error);
           setUploadStatus(null);
-          alert(`無法解析 PDF 文件: ${file.name}\n\n錯誤: ${error}`);
+          alert(t('readingQA.parseError', { fileName: file.name, error: String(error) }));
         }
       } else {
         // Handle text files (txt, md, docx as text)
@@ -363,7 +368,7 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
         };
         reader.onerror = () => {
           setUploadStatus(null);
-          alert(`無法讀取文件: ${file.name}`);
+          alert(t('readingQA.readError', { fileName: file.name }));
         };
         reader.readAsText(file);
       }
@@ -384,27 +389,14 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
       const { sendChatMessage } = await import('../services/theologyAssistantService');
 
       // Custom system prompt for Princeton-trained Bible research assistant
-      const systemPrompt = `You are a newly graduated Bible research assistant from Princeton University Theology College, bringing a fresh, yet profoundly informed, perspective to biblical studies. Your core expertise lies in the Hebrew Bible, where you possess a deep and nuanced understanding of its linguistic intricacies, historical contexts, literary genres, and theological themes.
+      const systemPrompt = t('assignment.systemPrompt');
 
-Beyond your mastery of the Hebrew text, you are uniquely equipped with a comprehensive understanding of how the Catholic Church approaches and interprets the Old Testament. This includes familiarity with the Deuterocanonical books, patristic interpretations, magisterial teachings, and the role of tradition in Catholic exegesis.
-
-Furthermore, your knowledge extends to the cutting edge of New Testament scholarship, particularly the "New Perspective on Paul" and contemporary approaches to the Gospels. You can articulate the key tenets of these perspectives, their historical development, and their implications for understanding Paul's theology, the historical Jesus, and the evangelists' purposes. You are adept at engaging with textual criticism, historical-critical methodologies, and theological interpretation, bridging academic rigor with a pastoral sensitivity. Your role is to provide detailed, well-researched, and contextually rich answers, drawing upon your diverse educational background to offer multifaceted insights into the biblical text.`;
-
-      const userPrompt = `請為以下作業主題創建一個詳細的研究大綱計劃：
-
-作業主題：${state.assignmentTopic}
-神學領域：${state.theologyArea}
-學術水平：${state.academicLevel}
-作業長度：約 ${state.assignmentLength} 字
-
-請提供：
-1. 研究背景和重要性
-2. 詳細的章節大綱（包含主要論點）
-3. 關鍵聖經經文引用
-4. 重要學術資源和參考文獻建議
-5. 研究方法論建議
-
-請以markdown格式回應，包含清晰的標題和結構。`;
+      const userPrompt = t('assignment.planPrompt', {
+        topic: state.assignmentTopic,
+        area: state.theologyArea,
+        level: state.academicLevel,
+        length: state.assignmentLength
+      });
 
       const response = await sendChatMessage({
         model: state.selectedModel,
@@ -434,7 +426,7 @@ Furthermore, your knowledge extends to the cutting edge of New Testament scholar
         isProcessing: false,
         assignmentStage: AssignmentStage.INPUT
       });
-      alert(`生成計劃時發生錯誤：${error.message}\n\n請檢查模型配置和API金鑰設定。`);
+      alert(t('assignment.planError', { message: error.message }));
     }
   };
 
@@ -451,31 +443,15 @@ Furthermore, your knowledge extends to the cutting edge of New Testament scholar
       const { sendChatMessage } = await import('../services/theologyAssistantService');
 
       // Custom system prompt for Princeton-trained Bible research assistant
-      const systemPrompt = `You are a newly graduated Bible research assistant from Princeton University Theology College, bringing a fresh, yet profoundly informed, perspective to biblical studies. Your core expertise lies in the Hebrew Bible, where you possess a deep and nuanced understanding of its linguistic intricacies, historical contexts, literary genres, and theological themes.
+      const systemPrompt = t('assignment.systemPrompt');
 
-Beyond your mastery of the Hebrew text, you are uniquely equipped with a comprehensive understanding of how the Catholic Church approaches and interprets the Old Testament. This includes familiarity with the Deuterocanonical books, patristic interpretations, magisterial teachings, and the role of tradition in Catholic exegesis.
-
-Furthermore, your knowledge extends to the cutting edge of New Testament scholarship, particularly the "New Perspective on Paul" and contemporary approaches to the Gospels. You can articulate the key tenets of these perspectives, their historical development, and their implications for understanding Paul's theology, the historical Jesus, and the evangelists' purposes. You are adept at engaging with textual criticism, historical-critical methodologies, and theological interpretation, bridging academic rigor with a pastoral sensitivity. Your role is to provide detailed, well-researched, and contextually rich answers, drawing upon your diverse educational background to offer multifaceted insights into the biblical text.`;
-
-      const userPrompt = `根據以下研究大綱計劃，撰寫一份完整的作業初稿：
-
-【研究大綱】
-${state.currentPlan.content}
-
-【作業要求】
-- 作業主題：${state.assignmentTopic}
-- 神學領域：${state.theologyArea}
-- 學術水平：${state.academicLevel}
-- 目標長度：約 ${state.assignmentLength} 字
-
-請撰寫一份學術規範的作業初稿，包含：
-1. 完整的引言（包含研究背景、目的和方法）
-2. 根據大綱展開的主體內容（每個章節都應有充分的論述）
-3. 具體的聖經經文引用和分析
-4. 相關的神學和學術討論
-5. 結論和反思
-
-請以markdown格式撰寫，保持學術嚴謹性和可讀性。`;
+      const userPrompt = t('assignment.draftPrompt', {
+        plan: state.currentPlan.content,
+        topic: state.assignmentTopic,
+        area: state.theologyArea,
+        level: state.academicLevel,
+        length: state.assignmentLength
+      });
 
       const response = await sendChatMessage({
         model: state.selectedModel,
@@ -503,7 +479,7 @@ ${state.currentPlan.content}
     } catch (error: any) {
       console.error('Draft generation error:', error);
       updateState({ isProcessing: false });
-      alert(`生成草稿時發生錯誤：${error.message}\n\n請檢查模型配置和API金鑰設定。`);
+      alert(t('assignment.draftError', { message: error.message }));
     }
   };
 
@@ -550,7 +526,7 @@ ${state.currentPlan.content}
       setSearchResults(filtered);
 
       // Show error notification
-      alert(`搜尋時發生錯誤：${error.message}\n\n已顯示本地模擬結果。請確保 GEMINI_API_KEY 已配置。`);
+      alert(t('search.searchError', { message: error.message }));
     } finally {
       setIsSearching(false);
     }
@@ -569,15 +545,16 @@ ${state.currentPlan.content}
   };
 
   const getTypeName = (type: string) => {
-    const names = {
-      book: '書籍',
-      article: '文章',
-      commentary: '註釋',
-      encyclopedia: '百科',
-      thesis: '論文',
-      website: '網站',
+    const names: { [key: string]: string } = {
+      book: t('search.book'),
+      article: t('search.article'),
+      commentary: t('search.commentary'),
+      encyclopedia: t('search.encyclopedia'),
+      thesis: t('search.thesis'),
+      website: t('search.website'),
+      all: t('search.all')
     };
-    return names[type as keyof typeof names] || type;
+    return names[type] || type;
   };
 
   const renderTabButton = (mode: TheologyAssistantMode, icon: React.ReactNode, label: string) => (
@@ -597,33 +574,33 @@ ${state.currentPlan.content}
   // Reusable model selection component
   const renderModelSelection = () => (
     <div className="bg-gray-800 rounded-lg p-4 mb-4">
-      <h3 className="text-lg font-semibold mb-4">AI 模型設定</h3>
+      <h3 className="text-lg font-semibold mb-4">{t('modelSelection.title')}</h3>
 
       {/* Model Selection */}
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-300 mb-2">
-          選擇 AI 模型
+          {t('modelSelection.selectModel')}
         </label>
         <select
           value={state.selectedModel}
           onChange={(e) => updateState({ selectedModel: e.target.value })}
           className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 text-white"
         >
-          <optgroup label="☁️ 雲端 AI 模型 (Gemini / OpenAI)">
+          <optgroup label={t('modelSelection.cloudAI')}>
             {CLOUD_AI_MODELS.map((model) => (
               <option key={model.id} value={model.id}>
                 {model.name} ({model.size})
               </option>
             ))}
           </optgroup>
-          <optgroup label="☁️ Ollama Cloud 模型">
+          <optgroup label={t('modelSelection.ollamaCloud')}>
             {OLLAMA_CLOUD_MODELS.map((model) => (
               <option key={model.id} value={model.id}>
                 {model.name} ({model.size})
               </option>
             ))}
           </optgroup>
-          <optgroup label="🖥️ 本地 Ollama 模型">
+          <optgroup label={t('modelSelection.localOllama')}>
             {LOCAL_OLLAMA_MODELS.map((model) => (
               <option key={model.id} value={model.id}>
                 {model.name} ({model.size})
@@ -636,7 +613,7 @@ ${state.currentPlan.content}
             {LOCAL_LLM_MODELS.find(m => m.id === state.selectedModel)?.description}
           </p>
           {LOCAL_LLM_MODELS.find(m => m.id === state.selectedModel)?.hasVision && (
-            <span className="text-xs text-yellow-400 mt-1 block">🎨 支援視覺分析功能</span>
+            <span className="text-xs text-yellow-400 mt-1 block">{t('modelSelection.visionSupport')}</span>
           )}
         </div>
       </div>
@@ -644,7 +621,7 @@ ${state.currentPlan.content}
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            創造性程度: {state.temperature}
+            {t('modelSelection.temperature', { value: state.temperature })}
           </label>
           <input
             type="range"
@@ -656,13 +633,13 @@ ${state.currentPlan.content}
             className="w-full"
           />
           <div className="flex justify-between text-xs text-gray-400 mt-1">
-            <span>保守</span>
-            <span>創新</span>
+            <span>{t('modelSelection.temperatureConservative')}</span>
+            <span>{t('modelSelection.temperatureCreative')}</span>
           </div>
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            回答多樣性: {state.topP}
+            {t('modelSelection.topP', { value: state.topP })}
           </label>
           <input
             type="range"
@@ -674,8 +651,8 @@ ${state.currentPlan.content}
             className="w-full"
           />
           <div className="flex justify-between text-xs text-gray-400 mt-1">
-            <span>聚焦</span>
-            <span>多元</span>
+            <span>{t('modelSelection.topPFocused')}</span>
+            <span>{t('modelSelection.topPDiverse')}</span>
           </div>
         </div>
       </div>
@@ -718,7 +695,7 @@ ${state.currentPlan.content}
               <div className="bg-gray-700 text-gray-100 px-4 py-2 rounded-lg">
                 <div className="flex items-center gap-2">
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-indigo-400"></div>
-                  思考中...
+                  {t('chat.thinking')}
                 </div>
               </div>
             </div>
@@ -732,7 +709,7 @@ ${state.currentPlan.content}
               value={currentMessage}
               onChange={setCurrentMessage}
               onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
-              placeholder="輸入您的神學問題..."
+              placeholder={t('chat.placeholder')}
               disabled={state.isProcessing}
               lang="zh-TW"
             />
@@ -755,14 +732,14 @@ ${state.currentPlan.content}
       {renderModelSelection()}
 
       <div className="bg-gray-800 rounded-lg p-6">
-        <h3 className="text-lg font-semibold mb-4">文檔上傳</h3>
+        <h3 className="text-lg font-semibold mb-4">{t('readingQA.uploadTitle')}</h3>
         <div
           className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-gray-500 transition-colors"
           onClick={() => fileInputRef.current?.click()}
         >
           <Upload className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-          <p className="text-gray-300">點擊上傳神學文檔</p>
-          <p className="text-sm text-gray-500 mt-2">支持 PDF, DOCX, TXT, MD 格式</p>
+          <p className="text-gray-300">{t('readingQA.uploadPrompt')}</p>
+          <p className="text-sm text-gray-500 mt-2">{t('readingQA.supportedFormats')}</p>
         </div>
         <input
           ref={fileInputRef}
@@ -778,7 +755,7 @@ ${state.currentPlan.content}
             <div className="flex items-center gap-3">
               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-400"></div>
               <div>
-                <p className="text-sm font-medium text-blue-300">正在處理 PDF 文件...</p>
+                <p className="text-sm font-medium text-blue-300">{t('readingQA.processing')}</p>
                 <p className="text-xs text-blue-400">{uploadStatus.fileName}</p>
               </div>
             </div>
@@ -787,13 +764,13 @@ ${state.currentPlan.content}
 
         {state.documents.length > 0 && (
           <div className="mt-4">
-            <h4 className="font-medium text-gray-300 mb-2">已上傳的文檔：</h4>
+            <h4 className="font-medium text-gray-300 mb-2">{t('readingQA.uploadedDocs')}</h4>
             <div className="space-y-2">
               {state.documents.map((doc, index) => (
                 <div key={index} className="flex items-center gap-2 p-2 bg-gray-700 rounded">
                   <FileText className="w-4 h-4" />
                   <span className="text-sm">{doc.name}</span>
-                  <span className="text-xs text-green-400 ml-auto">✓ 已解析</span>
+                  <span className="text-xs text-green-400 ml-auto">{t('readingQA.parsed')}</span>
                 </div>
               ))}
             </div>
@@ -833,7 +810,7 @@ ${state.currentPlan.content}
                 <div className="bg-gray-700 text-gray-100 px-4 py-2 rounded-lg">
                   <div className="flex items-center gap-2">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-indigo-400"></div>
-                    分析文檔中...
+                    {t('readingQA.analyzing')}
                   </div>
                 </div>
               </div>
@@ -847,7 +824,7 @@ ${state.currentPlan.content}
                 value={currentMessage}
                 onChange={setCurrentMessage}
                 onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
-                placeholder="詢問關於已上傳文檔的問題..."
+                placeholder={t('readingQA.placeholder')}
                 disabled={state.isProcessing}
                 lang="zh-TW"
               />
@@ -871,16 +848,16 @@ ${state.currentPlan.content}
 
       {state.assignmentStage === AssignmentStage.INPUT && (
         <div className="bg-gray-800 rounded-lg p-6">
-          <h3 className="text-lg font-semibold mb-4">作業設定</h3>
+          <h3 className="text-lg font-semibold mb-4">{t('assignment.settingsTitle')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                作業主題
+                {t('assignment.topic')}
               </label>
               <SpeechInput
                 value={state.assignmentTopic}
                 onChange={(value) => updateState({ assignmentTopic: value })}
-                placeholder="例：三一神論的聖經基礎"
+                placeholder={t('assignment.topicPlaceholder')}
                 className="w-full"
                 lang="zh-TW"
               />
@@ -888,12 +865,12 @@ ${state.currentPlan.content}
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                神學領域
+                {t('assignment.theologyArea')}
               </label>
               <SpeechInput
                 value={state.theologyArea}
                 onChange={(value) => updateState({ theologyArea: value })}
-                placeholder="例：系統神學"
+                placeholder={t('assignment.theologyAreaPlaceholder')}
                 className="w-full"
                 lang="zh-TW"
               />
@@ -901,23 +878,23 @@ ${state.currentPlan.content}
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                學術水平
+                {t('assignment.academicLevel')}
               </label>
               <select
                 value={state.academicLevel}
                 onChange={(e) => updateState({ academicLevel: e.target.value as AcademicLevel })}
                 className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 text-white"
               >
-                <option value={AcademicLevel.UNDERGRADUATE}>學士</option>
-                <option value={AcademicLevel.GRADUATE}>碩士</option>
-                <option value={AcademicLevel.DOCTORAL}>博士</option>
-                <option value={AcademicLevel.GENERAL}>一般</option>
+                <option value={AcademicLevel.UNDERGRADUATE}>{t('assignment.undergraduate')}</option>
+                <option value={AcademicLevel.GRADUATE}>{t('assignment.graduate')}</option>
+                <option value={AcademicLevel.DOCTORAL}>{t('assignment.doctoral')}</option>
+                <option value={AcademicLevel.GENERAL}>{t('assignment.general')}</option>
               </select>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                作業長度 (字數)
+                {t('assignment.length')}
               </label>
               <input
                 type="number"
@@ -939,12 +916,12 @@ ${state.currentPlan.content}
             {state.isProcessing ? (
               <>
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                生成計劃中...
+                {t('assignment.creatingPlan')}
               </>
             ) : (
               <>
                 <Edit3 className="w-4 h-4" />
-                創建作業計劃
+                {t('assignment.createPlan')}
               </>
             )}
           </button>
@@ -954,7 +931,7 @@ ${state.currentPlan.content}
       {state.currentPlan && state.assignmentStage === AssignmentStage.DRAFTING && (
         <div className="bg-gray-800 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold">作業計劃</h3>
+            <h3 className="text-lg font-semibold">{t('assignment.planTitle')}</h3>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-400" />
               {!isEditingPlan && (
@@ -966,7 +943,7 @@ ${state.currentPlan.content}
                   className="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors flex items-center gap-1"
                 >
                   <Edit3 className="w-3 h-3" />
-                  編輯
+                  {t('assignment.edit')}
                 </button>
               )}
             </div>
@@ -978,7 +955,7 @@ ${state.currentPlan.content}
                 value={editedPlanContent}
                 onChange={(e) => setEditedPlanContent(e.target.value)}
                 className="w-full min-h-96 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 text-gray-200 font-mono text-sm"
-                placeholder="編輯您的作業計劃..."
+                placeholder={t('assignment.editPlanPlaceholder')}
               />
               <div className="flex gap-2">
                 <button
@@ -994,7 +971,7 @@ ${state.currentPlan.content}
                   className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-medium transition-colors flex items-center gap-2"
                 >
                   <CheckCircle className="w-4 h-4" />
-                  保存修改
+                  {t('assignment.saveChanges')}
                 </button>
                 <button
                   onClick={() => {
@@ -1003,7 +980,7 @@ ${state.currentPlan.content}
                   }}
                   className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg font-medium transition-colors"
                 >
-                  取消
+                  {t('assignment.cancel')}
                 </button>
               </div>
             </div>
@@ -1024,12 +1001,12 @@ ${state.currentPlan.content}
               {state.isProcessing ? (
                 <>
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                  生成草稿中...
+                  {t('assignment.creatingDraft')}
                 </>
               ) : (
                 <>
                   <FileText className="w-4 h-4" />
-                  創建作業草稿
+                  {t('assignment.createDraft')}
                 </>
               )}
             </button>
@@ -1040,9 +1017,9 @@ ${state.currentPlan.content}
       {state.currentDraft && state.assignmentStage === AssignmentStage.CRITIQUING && (
         <div className="bg-gray-800 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold">作業草稿</h3>
+            <h3 className="text-lg font-semibold">{t('assignment.draftTitle')}</h3>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-400">修訂次數: {state.revisionNumber}</span>
+              <span className="text-sm text-gray-400">{t('assignment.revisionCount', { count: state.revisionNumber })}</span>
               <CheckCircle className="w-5 h-5 text-green-400" />
             </div>
           </div>
@@ -1061,17 +1038,17 @@ ${state.currentPlan.content}
               })}
               className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg font-medium transition-colors"
             >
-              重新開始
+              {t('assignment.restart')}
             </button>
             <button
               onClick={() => {
                 // Save draft functionality would go here
-                alert('草稿已保存！');
+                alert(t('assignment.draftSaved'));
               }}
               className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors flex items-center gap-2"
             >
               <Save className="w-4 h-4" />
-              保存草稿
+              {t('assignment.saveDraft')}
             </button>
           </div>
         </div>
@@ -1090,7 +1067,7 @@ ${state.currentPlan.content}
                 value={searchQuery}
                 onChange={setSearchQuery}
                 onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSearch()}
-                placeholder="搜尋神學主題、作者或關鍵字..."
+                placeholder={t('search.placeholder')}
                 className="w-full pl-10"
                 lang="zh-TW"
               />
@@ -1104,12 +1081,12 @@ ${state.currentPlan.content}
             {isSearching ? (
               <>
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                搜尋中...
+                {t('search.searching')}
               </>
             ) : (
               <>
                 <Search className="w-5 h-5" />
-                搜尋
+                {t('search.searchButton')}
               </>
             )}
           </button>
@@ -1118,7 +1095,7 @@ ${state.currentPlan.content}
         {/* Search Mode Selection */}
         <div className="mb-4 p-4 bg-gray-700/30 rounded-lg">
           <label className="block text-sm font-medium text-gray-300 mb-3">
-            🔍 搜尋模式 (Gemini MCP Tools):
+            {t('search.modeTitle')}
           </label>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <button

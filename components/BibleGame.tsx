@@ -3,12 +3,15 @@ import { GameProvider } from '../contexts/GameContext';
 import Header from './bible/Header';
 import GameMap from './bible/GameMap';
 import { ArrowLeft } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface BibleGameProps {
   onBack: () => void;
 }
 
 export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
+  const { t } = useTranslation('common');
+
   return (
     <GameProvider>
       <div className="fixed inset-0 bg-cover bg-center text-stone-900 font-serif" style={{backgroundImage: "url('https://www.transparenttextures.com/patterns/old-wall.png')"}}>
@@ -19,7 +22,7 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
               className="flex items-center gap-2 text-stone-200 hover:text-white transition-colors mb-4 bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded-lg"
             >
               <ArrowLeft className="w-5 h-5" />
-              返回主頁
+              {t('buttons.backToHome')}
             </button>
           </div>
           <Header />

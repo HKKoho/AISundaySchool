@@ -1,35 +1,38 @@
 import React from 'react';
 import { Gamepad2, Search, Languages } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface LandingPageProps {
   onNavigate: (destination: 'bible-game' | 'theology-search' | 'biblical-language') => void;
 }
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
+  const { t } = useTranslation('common');
+
   const features = [
     {
       id: 'bible-game' as const,
-      title: '聖經探索',
+      title: t('navigation.bibleGame'),
       subtitle: 'Bible Interactive Game',
-      description: '通過互動遊戲探索聖經故事和聖經背景知識，與AI邊玩邊學習',
+      description: t('features.bibleGame.description'),
       icon: Gamepad2,
       color: 'from-purple-500 to-purple-700',
       hoverColor: 'hover:from-purple-600 hover:to-purple-800',
     },
     {
       id: 'biblical-language' as const,
-      title: '原文學習',
+      title: t('navigation.language'),
       subtitle: 'Biblical Textual Learning',
-      description: '學習聖經原文語言：希伯來文和希臘文發音練習與AI對話',
+      description: t('features.language.description'),
       icon: Languages,
       color: 'from-amber-500 to-amber-700',
       hoverColor: 'hover:from-amber-600 hover:to-amber-800',
     },
     {
       id: 'theology-search' as const,
-      title: '研經助手',
+      title: t('navigation.explore'),
       subtitle: 'Bible Explore Assistant',
-      description: '全方位聖經神學研究平台：AI互動、文檔分析、作業輔導和資源搜尋',
+      description: t('features.explore.description'),
       icon: Search,
       color: 'from-green-500 to-green-700',
       hoverColor: 'hover:from-green-600 hover:to-green-800',
@@ -40,10 +43,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
     <div className="w-full max-w-6xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-          AI Christian Sunday School Platform
+          {t('appName')}
         </h1>
         <p className="text-xl text-gray-300">
-          基督教 主日學 AI 工具平台 - 探索信仰，學習聖言
+          {t('subtitle')}
         </p>
       </div>
 
@@ -82,8 +85,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
       </div>
 
       <div className="mt-16 text-center text-gray-400 text-sm">
-        <p>選擇一個功能開始您的聖經探索之旅</p>
-        <p className="mt-2">Choose a feature to begin your faith exploration journey</p>
+        <p>{t('footer.choose')}</p>
+        <p className="mt-2">{t('footer.chooseEn')}</p>
       </div>
     </div>
   );

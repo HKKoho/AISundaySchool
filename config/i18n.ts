@@ -7,12 +7,14 @@ import enCommon from '../locales/en/common.json';
 import enBibleGame from '../locales/en/bibleGame.json';
 import enLanguage from '../locales/en/language.json';
 import enExplore from '../locales/en/explore.json';
+import enTheologyAssistant from '../locales/en/theologyAssistant.json';
 
 // Import Traditional Chinese translations
 import zhCommon from '../locales/zh-TW/common.json';
 import zhBibleGame from '../locales/zh-TW/bibleGame.json';
 import zhLanguage from '../locales/zh-TW/language.json';
 import zhExplore from '../locales/zh-TW/explore.json';
+import zhTheologyAssistant from '../locales/zh-TW/theologyAssistant.json';
 
 const resources = {
   en: {
@@ -20,12 +22,14 @@ const resources = {
     bibleGame: enBibleGame,
     language: enLanguage,
     explore: enExplore,
+    theologyAssistant: enTheologyAssistant,
   },
   'zh-TW': {
     common: zhCommon,
     bibleGame: zhBibleGame,
     language: zhLanguage,
     explore: zhExplore,
+    theologyAssistant: zhTheologyAssistant,
   },
 };
 
