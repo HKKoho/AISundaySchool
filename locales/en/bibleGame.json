@@ -1,0 +1,18 @@
+{
+  "title": "Bible Knowledge Challenge",
+  "subtitle": "Test your understanding of the Bible",
+  "question": "Question {{number}}",
+  "score": "Score: {{score}}/{{total}}",
+  "correctAnswer": "Correct!",
+  "wrongAnswer": "Incorrect",
+  "explanation": "Explanation",
+  "nextQuestion": "Next Question",
+  "gameOver": "Game Over!",
+  "finalScore": "Your final score is {{score}} out of {{total}}",
+  "playAgain": "Play Again",
+  "difficulty": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
+  }
+}

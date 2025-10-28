@@ -1,0 +1,18 @@
+{
+  "title": "聖經知識挑戰",
+  "subtitle": "測試你對聖經的理解",
+  "question": "第 {{number}} 題",
+  "score": "分數：{{score}}/{{total}}",
+  "correctAnswer": "正確！",
+  "wrongAnswer": "錯誤",
+  "explanation": "解釋",
+  "nextQuestion": "下一題",
+  "gameOver": "遊戲結束！",
+  "finalScore": "你的最終分數是 {{score}} / {{total}}",
+  "playAgain": "再玩一次",
+  "difficulty": {
+    "easy": "簡單",
+    "medium": "中等",
+    "hard": "困難"
+  }
+}

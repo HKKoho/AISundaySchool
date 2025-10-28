@@ -1,0 +1,20 @@
+{
+  "title": "Biblical Language Learning",
+  "subtitle": "Learn Biblical Hebrew and Greek",
+  "selectLanguage": "Select Language",
+  "hebrew": "Biblical Hebrew",
+  "greek": "Biblical Greek",
+  "alphabet": "Alphabet",
+  "words": "Words",
+  "verses": "Verses",
+  "practice": "Practice",
+  "pronunciation": "Pronunciation",
+  "meaning": "Meaning",
+  "example": "Example",
+  "recordAudio": "Record Audio",
+  "playback": "Playback",
+  "feedback": "Feedback",
+  "pronounce": "Pronounce",
+  "listening": "Listening...",
+  "aiPowered": "Powered by Multi-AI (GPT-4o/Ollama/Gemini)"
+}

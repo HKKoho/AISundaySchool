@@ -1,0 +1,27 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import Icon from './bible/Icon';
+
+const LanguageSwitcher: React.FC = () => {
+  const { i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'zh-TW' : 'en';
+    i18n.changeLanguage(newLang);
+  };
+
+  return (
+    <button
+      onClick={toggleLanguage}
+      className="fixed top-4 right-4 z-50 flex items-center gap-2 bg-amber-800 hover:bg-amber-700 text-white px-4 py-2 rounded-lg shadow-lg transition-all duration-200"
+      title={i18n.language === 'en' ? 'Switch to Traditional Chinese' : '切換到英文'}
+    >
+      <Icon name="languages" className="w-5 h-5" />
+      <span className="font-medium">
+        {i18n.language === 'en' ? '中文' : 'EN'}
+      </span>
+    </button>
+  );
+};
+
+export default LanguageSwitcher;

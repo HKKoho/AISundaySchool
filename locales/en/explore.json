@@ -1,0 +1,19 @@
+{
+  "title": "Bible Exploration Assistant",
+  "subtitle": "Deep dive into Biblical topics with AI assistance",
+  "chat": "Chat",
+  "introduction": "Introduction",
+  "deepDive": "Deep Dive",
+  "askQuestion": "Ask a question...",
+  "send": "Send",
+  "topics": "Topics",
+  "history": "History",
+  "theology": "Theology",
+  "commentary": "Commentary",
+  "selectModel": "AI Model",
+  "models": {
+    "gemini": "Gemini",
+    "openai": "OpenAI",
+    "ollama": "Ollama"
+  }
+}

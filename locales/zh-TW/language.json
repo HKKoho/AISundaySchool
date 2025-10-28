@@ -1,0 +1,20 @@
+{
+  "title": "聖經語言學習",
+  "subtitle": "學習聖經希伯來文和希臘文",
+  "selectLanguage": "選擇語言",
+  "hebrew": "聖經希伯來文",
+  "greek": "聖經希臘文",
+  "alphabet": "字母",
+  "words": "單詞",
+  "verses": "經文",
+  "practice": "練習",
+  "pronunciation": "發音",
+  "meaning": "意思",
+  "example": "例子",
+  "recordAudio": "錄音",
+  "playback": "播放",
+  "feedback": "反饋",
+  "pronounce": "發音",
+  "listening": "聆聽中...",
+  "aiPowered": "由多重AI驅動（GPT-4o/Ollama/Gemini）"
+}

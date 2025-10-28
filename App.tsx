@@ -4,6 +4,8 @@ import { BibleGame } from './components/BibleGame';
 import { TheologyAssistant } from './components/TheologyAssistant';
 import { BiblicalLanguage } from './components/BiblicalLanguage';
 import { AppState } from './types';
+import LanguageSwitcher from './components/LanguageSwitcher';
+import './config/i18n';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.LANDING);
@@ -58,6 +60,7 @@ const App: React.FC = () => {
           : undefined
       }
     >
+      <LanguageSwitcher />
       <main className="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
         {renderContent()}
       </main>
