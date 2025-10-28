@@ -16,5 +16,15 @@
   "feedback": "Feedback",
   "pronounce": "Pronounce",
   "listening": "Listening...",
-  "aiPowered": "Powered by Multi-AI (GPT-4o/Ollama/Gemini)"
+  "aiPowered": "Pronunciation powered by",
+  "multiAI": "Multi-AI (GPT-4o/Ollama/Gemini)",
+  "errors": {
+    "noFeedback": "Unable to get feedback from AI, please try again.",
+    "micPermission": "Microphone permission required. Please enable microphone in browser settings."
+  },
+  "buttons": {
+    "switchMode": "Switch Mode",
+    "retry": "Retry",
+    "nextWord": "Next Word"
+  }
 }

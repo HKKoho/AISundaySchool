@@ -1,5 +1,6 @@
 
 import React, { useState, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LanguageSelector } from './components/LanguageSelector';
 import { AlphabetLearning } from './components/AlphabetLearning';
 import { WordCard } from './components/WordCard';
@@ -33,6 +34,7 @@ const blobToBase64 = (blob: Blob): Promise<string> => {
 };
 
 export default function App() {
+  const { t } = useTranslation('language');
   const [learningMode, setLearningMode] = useState<LearningMode | null>(null);
   const [gameState, setGameState] = useState<GameState>('selecting');
   const [language, setLanguage] = useState<Language | null>(null);
@@ -118,7 +120,7 @@ export default function App() {
               setFeedback(result);
             } catch (apiError) {
               console.error(apiError);
-              setError('無法從 AI 獲取反饋，請重試。');
+              setError(t('errors.noFeedback'));
               setGameState('error');
             } finally {
                setGameState('feedback');
@@ -129,7 +131,7 @@ export default function App() {
         recorder.start();
     } catch (err) {
         console.error('Error accessing microphone:', err);
-        setError('需要麥克風權限才能使用。請在瀏覽器設定中啟用麥克風。');
+        setError(t('errors.micPermission'));
         setGameState('error');
     }
   }, [currentWord, language]);
@@ -162,8 +164,8 @@ export default function App() {
       <div className="w-full max-w-5xl flex flex-col items-center">
         {/* Powered by indicator */}
         <div className="absolute top-4 right-4 text-xs text-stone-500 dark:text-stone-400 flex items-center gap-2">
-          <span>Pronunciation powered by</span>
-          <span className="font-semibold text-blue-600 dark:text-blue-400">Multi-AI (GPT-4o/Ollama/Gemini)</span>
+          <span>{t('aiPowered')}</span>
+          <span className="font-semibold text-blue-600 dark:text-blue-400">{t('multiAI')}</span>
         </div>
         {/* Mode selection screen */}
         {!learningMode && gameState === 'selecting' && (
@@ -221,7 +223,7 @@ export default function App() {
         {learningMode === 'word-practice' && gameState !== 'selecting' && (
           <>
             <button onClick={handleBackToModeSelection} className="absolute top-4 left-4 text-sm text-stone-500 hover:text-sky-600 transition-colors">
-                &larr; 切換模式
+                &larr; {t('buttons.switchMode')}
             </button>
 
             {language && currentWord && (
@@ -231,9 +233,9 @@ export default function App() {
                 {error && (
                   <div className="w-full max-w-2xl mt-8 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 rounded-xl p-6 text-center animate-fade-in">
                     <p className="text-red-800 dark:text-red-200">{error}</p>
-                    { gameState === 'error' && error.includes('麥克風') && (
+                    { gameState === 'error' && error === t('errors.micPermission') && (
                          <button onClick={handleMicPermission} className="mt-4 px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition-colors">
-                            重試
+                            {t('buttons.retry')}
                         </button>
                     )}
                   </div>
@@ -245,7 +247,7 @@ export default function App() {
                   <RecordButton gameState={gameState} onClick={handleRecordClick} />
                   {gameState === 'feedback' && (
                       <button onClick={handleNextWord} className="px-8 py-3 bg-green-600 text-white rounded-full font-bold shadow-md hover:bg-green-700 transition-all transform hover:scale-105 animate-fade-in">
-                          下一個單字 &rarr;
+                          {t('buttons.nextWord')} &rarr;
                       </button>
                   )}
                 </div>

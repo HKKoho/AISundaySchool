@@ -16,5 +16,15 @@
   "feedback": "反饋",
   "pronounce": "發音",
   "listening": "聆聽中...",
-  "aiPowered": "由多重AI驅動（GPT-4o/Ollama/Gemini）"
+  "aiPowered": "發音由",
+  "multiAI": "多重AI驅動（GPT-4o/Ollama/Gemini）",
+  "errors": {
+    "noFeedback": "無法從 AI 獲取反饋，請重試。",
+    "micPermission": "需要麥克風權限才能使用。請在瀏覽器設定中啟用麥克風。"
+  },
+  "buttons": {
+    "switchMode": "切換模式",
+    "retry": "重試",
+    "nextWord": "下一個單字"
+  }
 }
