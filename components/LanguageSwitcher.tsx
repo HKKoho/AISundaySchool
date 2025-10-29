@@ -18,7 +18,7 @@ const LanguageSwitcher: React.FC = () => {
     >
       <Icon name="languages" className="w-5 h-5" />
       <span className="font-medium">
-        {i18n.language === 'en' ? '中文' : 'EN'}
+        {i18n.language === 'en' ? '中文' : 'Eng'}
       </span>
     </button>
   );
