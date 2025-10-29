@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useGame } from '../../hooks/useGame';
+import { useTranslatedQuests } from '../../hooks/useTranslatedQuest';
 import { locations, quests, levels } from '../../data/gameData';
 import type { Quest } from '../../types';
 import QuestModal from './QuestModal';
@@ -11,12 +13,16 @@ import Icon from './Icon';
 const STORAGE_KEY = 'bible-game-generated-questions';
 
 const GameMap: React.FC = () => {
+  const { t } = useTranslation('bibleGame');
   const { unlockedLocations, completedQuests, isFreeChoiceMode, setIsFreeChoiceMode } = useGame();
   const [activeQuest, setActiveQuest] = useState<Quest | null>(null);
   const [completedLevelId, setCompletedLevelId] = useState<string | null>(null);
   const [showQuestionBrowser, setShowQuestionBrowser] = useState<boolean>(false);
   const [showQuestionGenerator, setShowQuestionGenerator] = useState<boolean>(false);
   const [generatedQuestions, setGeneratedQuestions] = useState<Quest[]>([]);
+
+  // Translate all quests
+  const translatedQuests = useTranslatedQuests(quests);
 
   // Load generated questions from localStorage on mount
   useEffect(() => {
@@ -42,8 +48,8 @@ const GameMap: React.FC = () => {
     }
   }, [generatedQuestions]);
 
-  // Combine static quests with generated questions
-  const allQuests = [...quests, ...generatedQuestions];
+  // Combine translated static quests with generated questions
+  const allQuests = [...translatedQuests, ...generatedQuestions];
 
   const handleLocationClick = (questId: string) => {
     const quest = allQuests.find(q => q.id === questId);
@@ -95,7 +101,7 @@ const GameMap: React.FC = () => {
       {/* Mode Toggle and Browse Button */}
       <div className="mb-4 flex flex-wrap items-center justify-center gap-3">
         <div className="bg-stone-800/90 rounded-lg p-3 border-2 border-amber-700 flex items-center gap-3">
-          <span className="text-amber-200 font-semibold">遊戲模式：</span>
+          <span className="text-amber-200 font-semibold">{t('gameMap.gameMode')}</span>
           <button
             onClick={() => setIsFreeChoiceMode(!isFreeChoiceMode)}
             className={`px-4 py-2 rounded-lg font-semibold transition ${
@@ -104,7 +110,7 @@ const GameMap: React.FC = () => {
                 : 'bg-stone-600 text-stone-300 hover:bg-stone-500'
             }`}
           >
-            順序解鎖
+            {t('gameMap.sequentialUnlock')}
           </button>
           <button
             onClick={() => setIsFreeChoiceMode(!isFreeChoiceMode)}
@@ -114,7 +120,7 @@ const GameMap: React.FC = () => {
                 : 'bg-stone-600 text-stone-300 hover:bg-stone-500'
             }`}
           >
-            自由選擇
+            {t('gameMap.freeChoice')}
           </button>
         </div>
 
@@ -125,14 +131,14 @@ const GameMap: React.FC = () => {
               className="bg-amber-700 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border-2 border-amber-900"
             >
               <Icon name="list" className="w-5 h-5"/>
-              瀏覽所有問題
+              {t('gameMap.browseAllQuestions')}
             </button>
             <button
               onClick={() => setShowQuestionGenerator(true)}
               className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border-2 border-purple-900"
             >
               <Icon name="sparkles" className="w-5 h-5"/>
-              AI 生成問題
+              {t('gameMap.aiGenerateQuestions')}
             </button>
           </>
         )}
@@ -159,7 +165,7 @@ const GameMap: React.FC = () => {
               onClick={() => handleLocationClick(location.questId)}
               className={`absolute transform -translate-x-1/2 -translate-y-1/2 p-2 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/50 group ${statusClasses}`}
               style={{ top: location.position.top, left: location.position.left }}
-              aria-label={`地點：${location.name}`}
+              aria-label={`${t('gameMap.locationLabel')}${location.name}`}
             >
               {isCompleted ? <Icon name="check" className="w-5 h-5"/> : isUnlocked ? <Icon name="unlock" className="w-5 h-5"/> : <Icon name="lock" className="w-5 h-5"/>}
               <div className="absolute bottom-full mb-2 w-max bg-gray-900 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity pointer-events-none" role="tooltip">

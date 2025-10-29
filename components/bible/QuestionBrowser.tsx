@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { quests } from '../../data/gameData';
 import type { Quest } from '../../types';
 import { useGame } from '../../hooks/useGame';
+import { useTranslatedQuests } from '../../hooks/useTranslatedQuest';
 import Icon from './Icon';
 
 interface QuestionBrowserProps {
@@ -15,8 +16,9 @@ const QuestionBrowser: React.FC<QuestionBrowserProps> = ({ onSelectQuest, onClos
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCompleted, setFilterCompleted] = useState<'all' | 'completed' | 'incomplete'>('all');
 
-  // Combine static quests with additional generated quests
-  const allQuests = [...quests, ...additionalQuests];
+  // Combine static quests with additional generated quests and translate them
+  const translatedQuests = useTranslatedQuests(quests);
+  const allQuests = [...translatedQuests, ...additionalQuests];
 
   const filteredQuests = allQuests.filter(quest => {
     const matchesSearch = quest.character.toLowerCase().includes(searchTerm.toLowerCase()) ||

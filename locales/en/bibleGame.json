@@ -14,5 +14,100 @@
     "easy": "Easy",
     "medium": "Medium",
     "hard": "Hard"
+  },
+  "header": {
+    "mainTitle": "Journey Through Scripture: Exploring Faith Certified by 'Sola Scriptura'",
+    "versionLabel": "Version:",
+    "journalButton": "Journal",
+    "journalAriaLabel": "Open Wisdom Scroll",
+    "instructionModal": {
+      "title": "📜 How to Begin Your Journey",
+      "welcome": "Welcome to the Journey Through Scripture! Your wisdom scroll is currently empty.",
+      "featuresTitle": "📖 Quest Journal Feature:",
+      "featuresDesc": "Complete quests on the map to unlock wisdom content. Each completed quest will give you:",
+      "feature1": "Biblical knowledge and insights",
+      "feature2": "Records of theological wisdom",
+      "feature3": "Milestones of spiritual growth",
+      "startButton": "Start Exploring the Map",
+      "closeAriaLabel": "Close"
+    }
+  },
+  "gameMap": {
+    "gameMode": "Game Mode:",
+    "sequentialUnlock": "Sequential Unlock",
+    "freeChoice": "Free Choice",
+    "browseAllQuestions": "Browse All Questions",
+    "aiGenerateQuestions": "AI Generate Questions",
+    "locationLabel": "Location:"
+  },
+  "questModal": {
+    "messageFrom": "Message from",
+    "timer": "Time: {{seconds}}s",
+    "timeUp": "Time's Up!",
+    "correct": "Correct!",
+    "incorrect": "Not quite right...",
+    "continueJourney": "Continue Journey",
+    "deepDive": "Deep Dive",
+    "timeUpMessage": "Your time has run out. Feel free to close this window and try again.",
+    "closeQuest": "Close Quest"
+  },
+  "quests": {
+    "q1": {
+      "character": "Abraham",
+      "question": "God made a covenant with me, marked by a specific sign. What was this covenant primarily about?",
+      "options": [
+        "A promise of a new ship.",
+        "A contract to build pyramids.",
+        "A promise of land, descendants, and blessings.",
+        "A decree to only eat vegetables."
+      ],
+      "explanation": "The Abrahamic Covenant (Genesis 12, 15, 17) was God's foundational promise. The sign of this covenant was circumcision, a physical mark symbolizing being set apart. This theme of 'being set apart' prefigures the concept of baptism.",
+      "journalPrompt": {
+        "title": "The Abrahamic Covenant",
+        "content": "A covenant is a sacred promise. God promised Abraham land, countless descendants, and that all nations would be blessed through him. This laid the foundation for God's continuing relationship with humanity."
+      },
+      "deepDive": {
+        "title": "Covenant Theology",
+        "content": "In Hebrew, covenant is 'berit.' It's not merely a contract; it's a solemn oath that binds two parties together. Ancient covenants typically included a ceremony or sign, like circumcision. This concept of binding relational commitment is crucial for understanding later biblical themes, including the New Covenant established by Jesus."
+      }
+    },
+    "q2": {
+      "character": "Moses",
+      "question": "At Mount Sinai, I received the Law for Israel, which included many purification rituals involving blood and water. What was the primary purpose of these rituals?",
+      "options": [
+        "To cleanse ritual impurity and restore the opportunity to approach God.",
+        "To prepare for the annual swimming competition.",
+        "To cool down in the desert heat.",
+        "To wash clothes before festivals."
+      ],
+      "explanation": "The Law of Leviticus (Leviticus 11-15) prescribed washing with water or sacrificial blood to cleanse ritual impurity (e.g., after touching a corpse or suffering from skin diseases). This wasn't about physical dirt, but about being in a state of holiness to approach the holy God. Water and blood became powerful symbols of spiritual cleansing.",
+      "journalPrompt": {
+        "title": "Cleansing with Water",
+        "content": "The Law given to Moses taught that God is holy, and people need to be cleansed to approach Him. Water was the primary means of this ritual purification, symbolizing the transition from an unclean state to a clean state."
+      },
+      "deepDive": {
+        "title": "Ritual Purity vs. Moral Purity",
+        "content": "It's important to distinguish between ritual impurity and sin. A person could become ritually impure without sinning. These laws taught Israel a profound lesson: approaching God requires holiness. Later prophets would emphasize that true inner purity matters more than external rituals, a theme that John the Baptist and Jesus would further develop."
+      }
+    },
+    "q5": {
+      "character": "Ezekiel",
+      "question": "During the Babylonian exile, I conveyed God's promise to give His people a 'new heart' and a 'new spirit.' What did this promise primarily mean?",
+      "options": [
+        "An appreciation for new music styles.",
+        "An inner, spiritual transformation enabling obedience to God.",
+        "A physical heart transplant.",
+        "The ability to learn new languages."
+      ],
+      "explanation": "Ezekiel 36:25-27 is a key Old Testament passage prophesying God's coming work of inner cleansing and renewal. God promised to cleanse His people with clean water, remove their 'heart of stone' (hardened heart), and give them a 'heart of flesh' (softened heart), placing His Spirit within them. This directly foreshadows the regeneration and indwelling of the Holy Spirit symbolized in Christian baptism.",
+      "journalPrompt": {
+        "title": "The Promise of a New Heart",
+        "content": "The prophet Ezekiel foretold a new covenant that transcends external rituals. God promised to transform His people from deep within, cleansing them and giving them His Spirit to enable them to follow His ways."
+      },
+      "deepDive": {
+        "title": "Rebirth in the Old Testament",
+        "content": "While 'rebirth' is a New Testament concept, its roots are deeply planted in Old Testament promises. Passages like Ezekiel 36 and Jeremiah 31:31-34 (about the new covenant written on hearts) point to God's plan to do a fundamental work in human hearts. This is no longer just about following external laws, but having a transformed heart that desires to obey God. Christian baptism is the sign of this promise fulfilled."
+      }
+    }
   }
 }
