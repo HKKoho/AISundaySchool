@@ -57,6 +57,17 @@
   "buttons": {
     "switchMode": "Switch Mode",
     "retry": "Retry",
-    "nextWord": "Next Word"
+    "nextWord": "Next Word",
+    "back": "Back",
+    "playPronunciation": "Play Pronunciation"
+  },
+  "alphabet": {
+    "title": "Alphabet",
+    "allLetters": "All Letters ({{count}} letters)",
+    "selectLetter": "Click a letter",
+    "viewDetails": "to view details",
+    "transliteration": "Transliteration",
+    "numericalValue": "Numerical Value",
+    "notes": "Notes"
   }
 }

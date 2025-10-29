@@ -57,6 +57,17 @@
   "buttons": {
     "switchMode": "切換模式",
     "retry": "重試",
-    "nextWord": "下一個單字"
+    "nextWord": "下一個單字",
+    "back": "返回",
+    "playPronunciation": "播放發音"
+  },
+  "alphabet": {
+    "title": "字母表",
+    "allLetters": "所有字母 ({{count}} 個)",
+    "selectLetter": "點選字母",
+    "viewDetails": "查看詳細資訊",
+    "transliteration": "轉寫",
+    "numericalValue": "數值",
+    "notes": "注意事項"
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Language } from '../types';
 import { HEBREW_ALPHABET, GREEK_ALPHABET, Letter } from '../alphabets';
 import { ArrowLeft, Volume2 } from 'lucide-react';
@@ -9,10 +10,11 @@ interface AlphabetLearningProps {
 }
 
 export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, onBack }) => {
+  const { t } = useTranslation('language');
   const [selectedLetter, setSelectedLetter] = useState<Letter | null>(null);
 
   const alphabet = language === Language.HEBREW ? HEBREW_ALPHABET : GREEK_ALPHABET;
-  const languageName = language === Language.HEBREW ? '希伯來文' : '希臘文';
+  const languageName = language === Language.HEBREW ? t('hebrew') : t('greek');
   const direction = language === Language.HEBREW ? 'rtl' : 'ltr';
 
   const handleLetterClick = (letter: Letter) => {
@@ -36,10 +38,10 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
           className="flex items-center gap-2 text-stone-600 dark:text-stone-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
-          <span>返回</span>
+          <span>{t('buttons.back')}</span>
         </button>
         <h1 className="text-3xl font-bold text-stone-800 dark:text-stone-200">
-          {languageName}字母表
+          {languageName}{t('alphabet.title')}
         </h1>
         <div className="w-20"></div> {/* Spacer for centering */}
       </div>
@@ -49,7 +51,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
         <div className="lg:col-span-2">
           <div className="bg-amber-50 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl font-semibold text-stone-700 dark:text-stone-200 mb-4">
-              所有字母 ({alphabet.length} 個)
+              {t('alphabet.allLetters', { count: alphabet.length })}
             </h2>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
               {alphabet.map((letter, index) => (
@@ -97,14 +99,14 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
                     className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-sky-100 dark:bg-sky-900/50 hover:bg-sky-200 dark:hover:bg-sky-800/50 rounded-lg transition-colors text-sky-700 dark:text-sky-300"
                   >
                     <Volume2 className="w-4 h-4" />
-                    <span className="text-sm">播放發音</span>
+                    <span className="text-sm">{t('buttons.playPronunciation')}</span>
                   </button>
                 </div>
 
                 <div className="space-y-3">
                   <div>
                     <h4 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-1">
-                      轉寫
+                      {t('alphabet.transliteration')}
                     </h4>
                     <p className="text-lg text-stone-800 dark:text-stone-200 font-mono bg-amber-100 px-3 py-2 rounded-lg">
                       {selectedLetter.transliteration}
@@ -113,7 +115,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
 
                   <div>
                     <h4 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-1">
-                      發音
+                      {t('pronunciation')}
                     </h4>
                     <p className="text-base text-stone-700 dark:text-stone-200 bg-amber-100 px-3 py-2 rounded-lg">
                       {selectedLetter.pronunciation}
@@ -123,7 +125,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
                   {selectedLetter.numericalValue && (
                     <div>
                       <h4 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-1">
-                        數值
+                        {t('alphabet.numericalValue')}
                       </h4>
                       <p className="text-lg text-stone-800 dark:text-stone-200 font-mono bg-amber-100 px-3 py-2 rounded-lg">
                         {selectedLetter.numericalValue}
@@ -134,7 +136,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
                   {selectedLetter.notes && (
                     <div>
                       <h4 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-1">
-                        注意事項
+                        {t('alphabet.notes')}
                       </h4>
                       <p className="text-sm text-stone-600 dark:text-stone-300 bg-amber-50 dark:bg-amber-900/20 px-3 py-2 rounded-lg border border-amber-200 dark:border-amber-800">
                         {selectedLetter.notes}
@@ -145,8 +147,8 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
               </div>
             ) : (
               <div className="text-center py-12 text-stone-400 dark:text-stone-500">
-                <p className="text-lg mb-2">點選字母</p>
-                <p className="text-sm">查看詳細資訊</p>
+                <p className="text-lg mb-2">{t('alphabet.selectLetter')}</p>
+                <p className="text-sm">{t('alphabet.viewDetails')}</p>
               </div>
             )}
           </div>
