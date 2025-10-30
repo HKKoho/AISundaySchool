@@ -1344,13 +1344,13 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
           className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-4"
         >
           <ArrowLeft className="w-5 h-5" />
-          返回主頁
+          {t('backButton')}
         </button>
 
         <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-          研經助手
+          {t('title')}
         </h1>
-        <p className="text-gray-400">探索信仰、聖經和神學理解的全方位平台</p>
+        <p className="text-gray-400">{t('subtitle')}</p>
       </div>
 
       {/* Tab Navigation */}
@@ -1358,22 +1358,22 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
         {renderTabButton(
           TheologyAssistantMode.RESOURCE_SEARCH,
           <Search className="w-4 h-4" />,
-          '資源搜尋'
+          t('tabs.resourceSearch')
         )}
         {renderTabButton(
           TheologyAssistantMode.ASSIGNMENT_ASSISTANT,
           <GraduationCap className="w-4 h-4" />,
-          '作業助手'
+          t('tabs.assignmentAssistant')
         )}
         {renderTabButton(
           TheologyAssistantMode.THEOLOGY_CHAT,
           <MessageCircle className="w-4 h-4" />,
-          '神學對話'
+          t('tabs.theologyChat')
         )}
         {renderTabButton(
           TheologyAssistantMode.READING_QA,
           <FileText className="w-4 h-4" />,
-          '上傳文檔簡閱或問答'
+          t('tabs.readingQA')
         )}
       </div>
 

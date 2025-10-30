@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { Quest } from '../types';
 import { useGame } from '../hooks/useGame';
 import Icon from './Icon';
@@ -16,6 +16,32 @@ const DeepDiveContent: React.FC<DeepDiveContentProps> = ({ deepDive, onBack }) =
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [selectedModel, setSelectedModel] = useState<'gemini' | 'openai'>('gemini');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollContainerRef.current) {
+        const scrollTop = scrollContainerRef.current.scrollTop;
+        setShowScrollTop(scrollTop > 200);
+      }
+    };
+
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const formatUrl = (url: string, text: string) => {
     if (url === '#') return url;
@@ -64,7 +90,7 @@ const DeepDiveContent: React.FC<DeepDiveContentProps> = ({ deepDive, onBack }) =
 
 
   return (
-    <div className="flex-grow overflow-y-auto pr-4 -mr-4">
+    <div ref={scrollContainerRef} className="flex-grow overflow-y-auto pr-4 -mr-4 relative">
         <h2 id="deepdive-title" className="text-4xl font-bold text-amber-900 mb-4 flex items-center gap-3" style={{fontFamily: "'Trajan Pro', serif"}}>
             <Icon name="lightbulb" className="w-8 h-8"/>
             深入探索：{deepDive.title}
@@ -134,13 +160,24 @@ const DeepDiveContent: React.FC<DeepDiveContentProps> = ({ deepDive, onBack }) =
             </div>
         )}
         <div className="mt-8 border-t-2 border-amber-800/20 pt-6">
-            <button 
-              onClick={onBack} 
+            <button
+              onClick={onBack}
               className="bg-stone-600 hover:bg-stone-500 text-white font-bold py-2 px-4 rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500 focus-visible:ring-offset-amber-100"
             >
               返回說明
             </button>
         </div>
+
+        {/* Scroll to top button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 bg-amber-800 hover:bg-amber-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500 z-50 animate-fade-in"
+            aria-label="回到頂部"
+          >
+            <Icon name="arrow-up" className="w-6 h-6" />
+          </button>
+        )}
     </div>
   );
 };
