@@ -81,7 +81,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onSelect, on
 
   return (
     <div className="flex flex-col items-center justify-center h-full animate-fade-in px-4">
-        <h1 className="text-5xl font-extrabold text-stone-700 dark:text-stone-200 mb-4 text-center">{t('welcome')}</h1>
+        <h1 className="text-5xl font-extrabold text-white mb-4 text-center">{t('welcome')}</h1>
         <p className="text-xl text-stone-500 dark:text-stone-400 mb-8 text-center">{t('selectLanguagePrompt')}</p>
 
         {/* Permissions Info */}
