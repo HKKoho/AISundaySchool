@@ -1106,8 +1106,8 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
               }`}
             >
-              <div className="font-semibold">🌐 Google Search</div>
-              <div className="text-xs mt-1 opacity-80">即時網路搜尋神學資源</div>
+              <div className="font-semibold">🌐 {t('search.googleSearch')}</div>
+              <div className="text-xs mt-1 opacity-80">{t('search.googleSearchDesc')}</div>
             </button>
 
             <button
@@ -1118,8 +1118,8 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
               }`}
             >
-              <div className="font-semibold">🔗 URL Context</div>
-              <div className="text-xs mt-1 opacity-80">從指定神學網站搜尋</div>
+              <div className="font-semibold">🔗 {t('search.urlContext')}</div>
+              <div className="text-xs mt-1 opacity-80">{t('search.urlContextDesc')}</div>
             </button>
 
             <button
@@ -1130,8 +1130,8 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
               }`}
             >
-              <div className="font-semibold">⚡ Code Execution</div>
-              <div className="text-xs mt-1 opacity-80">程式碼分析和統計</div>
+              <div className="font-semibold">⚡ {t('search.codeExecution')}</div>
+              <div className="text-xs mt-1 opacity-80">{t('search.codeExecutionDesc')}</div>
             </button>
 
             <button
@@ -1142,8 +1142,8 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
               }`}
             >
-              <div className="font-semibold">📚 Knowledge Base</div>
-              <div className="text-xs mt-1 opacity-80">使用 AI 知識庫推薦</div>
+              <div className="font-semibold">📚 {t('search.generalKnowledge')}</div>
+              <div className="text-xs mt-1 opacity-80">{t('search.generalKnowledgeDesc')}</div>
             </button>
           </div>
 
@@ -1151,7 +1151,7 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
           {searchMode === 'urlContext' && (
             <div className="mt-3">
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                選擇神學資源來源:
+                {t('search.urlSourceLabel')}
               </label>
               <select
                 value={urlSource}
@@ -1170,7 +1170,7 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
 
         <div className="flex items-center gap-3">
           <Filter className="w-5 h-5 text-gray-400" />
-          <span className="text-gray-400 text-sm">資源類型篩選:</span>
+          <span className="text-gray-400 text-sm">{t('search.filterLabel')}</span>
           <div className="flex gap-2 flex-wrap">
             {['all', 'book', 'article', 'commentary', 'encyclopedia', 'thesis', 'website'].map((type) => (
               <button
@@ -1182,7 +1182,7 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}
               >
-                {type === 'all' ? '全部' : getTypeName(type)}
+                {getTypeName(type)}
               </button>
             ))}
           </div>
