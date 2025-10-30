@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useGame } from '../hooks/useGame';
-import { locations, quests, levels } from '../data/gameData';
+import { locations, levels } from '../data/gameData';
+import { getLocalizedQuests } from '../data/localizedGameData';
 import type { Quest } from '../types';
 import QuestModal from './QuestModal';
 import LevelCompleteModal from './LevelCompleteModal';
 import Icon from './Icon';
 
 const GameMap: React.FC = () => {
+  const { t } = useTranslation('bibleGame');
   const { unlockedLocations, completedQuests } = useGame();
   const [activeQuest, setActiveQuest] = useState<Quest | null>(null);
   const [completedLevelId, setCompletedLevelId] = useState<string | null>(null);
+
+  const quests = useMemo(() => getLocalizedQuests(t), [t]);
 
   const handleLocationClick = (questId: string) => {
     const quest = quests.find(q => q.id === questId);

@@ -109,6 +109,63 @@
         "title": "Rebirth in the Old Testament",
         "content": "While 'rebirth' is a New Testament concept, its roots are deeply planted in Old Testament promises. Passages like Ezekiel 36 and Jeremiah 31:31-34 (about the new covenant written on hearts) point to God's plan to do a fundamental work in human hearts. This is no longer just about following external laws, but having a transformed heart that desires to obey God. Christian baptism is the sign of this promise fulfilled."
       }
+    },
+    "q3": {
+      "character": "John the Baptist",
+      "question": "I baptized people in the Jordan River. My baptism was...",
+      "options": [
+        "A baptism of repentance for the forgiveness of sins.",
+        "Joining the local fishing club.",
+        "An initiation into the Roman army.",
+        "A meaningless cultural tradition."
+      ],
+      "explanation": "John's baptism was a powerful public declaration. People confessed their sins and turned to God, preparing for the coming Messiah. It connected the Old Testament theme of water purification with an urgent call for personal repentance.",
+      "journalPrompt": {
+        "title": "The Baptism of Repentance",
+        "content": "John the Baptist was a bridge between the Old and New Testaments. His baptism in the Jordan River symbolized turning away from sin and preparing hearts for the coming of the Messiah, Jesus."
+      },
+      "deepDive": {
+        "title": "Mikveh and John's Baptism",
+        "content": "Jewish tradition already included ritual immersion in a 'mikveh' for purification. John's baptism was similar in form, but his message was radical, applying this ritual to all Israel as a sign of national repentance. He proclaimed that one greater than him was coming, who would baptize not just with water, but with the Holy Spirit and fire."
+      }
+    },
+    "q4": {
+      "character": "Apostle Peter",
+      "question": "On the day of Pentecost, I told the crowd to 'repent and be baptized.' What was the purpose?",
+      "options": [
+        "To get a free meal.",
+        "To cool down under the Jerusalem sun.",
+        "For the forgiveness of your sins and to receive the gift of the Holy Spirit.",
+        "To register for a new community census."
+      ],
+      "explanation": "Peter's sermon in Acts 2 marked the birth of the Christian church. Baptism is now explicitly connected to faith in Jesus Christ, forgiveness of sins through His death and resurrection, and the indwelling of the Holy Spirit. This is the initiation rite into the New Covenant community.",
+      "journalPrompt": {
+        "title": "New Testament Baptism",
+        "content": "Christian baptism, as proclaimed by Peter, is the culmination of salvation history. It combines the themes of covenant (joining God's people), cleansing (forgiveness of sins), and new life (receiving the Holy Spirit)."
+      },
+      "deepDive": {
+        "title": "Baptism: Symbol of Union with Christ",
+        "content": "The Apostle Paul later explained that baptism is spiritually dying, being buried, and rising with Jesus (Romans 6:3-4). When a person is immersed in water, it symbolizes the death of the old sinful self. Coming out of the water symbolizes resurrection to new life in Christ. This is a profound picture of the gospel itself."
+      }
+    },
+    "q6": {
+      "character": "Apostle Paul",
+      "question": "In my letter to the Galatians, I mentioned that all who are baptized into Christ have 'clothed yourselves with Christ.' What is the spiritual meaning of this phrase?",
+      "options": [
+        "Wearing special clothing printed with Christ's image.",
+        "In God's eyes, our identity is completely covered by Christ's righteousness.",
+        "Joining a fashion club called 'Christ.'",
+        "Getting a new cloak at baptism."
+      ],
+      "explanation": "'Clothed with Christ' (Galatians 3:27) is a powerful metaphor. It means that when we unite with Christ through faith and baptism, God no longer sees our sinful old self, but sees Christ's perfection and righteousness. Our identity is fundamentally changed. We are now 'in Christ,' with a new status and family.",
+      "journalPrompt": {
+        "title": "Clothed with Christ",
+        "content": "Baptism is not just about washing away sins, but also putting on a new identity. The Apostle Paul taught that in baptism, we are clothed with Christ Himself. Our old identity has passed away, and we now live as God's children in Christ's righteousness."
+      },
+      "deepDive": {
+        "title": "Identity in Christ",
+        "content": "Central to Pauline theology is the concept of being 'in Christ.' This is a profound spiritual union. Baptism is the outward sign of this union. As Romans 6 explains, we died, were buried, and rose with Christ; as Galatians says, we are clothed with Him. This means Christ's victory becomes our victory, His righteousness becomes our righteousness, and His relationship with the Father becomes our relationship. This completely transforms how Christians see themselves and live."
+      }
     }
   }
 }
