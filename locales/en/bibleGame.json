@@ -20,6 +20,7 @@
     "versionLabel": "Version:",
     "journalButton": "Journal",
     "journalAriaLabel": "Open Wisdom Scroll",
+    "languageSwitcher": "Switch to Traditional Chinese",
     "instructionModal": {
       "title": "📜 How to Begin Your Journey",
       "welcome": "Welcome to the Journey Through Scripture! Your wisdom scroll is currently empty.",
