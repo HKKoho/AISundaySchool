@@ -1283,10 +1283,10 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
         <div className="text-center py-16">
           <div className="text-6xl mb-4">🔍</div>
           <h3 className="text-xl font-semibold text-gray-300 mb-2">
-            未找到相關資源
+            {t('search.noResults')}
           </h3>
           <p className="text-gray-400">
-            嘗試使用不同的關鍵字或調整篩選條件
+            {t('search.tryDifferent')}
           </p>
         </div>
       )}
@@ -1295,23 +1295,23 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
         <div className="text-center py-16">
           <div className="text-6xl mb-4">📚</div>
           <h3 className="text-xl font-semibold text-gray-300 mb-2">
-            開始搜尋神學資源
+            {t('search.startSearching')}
           </h3>
           <p className="text-gray-400 mb-6">
-            輸入關鍵字搜尋書籍、文章、註釋和學術論文
+            {t('search.enterKeywords')}
           </p>
           <div className="flex justify-center gap-4 text-sm text-gray-500">
-            <span>熱門搜尋:</span>
-            {['三一神論', '因信稱義', '教會歷史', '系統神學'].map((term) => (
+            <span>{t('search.popularSearches')}</span>
+            {(['trinity', 'justification', 'churchHistory', 'systematicTheology'] as const).map((termKey) => (
               <button
-                key={term}
+                key={termKey}
                 onClick={() => {
-                  setSearchQuery(term);
+                  setSearchQuery(t(`searchTerms.${termKey}`));
                   setTimeout(handleSearch, 100);
                 }}
                 className="text-green-400 hover:text-green-300 transition-colors"
               >
-                {term}
+                {t(`searchTerms.${termKey}`)}
               </button>
             ))}
           </div>
