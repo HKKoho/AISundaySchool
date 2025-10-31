@@ -1,12 +1,12 @@
 {
-  "title": "研經助手",
+  "title": "聖經研經助手",
   "subtitle": "探索信仰、聖經和神學理解的全方位平台",
   "backButton": "返回主頁",
 
   "tabs": {
     "resourceSearch": "資源搜尋",
     "assignmentAssistant": "作業助手",
-    "theologyChat": "神學對話",
+    "theologyChat": "聖經神學對話",
     "readingQA": "上傳文檔簡閱或問答",
     "bibleStudy": "聖經研讀"
   },

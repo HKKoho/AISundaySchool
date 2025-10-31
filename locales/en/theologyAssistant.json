@@ -1,12 +1,12 @@
 {
-  "title": "Theology Assistant",
+  "title": "Biblical Study Assistant",
   "subtitle": "Comprehensive platform for exploring faith, Bible, and theological understanding",
   "backButton": "Back to Home",
 
   "tabs": {
     "resourceSearch": "Resource Search",
     "assignmentAssistant": "Assignment Assistant",
-    "theologyChat": "Theology Chat",
+    "theologyChat": "Theology in Bible Chat",
     "readingQA": "Upload Document Q&A",
     "bibleStudy": "Bible Study"
   },
