@@ -83,11 +83,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           );
         })}
       </div>
-
-      <div className="mt-16 text-center text-gray-400 text-sm">
-        <p>{t('footer.choose')}</p>
-        <p className="mt-2">{t('footer.chooseEn')}</p>
-      </div>
     </div>
   );
 }; 
