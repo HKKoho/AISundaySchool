@@ -7,7 +7,8 @@
     "resourceSearch": "資源搜尋",
     "assignmentAssistant": "作業助手",
     "theologyChat": "神學對話",
-    "readingQA": "上傳文檔簡閱或問答"
+    "readingQA": "上傳文檔簡閱或問答",
+    "bibleStudy": "聖經研讀"
   },
 
   "modelSelection": {
@@ -165,5 +166,35 @@
     "thesisIcon": "🎓",
     "websiteIcon": "🌐",
     "defaultIcon": "📝"
+  },
+
+  "bibleStudy": {
+    "searchPlaceholder": "搜尋經卷名稱或代碼...",
+    "chapter": "第",
+    "chapters": "章",
+    "selectMode": "選擇研讀模式:",
+    "selectChapter": "選擇章節",
+    "total": "共",
+    "openInStepBible": "在 STEP Bible 開始研讀",
+    "oldTestament": "舊約 Old Testament",
+    "newTestament": "新約 New Testament",
+    "modes": {
+      "basic": "基本閱讀",
+      "basicDesc": "中文和合本",
+      "parallel": "平行對照",
+      "parallelDesc": "多譯本對照 (中文/ESV/NIV)",
+      "interlinear": "原文對照",
+      "interlinearDesc": "逐字對應希伯來文/希臘文",
+      "wordStudy": "詞彙研究",
+      "wordStudyDesc": "原文詞彙分析與字義",
+      "commentary": "註釋研讀",
+      "commentaryDesc": "包含聖經註釋",
+      "crossref": "交叉引用",
+      "crossrefDesc": "相關經文連結",
+      "comparison": "中文對照",
+      "comparisonDesc": "和合本/和合本修訂版/和合本粵語",
+      "multilang": "多語對照",
+      "multilangDesc": "中英法多語言版本"
+    }
   }
 }

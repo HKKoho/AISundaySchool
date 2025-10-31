@@ -78,7 +78,8 @@ export enum TheologyAssistantMode {
   THEOLOGY_CHAT = 'Theology Chat',
   READING_QA = 'Reading Q&A',
   ASSIGNMENT_ASSISTANT = 'Assignment Assistant',
-  RESOURCE_SEARCH = 'Resource Search'
+  RESOURCE_SEARCH = 'Resource Search',
+  BIBLE_STUDY = 'Bible Study'
 }
 
 export enum AssignmentStage {

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import {
   ArrowLeft, MessageCircle, Settings, FileText, Upload,
   Send, Trash2, Save, Edit3, CheckCircle, AlertCircle,
-  Book, GraduationCap, Users, Search, Filter, Info
+  Book, GraduationCap, Users, Search, Filter, Info, BookOpen
 } from 'lucide-react';
 import {
   TheologyAssistantMode,
@@ -19,6 +19,7 @@ import {
   LocalLLMModel
 } from '../types';
 import SpeechInput from './SpeechInput';
+import { BibleStudy } from './BibleStudy';
 
 interface TheologyAssistantProps {
   onBack: () => void;
@@ -1330,6 +1331,8 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
         return renderAssignmentAssistant();
       case TheologyAssistantMode.RESOURCE_SEARCH:
         return renderResourceSearch();
+      case TheologyAssistantMode.BIBLE_STUDY:
+        return <BibleStudy />;
       default:
         return renderTheologyChat();
     }
@@ -1374,6 +1377,11 @@ export const TheologyAssistant: React.FC<TheologyAssistantProps> = ({ onBack }) 
           TheologyAssistantMode.READING_QA,
           <FileText className="w-4 h-4" />,
           t('tabs.readingQA')
+        )}
+        {renderTabButton(
+          TheologyAssistantMode.BIBLE_STUDY,
+          <BookOpen className="w-4 h-4" />,
+          t('tabs.bibleStudy')
         )}
       </div>
 

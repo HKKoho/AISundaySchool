@@ -7,7 +7,8 @@
     "resourceSearch": "Resource Search",
     "assignmentAssistant": "Assignment Assistant",
     "theologyChat": "Theology Chat",
-    "readingQA": "Upload Document Q&A"
+    "readingQA": "Upload Document Q&A",
+    "bibleStudy": "Bible Study"
   },
 
   "modelSelection": {
@@ -165,5 +166,35 @@
     "thesisIcon": "🎓",
     "websiteIcon": "🌐",
     "defaultIcon": "📝"
+  },
+
+  "bibleStudy": {
+    "searchPlaceholder": "Search book name or code...",
+    "chapter": "Chapter",
+    "chapters": "chapters",
+    "selectMode": "Select study mode:",
+    "selectChapter": "Select chapter",
+    "total": "Total",
+    "openInStepBible": "Open in STEP Bible",
+    "oldTestament": "Old Testament 舊約",
+    "newTestament": "New Testament 新約",
+    "modes": {
+      "basic": "Basic Reading",
+      "basicDesc": "Chinese Union Version",
+      "parallel": "Parallel Versions",
+      "parallelDesc": "Multiple versions (Chinese/ESV/NIV)",
+      "interlinear": "Interlinear",
+      "interlinearDesc": "Word-by-word Hebrew/Greek",
+      "wordStudy": "Word Study",
+      "wordStudyDesc": "Original language vocabulary analysis",
+      "commentary": "With Commentary",
+      "commentaryDesc": "Includes Bible commentaries",
+      "crossref": "Cross References",
+      "crossrefDesc": "Related scripture links",
+      "comparison": "Chinese Comparison",
+      "comparisonDesc": "CUV/RCUV/Cantonese versions",
+      "multilang": "Multilingual",
+      "multilangDesc": "Chinese/English/French versions"
+    }
   }
 }
