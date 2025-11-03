@@ -966,44 +966,46 @@ Focus on theological depth, doctrinal significance, and Christian orthodoxy. Pro
                 ))}
               </div>
 
-              {/* Verse Range Selection */}
-              <div className="mb-4 p-3 bg-gray-600 rounded-lg">
-                <p className="text-sm font-medium text-gray-300 mb-2">
-                  {t('verseRange', 'Verse Range (optional)')}
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="flex-1">
-                    <label className="text-xs text-gray-400 mb-1 block">
-                      {t('startVerse', 'Start Verse')}
-                    </label>
-                    <input
-                      type="number"
-                      min="1"
-                      value={startVerse}
-                      onChange={(e) => setStartVerse(parseInt(e.target.value) || 1)}
-                      className="w-full px-3 py-2 bg-gray-700 border border-gray-500 rounded focus:outline-none focus:border-green-500 text-white"
-                      placeholder="1"
-                    />
+              {/* Verse Range Selection - Disabled for Interlinear Study */}
+              {studyMode !== 'interlinear' && (
+                <div className="mb-4 p-3 bg-gray-600 rounded-lg">
+                  <p className="text-sm font-medium text-gray-300 mb-2">
+                    {t('verseRange', 'Verse Range (optional)')}
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1">
+                      <label className="text-xs text-gray-400 mb-1 block">
+                        {t('startVerse', 'Start Verse')}
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        value={startVerse}
+                        onChange={(e) => setStartVerse(parseInt(e.target.value) || 1)}
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-500 rounded focus:outline-none focus:border-green-500 text-white"
+                        placeholder="1"
+                      />
+                    </div>
+                    <span className="text-gray-400 mt-5">—</span>
+                    <div className="flex-1">
+                      <label className="text-xs text-gray-400 mb-1 block">
+                        {t('endVerse', 'End Verse')}
+                      </label>
+                      <input
+                        type="number"
+                        min={startVerse}
+                        value={endVerse || ''}
+                        onChange={(e) => setEndVerse(e.target.value ? parseInt(e.target.value) : null)}
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-500 rounded focus:outline-none focus:border-green-500 text-white"
+                        placeholder={t('endVersePlaceholder', 'End of chapter')}
+                      />
+                    </div>
                   </div>
-                  <span className="text-gray-400 mt-5">—</span>
-                  <div className="flex-1">
-                    <label className="text-xs text-gray-400 mb-1 block">
-                      {t('endVerse', 'End Verse')}
-                    </label>
-                    <input
-                      type="number"
-                      min={startVerse}
-                      value={endVerse || ''}
-                      onChange={(e) => setEndVerse(e.target.value ? parseInt(e.target.value) : null)}
-                      className="w-full px-3 py-2 bg-gray-700 border border-gray-500 rounded focus:outline-none focus:border-green-500 text-white"
-                      placeholder={t('endVersePlaceholder', 'End of chapter')}
-                    />
-                  </div>
+                  <p className="text-xs text-gray-400 mt-2">
+                    {t('verseRangeHint', 'Leave empty for full chapter, or specify a verse range (e.g., 1-10)')}
+                  </p>
                 </div>
-                <p className="text-xs text-gray-400 mt-2">
-                  {t('verseRangeHint', 'Leave empty for full chapter, or specify a verse range (e.g., 1-10)')}
-                </p>
-              </div>
+              )}
 
               <button
                 onClick={() => openTrackedStepBible(selectedBook, selectedChapter, studyMode, startVerse, endVerse)}
