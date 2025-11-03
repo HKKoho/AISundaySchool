@@ -1,0 +1,50 @@
+{
+  "appName": "AI Christian Sunday School Platform",
+  "subtitle": "Christian Sunday School AI Tools - Explore Faith, Learn Scripture",
+  "navigation": {
+    "home": "Home",
+    "bibleGame": "Bible Exploration",
+    "language": "Original Language Learning",
+    "explore": "Biblical Study Assistant",
+    "versionComparison": "Version Comparison"
+  },
+  "features": {
+    "bibleGame": {
+      "description": "Explore Bible stories and background knowledge through interactive games, learning with AI"
+    },
+    "language": {
+      "description": "Learn biblical original languages: Hebrew and Greek pronunciation practice and AI dialogue"
+    },
+    "explore": {
+      "description": "Resource Search, Assignment Assistant, Theology in Bible Chat, Upload Document Q&A"
+    },
+    "versionComparison": {
+      "title": "Leverage Step Bible",
+      "subtitle": "A Deeper Understanding",
+      "description": "Compare Bible versions side-by-side with multiple study modes including parallel, interlinear, and original language analysis"
+    }
+  },
+  "footer": {
+    "choose": "Choose a feature to begin your Bible exploration journey",
+    "chooseEn": "Choose a feature to begin your faith exploration journey"
+  },
+  "buttons": {
+    "start": "Start",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "backToHome": "Back to Home",
+    "continue": "Continue",
+    "retry": "Retry"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information"
+  }
+}

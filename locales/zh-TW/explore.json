@@ -1,0 +1,19 @@
+{
+  "title": "聖經探索助手",
+  "subtitle": "在AI協助下深入探討聖經主題",
+  "chat": "對話",
+  "introduction": "導論",
+  "deepDive": "深入探索",
+  "askQuestion": "提出問題...",
+  "send": "發送",
+  "topics": "主題",
+  "history": "歷史",
+  "theology": "神學",
+  "commentary": "註釋",
+  "selectModel": "AI 模型",
+  "models": {
+    "gemini": "Gemini",
+    "openai": "OpenAI",
+    "ollama": "Ollama"
+  }
+}

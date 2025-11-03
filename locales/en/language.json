@@ -1,0 +1,73 @@
+{
+  "title": "Biblical Language Learning",
+  "subtitle": "Learn Biblical Hebrew and Greek",
+  "welcome": "Welcome to Biblical Language Learning Foundations",
+  "selectLanguagePrompt": "Choose a biblical language to learn",
+  "selectLanguage": "Select Language",
+  "hebrew": "Hebrew",
+  "hebrewTitle": "Biblical Hebrew",
+  "hebrewSubtitle": "Old Testament",
+  "greek": "Classical Greek",
+  "greekTitle": "Classical Greek",
+  "greekSubtitle": "New Testament",
+  "alphabet": "Alphabet",
+  "words": "Words",
+  "verses": "Verses",
+  "practice": "Practice",
+  "pronunciation": "Pronunciation",
+  "meaning": "Meaning",
+  "example": "Example",
+  "recordAudio": "Record Audio",
+  "playback": "Playback",
+  "feedback": "Feedback",
+  "pronounce": "Pronounce",
+  "listening": "Listening...",
+  "aiPowered": "Pronunciation powered by",
+  "multiAI": "Multi-AI (GPT-4o/Ollama/Gemini)",
+  "permissions": {
+    "title": "Permissions Required",
+    "description": "This app needs access to your microphone and speakers to function:",
+    "speaker": "Speaker Permission",
+    "speakerDesc": "Play pronunciation examples and hear correct pronunciation",
+    "microphone": "Microphone Permission",
+    "microphoneDesc": "Record your pronunciation and receive AI feedback",
+    "tip": "Tip:",
+    "tipDesc": "Browser will request permissions when needed, please click 'Allow' to enable all features."
+  },
+  "modes": {
+    "alphabetLearning": "Alphabet Learning",
+    "alphabetLearningDesc": "Learn all letters and pronunciation",
+    "wordPractice": "Word Practice",
+    "wordPracticeDesc": "Pronunciation practice with AI feedback",
+    "verseLearning": "Verse Learning",
+    "verseLearningDesc": "Key vocabulary from Bible verses",
+    "vocabularyFlashcards": "Vocabulary Flashcards",
+    "vocabularyFlashcardsDesc": "Learn vocabulary with spaced repetition",
+    "listeningGame": "Listening Comprehension Game",
+    "listeningGameDesc": "Listen and identify 100 word challenge",
+    "pronunciationChallenge": "Pronunciation Challenge",
+    "pronunciationChallengeDesc": "Identify correct and incorrect pronunciation",
+    "sentencePractice": "✨ Sentence Practice",
+    "sentencePracticeDesc": "AI-generated Bible sentences + pronunciation scoring"
+  },
+  "errors": {
+    "noFeedback": "Unable to get feedback from AI, please try again.",
+    "micPermission": "Microphone permission required. Please enable microphone in browser settings."
+  },
+  "buttons": {
+    "switchMode": "Switch Mode",
+    "retry": "Retry",
+    "nextWord": "Next Word",
+    "back": "Back",
+    "playPronunciation": "Play Pronunciation"
+  },
+  "alphabet": {
+    "title": "Alphabet",
+    "allLetters": "All Letters ({{count}} letters)",
+    "selectLetter": "Click a letter",
+    "viewDetails": "to view details",
+    "transliteration": "Transliteration",
+    "numericalValue": "Numerical Value",
+    "notes": "Notes"
+  }
+}

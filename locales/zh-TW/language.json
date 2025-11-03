@@ -1,0 +1,73 @@
+{
+  "title": "聖經語言學習",
+  "subtitle": "學習聖經希伯來文和希臘文",
+  "welcome": "歡迎來到聖經文本學習基礎",
+  "selectLanguagePrompt": "選擇一種聖經語言來學習",
+  "selectLanguage": "選擇語言",
+  "hebrew": "希伯來文",
+  "hebrewTitle": "希伯來文",
+  "hebrewSubtitle": "舊約聖經",
+  "greek": "古典希臘文",
+  "greekTitle": "古典希臘文",
+  "greekSubtitle": "新約聖經",
+  "alphabet": "字母",
+  "words": "單詞",
+  "verses": "經文",
+  "practice": "練習",
+  "pronunciation": "發音",
+  "meaning": "意思",
+  "example": "例子",
+  "recordAudio": "錄音",
+  "playback": "播放",
+  "feedback": "反饋",
+  "pronounce": "發音",
+  "listening": "聆聽中...",
+  "aiPowered": "發音由",
+  "multiAI": "多重AI驅動（GPT-4o/Ollama/Gemini）",
+  "permissions": {
+    "title": "需要權限",
+    "description": "此應用程式需要訪問您的麥克風和揚聲器才能正常運作：",
+    "speaker": "揚聲器權限",
+    "speakerDesc": "播放發音範例並聆聽正確的發音",
+    "microphone": "麥克風權限",
+    "microphoneDesc": "錄製您的發音並接收 AI 反饋",
+    "tip": "提示：",
+    "tipDesc": "瀏覽器會在需要時請求權限，請點擊「允許」以啟用所有功能。"
+  },
+  "modes": {
+    "alphabetLearning": "字母表學習",
+    "alphabetLearningDesc": "學習所有字母與發音",
+    "wordPractice": "單字練習",
+    "wordPracticeDesc": "發音練習與AI反饋",
+    "verseLearning": "經文學習",
+    "verseLearningDesc": "聖經經文重點詞彙",
+    "vocabularyFlashcards": "詞彙記憶卡",
+    "vocabularyFlashcardsDesc": "間隔重複法學習詞彙",
+    "listeningGame": "聽力理解遊戲",
+    "listeningGameDesc": "聽音辨詞 100 詞挑戰",
+    "pronunciationChallenge": "發音挑戰",
+    "pronunciationChallengeDesc": "辨別正確與錯誤發音",
+    "sentencePractice": "✨ 句子練習",
+    "sentencePracticeDesc": "AI生成聖經句子 + 發音評分"
+  },
+  "errors": {
+    "noFeedback": "無法從 AI 獲取反饋，請重試。",
+    "micPermission": "需要麥克風權限才能使用。請在瀏覽器設定中啟用麥克風。"
+  },
+  "buttons": {
+    "switchMode": "切換模式",
+    "retry": "重試",
+    "nextWord": "下一個單字",
+    "back": "返回",
+    "playPronunciation": "播放發音"
+  },
+  "alphabet": {
+    "title": "字母表",
+    "allLetters": "所有字母 ({{count}} 個)",
+    "selectLetter": "點選字母",
+    "viewDetails": "查看詳細資訊",
+    "transliteration": "轉寫",
+    "numericalValue": "數值",
+    "notes": "注意事項"
+  }
+}
