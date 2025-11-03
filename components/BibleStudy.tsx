@@ -138,6 +138,14 @@ export const BibleStudy: React.FC = () => {
   const [summaryWordCount, setSummaryWordCount] = useState<number>(300);
   const [showBrowsingPanel, setShowBrowsingPanel] = useState(false);
 
+  // Follow-up questions state
+  const [showTextualQuestion, setShowTextualQuestion] = useState(false);
+  const [showTheologicalQuestion, setShowTheologicalQuestion] = useState(false);
+  const [textualAnalysis, setTextualAnalysis] = useState<string | null>(null);
+  const [theologicalAnalysis, setTheologicalAnalysis] = useState<string | null>(null);
+  const [isAnalyzingTextual, setIsAnalyzingTextual] = useState(false);
+  const [isAnalyzingTheological, setIsAnalyzingTheological] = useState(false);
+
   const filteredBooks = useMemo(() => {
     if (!searchTerm) return bibleData;
 
@@ -352,11 +360,118 @@ Keep the summary at around ${summaryWordCount} words and make it thoughtful and 
   const clearBrowsingRecords = () => {
     setBrowsingRecords([]);
     setAiSummary(null);
+    setTextualAnalysis(null);
+    setTheologicalAnalysis(null);
+    setShowTextualQuestion(false);
+    setShowTheologicalQuestion(false);
     if (activeWindow && !activeWindow.closed) {
       activeWindow.close();
     }
     setActiveWindow(null);
     setCurrentSessionId(null);
+  };
+
+  // AI Analysis for textual applicable meaning
+  const analyzeTextualMeaning = async () => {
+    if (!aiSummary || browsingRecords.length === 0) return;
+
+    setIsAnalyzingTextual(true);
+
+    try {
+      const { sendChatMessage } = await import('../services/theologyAssistantService');
+
+      // Create context from browsing records
+      const browsingContext = browsingRecords.map((record, idx) => {
+        return `Session ${idx + 1}:
+- Reference: ${record.book} ${record.chapter}
+- Mode: ${record.mode}
+- Pages visited: ${record.sessions.map(s => s.reference).join(', ')}`;
+      }).join('\n\n');
+
+      const prompt = `Based on the following Bible browsing history and the initial summary, provide a deep textual analysis focusing on the APPLICABLE MEANING of the verses:
+
+Browsing History:
+${browsingContext}
+
+Initial Summary:
+${aiSummary.content}
+
+Please analyze:
+1. The literal and contextual meaning of the verses studied
+2. How these verses apply to modern life and practical situations
+3. Direct applications for daily Christian living
+4. Actionable insights and practical wisdom from the texts
+5. How to implement these teachings in real-world scenarios
+
+Focus on practical, applicable insights rather than theological doctrine. Provide around ${summaryWordCount} words.`;
+
+      const response = await sendChatMessage({
+        model: selectedModel,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.7,
+        topP: 0.9
+      });
+
+      setTextualAnalysis(response.content);
+      setShowTextualQuestion(false);
+    } catch (error) {
+      console.error('Textual analysis error:', error);
+      alert('Failed to generate textual analysis. Please check your API configuration.');
+    } finally {
+      setIsAnalyzingTextual(false);
+    }
+  };
+
+  // AI Analysis for theological meaning in Christianity
+  const analyzeTheologicalMeaning = async () => {
+    if (!aiSummary || browsingRecords.length === 0) return;
+
+    setIsAnalyzingTheological(true);
+
+    try {
+      const { sendChatMessage } = await import('../services/theologyAssistantService');
+
+      // Create context from browsing records
+      const browsingContext = browsingRecords.map((record, idx) => {
+        return `Session ${idx + 1}:
+- Reference: ${record.book} ${record.chapter}
+- Mode: ${record.mode}
+- Pages visited: ${record.sessions.map(s => s.reference).join(', ')}`;
+      }).join('\n\n');
+
+      const prompt = `Based on the following Bible browsing history and the initial summary, provide a deep theological analysis focusing on the THEOLOGICAL MEANING IN CHRISTIANITY:
+
+Browsing History:
+${browsingContext}
+
+Initial Summary:
+${aiSummary.content}
+
+Please analyze:
+1. The theological doctrines and principles present in these verses
+2. How these passages relate to core Christian theology (Trinity, Salvation, Sanctification, etc.)
+3. Historical Christian interpretations and church tradition perspectives
+4. Systematic theology connections (Christology, Soteriology, Pneumatology, etc.)
+5. How these verses contribute to understanding God's nature, plan, and revelation
+6. Connections to the broader narrative of Scripture and redemptive history
+
+Focus on theological depth, doctrinal significance, and Christian orthodoxy. Provide around ${summaryWordCount} words.`;
+
+      const response = await sendChatMessage({
+        model: selectedModel,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.7,
+        topP: 0.9
+      });
+
+      setTheologicalAnalysis(response.content);
+      setShowTheologicalQuestion(false);
+    } catch (error) {
+      console.error('Theological analysis error:', error);
+      alert('Failed to generate theological analysis. Please check your API configuration.');
+    } finally {
+      setIsAnalyzingTheological(false);
+    }
   };
 
   // Generate different types of STEPBible URLs based on study mode
@@ -606,30 +721,163 @@ Keep the summary at around ${summaryWordCount} words and make it thoughtful and 
 
         {/* AI Summary Display */}
         {aiSummary && (
-          <div className="bg-gray-900 rounded-lg p-4 border border-green-500">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs text-gray-400">
-                {t('generatedBy', 'Generated by')}: {aiSummary.model}
-              </span>
-              <span className="text-xs text-gray-400">
-                {new Date(aiSummary.timestamp).toLocaleString()}
-              </span>
-            </div>
-            <div className="prose prose-invert prose-sm max-w-none">
-              <div className="text-gray-200 whitespace-pre-wrap leading-relaxed">
-                {aiSummary.content}
+          <div className="space-y-4">
+            <div className="bg-gray-900 rounded-lg p-4 border border-green-500">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs text-gray-400">
+                  {t('generatedBy', 'Generated by')}: {aiSummary.model}
+                </span>
+                <span className="text-xs text-gray-400">
+                  {new Date(aiSummary.timestamp).toLocaleString()}
+                </span>
               </div>
+              <div className="prose prose-invert prose-sm max-w-none">
+                <div className="text-gray-200 whitespace-pre-wrap leading-relaxed">
+                  {aiSummary.content}
+                </div>
+              </div>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(aiSummary.content);
+                  alert(t('copied', 'Summary copied to clipboard!'));
+                }}
+                className="mt-3 flex items-center gap-2 px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors"
+              >
+                <Save className="w-4 h-4" />
+                {t('copyToClipboard', 'Copy to Clipboard')}
+              </button>
             </div>
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText(aiSummary.content);
-                alert(t('copied', 'Summary copied to clipboard!'));
-              }}
-              className="mt-3 flex items-center gap-2 px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors"
-            >
-              <Save className="w-4 h-4" />
-              {t('copyToClipboard', 'Copy to Clipboard')}
-            </button>
+
+            {/* Follow-up Questions Section */}
+            <div className="space-y-4 mt-6 pt-6 border-t-2 border-gray-700">
+              {/* Question 1: Textual Applicable Meaning */}
+              {!textualAnalysis && (
+                <div className="bg-gradient-to-r from-blue-900/30 to-blue-800/30 rounded-lg p-4 border-l-4 border-blue-500">
+                  <div className="flex items-start gap-3">
+                    <Lightbulb className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <p className="text-gray-200 mb-3 leading-relaxed">
+                        {t('textualQuestion', 'Do the browsing knowledge help you find the textual applicable meaning of the verses you look for? If not, would you like AI help to analyse the content you searched?')}
+                      </p>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={analyzeTextualMeaning}
+                          disabled={isAnalyzingTextual}
+                          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg font-semibold text-sm transition-colors flex items-center gap-2"
+                        >
+                          {isAnalyzingTextual ? (
+                            <>
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                              {t('analyzing', 'Analyzing...')}
+                            </>
+                          ) : (
+                            <>
+                              <Sparkles className="w-4 h-4" />
+                              {t('yesAnalyze', 'Yes, Analyze')}
+                            </>
+                          )}
+                        </button>
+                        <button
+                          onClick={() => setShowTextualQuestion(false)}
+                          className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-semibold text-sm transition-colors"
+                        >
+                          {t('noThanks', 'No, Thanks')}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Textual Analysis Result */}
+              {textualAnalysis && (
+                <div className="bg-gray-900 rounded-lg p-4 border border-blue-500">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Sparkles className="w-5 h-5 text-blue-400" />
+                    <h4 className="font-bold text-blue-400">{t('textualAnalysisTitle', 'Textual Applicable Meaning Analysis')}</h4>
+                  </div>
+                  <div className="prose prose-invert prose-sm max-w-none">
+                    <div className="text-gray-200 whitespace-pre-wrap leading-relaxed">
+                      {textualAnalysis}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(textualAnalysis);
+                      alert(t('copied', 'Analysis copied to clipboard!'));
+                    }}
+                    className="mt-3 flex items-center gap-2 px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors"
+                  >
+                    <Save className="w-4 h-4" />
+                    {t('copyToClipboard', 'Copy to Clipboard')}
+                  </button>
+                </div>
+              )}
+
+              {/* Question 2: Theological Meaning */}
+              {!theologicalAnalysis && (
+                <div className="bg-gradient-to-r from-purple-900/30 to-purple-800/30 rounded-lg p-4 border-l-4 border-purple-500">
+                  <div className="flex items-start gap-3">
+                    <BookOpen className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <p className="text-gray-200 mb-3 leading-relaxed">
+                        {t('theologicalQuestion', 'Do the browsing knowledge in Christianity help you find the textual theological meaning in Christianity of the verses you look for? If not, would you like AI help to analyse the content you searched?')}
+                      </p>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={analyzeTheologicalMeaning}
+                          disabled={isAnalyzingTheological}
+                          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg font-semibold text-sm transition-colors flex items-center gap-2"
+                        >
+                          {isAnalyzingTheological ? (
+                            <>
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                              {t('analyzing', 'Analyzing...')}
+                            </>
+                          ) : (
+                            <>
+                              <Sparkles className="w-4 h-4" />
+                              {t('yesAnalyze', 'Yes, Analyze')}
+                            </>
+                          )}
+                        </button>
+                        <button
+                          onClick={() => setShowTheologicalQuestion(false)}
+                          className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-semibold text-sm transition-colors"
+                        >
+                          {t('noThanks', 'No, Thanks')}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Theological Analysis Result */}
+              {theologicalAnalysis && (
+                <div className="bg-gray-900 rounded-lg p-4 border border-purple-500">
+                  <div className="flex items-center gap-2 mb-3">
+                    <BookOpen className="w-5 h-5 text-purple-400" />
+                    <h4 className="font-bold text-purple-400">{t('theologicalAnalysisTitle', 'Theological Meaning in Christianity Analysis')}</h4>
+                  </div>
+                  <div className="prose prose-invert prose-sm max-w-none">
+                    <div className="text-gray-200 whitespace-pre-wrap leading-relaxed">
+                      {theologicalAnalysis}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(theologicalAnalysis);
+                      alert(t('copied', 'Analysis copied to clipboard!'));
+                    }}
+                    className="mt-3 flex items-center gap-2 px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm transition-colors"
+                  >
+                    <Save className="w-4 h-4" />
+                    {t('copyToClipboard', 'Copy to Clipboard')}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

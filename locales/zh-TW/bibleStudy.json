@@ -49,5 +49,12 @@
   "startVerse": "起始經節",
   "endVerse": "結束經節",
   "endVersePlaceholder": "章節結尾",
-  "verseRangeHint": "留空表示整章，或指定經節範圍（例如：1-10）"
+  "verseRangeHint": "留空表示整章，或指定經節範圍（例如：1-10）",
+  "textualQuestion": "瀏覽的知識是否幫助您找到所尋找經文的文本應用意義？如果沒有，您希望 AI 協助分析您搜尋的內容嗎？",
+  "theologicalQuestion": "基督教的瀏覽知識是否幫助您找到所尋找經文在基督教中的文本神學意義？如果沒有，您希望 AI 協助分析您搜尋的內容嗎？",
+  "textualAnalysisTitle": "文本應用意義分析",
+  "theologicalAnalysisTitle": "基督教神學意義分析",
+  "analyzing": "分析中...",
+  "yesAnalyze": "是，請分析",
+  "noThanks": "不用，謝謝"
 }
