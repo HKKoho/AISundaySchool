@@ -18,11 +18,22 @@ export function useTranslatedQuest(quest: Quest): Quest {
   return useMemo(() => {
     const questKey = `quests.${quest.id}`;
 
-    // Check if translation exists for this quest
-    const hasTranslation = i18n.exists(`${questKey}.character`);
+    // Check if translation exists for this quest - explicitly specify namespace
+    const hasTranslation = i18n.exists(`${questKey}.character`, { ns: 'bibleGame' });
+
+    // Debug logging
+    console.log(`[useTranslatedQuest] Quest ${quest.id}:`, {
+      language: i18n.language,
+      questKey,
+      hasTranslation,
+      characterKey: `${questKey}.character`,
+      existsWithNS: i18n.exists(`${questKey}.character`, { ns: 'bibleGame' }),
+      existsWithoutNS: i18n.exists(`${questKey}.character`),
+    });
 
     if (!hasTranslation) {
       // No translation available, return original quest
+      console.log(`[useTranslatedQuest] No translation for ${quest.id}, using original`);
       return quest;
     }
 
@@ -57,7 +68,7 @@ export function useTranslatedQuests(quests: Quest[]): Quest[] {
   return useMemo(() => {
     return quests.map(quest => {
       const questKey = `quests.${quest.id}`;
-      const hasTranslation = i18n.exists(`${questKey}.character`);
+      const hasTranslation = i18n.exists(`${questKey}.character`, { ns: 'bibleGame' });
 
       if (!hasTranslation) {
         return quest;
