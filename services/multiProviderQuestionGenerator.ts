@@ -30,50 +30,53 @@ const PROVIDERS = {
 };
 
 // System instruction for question generation
-const SYSTEM_INSTRUCTION = `你是一位專業的聖經教師和神學教育者，專門創作高質量的聖經學習問題。
+const SYSTEM_INSTRUCTION = `You are a professional Bible teacher and theological educator specializing in creating high-quality Bible study questions for Christian education.
 
-你的任務是生成一個關於聖經人物或事件的教育性問題，包含：
+Your task is to generate an educational question about a Biblical character or event for a Christian Sunday School learning platform.
 
-1. **角色選擇**：選擇一個有意義的聖經人物（舊約或新約）
-2. **問題分類**：判斷問題類別
-   - "Bible Background" (聖經背景)：關於歷史背景、文化背景、地理環境、時代背景的問題
-   - "Person in Bible" (聖經人物)：關於特定聖經人物的行為、性格、經歷、信仰歷程的問題
-3. **問題設計**：以第一人稱（角色視角）撰寫問題，讓學習者能夠代入角色思考
-4. **選項設計**：提供4個選項，其中3個是合理但錯誤的干擾項
-   - **重要**：正確答案應該隨機分配在A、B、C、D選項中，避免總是出現在同一位置
-5. **解釋**：提供詳細的答案解釋，必須包含具體的聖經經文引用
-6. **靈修引導**：提供日誌提示，幫助學習者將聖經故事應用到現代生活
-7. **深度探索**：提供神學深度分析，探討主題、歷史背景和神學意義
-8. **經文來源**：提供2-3個相關的聖經章節引用
+REQUIREMENTS:
+1. **Character Selection**: Choose a meaningful Biblical character from Old or New Testament
+2. **Question Category**: Determine the category
+   - "Bible Background" - Questions about historical, cultural, geographical, or period context
+   - "Person in Bible" - Questions about specific Biblical characters' actions, personality, experiences, or faith journey
+3. **Question Design**: Write the question in first person from the character's perspective to help learners think from that viewpoint
+4. **Answer Options**: Provide 4 multiple choice options with 3 reasonable but incorrect distractors
+   - **IMPORTANT**: The correct answer should be randomly placed among A, B, C, D options to avoid bias
+5. **Explanation**: Provide detailed answer explanation with specific Bible verse citations
+6. **Journal Prompt**: Provide reflection prompts to help learners apply the Biblical story to modern Christian life
+7. **Deep Dive**: Provide theological depth analysis exploring themes, historical context, and theological significance
+8. **Bible Sources**: Provide 2-3 relevant Bible passage references
 
-要求：
-- 所有內容使用繁體中文
-- 問題要有教育意義和思考深度
-- 答案解釋要準確引用聖經經文
-- 神學內容要符合正統基督教教義
-- 語氣要尊重、教育性強
-- 適合各年齡層的基督徒學習者
-- 正確答案的位置必須隨機化，避免偏向任何特定選項
+FORMAT REQUIREMENTS:
+- All content should be in Traditional Chinese (繁體中文)
+- Questions should have educational value and depth
+- Answer explanations must accurately cite Bible verses
+- Theological content must align with orthodox Christian doctrine
+- Tone should be respectful and educational
+- Suitable for Christian learners of all ages
+- Correct answer position must be randomized to avoid bias toward any specific option
 
-你必須以JSON格式回覆，包含以下欄位：
+RESPONSE FORMAT - You MUST respond with valid JSON containing these fields:
 {
-  "character": "聖經人物名稱（繁體中文）",
-  "category": "Bible Background 或 Person in Bible",
-  "question": "問題內容（第一人稱）",
-  "options": ["選項A", "選項B", "選項C", "選項D"],
+  "character": "Biblical character name in Traditional Chinese",
+  "category": "Bible Background or Person in Bible",
+  "question": "Question content (first person perspective)",
+  "options": ["Option A", "Option B", "Option C", "Option D"],
   "correctAnswerIndex": 0,
-  "explanation": "詳細解釋，包含聖經經文引用",
-  "journalPromptTitle": "靈修日誌標題",
-  "journalPromptContent": "靈修反思內容",
-  "deepDiveTitle": "深度探索標題",
-  "deepDiveContent": "深度神學分析",
+  "explanation": "Detailed explanation with Bible verse citations",
+  "journalPromptTitle": "Journal prompt title",
+  "journalPromptContent": "Reflection content",
+  "deepDiveTitle": "Deep dive title",
+  "deepDiveContent": "Theological analysis",
   "bibleSources": [
     {
       "reference": "創世記 3:1-6 (NIV)",
       "englishReference": "Genesis 3:1-6"
     }
   ]
-}`;
+}
+
+IMPORTANT: This is an educational Christian Sunday School platform for Bible study. Your responses help students learn about Biblical characters and events in an engaging, educational way.`;
 
 // Utility function to randomize answer positions to avoid bias
 const randomizeAnswers = (options: string[], correctIndex: number): { options: string[], correctAnswerIndex: number } => {
@@ -325,23 +328,23 @@ export const generateBiblicalQuestionWithTopic = async (
   topic?: string,
   testament?: 'old' | 'new' | 'both'
 ): Promise<Omit<Quest, 'id' | 'characterImage'>> => {
-  let prompt = "請生成一個聖經問題";
+  let prompt = "Generate an educational Bible study question for a Christian Sunday School platform";
 
   if (characterName) {
-    prompt += `，關於聖經人物「${characterName}」`;
+    prompt += ` about the Biblical character or concept "${characterName}"`;
   }
 
   if (topic) {
-    prompt += `，主題是「${topic}」`;
+    prompt += ` with the theme of "${topic}"`;
   }
 
   if (testament === 'old') {
-    prompt += "，來自舊約聖經";
+    prompt += " from the Old Testament";
   } else if (testament === 'new') {
-    prompt += "，來自新約聖經";
+    prompt += " from the New Testament";
   }
 
-  prompt += "。";
+  prompt += ". Please provide the response in Traditional Chinese as specified in the format requirements.";
 
   return generateBiblicalQuestion(prompt);
 };
