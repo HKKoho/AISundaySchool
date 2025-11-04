@@ -112,6 +112,10 @@ const randomizeAnswers = (options: string[], correctIndex: number): { options: s
 export const generateBiblicalQuestion = async (
     userPrompt: string
 ): Promise<Omit<Quest, 'id' | 'characterImage'>> => {
+    if (!ai) {
+        throw new Error('API key not configured. Please set GEMINI_API_KEY environment variable.');
+    }
+
     const result = await ai.models.generateContent({
         model: "gemini-2.0-flash-exp",
         contents: userPrompt,
@@ -147,7 +151,19 @@ export const generateBiblicalQuestion = async (
         }
     });
 
-    const parsedResponse = JSON.parse(result.text);
+    let parsedResponse;
+    try {
+        const responseText = result.text.trim();
+
+        // Check if response looks like JSON
+        if (!responseText.startsWith('{') && !responseText.startsWith('[')) {
+            throw new Error(`AI returned non-JSON response: ${responseText.substring(0, 100)}...`);
+        }
+
+        parsedResponse = JSON.parse(responseText);
+    } catch (error: any) {
+        throw new Error(`Failed to parse AI response as JSON: ${error.message}\n\nResponse preview: ${result.text.substring(0, 200)}...`);
+    }
 
     // Randomize the answer positions to avoid bias
     const { options: randomizedOptions, correctAnswerIndex: randomizedIndex } = randomizeAnswers(

@@ -263,7 +263,18 @@ function parseJSONResponse(text: string): any {
     cleanedText = cleanedText.replace(/^```\s*/, '').replace(/```\s*$/, '');
   }
 
-  return JSON.parse(cleanedText.trim());
+  cleanedText = cleanedText.trim();
+
+  // Check if response looks like JSON
+  if (!cleanedText.startsWith('{') && !cleanedText.startsWith('[')) {
+    throw new Error(`AI returned non-JSON response: ${cleanedText.substring(0, 100)}...`);
+  }
+
+  try {
+    return JSON.parse(cleanedText);
+  } catch (error: any) {
+    throw new Error(`Failed to parse AI response as JSON: ${error.message}\n\nResponse preview: ${cleanedText.substring(0, 200)}...`);
+  }
 }
 
 /**
