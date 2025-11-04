@@ -1,6 +1,7 @@
 {
   "appName": "AI Christian Sunday School Platform",
   "subtitle": "Christian Sunday School AI Tools - Explore Faith, Learn Scripture",
+  "platformHome": "Platform Home",
   "navigation": {
     "home": "Home",
     "bibleGame": "Bible Exploration",

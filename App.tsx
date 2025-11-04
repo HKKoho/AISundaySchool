@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Home } from 'lucide-react';
 import { LandingPage } from './components/LandingPage';
 import { BibleGame } from './components/BibleGame';
 import { TheologyAssistant } from './components/TheologyAssistant';
@@ -78,7 +79,23 @@ const App: React.FC = () => {
           : undefined
       }
     >
-      <LanguageSwitcher />
+      {/* Top Navigation Bar */}
+      <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4">
+        {/* Platform Home Button - Left Side */}
+        <a
+          href="https://christianityplatform.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg"
+        >
+          <Home className="w-5 h-5" />
+          <span className="font-semibold">{t('common:platformHome', 'Platform Home')}</span>
+        </a>
+
+        {/* Language Switcher - Right Side */}
+        <LanguageSwitcher />
+      </div>
+
       <main className="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
         {renderContent()}
       </main>
