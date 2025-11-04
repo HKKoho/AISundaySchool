@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from './Icon';
 import type { Quest } from '../../types';
 import { useSpeechToText } from '../../hooks/useSpeechToText';
@@ -16,9 +17,17 @@ interface DeepDiveChatProps {
 }
 
 const DeepDiveChat: React.FC<DeepDiveChatProps> = ({ deepDive, quest, onBack }) => {
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+  const isEnglish = currentLanguage === 'en';
+
+  const initialMessage = isEnglish
+    ? `Hello! I'm your Bible Study Assistant. I've reviewed the content about "${deepDive.title}". Feel free to ask me any questions, and I'll answer based on biblical knowledge and theological background.`
+    : `您好！我是聖經研究助理。我已經了解「${deepDive.title}」的內容。您可以問我任何相關問題，我會基於聖經知識和神學背景為您解答。`;
+
   const [messages, setMessages] = useState<Message[]>([{
     role: 'assistant',
-    content: `您好！我是聖經研究助理。我已經了解「${deepDive.title}」的內容。您可以問我任何相關問題，我會基於聖經知識和神學背景為您解答。`
+    content: initialMessage
   }]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -72,7 +81,11 @@ const DeepDiveChat: React.FC<DeepDiveChatProps> = ({ deepDive, quest, onBack }) 
     setIsLoading(true);
 
     try {
-      const systemInstruction = `You are a helpful Bible study assistant. Your purpose is to answer questions based on the provided context in a clear, concise, and theologically sound manner. Ground your answers in trustworthy biblical sources and historical context, similar to information found on Wikipedia for historical background. Do not speculate or provide personal opinions. Your response should be in Traditional Chinese.
+      const languageInstruction = isEnglish
+        ? 'Your response should be in English.'
+        : 'Your response should be in Traditional Chinese.';
+
+      const systemInstruction = `You are a helpful Bible study assistant. Your purpose is to answer questions based on the provided context in a clear, concise, and theologically sound manner. Ground your answers in trustworthy biblical sources and historical context, similar to information found on Wikipedia for historical background. Do not speculate or provide personal opinions. ${languageInstruction}
 
 Context about "${deepDive.title}":
 ${deepDive.content}
@@ -109,15 +122,21 @@ Based on this context and general biblical knowledge, answer the user's question
       }
 
       const data = await response.json();
-      const assistantResponse = data.content || '抱歉，無法生成回答。';
+      const fallbackMessage = isEnglish
+        ? 'Sorry, unable to generate a response.'
+        : '抱歉，無法生成回答。';
+      const assistantResponse = data.content || fallbackMessage;
 
       setMessages(prev => [...prev, { role: 'assistant', content: assistantResponse }]);
 
     } catch (error: any) {
       console.error('Error:', error);
+      const errorMessage = isEnglish
+        ? `Sorry, an error occurred: ${error.message}`
+        : `抱歉，發生錯誤：${error.message}`;
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: `抱歉，發生錯誤：${error.message}`
+        content: errorMessage
       }]);
     } finally {
       setIsLoading(false);
