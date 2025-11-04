@@ -67,7 +67,7 @@ const getOllamaCloudModels = (t: any): LocalLLMModel[] => [
     description: t('models.deepseekV3')
   },
   {
-    id: 'qwen3-vl:235b-cloud',
+    id: 'kimi-k2:1t-cloud',
     name: 'Qwen3-VL 235B Cloud',
     size: 'Cloud (235B)',
     description: t('models.qwen3VL')

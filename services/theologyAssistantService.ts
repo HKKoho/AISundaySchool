@@ -221,7 +221,7 @@ const OLLAMA_CLOUD_MODELS = [
   'kimi-k2:1t',
   'qwen3-coder:480b',
   'deepseek-v3.1:671b',
-  'qwen3-vl:235b-cloud',
+  'kimi-k2:1t-cloud',
   'llama4:scout',
   'deepseek-r1:32b',
   'glm-4.6:cloud',

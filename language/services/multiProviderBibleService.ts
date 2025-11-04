@@ -4,7 +4,7 @@
  *
  * Provider Priority Chain:
  * 1. OpenAI GPT-4o (Primary) - Highest reliability, confirmed working
- * 2. Ollama Cloud (Secondary) - qwen3-vl:235b-cloud (fast, cost-effective)
+ * 2. Ollama Cloud (Secondary) - kimi-k2:1t-cloud (fast, cost-effective)
  * 3. Google Gemini (Tertiary) - gemini-2.0-flash-exp (may have location restrictions)
  */
 
@@ -19,7 +19,7 @@ const PROVIDERS = {
   },
   OLLAMA: {
     name: 'Ollama Cloud',
-    model: 'qwen3-vl:235b-cloud',  // Updated to valid Ollama model
+    model: 'kimi-k2:1t-cloud',  // Updated to valid Ollama model
     endpoint: '/api/chat',
   },
   GEMINI: {
