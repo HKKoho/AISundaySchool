@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { generateBiblicalQuestion, generateBiblicalQuestionWithTopic } from '../../services/multiProviderQuestionGenerator';
 import type { Quest } from '../../types';
 import Icon from './Icon';
@@ -9,6 +10,7 @@ interface QuestionGeneratorProps {
 }
 
 const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerated, onClose }) => {
+  const { t } = useTranslation('bibleGame');
   const [generationMode, setGenerationMode] = useState<'free' | 'guided'>('guided');
   const [characterName, setCharacterName] = useState('');
   const [topic, setTopic] = useState('');
@@ -28,7 +30,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
 
       if (generationMode === 'free') {
         if (!customPrompt.trim()) {
-          throw new Error('請輸入自訂提示');
+          throw new Error(t('questionGenerator.errorPromptRequired'));
         }
         question = await generateBiblicalQuestion(customPrompt);
       } else {
@@ -42,7 +44,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
       setGeneratedQuestion(question);
     } catch (err) {
       console.error('Question generation error:', err);
-      setError(err instanceof Error ? err.message : '生成問題時發生錯誤，請重試。');
+      setError(err instanceof Error ? err.message : t('questionGenerator.errorGeneration'));
     } finally {
       setIsGenerating(false);
     }
@@ -64,21 +66,21 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-stone-600 hover:text-stone-900 transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 z-10"
-          aria-label="關閉"
+          aria-label={t('questionGenerator.closeLabel')}
         >
           <Icon name="x" className="w-8 h-8"/>
         </button>
 
-        <h2 className="text-3xl font-bold text-amber-900 mb-2">AI 問題生成器</h2>
-        <p className="text-stone-700 mb-2">使用 AI 生成新的聖經學習問題</p>
+        <h2 className="text-3xl font-bold text-amber-900 mb-2">{t('questionGenerator.title')}</h2>
+        <p className="text-stone-700 mb-2">{t('questionGenerator.subtitle')}</p>
         <p className="text-xs text-stone-500 mb-4 flex items-center gap-2">
-          <span>⚡ Powered by</span>
-          <span className="font-semibold text-blue-600">Google Gemini 2.0 Flash Experimental</span>
+          <span>⚡ {t('questionGenerator.poweredBy')}</span>
+          <span className="font-semibold text-blue-600">{t('questionGenerator.modelName')}</span>
         </p>
 
         {/* Mode Selection */}
         <div className="mb-6">
-          <label className="block text-sm font-semibold text-amber-900 mb-2">生成模式</label>
+          <label className="block text-sm font-semibold text-amber-900 mb-2">{t('questionGenerator.modeLabel')}</label>
           <div className="flex gap-3">
             <button
               onClick={() => setGenerationMode('guided')}
@@ -88,7 +90,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
                   : 'bg-stone-300 text-stone-700 hover:bg-stone-400'
               }`}
             >
-              引導式生成
+              {t('questionGenerator.guidedMode')}
             </button>
             <button
               onClick={() => setGenerationMode('free')}
@@ -98,7 +100,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
                   : 'bg-stone-300 text-stone-700 hover:bg-stone-400'
               }`}
             >
-              自由提示
+              {t('questionGenerator.freeMode')}
             </button>
           </div>
         </div>
@@ -108,32 +110,32 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
           <div className="space-y-4 mb-6">
             <div>
               <label className="block text-sm font-semibold text-amber-900 mb-2">
-                聖經人物或聖經背景（選填）
+                {t('questionGenerator.characterLabel')}
               </label>
               <input
                 type="text"
                 value={characterName}
                 onChange={(e) => setCharacterName(e.target.value)}
-                placeholder="例如：摩西、大衛、保羅、割禮、逾越節、聖殿"
+                placeholder={t('questionGenerator.characterPlaceholder')}
                 className="w-full px-4 py-2 rounded-lg border-2 border-amber-700 bg-amber-50 text-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </div>
 
             <div>
               <label className="block text-sm font-semibold text-amber-900 mb-2">
-                主題（選填）
+                {t('questionGenerator.topicLabel')}
               </label>
               <input
                 type="text"
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
-                placeholder="例如：信心、順服、領導力、禮儀潔淨、聖約"
+                placeholder={t('questionGenerator.topicPlaceholder')}
                 className="w-full px-4 py-2 rounded-lg border-2 border-amber-700 bg-amber-50 text-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-amber-900 mb-2">聖經範圍</label>
+              <label className="block text-sm font-semibold text-amber-900 mb-2">{t('questionGenerator.scopeLabel')}</label>
               <div className="flex gap-2">
                 <button
                   onClick={() => setTestament('both')}
@@ -143,7 +145,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
                       : 'bg-stone-200 text-stone-700 hover:bg-stone-300'
                   }`}
                 >
-                  新舊約
+                  {t('questionGenerator.scopeBoth')}
                 </button>
                 <button
                   onClick={() => setTestament('old')}
@@ -153,7 +155,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
                       : 'bg-stone-200 text-stone-700 hover:bg-stone-300'
                   }`}
                 >
-                  舊約
+                  {t('questionGenerator.scopeOld')}
                 </button>
                 <button
                   onClick={() => setTestament('new')}
@@ -163,7 +165,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
                       : 'bg-stone-200 text-stone-700 hover:bg-stone-300'
                   }`}
                 >
-                  新約
+                  {t('questionGenerator.scopeNew')}
                 </button>
               </div>
             </div>
@@ -174,12 +176,12 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
         {generationMode === 'free' && (
           <div className="mb-6">
             <label className="block text-sm font-semibold text-amber-900 mb-2">
-              自訂提示
+              {t('questionGenerator.customPromptLabel')}
             </label>
             <textarea
               value={customPrompt}
               onChange={(e) => setCustomPrompt(e.target.value)}
-              placeholder="例如：生成一個關於耶穌登山寶訓的問題，著重於八福的教導"
+              placeholder={t('questionGenerator.customPromptPlaceholder')}
               rows={4}
               className="w-full px-4 py-2 rounded-lg border-2 border-amber-700 bg-amber-50 text-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
             />
@@ -197,22 +199,22 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
         {generatedQuestion && (
           <div className="mb-6 p-4 bg-green-50 border-2 border-green-400 rounded-lg">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-bold text-green-900">✓ 問題已生成</h3>
+              <h3 className="text-lg font-bold text-green-900">✓ {t('questionGenerator.questionGenerated')}</h3>
               <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                 generatedQuestion.category === 'Person in Bible'
                   ? 'bg-blue-600 text-white'
                   : 'bg-purple-600 text-white'
               }`}>
-                {generatedQuestion.category === 'Person in Bible' ? '📖 聖經人物' : '🏛️ 聖經背景'}
+                {generatedQuestion.category === 'Person in Bible' ? `📖 ${t('questionGenerator.categoryPerson')}` : `🏛️ ${t('questionGenerator.categoryContext')}`}
               </span>
             </div>
             <p className="text-sm text-green-800 mb-2">
-              <strong>角色：</strong>{generatedQuestion.character}
+              <strong>{t('questionGenerator.characterField')}</strong>{generatedQuestion.character}
             </p>
             <p className="text-sm text-green-800 mb-2">
-              <strong>問題：</strong>{generatedQuestion.question}
+              <strong>{t('questionGenerator.questionField')}</strong>{generatedQuestion.question}
             </p>
-            <p className="text-xs text-green-700">點擊「加入遊戲」將此問題添加到遊戲中</p>
+            <p className="text-xs text-green-700">{t('questionGenerator.savePrompt')}</p>
           </div>
         )}
 
@@ -230,12 +232,12 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
             {isGenerating ? (
               <>
                 <Icon name="loader" className="w-5 h-5 animate-spin"/>
-                生成中...
+                {t('questionGenerator.generating')}
               </>
             ) : (
               <>
                 <Icon name="sparkles" className="w-5 h-5"/>
-                生成問題
+                {t('questionGenerator.generateButton')}
               </>
             )}
           </button>
@@ -246,7 +248,7 @@ const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({ onQuestionGenerat
               className="flex-1 px-6 py-3 bg-green-700 hover:bg-green-600 text-white rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
             >
               <Icon name="check" className="w-5 h-5"/>
-              加入遊戲
+              {t('questionGenerator.saveButton')}
             </button>
           )}
         </div>
