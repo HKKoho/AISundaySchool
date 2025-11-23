@@ -1,0 +1,5 @@
+{
+  "name": "Chicago Style Citation Generator",
+  "description": "An application to help users build footnotes and end references using the Chicago Manual of Style. It leverages AI to generate citations in both 'Notes and Bibliography' and 'Author-Date' formats for various source types like books, journals, and websites.",
+  "requestFramePermissions": []
+}

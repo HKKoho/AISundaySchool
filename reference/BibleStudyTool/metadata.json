@@ -1,0 +1,5 @@
+{
+  "name": "AI Assistant Bible Study Tool",
+  "description": "A tool for AI-powered textual analysis of biblical passages. Select a bible reference, choose a study feature, and get in-depth analysis from an AI assistant.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,1529 @@
+{
+  "title": "Bible Knowledge Challenge",
+  "subtitle": "Test your understanding of the Bible",
+  "question": "Question {{number}}",
+  "score": "Score: {{score}}/{{total}}",
+  "correctAnswer": "Correct!",
+  "wrongAnswer": "Incorrect",
+  "explanation": "Explanation",
+  "nextQuestion": "Next Question",
+  "gameOver": {
+    "title": "Game Complete!",
+    "perfect": "Perfect! You have great biblical knowledge!",
+    "great": "Great job! Keep studying!",
+    "good": "Good effort! Continue learning!",
+    "keepTrying": "Keep trying! Every question helps you learn!",
+    "challengeTitle": "Ready for a Challenge!",
+    "challengeDesc": "You have excellent biblical knowledge! We challenge you to dive deeper into each chapter of the Bible for advanced study.",
+    "recommendTitle": "Recommendation",
+    "recommendDesc": "We recommend joining a Sunday School class or Bible Study group to strengthen your foundation in Scripture.",
+    "goDeeper": "Go Deeper in Bible"
+  },
+  "underConstruction": {
+    "title": "Under Construction",
+    "message": "This feature is coming soon! We are working hard to bring you deeper Bible study content."
+  },
+  "finalScore": "Your final score is {{score}} out of {{total}}",
+  "playAgain": "Play Again",
+  "difficulty": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
+  },
+  "header": {
+    "mainTitle": "Exploring Faith Certified by 'Sola Scriptura'",
+    "versionLabel": "Version:",
+    "journalButton": "Journal",
+    "journalAriaLabel": "Open Wisdom Scroll",
+    "languageSwitcher": "Switch to Traditional Chinese",
+    "instructionModal": {
+      "title": "📜 How to Begin Your Journey",
+      "welcome": "Welcome to the Journey Through Scripture! Your wisdom scroll is currently empty.",
+      "featuresTitle": "📖 Quest Journal Feature:",
+      "featuresDesc": "Complete quests on the map to unlock wisdom content. Each completed quest will give you:",
+      "feature1": "Biblical knowledge and insights",
+      "feature2": "Records of theological wisdom",
+      "feature3": "Milestones of spiritual growth",
+      "startButton": "Start Exploring the Map",
+      "closeAriaLabel": "Close"
+    }
+  },
+  "gameMap": {
+    "gameMode": "Game Mode:",
+    "sequentialUnlock": "Sequential Unlock",
+    "freeChoice": "Free Choice",
+    "browseAllQuestions": "Browse All Questions",
+    "aiGenerateQuestions": "AI Generate Questions",
+    "locationLabel": "Location:"
+  },
+  "questionGenerator": {
+    "title": "AI Question Generator",
+    "subtitle": "Generate new biblical learning questions using AI",
+    "poweredBy": "Powered by",
+    "modelName": "Google Gemini 2.0 Flash Experimental",
+    "closeLabel": "Close",
+    "modeLabel": "Generation Mode",
+    "guidedMode": "Guided Generation",
+    "freeMode": "Free Prompt",
+    "characterLabel": "Biblical Character or Context (Optional)",
+    "characterPlaceholder": "e.g., Moses, David, Paul, Circumcision, Passover, Temple",
+    "topicLabel": "Topic (Optional)",
+    "topicPlaceholder": "e.g., Faith, Obedience, Leadership, Ritual Purity, Covenant",
+    "scopeLabel": "Biblical Scope",
+    "scopeBoth": "Old & New Testament",
+    "scopeOld": "Old Testament",
+    "scopeNew": "New Testament",
+    "customPromptLabel": "Custom Prompt",
+    "customPromptPlaceholder": "e.g., Generate a question about Jesus' Sermon on the Mount, focusing on the Beatitudes",
+    "generateButton": "Generate Question",
+    "generating": "Generating...",
+    "saveButton": "Add to Game",
+    "errorPromptRequired": "Please enter a custom prompt",
+    "errorGeneration": "An error occurred while generating the question. Please try again.",
+    "questionGenerated": "Question Generated",
+    "categoryPerson": "Person in Bible",
+    "categoryContext": "Biblical Context",
+    "categoryLabel": "Category:",
+    "characterField": "Character:",
+    "questionField": "Question:",
+    "savePrompt": "Click 'Add to Game' to add this question to the game"
+  },
+  "questModal": {
+    "messageFrom": "Message from",
+    "timer": "Time: {{seconds}}s",
+    "timeUp": "Time's Up!",
+    "correct": "Correct!",
+    "incorrect": "Not quite right...",
+    "continueJourney": "Continue Journey",
+    "deepDive": "Deep Dive",
+    "timeUpMessage": "Your time has run out. Feel free to close this window and try again.",
+    "closeQuest": "Close Quest"
+  },
+  "quests": {
+    "q1": {
+      "character": "Abraham",
+      "question": "God made a covenant with me, marked by a specific sign. What was this covenant primarily about?",
+      "options": [
+        "A promise of a new ship.",
+        "A contract to build pyramids.",
+        "A promise of land, descendants, and blessings.",
+        "A decree to only eat vegetables."
+      ],
+      "explanation": "The Abrahamic Covenant (Genesis 12, 15, 17) was God's foundational promise. The sign of this covenant was circumcision, a physical mark symbolizing being set apart. This theme of 'being set apart' prefigures the concept of baptism.",
+      "journalPrompt": {
+        "title": "The Abrahamic Covenant",
+        "content": "A covenant is a sacred promise. God promised Abraham land, countless descendants, and that all nations would be blessed through him. This laid the foundation for God's continuing relationship with humanity."
+      },
+      "deepDive": {
+        "title": "Covenant Theology",
+        "content": "In Hebrew, covenant is 'berit.' It's not merely a contract; it's a solemn oath that binds two parties together. Ancient covenants typically included a ceremony or sign, like circumcision. This concept of binding relational commitment is crucial for understanding later biblical themes, including the New Covenant established by Jesus."
+      }
+    },
+    "q2": {
+      "character": "Moses",
+      "question": "At Mount Sinai, I received the Law for Israel, which included many purification rituals involving blood and water. What was the primary purpose of these rituals?",
+      "options": [
+        "To cleanse ritual impurity and restore the opportunity to approach God.",
+        "To prepare for the annual swimming competition.",
+        "To cool down in the desert heat.",
+        "To wash clothes before festivals."
+      ],
+      "explanation": "The Law of Leviticus (Leviticus 11-15) prescribed washing with water or sacrificial blood to cleanse ritual impurity (e.g., after touching a corpse or suffering from skin diseases). This wasn't about physical dirt, but about being in a state of holiness to approach the holy God. Water and blood became powerful symbols of spiritual cleansing.",
+      "journalPrompt": {
+        "title": "Cleansing with Water",
+        "content": "The Law given to Moses taught that God is holy, and people need to be cleansed to approach Him. Water was the primary means of this ritual purification, symbolizing the transition from an unclean state to a clean state."
+      },
+      "deepDive": {
+        "title": "Ritual Purity vs. Moral Purity",
+        "content": "It's important to distinguish between ritual impurity and sin. A person could become ritually impure without sinning. These laws taught Israel a profound lesson: approaching God requires holiness. Later prophets would emphasize that true inner purity matters more than external rituals, a theme that John the Baptist and Jesus would further develop."
+      }
+    },
+    "q5": {
+      "character": "Ezekiel",
+      "question": "During the Babylonian exile, I conveyed God's promise to give His people a 'new heart' and a 'new spirit.' What did this promise primarily mean?",
+      "options": [
+        "An appreciation for new music styles.",
+        "An inner, spiritual transformation enabling obedience to God.",
+        "A physical heart transplant.",
+        "The ability to learn new languages."
+      ],
+      "explanation": "Ezekiel 36:25-27 is a key Old Testament passage prophesying God's coming work of inner cleansing and renewal. God promised to cleanse His people with clean water, remove their 'heart of stone' (hardened heart), and give them a 'heart of flesh' (softened heart), placing His Spirit within them. This directly foreshadows the regeneration and indwelling of the Holy Spirit symbolized in Christian baptism.",
+      "journalPrompt": {
+        "title": "The Promise of a New Heart",
+        "content": "The prophet Ezekiel foretold a new covenant that transcends external rituals. God promised to transform His people from deep within, cleansing them and giving them His Spirit to enable them to follow His ways."
+      },
+      "deepDive": {
+        "title": "Rebirth in the Old Testament",
+        "content": "While 'rebirth' is a New Testament concept, its roots are deeply planted in Old Testament promises. Passages like Ezekiel 36 and Jeremiah 31:31-34 (about the new covenant written on hearts) point to God's plan to do a fundamental work in human hearts. This is no longer just about following external laws, but having a transformed heart that desires to obey God. Christian baptism is the sign of this promise fulfilled."
+      }
+    },
+    "q3": {
+      "character": "John the Baptist",
+      "question": "I baptized people in the Jordan River. My baptism was...",
+      "options": [
+        "A baptism of repentance for the forgiveness of sins.",
+        "Joining the local fishing club.",
+        "An initiation into the Roman army.",
+        "A meaningless cultural tradition."
+      ],
+      "explanation": "John's baptism was a powerful public declaration. People confessed their sins and turned to God, preparing for the coming Messiah. It connected the Old Testament theme of water purification with an urgent call for personal repentance.",
+      "journalPrompt": {
+        "title": "The Baptism of Repentance",
+        "content": "John the Baptist was a bridge between the Old and New Testaments. His baptism in the Jordan River symbolized turning away from sin and preparing hearts for the coming of the Messiah, Jesus."
+      },
+      "deepDive": {
+        "title": "Mikveh and John's Baptism",
+        "content": "Jewish tradition already included ritual immersion in a 'mikveh' for purification. John's baptism was similar in form, but his message was radical, applying this ritual to all Israel as a sign of national repentance. He proclaimed that one greater than him was coming, who would baptize not just with water, but with the Holy Spirit and fire."
+      }
+    },
+    "q4": {
+      "character": "Apostle Peter",
+      "question": "On the day of Pentecost, I told the crowd to 'repent and be baptized.' What was the purpose?",
+      "options": [
+        "To get a free meal.",
+        "To cool down under the Jerusalem sun.",
+        "For the forgiveness of your sins and to receive the gift of the Holy Spirit.",
+        "To register for a new community census."
+      ],
+      "explanation": "Peter's sermon in Acts 2 marked the birth of the Christian church. Baptism is now explicitly connected to faith in Jesus Christ, forgiveness of sins through His death and resurrection, and the indwelling of the Holy Spirit. This is the initiation rite into the New Covenant community.",
+      "journalPrompt": {
+        "title": "New Testament Baptism",
+        "content": "Christian baptism, as proclaimed by Peter, is the culmination of salvation history. It combines the themes of covenant (joining God's people), cleansing (forgiveness of sins), and new life (receiving the Holy Spirit)."
+      },
+      "deepDive": {
+        "title": "Baptism: Symbol of Union with Christ",
+        "content": "The Apostle Paul later explained that baptism is spiritually dying, being buried, and rising with Jesus (Romans 6:3-4). When a person is immersed in water, it symbolizes the death of the old sinful self. Coming out of the water symbolizes resurrection to new life in Christ. This is a profound picture of the gospel itself."
+      }
+    },
+    "q6": {
+      "character": "Apostle Paul",
+      "question": "In my letter to the Galatians, I mentioned that all who are baptized into Christ have 'clothed yourselves with Christ.' What is the spiritual meaning of this phrase?",
+      "options": [
+        "Wearing special clothing printed with Christ's image.",
+        "In God's eyes, our identity is completely covered by Christ's righteousness.",
+        "Joining a fashion club called 'Christ.'",
+        "Getting a new cloak at baptism."
+      ],
+      "explanation": "'Clothed with Christ' (Galatians 3:27) is a powerful metaphor. It means that when we unite with Christ through faith and baptism, God no longer sees our sinful old self, but sees Christ's perfection and righteousness. Our identity is fundamentally changed. We are now 'in Christ,' with a new status and family.",
+      "journalPrompt": {
+        "title": "Clothed with Christ",
+        "content": "Baptism is not just about washing away sins, but also putting on a new identity. The Apostle Paul taught that in baptism, we are clothed with Christ Himself. Our old identity has passed away, and we now live as God's children in Christ's righteousness."
+      },
+      "deepDive": {
+        "title": "Identity in Christ",
+        "content": "Central to Pauline theology is the concept of being 'in Christ.' This is a profound spiritual union. Baptism is the outward sign of this union. As Romans 6 explains, we died, were buried, and rose with Christ; as Galatians says, we are clothed with Him. This means Christ's victory becomes our victory, His righteousness becomes our righteousness, and His relationship with the Father becomes our relationship. This completely transforms how Christians see themselves and live."
+      }
+    },
+    "q7": {
+      "character": "Joshua",
+      "question": "When the Israelites crossed the Jordan River into the Promised Land, I set up twelve stones as a memorial. What was the purpose of this monument?",
+      "options": [
+        "To build a swimming pool.",
+        "To construct Joshua's new house.",
+        "As a witness for future generations to ask about, commemorating God's miracle of drying up the river.",
+        "To practice weightlifting exercises."
+      ],
+      "explanation": "Joshua 4:6-7 records that these twelve stones were set up so that when future children ask their meaning, parents could tell them how God stopped the waters of the Jordan River, allowing Israel to cross. This demonstrates the importance of commemorating God's deeds and passing down the story of faith.",
+      "journalPrompt": {
+        "title": "The Significance of Memorial Stones",
+        "content": "The memorial stones that Joshua set up remind us that faith needs to be remembered and passed on. Every marker that witnesses God's deeds becomes an opportunity to tell the next generation about God's grace."
+      },
+      "deepDive": {
+        "title": "Memory and Faith Transmission",
+        "content": "The Old Testament is filled with examples of setting up memorials, from Jacob's stone pillar at Bethel to Samuel's Ebenezer stone. These are not merely historical records, but tools for faith education. They remind us of God's faithfulness and provide opportunities for the next generation to inquire and learn. The Christian practice of communion is also a continuation of this memorial tradition."
+      }
+    },
+    "q8": {
+      "character": "King David",
+      "question": "I wrote in the Psalms: 'Cast your burden on the LORD.' What insight does this give us when facing life's difficulties?",
+      "options": [
+        "We should throw away all our luggage.",
+        "We can entrust our worries and difficulties to God, trusting He will sustain us.",
+        "We should move to another city.",
+        "We need to hire more assistants."
+      ],
+      "explanation": "Psalm 55:22 teaches us that when facing overwhelming burdens and difficulties, we can entrust these to God. As a king, David experienced many challenges and learned to rely on God's strength rather than his own ability. This is a lesson in trust and surrender.",
+      "journalPrompt": {
+        "title": "The Wisdom of Surrender",
+        "content": "David's Psalms teach us that true strength comes from learning to surrender. When we cast our burdens upon God, we are not escaping responsibility, but acknowledging God's sovereignty and care."
+      },
+      "deepDive": {
+        "title": "The Theology of Trust in Psalms",
+        "content": "David's Psalms are not only expressions of personal emotion, but also profound theological reflections. From the shepherd imagery in Psalm 23, to the repentance in Psalm 51, to the praise of God's omniscience in Psalm 139, these psalms teach us how to build a relationship with God in various life circumstances. Surrender is not passive resignation, but active trust."
+      }
+    },
+    "q9": {
+      "character": "King Solomon",
+      "question": "When God asked me what I wanted, I didn't ask for wealth or long life, but for what?",
+      "options": [
+        "The power to defeat all enemies.",
+        "A bigger palace.",
+        "To become the richest person in the world.",
+        "Wisdom to govern God's people."
+      ],
+      "explanation": "1 Kings 3:9 records that Solomon asked God to grant him wisdom so he could discern between good and evil and govern God's people well. This selfless request pleased God, who not only gave him wisdom but also wealth and honor. This teaches us the importance of priorities.",
+      "journalPrompt": {
+        "title": "The Value of Wisdom",
+        "content": "Solomon's choice reminds us that true wisdom is more precious than any material wealth. When we seek God's wisdom, we are seeking the ability to live according to God's will."
+      },
+      "deepDive": {
+        "title": "The Contribution of Wisdom Literature",
+        "content": "Solomon not only ruled Israel with wisdom, but also left us rich wisdom literature, including Proverbs, Ecclesiastes, and parts of Psalms. These books teach practical life wisdom, from interpersonal relationships to work ethics, from the power of words to the proper use of wealth. However, Ecclesiastes also reminds us that even the wisest person will find that life apart from God is ultimately meaningless."
+      }
+    },
+    "q10": {
+      "character": "Prophet Isaiah",
+      "question": "I prophesied about a 'suffering servant' who would be 'pierced for our transgressions, crushed for our iniquities.' To whom does this prophecy point?",
+      "options": [
+        "The Messiah Jesus Christ.",
+        "Assyrian King Sargon.",
+        "Babylonian King Nebuchadnezzar.",
+        "Persian King Cyrus."
+      ],
+      "explanation": "Isaiah 53 is one of the clearest Messianic prophecies in the Old Testament. The description of this 'suffering servant' perfectly foretells the life, death, and resurrection of Jesus Christ. The New Testament quotes this passage many times to demonstrate that Jesus is the promised Messiah.",
+      "journalPrompt": {
+        "title": "The Prophecy of the Suffering Servant",
+        "content": "Isaiah's prophecy reveals to us that God's plan of redemption has been established since ancient times. The Messiah did not come as a conqueror, but as a suffering servant, saving the world through sacrifice."
+      },
+      "deepDive": {
+        "title": "The Fulfillment of Messianic Prophecy",
+        "content": "Isaiah 53 is called 'the Gospel of the Old Testament' because it so detailed foretells the Messiah's suffering, death, and victory. From 'Surely he took up our pain' to 'by his wounds we are healed,' every detail was fulfilled in Jesus. This prophetic fulfillment across hundreds of years is powerful evidence of the Bible's divine inspiration, and also shows us the depth and breadth of God's redemptive plan."
+      }
+    },
+    "q11": {
+      "character": "Daniel",
+      "question": "In the Babylonian court, my friends and I decided not to eat the royal food and wine. What was the main reason for this?",
+      "options": [
+        "To uphold our faith in God and the requirements of the law.",
+        "Because the food tasted bad.",
+        "Because we were on a diet to lose weight.",
+        "Because we wanted to be different."
+      ],
+      "explanation": "Daniel 1:8 records that Daniel resolved not to defile himself with the royal food and wine. This may have involved issues of whether the food was clean or offered to idols according to the law. Daniel maintained his faith in a foreign environment, demonstrating the courage to maintain spiritual loyalty under pressure.",
+      "journalPrompt": {
+        "title": "Maintaining Faith in a Foreign Land",
+        "content": "Daniel's story reminds us that no matter what environment we are in, we can choose to be faithful to God. Even in an unfriendly environment, adhering to the right principles often brings unexpected blessings."
+      },
+      "deepDive": {
+        "title": "Witness in Exile",
+        "content": "The story of Daniel and his friends demonstrates how to live out faith in a secular environment. They did not escape the world, but became salt and light in the world. From refusing the royal food to being saved from the fiery furnace, from interpreting dreams to the miracle in the lions' den, these stories all illustrate one principle: when we are faithful to God, God is faithful to us. Their witness influenced foreign kings, demonstrating the transforming power of faith."
+      }
+    },
+    "q12": {
+      "character": "Jesus Christ",
+      "question": "In the Sermon on the Mount, I said: 'Blessed are the poor in spirit.' What does 'poor in spirit' mean?",
+      "options": [
+        "People who speak very little.",
+        "People who lack confidence.",
+        "People in a bad mood.",
+        "Those who recognize their spiritual poverty and need for God."
+      ],
+      "explanation": "In Matthew 5:3, 'poor in spirit' in the original language means 'poor in spirit.' This does not refer to material poverty, but to recognizing one's spiritual need, acknowledging that apart from God one has nothing. This humble attitude is the first characteristic of citizens of the kingdom of heaven.",
+      "journalPrompt": {
+        "title": "Poverty in Spirit",
+        "content": "Jesus' Beatitudes begin with poverty in spirit, reminding us that the first step to entering the kingdom of heaven is recognizing our need. When we acknowledge our limitations and sinfulness, we prepare our hearts to receive God's grace."
+      },
+      "deepDive": {
+        "title": "The Values of the Kingdom",
+        "content": "The Beatitudes in the Sermon on the Mount completely overturn the world's values. The world says the strong are blessed, Jesus says the poor in spirit are blessed; the world says the rich are blessed, Jesus says those who mourn are blessed. These teachings are not a negative life philosophy, but the positive values of the kingdom of heaven. They describe a new way of life, built on trust in God and love for others."
+      }
+    },
+    "q13": {
+      "character": "Tax Collector Zacchaeus",
+      "question": "After Jesus came to my house, what did I do to demonstrate true repentance?",
+      "options": [
+        "I gave half my possessions to the poor and repaid fourfold what I had extorted.",
+        "I resigned from my tax collector job.",
+        "I moved to another city.",
+        "I built a new synagogue."
+      ],
+      "explanation": "Luke 19:8 records that Zacchaeus said to the Lord: 'Look, Lord! Here and now I give half of my possessions to the poor, and if I have cheated anybody out of anything, I will pay back four times the amount.' This was not just verbal repentance, but concrete action, showing that true repentance brings changes in lifestyle.",
+      "journalPrompt": {
+        "title": "The Fruit of Repentance",
+        "content": "Zacchaeus' story tells us that true repentance is not just an internal change, but is expressed in external actions. When we truly encounter Jesus, both our values and behaviors are transformed."
+      },
+      "deepDive": {
+        "title": "Salvation and Social Justice",
+        "content": "Zacchaeus' story beautifully combines personal salvation with social justice. He was not satisfied with just obtaining peace of mind, but proactively repaired the harm his past wrongful actions had caused others. This shows that the true gospel is holistic; it not only saves souls, but also transforms our attitudes toward wealth, power, and relationships. Zacchaeus' actions respond to the Old Testament teachings about justice and mercy."
+      }
+    },
+    "q14": {
+      "character": "Apostle John",
+      "question": "In the Gospel of John, I recorded Jesus saying 'I am the way, the truth, and the life.' What is the core message of this statement?",
+      "options": [
+        "Jesus knows many truths.",
+        "Jesus is a great philosophy teacher.",
+        "Jesus is the best travel guide.",
+        "Jesus is the only way to the Father."
+      ],
+      "explanation": "John 14:6 fully records Jesus' words: 'I am the way and the truth and the life. No one comes to the Father except through me.' This is the core declaration of the Christian faith, explaining that Jesus is not just one of many religious leaders, but the only mediator between God and humanity.",
+      "journalPrompt": {
+        "title": "The Uniqueness of Christ",
+        "content": "This statement recorded by John challenges us to think about Jesus' identity. He did not say He knows the way, but that He is the way. This exclusive claim demands our response: to accept or reject."
+      },
+      "deepDive": {
+        "title": "The 'I Am' Declarations in John's Gospel",
+        "content": "John's Gospel records seven 'I am' declarations by Jesus: the bread of life, the light of the world, the gate for the sheep, the good shepherd, the resurrection and the life, the way truth and life, the true vine. These declarations all use the 'I am' format of God's self-revelation in the Old Testament (such as Exodus 3:14), implying Jesus' divinity. Each declaration is not just a metaphor, but a profound theological statement about Jesus' nature."
+      }
+    },
+    "q15": {
+      "character": "Martha",
+      "question": "When I was busy serving and complained about my sister Mary, what did Jesus say to me?",
+      "options": [
+        "You should hire more servants.",
+        "Mary has chosen what is better, and it will not be taken away from her.",
+        "You both should go to the kitchen to help.",
+        "You don't need to prepare such a lavish meal."
+      ],
+      "explanation": "Luke 10:42 records Jesus' response: 'but few things are needed—or indeed only one. Mary has chosen what is better, and it will not be taken away from her.' Jesus was not criticizing service, but emphasizing the priority of spiritual pursuit and the importance of listening to God's word.",
+      "journalPrompt": {
+        "title": "Balancing Service and Worship",
+        "content": "Martha's story reminds us that even working for the Lord cannot replace time spent close to the Lord. Service is important, but if we lose a heart of worship and listening, service can become empty busyness."
+      },
+      "deepDive": {
+        "title": "Integrating Action and Contemplation",
+        "content": "The story of Martha and Mary is often interpreted as a contrast between action and contemplation, service and worship. However, the deeper message is about motivation and priorities. Martha's service itself was good, but when she let anxiety and resentment enter her heart, service lost its essence of love. True Christian living needs to integrate Mary's listening heart and Martha's serving hands, but both must spring from love for Christ."
+      }
+    },
+    "q16": {
+      "character": "Eve",
+      "question": "In the Garden of Eden, what argument did the serpent use to tempt me to eat from the tree of the knowledge of good and evil?",
+      "options": [
+        "All the animals are eating this fruit.",
+        "You will be like God, knowing good and evil.",
+        "God is just joking.",
+        "The fruit looks very delicious."
+      ],
+      "explanation": "Genesis 3:5 records that the serpent said to Eve: 'For God knows that when you eat from it your eyes will be opened, and you will be like God, knowing good and evil.' The core of this temptation was to make humanity pursue knowledge and judgment independent of God, wanting to be 'like God.'",
+      "journalPrompt": {
+        "title": "The First Temptation",
+        "content": "The temptation Eve faced reveals the nature of sin: not trusting God's goodness, desiring autonomy, wanting to be one's own god. This pattern has repeated throughout human history."
+      },
+      "deepDive": {
+        "title": "The Origin and Nature of Sin",
+        "content": "The serpent's temptation contained three elements: doubting God's word ('Did God really say...?'), denying consequences ('You will not certainly die'), and promising false benefits ('like God'). This temptation pattern appears repeatedly throughout the Bible, and even Jesus faced a similar pattern when tempted in the wilderness. Understanding the nature of sin helps us identify and resist modern temptations."
+      }
+    },
+    "q17": {
+      "character": "Noah",
+      "question": "When God commanded me to build the ark, how long would it be before the flood came?",
+      "options": [
+        "About 120 years later.",
+        "Immediately.",
+        "Tomorrow.",
+        "One month later."
+      ],
+      "explanation": "According to Genesis 6:3 and subsequent verses, from God's declaration of judgment to the coming of the flood, approximately 120 years passed. During this long period, Noah built the ark while preaching a message of repentance to the world.",
+      "journalPrompt": {
+        "title": "Patient Faith",
+        "content": "Noah spent over a century building the ark, during which he must have experienced much ridicule and questioning. His story teaches us that genuine faith requires long-term perseverance and obedience."
+      },
+      "deepDive": {
+        "title": "God's Patience and Human Response",
+        "content": "The 120-year preparation period demonstrates God's great patience and His desire to give people opportunities to repent. 2 Peter 2:5 calls Noah 'a preacher of righteousness,' indicating he did not just silently build the ark, but actively called people to repentance. However, only his family responded. This reminds us that even in the face of long-term rejection, we must faithfully proclaim the truth."
+      }
+    },
+    "q18": {
+      "character": "Joseph",
+      "question": "After I became prime minister in Egypt, what did I say to my brothers who had sold me into slavery?",
+      "options": [
+        "You intended to harm me, but God intended it for good.",
+        "You will pay for this!",
+        "I never want to see you again.",
+        "You got what you deserved."
+      ],
+      "explanation": "Genesis 50:20 records Joseph saying to his brothers: 'You intended to harm me, but God intended it for good to accomplish what is now being done, the saving of many lives.' This demonstrates Joseph's faith in God's sovereignty and his forgiving heart.",
+      "journalPrompt": {
+        "title": "God's Sovereignty and Human Choice",
+        "content": "Joseph's story reveals a profound truth: human malice cannot thwart God's good purposes. God can use even unjust events to accomplish His greater plan."
+      },
+      "deepDive": {
+        "title": "Faith in Suffering",
+        "content": "Joseph experienced a series of injustices: betrayal by his brothers, false accusation and imprisonment, being forgotten. But he never abandoned his faith in God. His story prefigures Christ: rejected by his own people, experiencing suffering, ultimately becoming the savior. Joseph's forgiveness also teaches us that true forgiveness comes from recognizing God's sovereignty and plan."
+      }
+    },
+    "q19": {
+      "character": "Miriam",
+      "question": "After the Israelites crossed the Red Sea, what did I do to celebrate?",
+      "options": [
+        "Started complaining about insufficient food.",
+        "Took a timbrel and danced and sang praises to God.",
+        "Immediately went to sleep.",
+        "Prepared a grand feast."
+      ],
+      "explanation": "Exodus 15:20-21 records that the prophetess Miriam took a timbrel, and all the women followed her out with timbrels and dancing. She sang: 'Sing to the LORD, for he is highly exalted. Both horse and driver he has hurled into the sea.' This is one of the earliest recorded scenes of worship and praise in the Bible.",
+      "journalPrompt": {
+        "title": "Joyful Worship",
+        "content": "Miriam led the women in praising God with music, dance, and song, demonstrating that worship can be full of joy and expression. When God performs miracles, our response should be sincere praise."
+      },
+      "deepDive": {
+        "title": "Women's Leadership Roles in the Bible",
+        "content": "Miriam was called a 'prophetess' and was listed along with Moses and Aaron as leaders of Israel (Micah 6:4). Her leadership in worship demonstrates the important role of women in God's kingdom work. However, she was later disciplined for pride (Numbers 12), reminding us that leadership authority comes from God and must be used humbly."
+      }
+    },
+    "q20": {
+      "character": "Caleb",
+      "question": "When the twelve spies returned from scouting Canaan, what did Joshua and I say?",
+      "options": [
+        "Let us train the army for ten years first.",
+        "We should go up and take possession of the land, for we can certainly do it.",
+        "The people of that land are too strong; we cannot conquer them.",
+        "We should go back to Egypt."
+      ],
+      "explanation": "Numbers 13:30 records that Caleb silenced the people before Moses and said: 'We should go up and take possession of the land, for we can certainly do it.' Although the other ten spies brought a bad report, only Caleb and Joshua believed God's promise.",
+      "journalPrompt": {
+        "title": "Faith Overcomes Fear",
+        "content": "Caleb saw the same giants and fortified cities as the other spies, but his faith allowed him to see a greater truth: God was with them. True faith does not deny difficulties, but believes God is greater than the difficulties."
+      },
+      "deepDive": {
+        "title": "Wholeheartedly Following God",
+        "content": "The Bible repeatedly describes Caleb as one who 'followed the LORD wholeheartedly' (Numbers 32:12). Even at 85 years old, he was still full of vitality and faith, asking for the mountainous region of Hebron where giants lived (Joshua 14:10-12). Caleb's life teaches us that faithful following of God brings lasting blessings, and faith does not diminish with age."
+      }
+    },
+    "q21": {
+      "character": "Ruth",
+      "question": "When my mother-in-law Naomi told me to return to my Moabite homeland, what did I say to her?",
+      "options": [
+        "I need to go back and see my family first.",
+        "Let me think about it.",
+        "Okay, I'll leave now.",
+        "Where you go I will go; your God will be my God."
+      ],
+      "explanation": "Ruth 1:16-17 records Ruth's beautiful commitment: 'Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God. Where you die I will die, and there I will be buried.'",
+      "journalPrompt": {
+        "title": "Loyal Love",
+        "content": "Ruth's loyalty to Naomi and her commitment to the God of Israel demonstrate true love and faith. She chose to leave her homeland and gods to follow a seemingly hopeless mother-in-law and an unknown God."
+      },
+      "deepDive": {
+        "title": "Gentiles and Redemption",
+        "content": "Ruth was a Moabitess who according to the law should not enter the assembly of Israel. But her faith and loyalty not only gained her acceptance, but also made her the great-grandmother of King David, entering the genealogy of the Messiah. Her story foreshadows the gospel coming to all nations and the truth of Gentiles being saved through faith. The book of Ruth also demonstrates the concept of the 'kinsman-redeemer' (goel), prefiguring Christ's redemptive work."
+      }
+    },
+    "q22": {
+      "character": "Samuel",
+      "question": "When I was a child serving in the tabernacle, I heard a voice calling my name at night. Who was it?",
+      "options": [
+        "My mother Hannah.",
+        "The LORD God.",
+        "I was dreaming.",
+        "Priest Eli."
+      ],
+      "explanation": "1 Samuel 3 records that God called young Samuel's name three times. At first he thought it was Eli calling him, but Eli instructed him to say: 'Speak, LORD, for your servant is listening.' This was Samuel's first time hearing God's voice.",
+      "journalPrompt": {
+        "title": "Listening to God's Voice",
+        "content": "Samuel learned how to discern and respond to God's voice. His attitude of 'Speak, for your servant is listening' became a model for our relationship with God: willing to listen, ready to obey."
+      },
+      "deepDive": {
+        "title": "The Prophet's Calling",
+        "content": "Samuel's calling occurred in an era when 'the word of the LORD was rare; there were not many visions' (1 Sam 3:1). This reminds us that even in spiritually barren times, God is still looking for those willing to listen and obey. Samuel later became one of Israel's greatest prophets, anointing both Saul and David as kings. His life demonstrates the importance of faithfully listening to God's word."
+      }
+    },
+    "q23": {
+      "character": "Bathsheba",
+      "question": "Why was my son Solomon able to inherit David's throne?",
+      "options": [
+        "He won a martial arts competition.",
+        "He bribed all the officials.",
+        "God promised he would be king, and David confirmed this promise.",
+        "He was the firstborn son."
+      ],
+      "explanation": "1 Kings 1 records that when David was old, Bathsheba reminded David that he had sworn by God that Solomon would succeed him as king. The prophet Nathan also confirmed this. This was God's choice, not human arrangement.",
+      "journalPrompt": {
+        "title": "From Sin to Redemption",
+        "content": "Bathsheba's story began with David's sin, but God's grace made her the mother of Solomon and she even entered the Messiah's genealogy. This shows that God can use broken lives to accomplish His plan."
+      },
+      "deepDive": {
+        "title": "Grace and Sovereignty",
+        "content": "Bathsheba is specifically mentioned in Matthew's genealogy, which is unusual. Her inclusion reminds us that God's grace transcends human transgression. Although David and Bathsheba's relationship began in sin, God still chose their son Solomon to inherit the throne. This is not condoning sin, but demonstrating that God can manifest His mercy and sovereignty in human weakness."
+      }
+    },
+    "q24": {
+      "character": "Elijah",
+      "question": "On Mount Carmel, I confronted the prophets of Baal. What happened after I prayed to God?",
+      "options": [
+        "Fire fell from heaven and consumed the sacrifice, the wood, the stones, and the water.",
+        "It rained for three days and three nights.",
+        "Nothing happened.",
+        "The prophets of Baal voluntarily admitted defeat."
+      ],
+      "explanation": "1 Kings 18:38 records: 'Then the fire of the LORD fell and burned up the sacrifice, the wood, the stones and the soil, and also licked up the water in the trench.' This miracle proved that the LORD is the true God, leading the people to fall prostrate and say: 'The LORD—he is God! The LORD—he is God!'",
+      "journalPrompt": {
+        "title": "Facing the Multitude Alone",
+        "content": "Elijah alone confronted 450 prophets of Baal and 400 prophets of Asherah, demonstrating unwavering faith in the true God. Sometimes the path of faithfulness to God is lonely, but God will surely manifest the truth."
+      },
+      "deepDive": {
+        "title": "The Reality of Spiritual Warfare",
+        "content": "The contest on Mount Carmel was not just a competition between prophets, but a battle between true and false gods. Elijah even dug a trench around the altar and poured water on it three times, making the miracle even more evident. After this event, Elijah fled due to Jezebel's threat, showing that even spiritual giants experience weakness. God spoke to him not in the dramatic events but in a gentle whisper on Mount Horeb, teaching us that God's presence is not always in dramatic events."
+      }
+    },
+    "q25": {
+      "character": "Elisha",
+      "question": "When the Syrian commander Naaman came to me to be healed of leprosy, what did I tell him to do?",
+      "options": [
+        "Pay a large sum of money.",
+        "Go home and wait three days.",
+        "Offer one hundred sheep.",
+        "Wash yourself seven times in the Jordan River."
+      ],
+      "explanation": "2 Kings 5:10 records that Elisha sent a messenger to Naaman saying: 'Go, wash yourself seven times in the Jordan, and your flesh will be restored and you will be cleansed.' At first Naaman was angry because of this simple command, but when he obeyed, he was healed.",
+      "journalPrompt": {
+        "title": "Humble Obedience",
+        "content": "Naaman had to lay down his pride as a great commander and accept what seemed like a simple or even insulting method of healing. God's ways sometimes differ from our expectations, but obedience brings blessing."
+      },
+      "deepDive": {
+        "title": "Salvation in Returning and Rest",
+        "content": "Naaman expected the prophet to come out and perform a great act, but Elisha did not even show his face, only giving a simple instruction. This challenged Naaman's pride and expectations about miracles. Similarly, many people expect complex religious rituals or great good works to be saved, but the gospel's call is simple: believe and repent. Naaman's healing also prefigures Gentiles being saved through faith (Luke 4:27)."
+      }
+    },
+    "q26": {
+      "character": "Job",
+      "question": "After losing everything, what was my response to God?",
+      "options": [
+        "I cursed God and abandoned Him.",
+        "The LORD gave and the LORD has taken away; may the name of the LORD be praised.",
+        "I will sue God in court.",
+        "I will never believe in God again."
+      ],
+      "explanation": "Job 1:21-22 records that after Job lost all his possessions and children, he said: 'Naked I came from my mother's womb, and naked I will depart. The LORD gave and the LORD has taken away; may the name of the LORD be praised.' In all this, Job did not sin by charging God with wrongdoing.",
+      "journalPrompt": {
+        "title": "Faith in Suffering",
+        "content": "Job's story challenges us: When life collapses, how do we respond? Job demonstrated that even in extreme pain, one can maintain faith in and worship of God."
+      },
+      "deepDive": {
+        "title": "The Mystery of Suffering",
+        "content": "The book of Job explores a profound question: Why do the righteous suffer? Job's friends tried to explain with 'retribution theology,' believing suffering must be the result of sin. But God ultimately revealed that His ways are higher than human ways. Suffering cannot always be simply explained, but God is still sovereign. Job ultimately saw God Himself, which was more important than getting answers (Job 42:5)."
+      }
+    },
+    "q27": {
+      "character": "Jeremiah",
+      "question": "When God called me to be a prophet, what was my response?",
+      "options": [
+        "I'll go find someone else to do this work.",
+        "I immediately agreed.",
+        "Alas, Sovereign LORD, I do not know how to speak; I am too young.",
+        "I asked to think about it for three days."
+      ],
+      "explanation": "Jeremiah 1:6 records that Jeremiah said to God: 'Alas, Sovereign LORD, I do not know how to speak; I am too young.' But God responded: 'Do not say, \"I am too young.\" You must go to everyone I send you to and say whatever I command you.'",
+      "journalPrompt": {
+        "title": "Inadequacy and God's Calling",
+        "content": "Jeremiah felt inadequate, but God's calling is not based on our abilities, but on His choice and presence. God promised: 'I am with you and will rescue you.'"
+      },
+      "deepDive": {
+        "title": "The Weeping Prophet",
+        "content": "Jeremiah was called 'the weeping prophet' because he prophesied Jerusalem's destruction, but the people would not listen. He experienced imprisonment, ridicule, and isolation, but remained faithful in proclaiming God's word. Jeremiah's ministry reminds us that successful ministry is not measured by people's response, but by faithfulness to God. His suffering also prefigured Christ, who wept over Jerusalem."
+      }
+    },
+    "q28": {
+      "character": "Nehemiah",
+      "question": "When I heard that Jerusalem's walls were broken down and its gates burned with fire, what did I do?",
+      "options": [
+        "I ignored this news.",
+        "I sat down and wept, mourned for days, and fasted and prayed before God.",
+        "I immediately resigned and returned to Jerusalem.",
+        "I wrote a letter blaming those living in Jerusalem."
+      ],
+      "explanation": "Nehemiah 1:4 records: 'When I heard these things, I sat down and wept. For some days I mourned and fasted and prayed before the God of heaven.' Nehemiah's first response was not immediate action, but turning to God with a broken heart.",
+      "journalPrompt": {
+        "title": "Prayer and Action",
+        "content": "Nehemiah's example demonstrates the perfect combination of prayer and action. He first poured out his heart before God, then took bold action under God's guidance, ultimately leading the people to rebuild the wall in 52 days."
+      },
+      "deepDive": {
+        "title": "Spiritual Revival and Physical Reconstruction",
+        "content": "Nehemiah not only rebuilt the walls but, more importantly, worked with Ezra to lead spiritual revival. The wall reconstruction was external, but the true goal was restoring the people's relationship with God. Nehemiah faced opposition from within and without, but his prayer, courage, and organizational skills made this impossible task possible. He demonstrated how godly leadership can impact an entire community."
+      }
+    },
+    "q29": {
+      "character": "Esther",
+      "question": "When I needed to break the law to see the king to save the Jewish people, what did I say?",
+      "options": [
+        "Let Mordecai handle it himself.",
+        "If I perish, I perish!",
+        "This is too dangerous; I cannot do it.",
+        "I will wait until the king summons me."
+      ],
+      "explanation": "Esther 4:16 records that Esther asked Mordecai to gather all the Jews to fast for her for three days, then said: 'If I perish, I perish!' She was willing to risk her life to save her people.",
+      "journalPrompt": {
+        "title": "For Such a Time as This",
+        "content": "Mordecai said to Esther: 'And who knows but that you have come to your royal position for such a time as this?' God places us in specific positions for His purposes. Courage is choosing the right action even when afraid."
+      },
+      "deepDive": {
+        "title": "Hidden Providence",
+        "content": "The book of Esther is the only book in the Bible that does not directly mention God's name, yet God's work is clearly visible. From Esther being chosen as queen, to the king's sleepless night leading him to read historical records, to Haman's plot being exposed, each 'coincidence' reveals God's providence behind the scenes. This teaches us that even when God seems absent, He is still in control. Esther's story also inspired the Jewish festival of Purim."
+      }
+    },
+    "q30": {
+      "character": "Elizabeth, Mother of John the Baptist",
+      "question": "When Mary came to visit me, what happened?",
+      "options": [
+        "The baby in my womb leaped, and I was filled with the Holy Spirit.",
+        "We cooked together.",
+        "Nothing special happened.",
+        "We discussed the weather."
+      ],
+      "explanation": "Luke 1:41 records: 'When Elizabeth heard Mary's greeting, the baby leaped in her womb, and Elizabeth was filled with the Holy Spirit.' She cried out in a loud voice: 'Blessed are you among women, and blessed is the child you will bear!'",
+      "journalPrompt": {
+        "title": "Recognizing the Savior",
+        "content": "Even before John was born, he leaped in the womb at the Messiah's presence. Elizabeth, filled with the Holy Spirit, recognized Mary's child as Lord. True spiritual sensitivity enables us to recognize God's work."
+      },
+      "deepDive": {
+        "title": "Two Miraculous Births",
+        "content": "Elizabeth and Zechariah were old and childless, like Abraham and Sarah. John's birth itself was a miracle, preparing hearts to receive the greater miracle—Christ's birth. Elizabeth called Mary 'the mother of my Lord,' the first time in the New Testament someone recognized Jesus' divinity. The dialogue between the two women and Mary's song (the Magnificat) are filled with Old Testament references, showing how God fulfilled His ancient promises."
+      }
+    },
+    "q31": {
+      "character": "Wise Men (Magi from the East)",
+      "question": "When we came from the East to Jerusalem seeking the newborn King, what gifts did we present?",
+      "options": [
+        "Gold, silver, and precious stones.",
+        "Food, clothing, and toys.",
+        "Books, maps, and weapons.",
+        "Gold, frankincense, and myrrh."
+      ],
+      "explanation": "Matthew 2:11 records: 'On coming to the house, they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh.' These three gifts all have profound symbolic meanings.",
+      "journalPrompt": {
+        "title": "Seeking and Worshiping",
+        "content": "The wise men traveled far to seek the newborn King and presented the most precious gifts. True worship requires seeking, paying a price, and offering our best."
+      },
+      "deepDive": {
+        "title": "The Symbolic Meaning of the Gifts",
+        "content": "Traditionally, these three gifts are given symbolic meaning: gold represents kingship, frankincense represents divinity (used in worship), and myrrh represents suffering and death (used for burial). These Gentile wise men recognized the King of the Jews, foreshadowing the gospel going to all nations. Herod's and all Jerusalem's disturbance contrasts with the wise men's joy, showing people's different responses to the Messiah."
+      }
+    },
+    "q32": {
+      "character": "Nicodemus",
+      "question": "When I came to Jesus at night, He told me I must do what to see the kingdom of God?",
+      "options": [
+        "Must strictly observe all the laws.",
+        "Must be born again.",
+        "Must become a Pharisee.",
+        "Must donate all possessions."
+      ],
+      "explanation": "John 3:3 records Jesus' answer: 'Very truly I tell you, no one can see the kingdom of God unless they are born again.' This declaration shocked Nicodemus, initiating a profound conversation about spiritual rebirth.",
+      "journalPrompt": {
+        "title": "The Necessity of Rebirth",
+        "content": "Jesus told this religious leader that what he needed was not more religious knowledge or better behavior, but an entirely new spiritual life. Rebirth is not something we can do, but the work of the Holy Spirit."
+      },
+      "deepDive": {
+        "title": "From Night to Light",
+        "content": "Nicodemus came to Jesus 'at night,' possibly fearing being seen, but also symbolizing his spiritual darkness. John's Gospel mentions Nicodemus three times: the nighttime visit, defending Jesus in the council, and burying Jesus with Joseph after His death. This progression shows his transformation from a secret seeker to a public follower. The teaching on rebirth is the core of the gospel: not by works, but by the Holy Spirit's renewal."
+      }
+    },
+    "q33": {
+      "character": "Samaritan Woman",
+      "question": "When Jesus asked me for water at the well, He said He could give me what?",
+      "options": [
+        "A map to Jerusalem.",
+        "Living water that causes people to never thirst.",
+        "A new well.",
+        "A new water jar."
+      ],
+      "explanation": "John 4:13-14 records Jesus' answer: 'Everyone who drinks this water will be thirsty again, but whoever drinks the water I give them will never thirst. Indeed, the water I give them will become in them a spring of water welling up to eternal life.'",
+      "journalPrompt": {
+        "title": "The Spring of Eternal Life",
+        "content": "We are all searching for something to satisfy our soul's thirst. Jesus offers not temporary satisfaction, but the water of eternal life. Only He can truly satisfy the deepest longing of the human heart."
+      },
+      "deepDive": {
+        "title": "The Cross-Cultural Gospel",
+        "content": "This conversation broke multiple barriers: Jesus spoke with a Samaritan (despised by Jews), with a woman alone (contrary to custom at that time), and with someone with moral issues (she had five husbands). Jesus not only did not avoid her, but revealed to her that He is the Messiah. This woman became the first Samaritan missionary; the whole town came to believe in Jesus because of her testimony. This shows the gospel transcends all social and cultural barriers."
+      }
+    },
+    "q34": {
+      "character": "Centurion",
+      "question": "When Jesus wanted to come to my house to heal my servant, what did I say to Him?",
+      "options": [
+        "I need You to come and lay hands on him.",
+        "Please come to my house immediately.",
+        "I do not deserve to have You come under my roof. Just say the word, and my servant will be healed.",
+        "I need to pay the medical fee first."
+      ],
+      "explanation": "Matthew 8:8 records the centurion's answer: 'Lord, I do not deserve to have you come under my roof. But just say the word, and my servant will be healed.' When Jesus heard this, He was amazed and said: 'Truly I tell you, I have not found anyone in Israel with such great faith.'",
+      "journalPrompt": {
+        "title": "Understanding Authority",
+        "content": "The centurion understood how authority works, therefore he understood that Jesus' word itself carries the power to heal. True faith is not seeing and then believing, but believing that God's word will surely be accomplished."
+      },
+      "deepDive": {
+        "title": "The Faith of a Gentile",
+        "content": "This Roman military officer demonstrated faith surpassing that of many Jews. He not only cared for his servant (unusual in that culture), but also recognized Jesus' supernatural authority. Jesus used this example to prophesy that Gentiles would enter the kingdom of heaven while many native sons would be cast out. This event foreshadowed the gospel going to all nations and that faith is more important than racial lineage."
+      }
+    },
+    "q35": {
+      "character": "Mary Magdalene",
+      "question": "On the morning of Resurrection Sunday, I was the first to see what?",
+      "options": [
+        "The empty tomb and the risen Jesus.",
+        "The disciples gathered.",
+        "The Roman soldiers guarding the tomb.",
+        "The high priest."
+      ],
+      "explanation": "John 20 records that Mary Magdalene went to the tomb early in the morning and saw the stone removed from the entrance. She became the first to see the empty tomb and the first to see the risen Christ. Jesus entrusted her to tell the disciples this good news.",
+      "journalPrompt": {
+        "title": "The First Witness",
+        "content": "God chose a woman to be the first witness of the resurrection, which was revolutionary in that culture. Mary's faithful love made her the first to experience the joy of the resurrection."
+      },
+      "deepDive": {
+        "title": "From Darkness to Light",
+        "content": "Mary Magdalene had been possessed by seven demons, and Jesus freed her (Luke 8:2). She went from deep bondage to freedom, becoming one of the most faithful followers, even present at the cross and the empty tomb. Her life transformation and commitment to Christ qualified her to be the first witness of the resurrection. In a culture where women's testimony was not accepted in court, this further demonstrates God's valuing of women and the subversive nature of His kingdom values."
+      }
+    },
+    "q36": {
+      "character": "Thomas",
+      "question": "When the other disciples told me they had seen the risen Lord, what did I say?",
+      "options": [
+        "Let's celebrate!",
+        "I completely believe you.",
+        "Unless I see the nail marks in his hands, I will not believe.",
+        "This is too incredible!"
+      ],
+      "explanation": "John 20:25 records Thomas saying: 'Unless I see the nail marks in his hands and put my finger where the nails were, and put my hand into his side, I will not believe.' Eight days later, Jesus appeared to him, inviting him to touch His wounds.",
+      "journalPrompt": {
+        "title": "From Doubt to Belief",
+        "content": "Jesus did not rebuke Thomas' doubt, but met his need. But Jesus also said: 'Because you have seen me, you have believed; blessed are those who have not seen and yet have believed.' Faith does not need all the evidence, but God is willing to meet us in our weakness."
+      },
+      "deepDive": {
+        "title": "Honest Doubt",
+        "content": "Thomas is often called 'doubting Thomas,' but his doubt was honest, not stubborn unbelief. When he saw the Lord, he made one of the greatest confessions in the Gospels: 'My Lord and my God!' (John 20:28). This was the first time a disciple directly addressed Jesus as God. Tradition says Thomas later became a missionary, bringing the gospel to India and ultimately dying as a martyr for his faith. His journey from doubter to martyr encourages us to bring our honest questions before God."
+      }
+    },
+    "q37": {
+      "character": "Lydia",
+      "question": "In Philippi, when Paul preached, what happened?",
+      "options": [
+        "The crowd drove Paul away.",
+        "The Lord opened my heart to respond to Paul's message.",
+        "The synagogue was closed.",
+        "No one was willing to listen."
+      ],
+      "explanation": "Acts 16:14 records: 'One of those listening was a woman from the city of Thyatira named Lydia, a dealer in purple cloth. She was a worshiper of God. The Lord opened her heart to respond to Paul's message.' She and her household were baptized.",
+      "journalPrompt": {
+        "title": "The Opening of the Heart's Door",
+        "content": "Lydia was already a God-fearer, but she needed the Lord to open her heart to truly understand the gospel. Salvation is not only a human decision, but God's work. Her home became Paul's first missionary base in Europe."
+      },
+      "deepDive": {
+        "title": "Europe's First Convert",
+        "content": "Lydia was the first Christian in Europe; her conversion marked the historic moment of the gospel moving from Asia to Europe. As a successful businesswoman (selling purple cloth was a high-end business), she used her resources and influence to support Paul's ministry. Her home became the meeting place for the Philippian church. Philippians is Paul's letter to this church, full of joy and thanksgiving, partly due to the generous support of Lydia and other believers."
+      }
+    },
+    "q38": {
+      "character": "Aquila and Priscilla",
+      "question": "When we met the young preacher Apollos, what did we do?",
+      "options": [
+        "Took him aside and explained to him the way of God more adequately.",
+        "Publicly criticized his teaching.",
+        "Drove him out of the synagogue.",
+        "Ignored his existence."
+      ],
+      "explanation": "Acts 18:26 records: 'He began to speak boldly in the synagogue. When Priscilla and Aquila heard him, they invited him to their home and explained to him the way of God more adequately.' This couple helped Apollos grow with wisdom and love.",
+      "journalPrompt": {
+        "title": "Humble Service",
+        "content": "This tent-making couple demonstrated how to edify others with grace and wisdom. They did not publicly correct Apollos, but privately helped him, making him a more effective worker for God's kingdom."
+      },
+      "deepDive": {
+        "title": "The Influence of Lay People",
+        "content": "Aquila and Priscilla were a lay couple who worked with Paul, making tents for a living while actively participating in missionary work. Paul mentions them in several letters, calling them co-workers and even saying they 'risked their lives for me' (Romans 16:3-4). Their home became a church meeting place. This couple demonstrates how lay people can have significant impact in God's kingdom; one does not need full-time ministry to effectively serve God."
+      }
+    },
+    "q39": {
+      "character": "Philemon",
+      "question": "Paul wrote to me, asking how I should treat my runaway slave Onesimus?",
+      "options": [
+        "Sell him.",
+        "Send him back to Rome.",
+        "Punish him severely.",
+        "Receive him no longer as a slave, but better than a slave, as a dear brother."
+      ],
+      "explanation": "Philemon 16 records that Paul asked Philemon to receive Onesimus 'no longer as a slave, but better than a slave, as a dear brother.' This letter demonstrates how the gospel transforms social relationships.",
+      "journalPrompt": {
+        "title": "The Transforming Power of the Gospel",
+        "content": "Christianity did not immediately abolish slavery, but it transformed this relationship from within. In Christ, master and slave are brothers. This revolutionary concept of equality ultimately led to the abolition of slavery."
+      },
+      "deepDive": {
+        "title": "Forgiveness and Reconciliation",
+        "content": "This private letter to Philemon is included in the Bible because it demonstrates how the gospel deals with interpersonal conflict and social injustice. Onesimus may have stolen from his master before running away, then met Paul and became a Christian. Paul did not command Philemon to free Onesimus, but he implied this should be the result. This gentle but firm persuasive approach teaches us how to promote reconciliation and justice in situations of power imbalance."
+      }
+    },
+    "q40": {
+      "character": "Timothy",
+      "question": "Paul wrote to remind me not to let people look down on me because of what?",
+      "options": [
+        "I don't have much wealth.",
+        "I haven't received higher education.",
+        "My youth.",
+        "I'm not Jewish."
+      ],
+      "explanation": "1 Timothy 4:12 records: 'Don't let anyone look down on you because you are young, but set an example for the believers in speech, in conduct, in love, in faith and in purity.' Paul encouraged young Timothy not to feel inferior because of his age.",
+      "journalPrompt": {
+        "title": "Faithfulness Over Age",
+        "content": "Though Timothy was young, he was entrusted with the heavy responsibility of shepherding the Ephesian church. God does not look at appearance or age; He values faithfulness and character. Young people can be examples in faith."
+      },
+      "deepDive": {
+        "title": "Spiritual Father and Son",
+        "content": "Paul's relationship with Timothy demonstrates a beautiful model of spiritual mentorship. Paul called Timothy 'my dear son,' 'my true son in the faith.' Timothy was taught the Scriptures from childhood by his devout grandmother Lois and mother Eunice (2 Tim 1:5, 3:15). He later became one of Paul's most trusted co-workers. Paul's two letters to him are filled with practical pastoral advice and deep concern, classic examples of intergenerational discipleship."
+      }
+    },
+    "q41": {
+      "character": "James (The Lord's Brother)",
+      "question": "In my letter, how do I describe true faith?",
+      "options": [
+        "Faith without deeds is dead.",
+        "Faith needs no proof.",
+        "Faith is a private matter and doesn't need to be shown.",
+        "Faith only needs to exist in the heart."
+      ],
+      "explanation": "James 2:26 writes: 'As the body without the spirit is dead, so faith without deeds is dead.' James emphasizes that true faith must necessarily bear the fruit of deeds in life.",
+      "journalPrompt": {
+        "title": "Living Faith",
+        "content": "James' teaching does not contradict Paul's justification by faith, but complements it. Paul emphasizes we are saved by faith, not by works; James emphasizes that true faith necessarily produces works. Both are truth."
+      },
+      "deepDive": {
+        "title": "From Doubt to Leader",
+        "content": "James was Jesus' younger brother, but during Jesus' ministry, he did not believe in Jesus (John 7:5). A post-resurrection appearance changed him (1 Cor 15:7), and he became the leader of the Jerusalem church. Eusebius records he was called 'James the Just' because of his godly life. He ultimately died as a martyr for his faith. The book of James is one of the most practical New Testament epistles, emphasizing the integration of faith and life, with special concern for social justice, taming the tongue, and the power of prayer."
+      }
+    },
+    "q42": {
+      "character": "Silas",
+      "question": "When Paul and I were beaten and imprisoned in Philippi, what did we do?",
+      "options": [
+        "Complained loudly about the injustice.",
+        "Around midnight, we prayed and sang hymns to God.",
+        "Gave up our faith.",
+        "Planned an escape."
+      ],
+      "explanation": "Acts 16:25 records: 'About midnight Paul and Silas were praying and singing hymns to God, and the other prisoners were listening to them.' Suddenly there was a great earthquake, the prison doors flew open, and everyone's chains came loose. The jailer and his whole household believed as a result.",
+      "journalPrompt": {
+        "title": "Praise in Affliction",
+        "content": "Paul and Silas chose to praise God in extreme pain. Their witness not only moved the jailer, but also became an example for believers through the ages in times of trouble. True faith shines even brighter in adversity."
+      },
+      "deepDive": {
+        "title": "The Strength of Co-workers",
+        "content": "Silas (also called Silvanus) was a leader in the Jerusalem church, chosen as a messenger to bring the decisions of the apostolic council to the Gentile churches. When Paul and Barnabas parted ways, Silas became Paul's partner on his second missionary journey. He was not just an assistant, but an equal co-worker, called a prophet. He experienced the prison in Philippi, the riot in Thessalonica, and the welcome in Berea with Paul. Later he assisted Peter in writing letters (1 Pet 5:12). His ministry demonstrates the importance of faithful co-workers."
+      }
+    },
+    "q43": {
+      "character": "Apollos",
+      "question": "When I was preaching in Ephesus, what was my knowledge of the Old Testament like?",
+      "options": [
+        "I didn't understand the Bible at all.",
+        "I had only read the New Testament.",
+        "A learned man, with a thorough knowledge of the Scriptures, but knew only the baptism of John.",
+        "I never quoted Scripture."
+      ],
+      "explanation": "Acts 18:24-25 describes Apollos as 'a learned man, with a thorough knowledge of the Scriptures. He had been instructed in the way of the Lord, and he spoke with great fervor and taught about Jesus accurately, though he knew only the baptism of John.'",
+      "journalPrompt": {
+        "title": "Continuous Learning",
+        "content": "Though Apollos was learned and zealous, he still needed a more complete understanding. He humbly accepted instruction from Priscilla and Aquila, becoming a more effective worker. We all need to continue learning and growing."
+      },
+      "deepDive": {
+        "title": "Gifts and Unity",
+        "content": "Apollos later became powerful in Corinth, publicly refuting the Jews and proving from the Scriptures that Jesus was the Messiah (Acts 18:28). But some in the Corinthian church said 'I follow Apollos,' causing divisions (1 Cor 1:12). Paul clarified in 1 Cor 3:5-9: he planted, Apollos watered, but God made it grow. They are all God's co-workers. This teaches us that different gifts and roles should complement, not compete. Paul even urged Apollos to go to Corinth (1 Cor 16:12), showing their unity."
+      }
+    },
+    "q44": {
+      "character": "Philip (The Deacon)",
+      "question": "When the Spirit directed me to the desert road, whom did I meet?",
+      "options": [
+        "A Roman general.",
+        "A priest from Jerusalem.",
+        "A group of bandits.",
+        "An Ethiopian eunuch reading the book of Isaiah."
+      ],
+      "explanation": "Acts 8:27-35 records that Philip met an Ethiopian eunuch reading Isaiah 53. Philip explained to him that this passage pointed to Jesus, and the eunuch immediately asked to be baptized, becoming the first African Christian.",
+      "journalPrompt": {
+        "title": "The Spirit's Guidance",
+        "content": "Philip obeyed the Spirit's guidance, leaving the Samaritan revival to evangelize just one person in the desert. God values each soul. We need to be sensitive to the Spirit's leading, even when it seems illogical."
+      },
+      "deepDive": {
+        "title": "From Serving Tables to Evangelizing",
+        "content": "Philip was originally chosen as one of the seven deacons to manage food distribution and serve widows (Acts 6:1-6). But he was not satisfied with this; he became a powerful evangelist. After Stephen's martyrdom, he brought the gospel to Samaria, leading many to the Lord and even performing miracles. After the encounter with the eunuch, he was taken away by the Spirit and preached along the coast. Years later, Paul visited his home in Caesarea, where he had four daughters who prophesied (Acts 21:8-9). Philip's life shows that faithfulness begins with small things but can develop into great ministry."
+      }
+    },
+    "q45": {
+      "character": "Cornelius",
+      "question": "As a Gentile, how did God tell me to invite Peter to my house?",
+      "options": [
+        "I heard a voice in the temple.",
+        "Through a dream.",
+        "Paul came to visit me.",
+        "An angel appeared to me in a vision."
+      ],
+      "explanation": "Acts 10:3-6 records: 'One day at about three in the afternoon he had a vision. He distinctly saw an angel of God, who came to him and said, \"Cornelius.\"' The angel instructed him to send men to Joppa to summon Peter. At the same time, God gave Peter a vision, preparing him to break Jewish tradition and go to a Gentile's house.",
+      "journalPrompt": {
+        "title": "The Gospel Crosses Barriers",
+        "content": "Cornelius was a God-fearing Gentile, but until Peter came to preach Jesus, he did not fully understand the gospel. God simultaneously prepared both the seeker and the preacher. The gospel is prepared for all peoples."
+      },
+      "deepDive": {
+        "title": "A Turning Point in Church History",
+        "content": "Cornelius was a Roman centurion, yet he devoutly worshiped the God of Israel. He was generous and prayed constantly. His conversion marked a major turning point in church history: Gentiles could become Christians directly without going through Jewish law. When the Holy Spirit fell on Cornelius and his household, Peter exclaimed: 'Surely no one can stand in the way of their being baptized with water. They have received the Holy Spirit just as we have' (Acts 10:47). This event became a key precedent for the later Jerusalem Council (Acts 15)."
+      }
+    },
+    "q46": {
+      "character": "Barnabas",
+      "question": "What does my name 'Barnabas' mean?",
+      "options": [
+        "Wise One",
+        "Son of Encouragement",
+        "Warrior",
+        "Strong Man"
+      ],
+      "explanation": "Acts 4:36 records: 'Joseph, a Levite from Cyprus, whom the apostles called Barnabas (which means \"son of encouragement\").' His name perfectly described his gift and character.",
+      "journalPrompt": {
+        "title": "The Gift of an Encourager",
+        "content": "Barnabas saw potential in others and was willing to give people second chances. He introduced Paul to the apostles and gave Mark a second chance to serve. The church needs more encouragers like Barnabas."
+      },
+      "deepDive": {
+        "title": "A Good Man and Sacrifice",
+        "content": "The Bible describes Barnabas as 'a good man, full of the Holy Spirit and faith' (Acts 11:24). He sold a field and brought the money to lay at the apostles' feet. When Paul converted and no one dared accept him, Barnabas courageously vouched for him. He invited Paul to serve together in Antioch, even taking the initiative to let Paul become the primary preacher. Later they separated over Mark, with Barnabas choosing to give Mark a second chance. Paul later acknowledged that Mark was useful to him (2 Tim 4:11), proving Barnabas' vision was right."
+      }
+    },
+    "q47": {
+      "character": "Epaphras",
+      "question": "How did Paul describe my prayers for the Colossian church?",
+      "options": [
+        "Always wrestling in prayer for you, that you may stand firm in all the will of God.",
+        "Only praying for them on Sundays.",
+        "Never praying for them.",
+        "Occasionally praying for them."
+      ],
+      "explanation": "Colossians 4:12 records Paul saying: 'Epaphras, who is one of you and a servant of Christ Jesus, sends greetings. He is always wrestling in prayer for you, that you may stand firm in all the will of God, mature and fully assured.'",
+      "journalPrompt": {
+        "title": "The Ministry of Intercession",
+        "content": "Epaphras probably founded the Colossian church, but his greatest ministry was persistent intercession. Sometimes God calls us to ministry not on the frontlines, but in the prayer closet. Faithful intercession is a service of eternal value."
+      },
+      "deepDive": {
+        "title": "Unsung Heroes",
+        "content": "Epaphras' name appears only twice in the New Testament, but each time is related to prayer. Paul calls him a 'dear fellow servant' and 'my fellow prisoner' (Phlm 1:23). He may have been imprisoned for the gospel along with Paul. Although he did not write letters or establish many churches like Paul, his faithful intercession and service are recorded in Scripture. The church needs more unsung heroes like Epaphras who are willing to wrestle in prayer behind the scenes."
+      }
+    },
+    "q48": {
+      "character": "Phoebe",
+      "question": "How did Paul introduce me to the Roman church?",
+      "options": [
+        "A deacon of the church in Cenchreae, who has been a great help to many people.",
+        "An ordinary believer.",
+        "A visitor.",
+        "My student."
+      ],
+      "explanation": "Romans 16:1-2 records: 'I commend to you our sister Phoebe, a deacon of the church in Cenchreae. I ask you to receive her in the Lord in a way worthy of his people and to give her any help she may need from you, for she has been the benefactor of many people, including me.'",
+      "journalPrompt": {
+        "title": "A Model of Service",
+        "content": "Phoebe likely carried Paul's letter to Rome. She was called a deacon, a servant with a position in the church, and a helper of many people. Women held important roles in the early church."
+      },
+      "deepDive": {
+        "title": "Women's Roles in the Church",
+        "content": "Phoebe was called a 'deacon' (diakonos), the same word used for the qualifications for deacons in 1 Timothy 3:8-13. She was also called a 'benefactor' (prostatis), a word with connotations of leader or patron. She may have been a wealthy businesswoman who supported Paul and other workers. Romans 16 mentions many female co-workers: Priscilla (whom Paul calls a co-worker), Mary (who worked hard for you), Tryphena and Tryphosa (who work hard in the Lord). In the early church, women actively participated in various ministries."
+      }
+    },
+    "q49": {
+      "character": "Mark (John Mark)",
+      "question": "On the first missionary journey, what did I do that caused Paul to stop trusting me?",
+      "options": [
+        "I stole the offerings.",
+        "I never went with them.",
+        "I deserted them in Pamphylia and returned to Jerusalem.",
+        "I publicly criticized Paul."
+      ],
+      "explanation": "Acts 13:13 records: 'From Paphos, Paul and his companions sailed to Perga in Pamphylia, where John left them to return to Jerusalem.' This led Paul to refuse to take Mark on the second journey, causing a sharp disagreement between him and Barnabas.",
+      "journalPrompt": {
+        "title": "Recovery After Failure",
+        "content": "Mark's early failure did not define his life. Barnabas gave him a second chance, and eventually even Paul acknowledged his value. We all fail, but God can restore and use those willing to grow."
+      },
+      "deepDive": {
+        "title": "From Failure to Gospel Writer",
+        "content": "Mark's mother Mary's home was a meeting place for the early church (Acts 12:12). He served Paul, Barnabas, and Peter. Although he withdrew from the first missionary journey, he later matured. Paul wrote to Timothy in his later years: 'Get Mark and bring him with you, because he is helpful to me in my ministry' (2 Tim 4:11). Peter called him 'my son Mark' (1 Pet 5:13). Most importantly, God used him to write the Gospel of Mark, which became the earliest written of the four Gospels."
+      }
+    },
+    "q50": {
+      "character": "Church of Laodicea",
+      "question": "In Revelation, what is the Lord's most severe rebuke to our church?",
+      "options": [
+        "You are too zealous.",
+        "You are neither cold nor hot; I am about to spit you out of my mouth.",
+        "You are being persecuted.",
+        "You are too poor."
+      ],
+      "explanation": "Revelation 3:16 records the Lord saying: 'So, because you are lukewarm—neither hot nor cold—I am about to spit you out of my mouth.' The problem of the Laodicean church was complacency and spiritual lukewarmness.",
+      "journalPrompt": {
+        "title": "The Danger of Lukewarmness",
+        "content": "The Laodicean church considered itself rich, but did not realize it was spiritually 'wretched, pitiful, poor, blind and naked.' Complacency is the most dangerous enemy of spiritual life. The Lord calls: 'I counsel you to buy from me gold refined in the fire, so you can become rich.'"
+      },
+      "deepDive": {
+        "title": "The Final Warning to the Seven Churches",
+        "content": "Laodicea is the last of the seven churches in Revelation, and the only one that received no commendation. The city was famous for banking, wool industry, and eye salve, leading to spiritual pride. Its water supply was lukewarm, neither like the hot therapeutic waters of Hierapolis nor like the cold refreshing waters of Colossae. The Lord stands at the door and knocks (Rev 3:20), showing He has been excluded from the church's activities. This letter is a severe warning to today's wealthy but spiritually cold churches."
+      }
+    },
+    "q51": {
+      "character": "Hebrew Bible Scholar",
+      "question": "What are the three main sections of the Hebrew Bible (Tanakh)?",
+      "options": [
+        "Pentateuch, Prophets, Wisdom Literature",
+        "Historical Books, Poetic Books, Prophetic Books",
+        "Torah, Nevi'im, Ketuvim",
+        "Genesis, Exodus, Psalms"
+      ],
+      "explanation": "The Hebrew Bible (Tanakh) is divided into three main sections: Torah (תּוֹרָה, Law, the Five Books), Nevi'im (נְבִיאִים, Prophets), and Ketuvim (כְּתוּבִים, Writings). The name Tanakh is an acronym formed from the first letters of these three sections (T-N-K).",
+      "journalPrompt": {
+        "title": "The Structure of the Hebrew Bible",
+        "content": "The threefold structure of the Tanakh reflects Judaism's understanding of the different levels of authority in the Bible. Torah is the most central, containing God's law; Nevi'im records the teachings of the prophets; Ketuvim includes poetry, wisdom literature, and other writings."
+      },
+      "deepDive": {
+        "title": "The Canonization of the Hebrew Bible",
+        "content": "The canonization of the Hebrew Bible was a lengthy process. The Torah was generally accepted by the 5th century BCE; the Prophets were largely established by the 3rd century BCE; the Writings' canonical status was finally established around 90 CE at the Council of Jamnia. This threefold structure also influenced the arrangement of the Christian Old Testament, although the order is different."
+      }
+    },
+    "q52": {
+      "character": "Textual Critic Scholar",
+      "question": "What is the importance of the Masoretic Text in Hebrew Bible studies?",
+      "options": [
+        "It is the standard Hebrew Bible text, including vowel points and an annotation system",
+        "It is another name for the Dead Sea Scrolls",
+        "It is the Greek translation of the Hebrew Bible",
+        "It is the earliest Hebrew manuscript"
+      ],
+      "explanation": "The Masoretic Text (MT) is the standard Hebrew Bible text meticulously compiled by Masoretic scholars between the 7th-10th centuries CE. They added vowel points (nikkud), cantillation marks (ta'amim), and marginal notes to ensure correct pronunciation and interpretation, becoming the primary basis for modern Hebrew Bible studies and translations.",
+      "journalPrompt": {
+        "title": "The Transmission of Scripture",
+        "content": "The Masoretes' meticulous work in preserving the biblical text demonstrates reverence for God's word. They not only copied the text but also developed complex counting and checking systems to ensure every letter was accurate."
+      },
+      "deepDive": {
+        "title": "Textual Criticism and Biblical Reliability",
+        "content": "The discovery and study of the Masoretic Text, especially its comparison with the Dead Sea Scrolls (3rd century BCE to 1st century CE), proves the amazing accuracy of Hebrew Bible transmission. Although there are some textual variants, the vast majority are spelling differences, and the core content remains consistent. This provides strong evidence for biblical reliability. The Leningrad Codex (1008 CE) is the oldest complete Masoretic text and is the base text for Biblia Hebraica Stuttgartensia (BHS)."
+      }
+    },
+    "q53": {
+      "character": "Linguist",
+      "question": "What are the primary languages used in the Hebrew Bible, and what are the exceptions?",
+      "options": [
+        "Primarily Hebrew, but portions of Daniel and Ezra are in Aramaic",
+        "Primarily Aramaic, with some Hebrew",
+        "Mixed Hebrew and Greek",
+        "Entirely written in Hebrew"
+      ],
+      "explanation": "The Hebrew Bible is primarily written in ancient Hebrew, but with important exceptions: Daniel 2:4-7:28 and Ezra 4:8-6:18, 7:12-26 are written in Imperial Aramaic. Aramaic became the lingua franca of the Near East during the Persian Empire period, reflecting the linguistic environment change of the Jews during the exile.",
+      "journalPrompt": {
+        "title": "Language and Historical Context",
+        "content": "The use of different languages in the Bible reflects the historical changes of the nation of Israel. Hebrew represents early national identity, while Aramaic shows the cultural influence of the exile period; these language choices themselves tell the story of God's people."
+      },
+      "deepDive": {
+        "title": "Semitic Languages and Biblical Studies",
+        "content": "Both Hebrew and Aramaic belong to the Northwest branch of the Semitic language family. Understanding the characteristics of these languages is crucial for exegesis: 1) They are consonantal writing systems; vowels were added later; 2) Root system (usually three consonants) expresses core meaning; 3) Verb tenses express complete/incomplete states rather than time; 4) Rich parallelism used in poetry. Additionally, Jeremiah 10:11 has one verse entirely in Aramaic, and Genesis 31:47 also contains an Aramaic place name."
+      }
+    },
+    "q54": {
+      "character": "Literary Critic Scholar",
+      "question": "What is the main literary feature of Hebrew poetry?",
+      "options": [
+        "Parallelism and imagery",
+        "Sonnet structure",
+        "Free verse without rhyme",
+        "Rhyme and meter"
+      ],
+      "explanation": "The core feature of Hebrew poetry is parallelism, not rhyme. Main types include: synonymous parallelism (repeating the same meaning), antithetical parallelism (contrasting opposite meanings), and synthetic parallelism (expanding on the previous line). Psalms, Proverbs, Job, and the prophetic books extensively use this structure.",
+      "journalPrompt": {
+        "title": "The Aesthetics of Biblical Poetry",
+        "content": "Parallelism is not just a literary technique, but a theological mode of expression. Through repetition, contrast, and expansion, Hebrew poetry helps readers deeply meditate on truth, allowing God's word to resonate in the heart."
+      },
+      "deepDive": {
+        "title": "Multilayered Structure of Hebrew Poetry",
+        "content": "Beyond parallelism, Hebrew poetry includes other features: 1) Acrostic poems, like Psalm 119 where each section begins with successive Hebrew letters; 2) Chiasm, like the ABBA structure in Psalm 51:1-2; 3) Inclusio, where the beginning and end echo each other; 4) Rich metaphors and personification. Understanding these features helps us appreciate the depth and beauty of biblical poetry and avoid overly literal interpretation of poetic expressions."
+      }
+    },
+    "q55": {
+      "character": "Old Testament Scholar",
+      "question": "What is the main difference between the Old Testament and the Hebrew Bible?",
+      "options": [
+        "The Old Testament has the New Testament added",
+        "Different book order and classification methods",
+        "Completely different content",
+        "Different language translations but same content"
+      ],
+      "explanation": "The Christian Old Testament and the Jewish Tanakh contain the same books (Protestant version), but with different orders. The Old Testament is arranged by history, poetry, and prophets, ending with Malachi pointing to the Messiah; the Tanakh is arranged by Torah, Nevi'im, Ketuvim, ending with Chronicles emphasizing return and rebuilding. Catholic and Orthodox Old Testaments also include the Deuterocanonical books.",
+      "journalPrompt": {
+        "title": "Canon and Theological Perspective",
+        "content": "The same scriptures, different arrangement orders reflect different theological emphases. The Christian Old Testament arrangement highlights the expectation of the Messiah, paving the way for the New Testament."
+      },
+      "deepDive": {
+        "title": "The Septuagint and Canonical Differences",
+        "content": "Old Testament arrangement differences partly stem from the Septuagint (LXX, Greek translation from the 3rd-2nd century BCE). The early church mainly used the LXX, which included the Deuterocanonical books and rearranged the books. Protestant Reformers returned to the Hebrew canon (39 books) but retained the LXX order; Catholics retained the Deuterocanonical books (46 Old Testament books); Orthodox includes even more books (50 books). These differences involve the deep theological question of 'who has the authority to define the canon.'"
+      }
+    },
+    "q56": {
+      "character": "Archaeologist",
+      "question": "Which archaeological discovery has had the most revolutionary impact on Old Testament studies?",
+      "options": [
+        "The Dead Sea Scrolls",
+        "The ruins of Troy",
+        "The Rosetta Stone",
+        "Tutankhamun's tomb"
+      ],
+      "explanation": "The Dead Sea Scrolls discovered in the Qumran caves in 1947 were the most important archaeological find of the 20th century. They contain about 900 manuscripts from the 3rd century BCE to the 1st century CE, proving the accuracy of biblical text transmission and providing precious information about Second Temple period Judaism.",
+      "journalPrompt": {
+        "title": "Archaeology and Faith",
+        "content": "The discovery of the Dead Sea Scrolls not only confirms biblical reliability but also gives us a glimpse into how the Jewish community (such as the Essenes) understood and practiced faith during Jesus' time."
+      },
+      "deepDive": {
+        "title": "The Importance of the Dead Sea Scrolls",
+        "content": "The Dead Sea Scrolls include: 1) Fragments or complete manuscripts of all Old Testament books except Esther; 2) A complete Isaiah scroll, highly consistent with the Masoretic Text despite being 1000 years apart; 3) Rules and commentaries of the Qumran community; 4) Deuterocanonical and pseudepigraphal books. These discoveries help scholars: understand textual variants, study Jewish sects, trace the development of Messianic concepts, and understand the New Testament background. For example, the Habakkuk Commentary shows how the Qumran community applied prophetic books to their contemporary situation."
+      }
+    },
+    "q57": {
+      "character": "Documentary Hypothesis Scholar",
+      "question": "What does the 'Documentary Hypothesis' primarily argue?",
+      "options": [
+        "All Old Testament books are lost",
+        "The Old Testament was all forged later",
+        "The Pentateuch was written by a single author in one sitting",
+        "The Pentateuch was compiled from multiple documentary sources (J, E, D, P)"
+      ],
+      "explanation": "The Documentary Hypothesis (also called the JEDP theory), proposed by Julius Wellhausen in the 19th century, argues that the Pentateuch was compiled from four main sources: J (Yahwist source), E (Elohist source), D (Deuteronomic source), and P (Priestly source). This theory has sparked extensive scholarly discussion about the authorship and composition process of the Pentateuch.",
+      "journalPrompt": {
+        "title": "Critical Scholarship and Faith",
+        "content": "The Documentary Hypothesis reminds us of the complexity of the Bible's composition. Whether accepting it or not, this theory prompts believers to think more deeply about how the Holy Spirit guided human authors and the nature of inspiration."
+      },
+      "deepDive": {
+        "title": "Evaluating the Documentary Hypothesis",
+        "content": "The Documentary Hypothesis is based on: 1) Different divine names (YHWH vs. Elohim); 2) Repetitive narratives (like two creation accounts); 3) Language and style differences; 4) Theological perspective changes. Critics point out: 1) Ancient Near Eastern literature commonly used multiple divine names; 2) Repetition may be a literary technique; 3) Moses may have used earlier sources; 4) Archaeological evidence supports early composition. Modern scholars have developed supplementary hypotheses, fragmentary hypotheses, and other alternative theories. Conservative scholars maintain Mosaic substantial authorship but acknowledge later editorial work."
+      }
+    },
+    "q58": {
+      "character": "Theologian",
+      "question": "How is the central place of 'covenant' in Old Testament theology embodied?",
+      "options": [
+        "Covenant is only a minor theme",
+        "Covenant only appears in the New Testament",
+        "Covenant is equivalent to law",
+        "Covenant is the core framework for understanding God's relationship with humanity"
+      ],
+      "explanation": "Covenant (berit) is a core theological concept of the Old Testament, structuring God's relationship with humanity. Major covenants include: the Noahic Covenant (Gen 9), the Abrahamic Covenant (Gen 15, 17), the Sinaitic Covenant (Ex 19-24), and the Davidic Covenant (2 Sam 7). These covenants progressively reveal God's redemptive plan, ultimately pointing to the New Covenant prophesied by Jeremiah (Jer 31:31-34).",
+      "journalPrompt": {
+        "title": "Covenant Theology",
+        "content": "Covenants show that God is proactive and faithful. He is not a distant philosophical concept, but a God who makes covenants and builds relationships with people. Each covenant reveals an aspect of His redemptive plan."
+      },
+      "deepDive": {
+        "title": "Types and Structure of Covenants",
+        "content": "Old Testament covenants borrowed from the form of ancient Near Eastern suzerain-vassal treaties: 1) Preamble (identifying the covenant maker); 2) Historical prologue (reviewing the relationship); 3) Stipulations (obligations); 4) Witnesses; 5) Blessings and curses. Deuteronomy perfectly embodies this structure. But biblical covenants transcend political treaties: the Abrahamic Covenant is an unconditional grace covenant; the Sinaitic Covenant is conditional; the Davidic Covenant is an eternal royal promise. The New Covenant in Christ fulfills all Old Testament covenants, written on the heart (Jer 31:33; Heb 8:10)."
+      }
+    },
+    "q59": {
+      "character": "New Testament Scholar",
+      "question": "What language were the 27 books of the New Testament primarily written in?",
+      "options": [
+        "Latin",
+        "Hebrew",
+        "Koine Greek",
+        "Aramaic"
+      ],
+      "explanation": "The entire New Testament was written in Koine Greek, the lingua franca of the Mediterranean world from the 3rd century BCE to the 6th century CE. Although Jesus and the apostles likely spoke Aramaic, they chose to record the gospel in Greek, enabling the message to spread throughout the Roman Empire.",
+      "journalPrompt": {
+        "title": "God's Timing and Tools",
+        "content": "God's use of Greek as the New Testament language was not accidental. Alexander the Great's conquests established the Hellenistic world, Rome's road system facilitated travel, and Koine Greek allowed the gospel to spread rapidly—'when the set time had fully come' (Gal 4:4)."
+      },
+      "deepDive": {
+        "title": "Characteristics of Koine Greek",
+        "content": "Koine (κοινή, meaning 'common') was simplified Greek, different from classical Greek. Characteristics: 1) Simplified grammar; 2) Reduced subjunctive mood; 3) Many loanwords (such as Hebrew and Aramaic); 4) Closer to spoken language. The 19th-century discovery of papyri proved that the New Testament used ordinary people's language, not religious jargon. This reflects the populist nature of the gospel—not elite philosophy, but good news for all people. Matthew may have had a Hebrew or Aramaic version, but only the Greek version survives."
+      }
+    },
+    "q60": {
+      "character": "Canon Research Scholar",
+      "question": "When was the 27-book New Testament canon finally established?",
+      "options": [
+        "Immediately determined during the Apostle Paul's time",
+        "During the Reformation period",
+        "The fourth century (such as Athanasius' Easter Letter in 367 CE)",
+        "Before the end of the first century"
+      ],
+      "explanation": "The establishment of the New Testament canon was a gradual process. In 367 CE, Athanasius, Bishop of Alexandria, first listed today's 27 New Testament books in his Easter Letter. The Council of Carthage in 397 CE officially confirmed this canon, but the church had substantially accepted these books much earlier.",
+      "journalPrompt": {
+        "title": "The Formation of the Canon",
+        "content": "The canon was not 'created' by councils, but 'recognized' by the church as books that the Holy Spirit had already testified to be true in the community of believers. Criteria included: apostolicity, orthodoxy, catholicity (universal acceptance), and inspiration."
+      },
+      "deepDive": {
+        "title": "Standards and Controversies in Canon Formation",
+        "content": "The early church used four standards to judge the canon: 1) Apostolicity—written by apostles or apostolic companions; 2) Orthodoxy—conforms to apostolic teaching; 3) Catholicity—widely used by churches; 4) Inspiration—testified by the Holy Spirit. Disputed books (Antilegomena) included: Hebrews, James, 2 Peter, 2 and 3 John, Jude, Revelation. Apocryphal books like the Gospel of Thomas were rejected due to lack of apostolicity and orthodoxy. The Muratorian Fragment (~170 AD) is the earliest New Testament canon list."
+      }
+    },
+    "q61": {
+      "character": "Gospel Studies Expert",
+      "question": "What does the 'Synoptic Problem' explore?",
+      "options": [
+        "Why the Gospel of John is different",
+        "The historical reliability of the Gospels",
+        "The literary relationship among Matthew, Mark, and Luke",
+        "Why there are only three Gospels"
+      ],
+      "explanation": "The Synoptic Problem explores the similarities and differences among Matthew, Mark, and Luke (called the Synoptic Gospels because they can be compared side by side). The mainstream theory is 'Marcan Priority' plus the 'Q Source' hypothesis: Mark was earliest, and Matthew and Luke used Mark plus a common source Q (German Quelle, meaning 'source').",
+      "journalPrompt": {
+        "title": "The Value of Multiple Witnesses",
+        "content": "The four Gospels provide four perspectives on the same Christ. Mark emphasizes Jesus' actions (the Servant), Matthew emphasizes teaching (the King), Luke emphasizes compassion (the perfect Man), and John emphasizes divinity (the Son of God). This enriches our knowledge of Christ."
+      },
+      "deepDive": {
+        "title": "Synoptic Gospel Theories",
+        "content": "Main theories: 1) Marcan Priority: Mark was earliest (~65-70 AD), Matthew and Luke independently used Mark; 2) Q Source hypothesis: Matthew and Luke share about 250 verses not in Mark, hypothesized to come from a lost sayings source Q; 3) M and L sources: Matthew and Luke's unique materials respectively. Alternative theories include: the Griesbach hypothesis (Matthew was earliest), the Farrer hypothesis (no need for Q, Luke used Matthew). These discussions help us understand how Gospel writers, under the Spirit's guidance, selected and arranged materials to present Christ to different audiences."
+      }
+    },
+    "q62": {
+      "character": "Pauline Epistles Expert",
+      "question": "Which are generally recognized as undisputed authentic Pauline epistles?",
+      "options": [
+        "All are disputed",
+        "Romans, 1-2 Corinthians, Galatians, Philippians, 1 Thessalonians, Philemon (7 letters)",
+        "All 13 Pauline epistles",
+        "Only Romans and Galatians"
+      ],
+      "explanation": "Scholars generally accept 7 as undisputed Pauline epistles (Undisputed Paulines): Romans, 1-2 Corinthians, Galatians, Philippians, 1 Thessalonians, Philemon. The Pastoral Epistles (1-2 Timothy, Titus) and Ephesians, Colossians still have scholarly controversy about authorship, but the traditional church generally accepts them as written by Paul.",
+      "journalPrompt": {
+        "title": "Paul's Theological Legacy",
+        "content": "Even amid scholarly controversy, the theological value of Paul's epistles remains unchanged. Justification by faith, new creation in Christ, the church as the body of Christ—these truths have shaped Christian theology."
+      },
+      "deepDive": {
+        "title": "Classification and Controversy of Pauline Epistles",
+        "content": "Classification: 1) Undisputed letters (7); 2) Pastoral Epistles (1-2 Tim, Titus)—style and theological differences spark controversy; 3) Prison Epistles (Eph, Phil, Col, Phlm)—Phil and Phlm undisputed, Eph and Col disputed; 4) Hebrews—some in the early church attributed it to Paul, but modern scholars almost unanimously agree it was not written by Paul. Controversy is based on: vocabulary differences, theological development, church organizational maturity. Conservative scholars defend: secretarial assistance, different contexts, theological development. Regardless of authorship, canonical status is based on apostolicity and inspiration."
+      }
+    },
+    "q63": {
+      "character": "Manuscript Scholar",
+      "question": "What is the earliest complete New Testament manuscript?",
+      "options": [
+        "Muratorian Fragment",
+        "Codex Sinaiticus",
+        "Vulgate",
+        "Dead Sea Scrolls"
+      ],
+      "explanation": "Codex Sinaiticus (约公元330-360年) is one of the earliest complete New Testament manuscripts, also containing portions of the Old Testament. Together with Codex Vaticanus (约公元300-325年), it is the most important witness for New Testament textual criticism.",
+      "journalPrompt": {
+        "title": "The Witness of Manuscripts",
+        "content": "God has miraculously preserved thousands of New Testament manuscripts (over 5,800 Greek manuscripts), far exceeding any ancient document. The quantity and consistency of these manuscripts prove the reliable transmission of the New Testament."
+      },
+      "deepDive": {
+        "title": "Classification of New Testament Manuscripts",
+        "content": "New Testament manuscripts are classified into: 1) Papyri—earliest (like P52, ~125 AD, contains John Gospel fragments); 2) Uncials—capital letters, 4th-8th century (like א Sinaiticus, B Vaticanus, A Alexandrinus, D Bezae); 3) Minuscules—lowercase letters, 9th century onward, most numerous; 4) Lectionaries—scripture selections for worship. Textual critics compare these manuscripts to reconstruct text closest to the original. Although there are variants, 99% are spelling differences; none affects core doctrine."
+      }
+    },
+    "q64": {
+      "character": "Translation History Scholar",
+      "question": "What is the importance of the Septuagint (LXX) to early Christianity?",
+      "options": [
+        "It is the Greek translation of the Old Testament, widely quoted by New Testament authors",
+        "It is the Latin Bible",
+        "It is the translation of the Dead Sea Scrolls",
+        "It is the Greek version of the New Testament"
+      ],
+      "explanation": "The Septuagint is the Greek translation of the Hebrew Bible completed in Alexandria in the 3rd-2nd century BCE, legendarily translated by 70 (or 72) scholars. New Testament authors quoted about two-thirds of Old Testament references from the LXX. It was also the primary Old Testament version for the early church (especially Greek-speaking Gentile believers).",
+      "journalPrompt": {
+        "title": "The Cross-Cultural Gospel",
+        "content": "The LXX paved the way for the gospel. When Jewish diaspora scattered worldwide, they needed a Greek Bible; when Gentiles turned to the Lord, they could read the Old Testament in their familiar language. God prepared for gospel spread at every level."
+      },
+      "deepDive": {
+        "title": "The Influence of the Septuagint",
+        "content": "LXX importance: 1) New Testament quotations—like Isaiah 7:14's 'virgin' (parthenos) concept comes from LXX; 2) Theological vocabulary—like 'logos' (Word), 'kyrios' (Lord) and other core New Testament words originate from LXX; 3) Canonical scope—LXX includes Deuterocanonical books, influencing Catholic and Orthodox canons; 4) Patristic use—early church fathers like Origen and Augustine primarily used LXX. The Letter of Aristeas records the legendary translation. LXX differs somewhat from the Masoretic Text; the Dead Sea Scrolls show some Hebrew base texts were indeed different."
+      }
+    },
+    "q65": {
+      "character": "Apocrypha Researcher",
+      "question": "What books does the Old Testament Apocrypha/Deuterocanonical Books include?",
+      "options": [
+        "New Testament Apocrypha",
+        "Dead Sea Scrolls",
+        "Maccabees, Tobit, Judith, etc., books not in the Hebrew canon but in the LXX",
+        "Gnostic Gospels"
+      ],
+      "explanation": "The Apocrypha (Catholics call 'Second Canon') includes: Tobit, Judith, Wisdom of Solomon, Sirach (Ecclesiasticus), Baruch, 1-2 Maccabees, additions to Esther and Daniel, etc. These books are in the Septuagint; Catholics and Orthodox accept them as canonical, but Protestants view them as beneficial but not canonical writings.",
+      "journalPrompt": {
+        "title": "The Boundaries of Canon",
+        "content": "The status of the Apocrypha reflects Christians' different understandings of 'what is God's word.' Regardless, these books provide historical and spiritual insights from the intertestamental period."
+      },
+      "deepDive": {
+        "title": "History and Theological Controversy of the Apocrypha",
+        "content": "Apocrypha controversy stems from: 1) The Hebrew canon does not include these books (Jewish rabbis confirmed after the Council of Jamnia); 2) The New Testament never directly quotes the Apocrypha (though there are allusions); 3) Early church fathers had differing opinions (Jerome opposed, Augustine accepted). During the Reformation, Luther placed the Apocrypha between the two testaments, calling it 'beneficial reading'; the Council of Trent (1546) responded to Protestantism by officially confirming the Apocrypha as canonical. The Apocrypha contains: Maccabean revolutionary history, purgatory doctrine (2 Maccabees 12:43-45), almsgiving atonement (Tobit 12:9), etc. Protestants rejected the Apocrypha based on: Sola Scriptura principle and Hebrew canon authority."
+      }
+    },
+    "q66": {
+      "character": "Ancient Versions Expert",
+      "question": "What is the role of the Vulgate in church history?",
+      "options": [
+        "The first English Bible translation",
+        "Jerome's Latin Bible translation, becoming the Catholic Church's standard version",
+        "Commentary on the Hebrew Old Testament",
+        "The earliest Greek New Testament"
+      ],
+      "explanation": "The Vulgate is the Latin Bible translation completed by Church Father Jerome between 382-405 CE. He translated the Old Testament from Hebrew (rather than relying on LXX) and revised the New Testament Latin translation. The Vulgate became the Catholic Church's official Bible version for over a thousand years, until after Vatican II when use of vernacular languages was encouraged.",
+      "journalPrompt": {
+        "title": "Accessibility of God's Word",
+        "content": "Jerome translated the Bible into Latin, the common language of the time, allowing more people to read God's word. Every era needs faithful, clear translations so people can encounter God in their own language."
+      },
+      "deepDive": {
+        "title": "Historical Influence of the Vulgate",
+        "content": "Vulgate characteristics: 1) Translated Old Testament from Hebrew, not relying on LXX (Jerome learned Hebrew in Bethlehem); 2) Includes Deuterocanonical books; 3) Influenced Western theological vocabulary (like 'sacramentum' = sacrament). The Council of Trent (1546) declared the Vulgate the official version, responding to Protestant Reformers' Greek/Hebrew original text movement. Vulgate influence: all medieval theology and worship; English vocabulary (many KJV translations derive from Vulgate); art and literature (Dante, Milton). In 1979, the Nova Vulgata became the Catholic liturgical version."
+      }
+    },
+    "q67": {
+      "character": "Historian",
+      "question": "What is the importance of the Intertestamental Period (400 BCE-1 CE) for understanding the New Testament?",
+      "options": [
+        "The Bible was still being written during this period",
+        "This period witnessed the formation of Jewish sects (Pharisees, Sadducees, Essenes) and Hellenistic influence",
+        "This period is unimportant",
+        "During this period Israel was independent with no foreign influence"
+      ],
+      "explanation": "The Intertestamental Period (also called the '400 Silent Years') experienced Persian, Greek (Alexander and his successors), and Roman rule. This period saw the formation of Jewish sects mentioned in the New Testament, the synagogue system, scribal traditions, heightened Messianic expectations, and Hellenistic cultural influence. Understanding this background is crucial for reading the Gospels.",
+      "journalPrompt": {
+        "title": "God's Work in History",
+        "content": "Even without prophetic words, God was at work between the testaments—preparing language (Greek), roads (Roman), expectation (Messiah). History is not accidental, but the stage for God's redemptive plan."
+      },
+      "deepDive": {
+        "title": "Key Events Between the Testaments",
+        "content": "Important developments: 1) Politics: Persia→Alexander→Ptolemaic Dynasty (Egypt)→Seleucid Dynasty (Syria)→Hasmonean Dynasty (after Maccabean Revolt, 167-63 BC)→Rome (from 63 BC); 2) Religion: synagogue emergence, oral law development, Pharisees (emphasizing law and tradition), Sadducees (priestly aristocracy, accepting only Torah), Essenes (Qumran community, asceticism), Zealots (anti-Roman radicals) formation; 3) Culture: Hellenization affecting Jewish thought, LXX translation, wisdom literature development; 4) Theology: Messianic concept development, resurrection and angelology debates. Antiochus IV's desecration of the temple (167 BC) sparked the Maccabean Revolt."
+      }
+    },
+    "q68": {
+      "character": "Jewish Culture Expert",
+      "question": "What functions did the synagogue in first-century Judaism have?",
+      "options": [
+        "Government administrative offices",
+        "Just a social gathering place",
+        "Worship and community center for scripture reading, prayer, and teaching",
+        "Sacrifice center replacing the temple"
+      ],
+      "explanation": "Synagogues developed after the exile, becoming the religious and social center of Jewish communities. Functions included: Sabbath scripture reading and teaching (Luke 4:16-21), prayer, children's education, community gatherings, charitable work. Jesus and Paul both taught in synagogues (Acts 17:1-2). Synagogues did not offer sacrifices (sacrifices were only in the Jerusalem temple), but were places for studying and teaching the law.",
+      "journalPrompt": {
+        "title": "Synagogue and the Early Church",
+        "content": "The early Christian church's worship patterns were influenced by synagogues: scripture reading, preaching, prayer. Synagogues also became Paul's missionary starting point—first to Jews, then to Gentiles (Rom 1:16)."
+      },
+      "deepDive": {
+        "title": "Synagogue Structure and Worship",
+        "content": "Synagogue organization: 1) Synagogue ruler (like Jairus, Mark 5:22) responsible for worship order; 2) Management committee handling community affairs; 3) Ark storing Torah scrolls; 4) Facing Jerusalem direction. Sabbath worship procedure: Shema (Deut 6:4-9), prayer (Amidah, 18 blessings), Torah reading, Prophets reading (Haftarah), exposition (Midrash), blessing. Any adult male could be invited to read and teach (Luke 4:16; Acts 13:15). Synagogue required at least 10 adult males (minyan). After the temple's destruction in 70 CE, synagogues became the center of Judaism."
+      }
+    },
+    "q69": {
+      "character": "Roman Culture Scholar",
+      "question": "How did the Roman Empire influence the spread of Christianity in the New Testament period?",
+      "options": [
+        "Rome had no influence on Christianity",
+        "Rome completely suppressed Christianity",
+        "The Roman emperor supported Christianity",
+        "Pax Romana, road system, and common language facilitated gospel spread"
+      ],
+      "explanation": "The Roman Empire in God's providence prepared conditions for gospel spread: 1) Pax Romana provided stability and security; 2) Excellent road system facilitated travel; 3) Koine Greek transcended language barriers; 4) Jewish diaspora scattered worldwide established synagogues. Paul utilized his Roman citizenship (Acts 22:25-29) and the road network for missionary journeys.",
+      "journalPrompt": {
+        "title": "God's Sovereign Tools",
+        "content": "God even used a pagan empire to accomplish His will. Rome unintentionally paved the way for the gospel, just as the census of Quirinius prompted Jesus to be born in Bethlehem (Luke 2:1-7), fulfilling Micah 5:2."
+      },
+      "deepDive": {
+        "title": "Religious and Political Background of the Roman Empire",
+        "content": "Roman Empire characteristics: 1) Religious pluralism—tolerating various religions as long as they pledged loyalty to the emperor; 2) Emperor worship—deified after Augustus, requiring incense offering calling 'Lord' (kyrios), conflicting with Christian 'Jesus is Lord'; 3) Legal system—Paul appealed to Caesar (Acts 25:11); 4) Social hierarchy—citizen vs. non-citizen, free vs. slave, Christianity transcended class (Gal 3:28); 5) Roads—road network built by Roman legions connecting the empire; 6) Hellenization—though Roman ruled, the East mainly spoke Greek. Persecutions: Nero (64 AD), Domitian (90s AD), Trajan (110s AD), Diocletian (303 AD). Constantine (313 AD) issued the Edict of Milan, ending persecution."
+      }
+    },
+    "q70": {
+      "character": "Ancient Near East Expert",
+      "question": "What is the relationship between ancient Near Eastern literature (like Epic of Gilgamesh, Enuma Elish creation poem) and Genesis?",
+      "options": [
+        "These myths are more reliable than Genesis",
+        "Genesis plagiarized these myths",
+        "Genesis shares similar themes with this literature but provides a unique monotheistic perspective",
+        "The two have no relationship"
+      ],
+      "explanation": "Genesis shares similar themes with ancient Near Eastern literature (like Babylonian creation poem Enuma Elish, Gilgamesh flood narrative): creation, flood, heroes. But Genesis provides fundamentally different theology: one Creator (not polytheism), orderly creation (not divine conflict), humanity in God's image (not slaves of gods). Genesis conveys unique revelation within the same cultural context.",
+      "journalPrompt": {
+        "title": "Revelation and Culture",
+        "content": "God reveals Himself in a specific cultural context. Genesis uses literary forms familiar to ancient Near Eastern readers, but subverts pagan theology, manifesting the glory of the one true God and human dignity."
+      },
+      "deepDive": {
+        "title": "Contrasting Genesis with Ancient Near Eastern Literature",
+        "content": "Similarities: 1) Flood narrative (Gilgamesh Epic Tablet 11: ark, animals, raven/dove, mountain landing, sacrifice); 2) Creation themes (Enuma Elish: primordial waters, light creation, human formation); 3) Suzerain treaty structure (Hittite treaties and covenants). Key differences: 1) Monotheism vs. polytheism; 2) Orderly creation vs. violent divine conflict; 3) Humans in God's image vs. slaves of gods; 4) Moral flood judgment vs. gods annoyed by human noise; 5) Loving Creator vs. capricious gods. These comparisons do not diminish biblical authority but rather highlight its unique revelatory nature."
+      }
+    },
+    "q71": {
+      "character": "Social Historian",
+      "question": "How does understanding the Honor-Shame Culture of the first-century Mediterranean world help in understanding the New Testament?",
+      "options": [
+        "The New Testament completely rejects honor-shame concepts",
+        "Understanding honor-shame culture helps explain Jesus' parables, Paul's rhetoric, and early believers' behavior",
+        "Honor-shame concepts are unimportant",
+        "Only guilt culture influences the New Testament"
+      ],
+      "explanation": "The first century was an honor-shame culture (collectivist, valuing public opinion), not modern Western guilt culture (individualist, valuing inner conscience). Understanding this helps explain: Jesus' 'poor in spirit' and 'persecuted for righteousness' (Matt 5:3,10), the 'shame' of the cross (Heb 12:2), Paul's 'boasting' rhetoric (2 Cor 10-12), exhortations to mutual submission (Eph 5:21).",
+      "journalPrompt": {
+        "title": "The Gospel Subverts Culture",
+        "content": "The gospel transforms honor-shame values: in Christ, shame becomes glory (Phil 3:7-8); weakness becomes power (2 Cor 12:9-10); the last shall be first (Matt 20:16). God's kingdom has different honor-shame standards."
+      },
+      "deepDive": {
+        "title": "Honor-Shame Culture and New Testament Interpretation",
+        "content": "Honor-shame culture characteristics: 1) Collective identity (family/group honor); 2) Public reputation crucial; 3) Challenge-response pattern (like Pharisees challenging Jesus); 4) Patron-client relationships (patronage); 5) Limited good perspective (zero-sum game, others' gain is my loss). New Testament examples: Prodigal son parable (Luke 15, younger son shames family); Zacchaeus (Luke 19, tax collector profession shameful); Cross (Deut 21:23, one hung is cursed); Women witnesses (John 20, women's testimony not valued in honor-shame culture, but God chooses them). Gospel redefines glory: God's approval as supreme honor (John 5:44; 12:43)."
+      }
+    },
+    "q72": {
+      "character": "Hermeneutics Scholar",
+      "question": "What does 'Form Criticism' explore in biblical studies?",
+      "options": [
+        "The literary aesthetics of the Bible",
+        "The printing history of the Bible",
+        "The oral forms and life settings (Sitz im Leben) of biblical texts before they were written",
+        "The text format of the Bible"
+      ],
+      "explanation": "Form criticism, developed by German scholars like Martin Dibelius and Rudolf Bultmann, studies the oral transmission stage of biblical materials before they were written. It identifies different literary forms (like miracle stories, parables, teachings) and explores their function in early communities (Sitz im Leben, life setting).",
+      "journalPrompt": {
+        "title": "Oral and Written Tradition",
+        "content": "The early church preserved Jesus' teachings and deeds through oral transmission before writing the Gospels. This process was not random, but a faithful transmission by the community under the Spirit's guidance."
+      },
+      "deepDive": {
+        "title": "Method and Evaluation of Form Criticism",
+        "content": "Form criticism steps: 1) Identify literary forms (Gattungen)—miracle stories, conflict stories, parables, sayings, passion narrative, etc.; 2) Analyze structural characteristics of forms; 3) Reconstruct 'life setting' (Sitz im Leben)—in what early church context was this form used (worship, teaching, mission, debate); 4) Trace tradition development. Contribution: helps understand Gospel material diversity and early church context. Criticism: 1) Excessive skepticism about historical reliability; 2) Assumes community created rather than preserved tradition; 3) Ignores eyewitness role. Conservative scholars like Richard Bauckham emphasize eyewitness testimony and apostolic authority."
+      }
+    },
+    "q73": {
+      "character": "Redaction Criticism Scholar",
+      "question": "How does 'Redaction Criticism' differ from 'Form Criticism'?",
+      "options": [
+        "Redaction criticism only concerns grammatical errors",
+        "Redaction criticism proves the Bible is all fiction",
+        "The two are completely identical",
+        "Redaction criticism studies how editors selected and arranged material to convey theological messages"
+      ],
+      "explanation": "Redaction criticism (developed mid-20th century) studies Gospel writers' roles as theologians and editors. It focuses on how authors selected, arranged, and modified materials to serve their theological purposes and readers' needs. For example, how Matthew arranged Jesus' teachings into five major discourses, or how Luke emphasized Jesus' concern for the marginalized.",
+      "journalPrompt": {
+        "title": "Inspired Authors",
+        "content": "Redaction criticism reminds us that Gospel writers were not mechanical scribes, but theologians who, under the Spirit's guidance, consciously shaped the message for specific readers. Inspiration does not erase human personality."
+      },
+      "deepDive": {
+        "title": "Application of Redaction Criticism",
+        "content": "Redaction criticism method: 1) Compare parallel passages in Synoptic Gospels; 2) Analyze authors' additions, omissions, arrangements; 3) Identify authors' theological themes and emphases. Examples: 1) Matthew's five major discourses (chs 5-7, 10, 13, 18, 24-25) echo the Pentateuch, showing Jesus as the new Moses; 2) Luke-Acts' journey theme (Luke 9:51 'set his face toward Jerusalem,' Acts 1:8 'to the ends of the earth'); 3) John's 'I am' declarations and 'believe' verb (John 20:30-31). Contribution: appreciating each Gospel writer's unique theological perspective. Limitation: should not assume editing = fabrication; authors still constrained by historical events."
+      }
+    },
+    "q74": {
+      "character": "Feminist Theologian",
+      "question": "What is the primary concern of Feminist Biblical Criticism?",
+      "options": [
+        "Rejecting the entire Bible",
+        "Only studying texts by female authors",
+        "Proving the Bible is against women",
+        "Examining gender bias in biblical texts and interpretation, restoring women's voices and experiences"
+      ],
+      "explanation": "Feminist biblical criticism (developed late 20th century) focuses on: 1) Exposing patriarchal interpretive traditions; 2) Re-reading marginalized women's stories (like Hannah, Ruth, Esther, Mary, Mary Magdalene); 3) Challenging oppressive textual applications; 4) Advocating just and equal interpretation. The goal is not to reject the Bible, but to read it more faithfully.",
+      "journalPrompt": {
+        "title": "Women in the Bible",
+        "content": "The Bible records many faithful women: Deborah led Israel, Ruth showed steadfastness, Esther saved her people, Mary bore the Savior, Mary Magdalene was the first resurrection witness. God values women."
+      },
+      "deepDive": {
+        "title": "Methods and Controversies of Feminist Interpretation",
+        "content": "Feminist interpretation methods: 1) Deconstructive reading—exposing patriarchal ideology; 2) Reconstructive reading—restoring women's history and contributions; 3) Creative reading—imagining women characters' untold stories; 4) Normative reading—establishing liberating and just interpretive principles. Focus texts: Gen 2-3 (Eve), Judg 4-5 (Deborah), Prov 31 (virtuous woman), Luke 1-2 (Mary and Elizabeth), Rom 16 (deacon Phoebe), 1 Cor 11 and 14 (women in church), Gal 3:28 (unity in Christ), Eph 5 (husband-wife relationship), 1 Tim 2 (women teaching). Controversy: radicals view the Bible as a patriarchal document needing critique; evangelical feminists view the Bible as a liberating document that has been misused."
+      }
+    },
+    "q75": {
+      "character": "Postcolonial Criticism Scholar",
+      "question": "What issues does Postcolonial Biblical Criticism explore?",
+      "options": [
+        "Proving the Bible supports colonialism",
+        "Only studying ancient colonial history",
+        "Rejecting all Western theology",
+        "Examining empire power dynamics in biblical texts and how the Bible was used for colonization and decolonization"
+      ],
+      "explanation": "Postcolonial criticism (developed late 20th century) explores: 1) Empires in biblical texts (Egypt, Assyria, Babylon, Persia, Rome); 2) Ethical issues of Canaanite conquest; 3) How the Bible was used by colonizers to justify oppression; 4) How the colonized re-read the Bible seeking liberation (like Latin American liberation theology). The goal is to decolonize interpretation, letting marginalized voices be heard.",
+      "journalPrompt": {
+        "title": "Voices from the Margins",
+        "content": "The Bible itself is the literature of the oppressed: Hebrew slaves escaping Egypt, exiles lamenting in Babylon, the persecuted church in the Roman Empire. God stands with the weak."
+      },
+      "deepDive": {
+        "title": "Perspectives of Postcolonial Interpretation",
+        "content": "Postcolonial criticism focuses on: 1) Empire critique in the Bible—Exodus' critique of Pharaoh, Daniel's critique of Babylon/Persia, Revelation's critique of Rome ('great Babylon'); 2) Problematic texts—conquest of Canaan (Josh 1-12), the ethics of 'ban' (herem); 3) Colonial history—how Western missionaries used the Bible to support colonialism ('civilizing mission'), while also bringing education and healthcare; 4) Decolonizing interpretation—how African, Asian, Latin American theologians read the Bible from indigenous contexts. Contribution: revealing interpretive cultural and power factors. Challenge: avoiding simplification (the Bible has both empire critique and God-authorized Canaan conquest narratives); balancing special revelation and universal justice."
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "appName": "基督教 主日學 AI 工具",
+  "subtitle": "基督教 主日學 AI - 探索信仰，學習聖言",
+  "platformHome": "平台首頁",
+  "navigation": {
+    "home": "首頁",
+    "bibleGame": "聖經探索",
+    "language": "原文學習",
+    "explore": "研經助手",
+    "versionComparison": "譯本比較"
+  },
+  "features": {
+    "bibleGame": {
+      "description": "互動聖經遊戲與AI學習",
+      "explorationTitle": "聖經人物與經卷發展",
+      "explorationDesc": "回答問題以解鎖智慧",
+      "matchingTitle": "聖經配對遊戲",
+      "matchingDesc": "遊戲中配對你的理解"
+    },
+    "language": {
+      "description": "希伯來文和希臘文發音與AI對話"
+    },
+    "explore": {
+      "description": "神學對話、文檔問答、作業輔助"
+    },
+    "versionComparison": {
+      "title": "借助 Step Bible",
+      "subtitle": "更深入的理解",
+      "description": "多種模式比較譯本，含平行與原文對照"
+    }
+  },
+  "footer": {
+    "choose": "選擇一個功能開始您的聖經探索之旅",
+    "chooseEn": "Choose a feature to begin your faith exploration journey"
+  },
+  "buttons": {
+    "start": "開始",
+    "next": "下一步",
+    "previous": "上一步",
+    "submit": "提交",
+    "cancel": "取消",
+    "close": "關閉",
+    "back": "返回",
+    "backToHome": "返回主頁",
+    "continue": "繼續",
+    "retry": "重試"
+  },
+  "common": {
+    "loading": "載入中...",
+    "error": "錯誤",
+    "success": "成功",
+    "warning": "警告",
+    "info": "資訊"
+  }
+}
