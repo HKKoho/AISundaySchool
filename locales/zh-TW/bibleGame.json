@@ -1493,5 +1493,76 @@
         "content": "後殖民批判關注：1) 聖經中的帝國批判——出埃及對法老的批判、但以理書對巴比倫/波斯的批判、啟示錄對羅馬（「大巴比倫」）的批判；2) 問題經文——征服迦南（書1-12）、「滅絕令」（herem）的倫理；3) 殖民歷史——西方宣教士如何用聖經支持殖民（「文明使命」）,同時也帶來教育和醫療；4) 解殖詮釋——非洲、亞洲、拉丁美洲神學家如何從本土處境閱讀聖經。貢獻：揭示詮釋的文化和權力因素。挑戰：避免簡化（聖經既有帝國批判也有神授權征服迦南的敘事）；平衡特殊啟示和普世公義。"
       }
     }
-  }
+  },
+  "dungeonCrawler": {
+    "title": "逃離膚淺信仰迷恩",
+    "subtitle": "與神深刻相遇,迷宮中導航",
+    "objective": "通過了解聖經中與神真實相遇，找到迷惘的出口。",
+    "visualizeInfo": "使用「真實感」來生成您當前位置的逼真視圖。",
+    "mapTitle": "戰術地圖",
+    "mapLegend": "藍色箭頭：你 | 紅色：出口",
+    "peeksLeft": "剩餘窺視次數：{{count}}",
+    "elapsedTime": "時間：{{time}}",
+    "gameWon": "恭喜！你已經逃離了表面信仰陷阱！",
+    "controls": {
+      "forward": "前進",
+      "backward": "後退",
+      "turnLeft": "左轉",
+      "turnRight": "右轉",
+      "peek": "更好視野",
+      "visualize": "真實感",
+      "reset": "重置"
+    }
+  },
+  "dungeonQuestions": [
+    {
+      "id": 1,
+      "question": "誰在不被燒毀的燃燒荊棘中遇見了神？",
+      "options": ["摩西", "亞伯拉罕", "以利亞", "約書亞"],
+      "correctAnswer": 0,
+      "bibleReference": "出埃及記 3:2"
+    },
+    {
+      "id": 2,
+      "question": "誰在聖殿裡還是小男孩時聽到主呼喚他？",
+      "options": ["大衛", "撒母耳", "但以理", "約瑟"],
+      "correctAnswer": 1,
+      "bibleReference": "撒母耳記上 3:4"
+    },
+    {
+      "id": 3,
+      "question": "誰與一個人（神/天使）摔跤直到天亮並被改名為以色列？",
+      "options": ["以撒", "以掃", "雅各", "所羅門"],
+      "correctAnswer": 2,
+      "bibleReference": "創世記 32:24-28"
+    },
+    {
+      "id": 4,
+      "question": "誰在往大馬士革的路上被強光照瞎，並聽到耶穌說話？",
+      "options": ["彼得", "約翰", "掃羅（保羅）", "司提反"],
+      "correctAnswer": 2,
+      "bibleReference": "使徒行傳 9:3-4"
+    },
+    {
+      "id": 5,
+      "question": "誰用羊毛做記號向神求證據？",
+      "options": ["基甸", "參孫", "巴拉", "耶弗他"],
+      "correctAnswer": 0,
+      "bibleReference": "士師記 6:36-40"
+    },
+    {
+      "id": 6,
+      "question": "誰看見主坐在寶座上，他的衣裳垂下，遮滿聖殿？",
+      "options": ["耶利米", "以西結", "以賽亞", "何西阿"],
+      "correctAnswer": 2,
+      "bibleReference": "以賽亞書 6:1"
+    },
+    {
+      "id": 7,
+      "question": "誰在山上站著，主在風和火之後以微小的聲音經過？",
+      "options": ["以利亞", "以利沙", "摩西", "亞倫"],
+      "correctAnswer": 0,
+      "bibleReference": "列王紀上 19:11-13"
+    }
+  ]
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Dungeon Crawler",
+  "description": "A 3D maze exploration game where the first-person view is generated in real-time by Gemini 2.5 Flash based on a 2D floor plan. Navigate the labyrinth to find the exit.",
+  "requestFramePermissions": []
+}
