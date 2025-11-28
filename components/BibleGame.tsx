@@ -5,14 +5,15 @@ import GameMap from './bible/GameMap';
 import QuizMode from './bible/QuizMode';
 import MatchGame from './matchgame/MatchGame';
 import DungeonCrawler from './DungeonCrawler';
-import { ArrowLeft, Gamepad2, Grid3x3, Compass } from 'lucide-react';
+import CharacterDecision from './CharacterDecision';
+import { ArrowLeft, Gamepad2, Grid3x3, Compass, UserCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface BibleGameProps {
   onBack: () => void;
 }
 
-type GameMode = 'select' | 'exploration' | 'exploration-quiz' | 'matching' | 'dungeon';
+type GameMode = 'select' | 'exploration' | 'exploration-quiz' | 'matching' | 'dungeon' | 'character';
 
 export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
   const { t } = useTranslation('common');
@@ -52,21 +53,23 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Exploration Game */}
-                <button
-                  onClick={() => handleGameModeSelect('exploration')}
-                  className="group relative bg-gradient-to-br from-amber-600 to-amber-800 hover:from-amber-500 hover:to-amber-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
-                >
-                  <div className="flex flex-col items-center text-white">
-                    <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
-                      <Gamepad2 className="w-20 h-20" />
+                {/* Exploration Game - Hidden */}
+                {false && (
+                  <button
+                    onClick={() => handleGameModeSelect('exploration')}
+                    className="group relative bg-gradient-to-br from-amber-600 to-amber-800 hover:from-amber-500 hover:to-amber-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                  >
+                    <div className="flex flex-col items-center text-white">
+                      <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
+                        <Gamepad2 className="w-20 h-20" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.explorationTitle')}</h3>
+                      <p className="text-white/90 text-center">
+                        {t('features.bibleGame.explorationDesc')}
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.explorationTitle')}</h3>
-                    <p className="text-white/90 text-center">
-                      {t('features.bibleGame.explorationDesc')}
-                    </p>
-                  </div>
-                </button>
+                  </button>
+                )}
 
                 {/* Matching Game */}
                 <button
@@ -96,6 +99,22 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
                     <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.dungeonTitle')}</h3>
                     <p className="text-white/90 text-center">
                       {t('features.bibleGame.dungeonDesc')}
+                    </p>
+                  </div>
+                </button>
+
+                {/* Character Decision Game */}
+                <button
+                  onClick={() => handleGameModeSelect('character')}
+                  className="group relative bg-gradient-to-br from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                >
+                  <div className="flex flex-col items-center text-white">
+                    <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
+                      <UserCircle className="w-20 h-20" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.characterTitle')}</h3>
+                    <p className="text-white/90 text-center">
+                      {t('features.bibleGame.characterDesc')}
                     </p>
                   </div>
                 </button>
@@ -129,6 +148,14 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
     return (
       <div className="fixed inset-0">
         <DungeonCrawler onBack={() => setGameMode('select')} />
+      </div>
+    );
+  }
+
+  if (gameMode === 'character') {
+    return (
+      <div className="fixed inset-0">
+        <CharacterDecision onBack={() => setGameMode('select')} />
       </div>
     );
   }

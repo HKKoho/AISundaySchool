@@ -1527,7 +1527,7 @@
     }
   },
   "dungeonCrawler": {
-    "title": "Escape Superficial Faith Trap",
+    "title": "Escape Shadow Belief Trap",
     "subtitle": "Navigate the maze of deep encounters with God",
     "objective": "Find the Red Portal by answering questions about genuine encounters with God.",
     "visualizeInfo": "Use \"Realism\" to generate a photorealistic view of your current location with Gemini.",
@@ -1535,7 +1535,7 @@
     "mapLegend": "Blue Arrow: You | Red: Exit",
     "peeksLeft": "Peeks Left: {{count}}",
     "elapsedTime": "Time: {{time}}",
-    "gameWon": "Congratulations! You've escaped the superficial faith trap!",
+    "gameWon": "Congratulations! You've escaped the shadow belief trap!",
     "controls": {
       "forward": "Forward",
       "backward": "Backward",

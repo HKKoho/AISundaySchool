@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Volume2 } from 'lucide-react';
 import type { Word } from '../types';
 
@@ -9,6 +10,8 @@ interface WordCardProps {
 }
 
 export const WordCard: React.FC<WordCardProps> = ({ wordData, language }) => {
+  const { i18n } = useTranslation();
+  const isZh = i18n.language === 'zh-TW';
   const [isPlaying, setIsPlaying] = useState(false);
 
   const playPronunciation = () => {
@@ -56,7 +59,7 @@ export const WordCard: React.FC<WordCardProps> = ({ wordData, language }) => {
           <Volume2 className={`w-5 h-5 ${isPlaying ? 'animate-pulse' : ''}`} />
         </button>
       </div>
-      <p className="text-lg text-stone-600 italic">"{wordData.meaning}"</p>
+      <p className="text-lg text-stone-600 italic">"{isZh && wordData.meaningZh ? wordData.meaningZh : wordData.meaning}"</p>
     </div>
   );
 };

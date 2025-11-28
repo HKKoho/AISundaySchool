@@ -16,8 +16,10 @@
       "explorationDesc": "Answer questions to unlock wisdom",
       "matchingTitle": "Bible Matching Game",
       "matchingDesc": "Match your understanding in this quiz game",
-      "dungeonTitle": "Escape Superficial Faith Trap",
-      "dungeonDesc": "Navigate a maze while learning about genuine encounters with God"
+      "dungeonTitle": "Escape Shadow Belief Trap",
+      "dungeonDesc": "Navigate a maze while learning about genuine encounters with God",
+      "characterTitle": "Character Decision Game",
+      "characterDesc": "Discover your personality and learn from biblical characters"
     },
     "language": {
       "description": "Hebrew and Greek pronunciation with AI"

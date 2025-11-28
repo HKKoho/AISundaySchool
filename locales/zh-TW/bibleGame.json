@@ -1495,7 +1495,7 @@
     }
   },
   "dungeonCrawler": {
-    "title": "逃離膚淺信仰迷恩",
+    "title": "逃離影子信念陷阱",
     "subtitle": "與神深刻相遇,迷宮中導航",
     "objective": "通過了解聖經中與神真實相遇，找到迷惘的出口。",
     "visualizeInfo": "使用「真實感」來生成您當前位置的逼真視圖。",
@@ -1503,7 +1503,7 @@
     "mapLegend": "藍色箭頭：你 | 紅色：出口",
     "peeksLeft": "剩餘窺視次數：{{count}}",
     "elapsedTime": "時間：{{time}}",
-    "gameWon": "恭喜！你已經逃離了表面信仰陷阱！",
+    "gameWon": "恭喜！你已經逃離了影子信念陷阱！",
     "controls": {
       "forward": "前進",
       "backward": "後退",

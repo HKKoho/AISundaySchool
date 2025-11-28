@@ -16,8 +16,10 @@
       "explorationDesc": "回答問題以解鎖智慧",
       "matchingTitle": "聖經配對遊戲",
       "matchingDesc": "遊戲中配對你的理解",
-      "dungeonTitle": "逃離膚淺信仰迷恩",
-      "dungeonDesc": "信仰迷惘中,用神話語與祂相遇"
+      "dungeonTitle": "逃離影子信念陷阱",
+      "dungeonDesc": "信仰歷練，用神話語與祂相遇",
+      "characterTitle": "性格決策遊戲",
+      "characterDesc": "發現你性格，向聖經人物學習"
     },
     "language": {
       "description": "希伯來文和希臘文發音與AI對話"

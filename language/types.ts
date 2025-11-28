@@ -8,6 +8,7 @@ export interface Word {
   word: string;
   transliteration: string;
   meaning: string;
+  meaningZh?: string; // Traditional Chinese meaning
 }
 
 export type GameState = 'selecting' | 'ready' | 'recording' | 'processing' | 'feedback' | 'error';
