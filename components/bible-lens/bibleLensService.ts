@@ -90,20 +90,25 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
 
     const parsed = JSON.parse(text);
 
-    // Map to BiblicalTriple format with placeholder images
-    console.log('[BibleLensService] Creating triples with placeholder images...');
-    const triples: BiblicalTriple[] = parsed.triples.map((triple: any, index: number) => ({
-      id: index,
-      objectName: triple.objectName,
-      objectNameZh: triple.objectNameZh,
-      chapterReference: triple.chapterReference,
-      chapterReferenceZh: triple.chapterReferenceZh,
-      verseText: triple.verseText,
-      verseTextZh: triple.verseTextZh,
-      imageBase64: generatePlaceholderImage(triple.objectName)
-    }));
+    // Generate real images for each triple using Gemini Vision
+    console.log('[BibleLensService] Generating images for triples with Gemini Vision...');
+    const triples: BiblicalTriple[] = await Promise.all(
+      parsed.triples.map(async (triple: any, index: number) => {
+        const imageBase64 = await generateImageWithGeminiVision(triple.imagePrompt, triple.objectName);
+        return {
+          id: index,
+          objectName: triple.objectName,
+          objectNameZh: triple.objectNameZh,
+          chapterReference: triple.chapterReference,
+          chapterReferenceZh: triple.chapterReferenceZh,
+          verseText: triple.verseText,
+          verseTextZh: triple.verseTextZh,
+          imageBase64
+        };
+      })
+    );
 
-    console.log('[BibleLensService] Successfully generated triples:', triples.length);
+    console.log('[BibleLensService] Successfully generated triples with images:', triples.length);
     return triples;
 
   } catch (error) {
@@ -114,7 +119,62 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
 };
 
 /**
- * Generates a beautiful SVG placeholder with emoji representation
+ * Generates an image using Gemini Vision (gemini-2.5-flash-image model)
+ */
+async function generateImageWithGeminiVision(imagePrompt: string, objectName: string): Promise<string> {
+  if (!ai) {
+    console.warn('[BibleLensService] No AI available, using placeholder');
+    return generatePlaceholderImage(objectName);
+  }
+
+  try {
+    console.log(`[BibleLensService] Generating image for: ${objectName}`);
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash-image',
+      contents: {
+        parts: [{ text: imagePrompt }]
+      },
+      config: {
+        imageConfig: {
+          aspectRatio: '1:1'
+        }
+      }
+    });
+
+    // Extract image data from response
+    const parts = response.candidates?.[0]?.content?.parts;
+
+    if (!parts || parts.length === 0) {
+      console.warn('[BibleLensService] No content generated, using placeholder');
+      return generatePlaceholderImage(objectName);
+    }
+
+    for (const part of parts) {
+      if (part.inlineData && part.inlineData.data) {
+        const mimeType = part.inlineData.mimeType || 'image/png';
+        console.log(`[BibleLensService] Successfully generated image for ${objectName}`);
+        return `data:${mimeType};base64,${part.inlineData.data}`;
+      }
+    }
+
+    // If we got text back instead of an image
+    const textPart = parts.find(p => p.text);
+    if (textPart && textPart.text) {
+      console.warn(`[BibleLensService] Model returned text: ${textPart.text}`);
+    }
+
+    console.warn('[BibleLensService] No valid image data, using placeholder');
+    return generatePlaceholderImage(objectName);
+
+  } catch (error) {
+    console.error('[BibleLensService] Error generating image:', error);
+    return generatePlaceholderImage(objectName);
+  }
+}
+
+/**
+ * Generates a beautiful SVG placeholder with emoji representation (fallback)
  */
 function generatePlaceholderImage(objectName: string): string {
   const emoji = getEmojiForObject(objectName);
