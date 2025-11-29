@@ -179,24 +179,27 @@ async function generateImageWithGeminiVision(imagePrompt: string, objectName: st
 function generatePlaceholderImage(objectName: string): string {
   const emoji = getEmojiForObject(objectName);
 
+  // Create a unique ID that doesn't contain special characters
+  const uniqueId = Math.random().toString(36).substring(2, 9);
+
   const svg = `
     <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="grad-${emoji}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="grad-${uniqueId}" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
           <stop offset="100%" style="stop-color:#D4A574;stop-opacity:1" />
         </linearGradient>
-        <filter id="shadow">
+        <filter id="shadow-${uniqueId}">
           <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
         </filter>
       </defs>
-      <rect width="400" height="400" fill="url(#grad-${emoji})"/>
+      <rect width="400" height="400" fill="url(#grad-${uniqueId})"/>
       <circle cx="200" cy="160" r="80" fill="rgba(255,255,255,0.1)"/>
-      <text x="200" y="200" font-family="Arial" font-size="80" text-anchor="middle" filter="url(#shadow)">
+      <text x="200" y="200" font-family="Arial" font-size="80" text-anchor="middle" filter="url(#shadow-${uniqueId})">
         ${emoji}
       </text>
       <text x="200" y="280" font-family="Georgia, serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#fff" opacity="0.9">
-        ${objectName}
+        ${escapeXml(objectName)}
       </text>
       <rect x="0" y="350" width="400" height="50" fill="rgba(0,0,0,0.2)"/>
       <text x="200" y="380" font-family="Georgia, serif" font-size="16" text-anchor="middle" fill="#fff" opacity="0.8">
@@ -204,7 +207,21 @@ function generatePlaceholderImage(objectName: string): string {
       </text>
     </svg>
   `;
-  return `data:image/svg+xml;base64,${btoa(svg)}`;
+
+  // Use URL encoding instead of base64 to avoid btoa() Unicode issues
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+}
+
+/**
+ * Escapes XML special characters
+ */
+function escapeXml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
 
 /**
@@ -285,24 +302,26 @@ function getEmojiForObject(objectName: string): string {
 // Fallback data for when API is unavailable
 function getFallbackTriples(): BiblicalTriple[] {
   const placeholderSvg = (text: string) => {
+    const uniqueId = Math.random().toString(36).substring(2, 9);
     const svg = `
       <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="grad-${uniqueId}" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#D4A574;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect width="400" height="400" fill="url(#grad)"/>
-        <text x="200" y="180" font-family="Georgia, serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#fff" opacity="0.9">
+        <rect width="400" height="400" fill="url(#grad-${uniqueId})"/>
+        <text x="200" y="200" font-family="Arial" font-size="80" text-anchor="middle">
           ${text}
         </text>
-        <text x="200" y="220" font-family="Georgia, serif" font-size="18" text-anchor="middle" fill="#fff" opacity="0.7">
+        <text x="200" y="280" font-family="Georgia, serif" font-size="18" text-anchor="middle" fill="#fff" opacity="0.7">
           Biblical Object
         </text>
       </svg>
     `;
-    return `data:image/svg+xml;base64,${btoa(svg)}`;
+    // Use URL encoding instead of base64 to handle Unicode (emojis)
+    return `data:image/svg+xml,${encodeURIComponent(svg)}`;
   };
 
   return [
