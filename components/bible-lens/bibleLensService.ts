@@ -90,25 +90,20 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
 
     const parsed = JSON.parse(text);
 
-    // Generate images for each triple using Gemini Imagen
-    console.log('[BibleLensService] Generating images for triples...');
-    const triples: BiblicalTriple[] = await Promise.all(
-      parsed.triples.map(async (triple: any, index: number) => {
-        const imageBase64 = await generateImageWithGemini(triple.imagePrompt);
-        return {
-          id: index,
-          objectName: triple.objectName,
-          objectNameZh: triple.objectNameZh,
-          chapterReference: triple.chapterReference,
-          chapterReferenceZh: triple.chapterReferenceZh,
-          verseText: triple.verseText,
-          verseTextZh: triple.verseTextZh,
-          imageBase64
-        };
-      })
-    );
+    // Map to BiblicalTriple format with placeholder images
+    console.log('[BibleLensService] Creating triples with placeholder images...');
+    const triples: BiblicalTriple[] = parsed.triples.map((triple: any, index: number) => ({
+      id: index,
+      objectName: triple.objectName,
+      objectNameZh: triple.objectNameZh,
+      chapterReference: triple.chapterReference,
+      chapterReferenceZh: triple.chapterReferenceZh,
+      verseText: triple.verseText,
+      verseTextZh: triple.verseTextZh,
+      imageBase64: generatePlaceholderImage(triple.objectName)
+    }));
 
-    console.log('[BibleLensService] Successfully generated triples with images:', triples.length);
+    console.log('[BibleLensService] Successfully generated triples:', triples.length);
     return triples;
 
   } catch (error) {
@@ -119,53 +114,112 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
 };
 
 /**
- * Generates an image using Gemini Imagen
+ * Generates a beautiful SVG placeholder with emoji representation
  */
-async function generateImageWithGemini(imagePrompt: string): Promise<string> {
-  if (!ai) {
-    console.warn('[BibleLensService] No AI available for image generation');
-    return generatePlaceholderImage();
-  }
+function generatePlaceholderImage(objectName: string): string {
+  const emoji = getEmojiForObject(objectName);
 
-  try {
-    console.log('[BibleLensService] Generating image with Gemini Imagen...');
-
-    const response = await ai.models.generateImage({
-      model: 'imagen-3.0-generate-001',
-      prompt: imagePrompt,
-      config: {
-        numberOfImages: 1,
-        aspectRatio: '1:1'
-      }
-    });
-
-    if (response.images && response.images.length > 0) {
-      const imageData = response.images[0].imageBytes;
-      return `data:image/jpeg;base64,${imageData}`;
-    }
-
-    console.warn('[BibleLensService] No image returned from Gemini');
-    return generatePlaceholderImage();
-
-  } catch (error) {
-    console.error('[BibleLensService] Error generating image:', error);
-    return generatePlaceholderImage();
-  }
-}
-
-/**
- * Generates a simple SVG placeholder when image generation fails
- */
-function generatePlaceholderImage(): string {
   const svg = `
     <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="400" fill="#f0f0f0"/>
-      <text x="200" y="200" font-family="Arial" font-size="20" text-anchor="middle" fill="#666">
+      <defs>
+        <linearGradient id="grad-${emoji}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#D4A574;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadow">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+        </filter>
+      </defs>
+      <rect width="400" height="400" fill="url(#grad-${emoji})"/>
+      <circle cx="200" cy="160" r="80" fill="rgba(255,255,255,0.1)"/>
+      <text x="200" y="200" font-family="Arial" font-size="80" text-anchor="middle" filter="url(#shadow)">
+        ${emoji}
+      </text>
+      <text x="200" y="280" font-family="Georgia, serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#fff" opacity="0.9">
+        ${objectName}
+      </text>
+      <rect x="0" y="350" width="400" height="50" fill="rgba(0,0,0,0.2)"/>
+      <text x="200" y="380" font-family="Georgia, serif" font-size="16" text-anchor="middle" fill="#fff" opacity="0.8">
         Biblical Object
       </text>
     </svg>
   `;
   return `data:image/svg+xml;base64,${btoa(svg)}`;
+}
+
+/**
+ * Gets appropriate emoji for biblical object
+ */
+function getEmojiForObject(objectName: string): string {
+  const name = objectName.toLowerCase();
+
+  // Plants and Trees
+  if (name.includes('fig')) return '🌳';
+  if (name.includes('olive')) return '🫒';
+  if (name.includes('grape') || name.includes('vine')) return '🍇';
+  if (name.includes('wheat')) return '🌾';
+  if (name.includes('palm')) return '🌴';
+  if (name.includes('cedar') || name.includes('tree')) return '🌲';
+  if (name.includes('rose') || name.includes('lily')) return '🌹';
+  if (name.includes('garden')) return '🏡';
+
+  // Animals
+  if (name.includes('lion')) return '🦁';
+  if (name.includes('lamb') || name.includes('sheep')) return '🐑';
+  if (name.includes('dove') || name.includes('bird')) return '🕊️';
+  if (name.includes('fish')) return '🐟';
+  if (name.includes('camel')) return '🐪';
+  if (name.includes('serpent') || name.includes('snake')) return '🐍';
+  if (name.includes('eagle')) return '🦅';
+  if (name.includes('ox') || name.includes('calf')) return '🐂';
+  if (name.includes('donkey')) return '🫏';
+  if (name.includes('locust')) return '🦗';
+
+  // Food and Drink
+  if (name.includes('bread')) return '🍞';
+  if (name.includes('wine')) return '🍷';
+  if (name.includes('honey')) return '🍯';
+  if (name.includes('water')) return '💧';
+  if (name.includes('milk')) return '🥛';
+  if (name.includes('oil')) return '🫗';
+  if (name.includes('manna')) return '🥖';
+
+  // Places and Landmarks
+  if (name.includes('mountain')) return '⛰️';
+  if (name.includes('river') || name.includes('jordan')) return '🏞️';
+  if (name.includes('temple')) return '⛩️';
+  if (name.includes('desert') || name.includes('wilderness')) return '🏜️';
+  if (name.includes('sea') || name.includes('ocean')) return '🌊';
+  if (name.includes('well')) return '⛲';
+  if (name.includes('city') || name.includes('jerusalem')) return '🏛️';
+  if (name.includes('cross')) return '✝️';
+  if (name.includes('altar')) return '🕯️';
+  if (name.includes('ark')) return '⛵';
+  if (name.includes('tent') || name.includes('tabernacle')) return '⛺';
+  if (name.includes('stone') || name.includes('rock')) return '🪨';
+  if (name.includes('gate') || name.includes('door')) return '🚪';
+
+  // Celestial
+  if (name.includes('star')) return '⭐';
+  if (name.includes('sun')) return '☀️';
+  if (name.includes('moon')) return '🌙';
+  if (name.includes('cloud')) return '☁️';
+  if (name.includes('fire')) return '🔥';
+  if (name.includes('light') || name.includes('lamp')) return '💡';
+
+  // Objects
+  if (name.includes('scroll') || name.includes('book')) return '📜';
+  if (name.includes('crown')) return '👑';
+  if (name.includes('sword')) return '⚔️';
+  if (name.includes('shield')) return '🛡️';
+  if (name.includes('staff') || name.includes('rod')) return '🪄';
+  if (name.includes('trumpet')) return '🎺';
+  if (name.includes('harp')) return '🎵';
+  if (name.includes('incense')) return '🪔';
+  if (name.includes('jar') || name.includes('vessel')) return '🏺';
+
+  // Default
+  return '📖';
 }
 
 // Fallback data for when API is unavailable
