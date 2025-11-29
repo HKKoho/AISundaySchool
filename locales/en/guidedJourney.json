@@ -1,0 +1,37 @@
+{
+  "menu": {
+    "back": "Back",
+    "title": "Guided Journey",
+    "description": "Experience how God guided different people in the Bible through their journeys. Explore interactive maps, learn theological insights, and answer questions at each step of these divine journeys."
+  },
+  "loading": {
+    "generatingRoute": "Preparing your journey...",
+    "generatingQuiz": "Creating next challenge..."
+  },
+  "error": {
+    "title": "Journey Interrupted",
+    "loadFailed": "Unable to prepare this journey. Please try again.",
+    "retry": "Try Again"
+  },
+  "game": {
+    "back": "Exit Journey",
+    "theologicalInsight": "Theological Insight",
+    "continueJourney": "Continue Journey",
+    "finishJourney": "Complete Journey"
+  },
+  "quiz": {
+    "title": "The Journey Continues...",
+    "subtitle": "Answer correctly to proceed to the next location.",
+    "submit": "Submit Answer",
+    "correct": "Correct!",
+    "incorrect": "Not quite right...",
+    "continue": "Continue Journey",
+    "retry": "Try Again"
+  },
+  "finished": {
+    "title": "Journey Complete!",
+    "message": "You have completed this biblical journey and experienced how God guided His people. May these insights guide your own walk with God.",
+    "newJourney": "Start New Journey",
+    "exit": "Back to Menu"
+  }
+}

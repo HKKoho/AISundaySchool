@@ -7,14 +7,16 @@ import MatchGame from './matchgame/MatchGame';
 import DungeonCrawler from './DungeonCrawler';
 import CharacterDecision from './CharacterDecision';
 import { ParableKeeperGame } from './parable-keeper/ParableKeeperGame';
-import { ArrowLeft, Gamepad2, Grid3x3, Compass, UserCircle, Users } from 'lucide-react';
+import GuidedJourneyGame from './guided-journey/GuidedJourneyGame';
+import BibleLensGame from './bible-lens/BibleLensGame';
+import { ArrowLeft, Gamepad2, Grid3x3, Compass, UserCircle, Users, Map, BookImage } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface BibleGameProps {
   onBack: () => void;
 }
 
-type GameMode = 'select' | 'exploration' | 'exploration-quiz' | 'matching' | 'dungeon' | 'character' | 'parable-keeper';
+type GameMode = 'select' | 'exploration' | 'exploration-quiz' | 'matching' | 'dungeon' | 'character' | 'parable-keeper' | 'guided-journey' | 'bible-lens';
 
 export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
   const { t } = useTranslation('common');
@@ -72,22 +74,6 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
                   </button>
                 )}
 
-                {/* Matching Game */}
-                <button
-                  onClick={() => handleGameModeSelect('matching')}
-                  className="group relative bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
-                >
-                  <div className="flex flex-col items-center text-white">
-                    <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
-                      <Grid3x3 className="w-20 h-20" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.matchingTitle')}</h3>
-                    <p className="text-white/90 text-center">
-                      {t('features.bibleGame.matchingDesc')}
-                    </p>
-                  </div>
-                </button>
-
                 {/* Dungeon Crawler Game */}
                 <button
                   onClick={() => handleGameModeSelect('dungeon')}
@@ -132,6 +118,54 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
                     <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.parableKeeperTitle')}</h3>
                     <p className="text-white/90 text-center">
                       {t('features.bibleGame.parableKeeperDesc')}
+                    </p>
+                  </div>
+                </button>
+
+                {/* Guided Journey Game */}
+                <button
+                  onClick={() => handleGameModeSelect('guided-journey')}
+                  className="group relative bg-gradient-to-br from-stone-600 to-stone-800 hover:from-stone-500 hover:to-stone-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                >
+                  <div className="flex flex-col items-center text-white">
+                    <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
+                      <Map className="w-20 h-20" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.guidedJourneyTitle')}</h3>
+                    <p className="text-white/90 text-center">
+                      {t('features.bibleGame.guidedJourneyDesc')}
+                    </p>
+                  </div>
+                </button>
+
+                {/* Bible Lens Game */}
+                <button
+                  onClick={() => handleGameModeSelect('bible-lens')}
+                  className="group relative bg-gradient-to-br from-rose-600 to-rose-800 hover:from-rose-500 hover:to-rose-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                >
+                  <div className="flex flex-col items-center text-white">
+                    <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
+                      <BookImage className="w-20 h-20" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.bibleLensTitle')}</h3>
+                    <p className="text-white/90 text-center">
+                      {t('features.bibleGame.bibleLensDesc')}
+                    </p>
+                  </div>
+                </button>
+
+                {/* Bible Knowledge Check (formerly Matching Game) */}
+                <button
+                  onClick={() => handleGameModeSelect('matching')}
+                  className="group relative bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                >
+                  <div className="flex flex-col items-center text-white">
+                    <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
+                      <Grid3x3 className="w-20 h-20" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.knowledgeCheckTitle')}</h3>
+                    <p className="text-white/90 text-center">
+                      {t('features.bibleGame.knowledgeCheckDesc')}
                     </p>
                   </div>
                 </button>
@@ -181,6 +215,22 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
     return (
       <div className="fixed inset-0">
         <ParableKeeperGame onBack={() => setGameMode('select')} />
+      </div>
+    );
+  }
+
+  if (gameMode === 'guided-journey') {
+    return (
+      <div className="fixed inset-0">
+        <GuidedJourneyGame onBack={() => setGameMode('select')} />
+      </div>
+    );
+  }
+
+  if (gameMode === 'bible-lens') {
+    return (
+      <div className="fixed inset-0">
+        <BibleLensGame onBack={() => setGameMode('select')} />
       </div>
     );
   }

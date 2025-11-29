@@ -1,0 +1,49 @@
+{
+  "menu": {
+    "back": "返回",
+    "title": "物記神言",
+    "description": "在這個記憶挑戰遊戲中，將聖經物品與其名稱和經文引用配對！",
+    "howToPlay": {
+      "title": "如何遊玩",
+      "step1": "遊戲生成5組聖經三合一，每組包含圖像、物品名稱和聖經章節引用",
+      "step2": "這15個元素隨機放置在4x4網格中（附一張提示卡）",
+      "step3": "翻開卡片以顯示其內容，並配對形成完整三合一的3張卡片",
+      "step4": "盡快完成所有5組三合一！"
+    },
+    "scoring": {
+      "title": "計分",
+      "description": "你的分數 = max(0, 200 - 秒數)。完成得越快，分數越高！"
+    },
+    "startGame": "開始遊戲"
+  },
+  "loading": {
+    "message": "正在生成聖經物品..."
+  },
+  "error": {
+    "title": "出錯了",
+    "loadFailed": "無法生成遊戲。請重試。",
+    "retry": "重試"
+  },
+  "game": {
+    "title": "記憶配對挑戰",
+    "score": "分數",
+    "time": "時間",
+    "matched": "已配對",
+    "instructions": {
+      "title": "遊戲說明",
+      "step1": "點擊卡片翻轉它們",
+      "step2": "尋找匹配的三合一（圖像 + 名稱 + 章節）",
+      "step3": "一次最多可以翻3張卡片",
+      "step4": "配對所有5組三合一即可獲勝！"
+    }
+  },
+  "result": {
+    "title": "恭喜！",
+    "completionTime": "完成時間",
+    "finalScore": "最終分數",
+    "message": "您已成功配對所有聖經物品！",
+    "objectsLearned": "您學習的物品",
+    "playAgain": "再玩一次",
+    "exit": "返回菜單"
+  }
+}

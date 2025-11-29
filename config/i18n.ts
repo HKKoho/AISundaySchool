@@ -10,6 +10,8 @@ import enExplore from '../locales/en/explore.json';
 import enTheologyAssistant from '../locales/en/theologyAssistant.json';
 import enBibleStudy from '../locales/en/bibleStudy.json';
 import enParableKeeper from '../locales/en/parableKeeper.json';
+import enGuidedJourney from '../locales/en/guidedJourney.json';
+import enBibleLens from '../locales/en/bibleLens.json';
 
 // Import Traditional Chinese translations
 import zhCommon from '../locales/zh-TW/common.json';
@@ -19,6 +21,8 @@ import zhExplore from '../locales/zh-TW/explore.json';
 import zhTheologyAssistant from '../locales/zh-TW/theologyAssistant.json';
 import zhBibleStudy from '../locales/zh-TW/bibleStudy.json';
 import zhParableKeeper from '../locales/zh-TW/parableKeeper.json';
+import zhGuidedJourney from '../locales/zh-TW/guidedJourney.json';
+import zhBibleLens from '../locales/zh-TW/bibleLens.json';
 
 const resources = {
   en: {
@@ -29,6 +33,8 @@ const resources = {
     theologyAssistant: enTheologyAssistant,
     bibleStudy: enBibleStudy,
     parableKeeper: enParableKeeper,
+    guidedJourney: enGuidedJourney,
+    bibleLens: enBibleLens,
   },
   'zh-TW': {
     common: zhCommon,
@@ -38,6 +44,8 @@ const resources = {
     theologyAssistant: zhTheologyAssistant,
     bibleStudy: zhBibleStudy,
     parableKeeper: zhParableKeeper,
+    guidedJourney: zhGuidedJourney,
+    bibleLens: zhBibleLens,
   },
 };
 

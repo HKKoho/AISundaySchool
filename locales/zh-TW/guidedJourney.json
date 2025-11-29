@@ -1,0 +1,37 @@
+{
+  "menu": {
+    "back": "返回",
+    "title": "引導之旅",
+    "description": "體驗神如何引導聖經中不同的人走過他們的旅程。探索互動地圖，學習神學見解，並在這些神聖旅程的每一步回答問題。"
+  },
+  "loading": {
+    "generatingRoute": "正在準備您的旅程...",
+    "generatingQuiz": "正在創建下一個挑戰..."
+  },
+  "error": {
+    "title": "旅程中斷",
+    "loadFailed": "無法準備此旅程。請重試。",
+    "retry": "重試"
+  },
+  "game": {
+    "back": "離開旅程",
+    "theologicalInsight": "神學見解",
+    "continueJourney": "繼續旅程",
+    "finishJourney": "完成旅程"
+  },
+  "quiz": {
+    "title": "旅程繼續...",
+    "subtitle": "答對以繼續前往下一個地點。",
+    "submit": "提交答案",
+    "correct": "正確！",
+    "incorrect": "不完全正確...",
+    "continue": "繼續旅程",
+    "retry": "重試"
+  },
+  "finished": {
+    "title": "旅程完成！",
+    "message": "您已經完成了這趟聖經之旅，體驗了神如何引導祂的子民。願這些見解引導您與神同行。",
+    "newJourney": "開始新旅程",
+    "exit": "返回菜單"
+  }
+}

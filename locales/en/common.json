@@ -16,12 +16,18 @@
       "explorationDesc": "Answer questions to unlock wisdom",
       "matchingTitle": "Bible Matching Game",
       "matchingDesc": "Match your understanding in this quiz game",
+      "knowledgeCheckTitle": "Bible Knowledge Check",
+      "knowledgeCheckDesc": "Match your understanding in this quiz game",
       "dungeonTitle": "Escape Shadow Belief Trap",
       "dungeonDesc": "Navigate a maze while learning about genuine encounters with God",
       "characterTitle": "Character Decision Game",
       "characterDesc": "Discover your personality and learn from biblical characters",
       "parableKeeperTitle": "Catching Newcomers",
-      "parableKeeperDesc": "Nurture visitors based on the Parable of the Sower"
+      "parableKeeperDesc": "Nurture visitors based on the Parable of the Sower",
+      "guidedJourneyTitle": "Guided Journey",
+      "guidedJourneyDesc": "Follow biblical journeys on interactive maps with AI-generated insights",
+      "bibleLensTitle": "Object Remind God's Word",
+      "bibleLensDesc": "Match biblical objects with their names and scripture references"
     },
     "language": {
       "description": "Hebrew and Greek pronunciation with AI"
