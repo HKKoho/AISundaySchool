@@ -13,7 +13,7 @@ export interface Word {
 
 export type GameState = 'selecting' | 'ready' | 'recording' | 'processing' | 'feedback' | 'error';
 
-export type LearningMode = 'alphabet-learning' | 'word-practice' | 'verse-learning' | 'vocabulary-flashcards' | 'listening-game' | 'pronunciation-challenge' | 'sentence-practice';
+export type LearningMode = 'alphabet-learning' | 'word-practice' | 'verse-learning' | 'vocabulary-flashcards' | 'listening-game' | 'pronunciation-challenge' | 'sentence-practice' | 'translation-practice' | 'right-meanings';
 
 export interface BibleSentence {
   original: string;          // Hebrew or Greek text

@@ -6,14 +6,15 @@ import QuizMode from './bible/QuizMode';
 import MatchGame from './matchgame/MatchGame';
 import DungeonCrawler from './DungeonCrawler';
 import CharacterDecision from './CharacterDecision';
-import { ArrowLeft, Gamepad2, Grid3x3, Compass, UserCircle } from 'lucide-react';
+import { ParableKeeperGame } from './parable-keeper/ParableKeeperGame';
+import { ArrowLeft, Gamepad2, Grid3x3, Compass, UserCircle, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface BibleGameProps {
   onBack: () => void;
 }
 
-type GameMode = 'select' | 'exploration' | 'exploration-quiz' | 'matching' | 'dungeon' | 'character';
+type GameMode = 'select' | 'exploration' | 'exploration-quiz' | 'matching' | 'dungeon' | 'character' | 'parable-keeper';
 
 export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
   const { t } = useTranslation('common');
@@ -118,6 +119,22 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
                     </p>
                   </div>
                 </button>
+
+                {/* Parable Keeper Game */}
+                <button
+                  onClick={() => handleGameModeSelect('parable-keeper')}
+                  className="group relative bg-gradient-to-br from-amber-600 to-amber-800 hover:from-amber-500 hover:to-amber-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                >
+                  <div className="flex flex-col items-center text-white">
+                    <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
+                      <Users className="w-20 h-20" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.parableKeeperTitle')}</h3>
+                    <p className="text-white/90 text-center">
+                      {t('features.bibleGame.parableKeeperDesc')}
+                    </p>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
@@ -156,6 +173,14 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
     return (
       <div className="fixed inset-0">
         <CharacterDecision onBack={() => setGameMode('select')} />
+      </div>
+    );
+  }
+
+  if (gameMode === 'parable-keeper') {
+    return (
+      <div className="fixed inset-0">
+        <ParableKeeperGame onBack={() => setGameMode('select')} />
       </div>
     );
   }

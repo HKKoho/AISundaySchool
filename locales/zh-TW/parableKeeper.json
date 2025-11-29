@@ -1,0 +1,125 @@
+{
+  "gameTitle": "比喻守護者：接待新朋友",
+  "gameSubtitle": "基於撒種比喻的緊張時間管理遊戲。\n扮演牧師、執事或會友，培育訪客並幫助他們在教會扎根。",
+  "buttons": {
+    "back": "返回遊戲選單"
+  },
+  "roles": {
+    "pastor": {
+      "name": "牧師",
+      "description": "教導能力強。善於深植好土和石頭地。"
+    },
+    "deacon": {
+      "name": "執事",
+      "description": "行動迅速。擅長清除荊棘（生活憂慮）。"
+    },
+    "member": {
+      "name": "會友",
+      "description": "精力充沛。最善於在路旁的人離開前接待他們。"
+    }
+  },
+  "stats": {
+    "speed": "速度",
+    "teach": "教導",
+    "service": "服務",
+    "greet": "問候"
+  },
+  "hud": {
+    "visitorsInService": "位在聚會中"
+  },
+  "instructions": "點擊移動。點擊訪客與他們互動。",
+  "legendButton": "遊戲指南",
+  "legend": {
+    "title": "遊戲指南",
+    "close": "了解了！",
+    "visitorTypes": {
+      "title": "訪客類型（土壤類型）",
+      "unknown": {
+        "name": "未知訪客",
+        "description": "互動以揭示他們的心田類型"
+      },
+      "path": {
+        "name": "路旁 - 剛硬的心",
+        "description": "需要快速問候，否則很快離開（馬可福音4:15）"
+      },
+      "rock": {
+        "name": "石頭地 - 膚淺的信心",
+        "description": "歡喜領受但需要教導才能經受試煉（馬可福音4:16-17）"
+      },
+      "thorns": {
+        "name": "荊棘 - 被憂慮分心",
+        "description": "需要持續服務以克服生活憂慮（馬可福音4:18-19）"
+      },
+      "good": {
+        "name": "好土 - 領受的心",
+        "description": "穩定，需要深入教導才能結出許多果實（馬可福音4:20）"
+      }
+    },
+    "playerRoles": {
+      "title": "玩家角色",
+      "pastor": {
+        "name": "牧師",
+        "description": "擅長教導，最適合好土和石頭地"
+      },
+      "deacon": {
+        "name": "執事",
+        "description": "快速且注重服務，最適合荊棘地"
+      },
+      "member": {
+        "name": "會友",
+        "description": "擅長問候，最適合快速接待路旁訪客"
+      }
+    },
+    "visitorNeeds": {
+      "title": "訪客需求",
+      "description": "訪客需要特定關懷時會顯示圖標：",
+      "greet": {
+        "name": "需要問候",
+        "description": "訪客需要熱情歡迎"
+      },
+      "teach": {
+        "name": "需要教導",
+        "description": "訪客需要聖經教導"
+      },
+      "service": {
+        "name": "需要服務",
+        "description": "訪客需要實際幫助"
+      }
+    },
+    "hudElements": {
+      "title": "介面元素",
+      "score": {
+        "name": "分數",
+        "description": "從滿意的訪客獲得的分數"
+      },
+      "time": {
+        "name": "剩餘時間",
+        "description": "遊戲持續100秒"
+      },
+      "visitors": {
+        "name": "訪客",
+        "description": "目前在聚會中的人數"
+      },
+      "patienceBar": {
+        "name": "耐心條",
+        "description": "綠色 = 有耐心，紅色 = 即將離開"
+      }
+    }
+  },
+  "challenge": {
+    "title": "分心！",
+    "verifyPrompt": "這是聖經經文嗎？",
+    "question": "真的聖經經文？",
+    "yesButton": "是，真實",
+    "noButton": "否，假的",
+    "speedInfo": "答對可以提升你的速度！"
+  },
+  "gameOver": {
+    "title": "聚會結束！",
+    "seedsRooted": "扎根的種子",
+    "lostToWorld": "失去的靈魂",
+    "pastoralWord": "聖經的話語",
+    "reflection": "撒種的人所撒的就是道。那撒在路旁的...那撒在好土裡的，就是人聽道，又領受，並且結實。（馬可福音4:14-20）",
+    "playAgain": "再玩一次"
+  }
+}

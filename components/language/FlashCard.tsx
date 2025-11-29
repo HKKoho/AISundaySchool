@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { VocabularyCard } from '../../language/vocabularyData';
 import { getVocabularyPronunciationFeedback, scoreToQuality, type PronunciationFeedback } from '../../services/vocabularyPronunciation';
 
@@ -11,6 +12,7 @@ interface FlashCardProps {
 type RecordingState = 'idle' | 'recording' | 'processing' | 'feedback';
 
 const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }) => {
+  const { t } = useTranslation('language');
   const [isFlipped, setIsFlipped] = useState(false);
   const [recordingState, setRecordingState] = useState<RecordingState>('idle');
   const [pronunciationFeedback, setPronunciationFeedback] = useState<PronunciationFeedback | null>(null);
@@ -80,7 +82,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
           setPronunciationFeedback({
             isCorrect: false,
             score: 0,
-            feedback: '無法分析發音，請重試。'
+            feedback: t('vocabulary.analysisError')
           });
           setRecordingState('feedback');
         }
@@ -91,10 +93,10 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
       recorder.start();
     } catch (error) {
       console.error('Error accessing microphone:', error);
-      alert('需要麥克風權限才能練習發音。請在瀏覽器設定中啟用麥克風。');
+      alert(t('vocabulary.micPermissionError'));
       setRecordingState('idle');
     }
-  }, [card]);
+  }, [card, t]);
 
   const stopRecording = useCallback(() => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
@@ -169,7 +171,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
               {/* Pronunciation Section */}
               <div className="pt-8 border-t border-amber-300 w-full">
                 <div className="text-sm text-amber-700 font-semibold mb-3">
-                  發音練習
+                  {t('vocabulary.pronunciationPractice')}
                 </div>
 
                 {/* Record Button */}
@@ -187,10 +189,10 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
                       : 'bg-indigo-600 hover:bg-indigo-700 text-white'
                   }`}
                 >
-                  {recordingState === 'recording' && '🎤 錄音中... (點擊停止)'}
-                  {recordingState === 'processing' && '⏳ AI 分析中...'}
-                  {recordingState === 'idle' && '🎤 開始錄音'}
-                  {recordingState === 'feedback' && '🎤 再試一次'}
+                  {recordingState === 'recording' && `🎤 ${t('vocabulary.recordingNow')}`}
+                  {recordingState === 'processing' && `⏳ ${t('vocabulary.aiAnalyzing')}`}
+                  {recordingState === 'idle' && `🎤 ${t('vocabulary.startRecording')}`}
+                  {recordingState === 'feedback' && `🎤 ${t('vocabulary.tryAgain')}`}
                 </button>
 
                 {/* Pronunciation Feedback */}
@@ -205,7 +207,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-lg font-bold">
-                        {pronunciationFeedback.isCorrect ? '✅ 很好！' : '📝 需要改進'}
+                        {pronunciationFeedback.isCorrect ? `✅ ${t('vocabulary.veryGood')}` : `📝 ${t('vocabulary.needsImprovement')}`}
                       </span>
                       <span className="text-2xl font-bold text-gray-700">
                         {pronunciationFeedback.score}/100
@@ -225,8 +227,8 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
 
               {/* Tap to Reveal Hint */}
               <div className="pt-4 text-amber-600 text-xs">
-                {recordingState === 'idle' && '點擊翻轉查看答案'}
-                {recordingState === 'feedback' && '錄音完成後點擊翻轉查看詳細資料'}
+                {recordingState === 'idle' && t('vocabulary.tapToReveal')}
+                {recordingState === 'feedback' && t('vocabulary.afterRecording')}
               </div>
             </div>
           </div>
@@ -259,7 +261,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
             {/* Meanings */}
             <div className="mb-4">
               <h3 className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                意思
+                {t('vocabulary.meanings')}
               </h3>
               <div className="space-y-1">
                 {card.meanings.map((meaning, idx) => (
@@ -274,7 +276,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
             {card.grammaticalNotes && (
               <div className="mb-4 bg-amber-50/50 p-3 rounded-lg">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                  語法筆記
+                  {t('vocabulary.grammaticalNotes')}
                 </h3>
                 <p className="text-sm text-gray-700">{card.grammaticalNotes}</p>
               </div>
@@ -284,7 +286,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
             {card.examples.length > 0 && (
               <div className="mb-4 bg-amber-50/50 p-3 rounded-lg">
                 <h3 className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                  聖經例句
+                  {t('vocabulary.bibleExample')}
                 </h3>
                 <div className="space-y-2">
                   <div className="text-xs text-amber-700 font-semibold">
@@ -307,8 +309,8 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
 
             {/* Frequency & Chapter */}
             <div className="flex justify-between text-xs text-gray-500 mt-auto pt-2">
-              <span>出現次數: {card.frequency}次</span>
-              <span>課程章節: {card.chapter}</span>
+              <span>{t('vocabulary.frequency')}: {card.frequency}{t('vocabulary.times')}</span>
+              <span>{t('vocabulary.chapter')}: {card.chapter}</span>
             </div>
           </div>
         </div>
@@ -325,8 +327,8 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
             className="flex flex-col items-center justify-center p-4 bg-red-100 hover:bg-red-200 border-2 border-red-400 rounded-lg transition-colors"
           >
             <span className="text-2xl mb-1">😰</span>
-            <span className="text-sm font-semibold text-red-700">再次</span>
-            <span className="text-xs text-red-600">&lt; 1天</span>
+            <span className="text-sm font-semibold text-red-700">{t('vocabulary.again')}</span>
+            <span className="text-xs text-red-600">{t('vocabulary.lessThan1Day')}</span>
           </button>
 
           <button
@@ -337,8 +339,8 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
             className="flex flex-col items-center justify-center p-4 bg-orange-100 hover:bg-orange-200 border-2 border-orange-400 rounded-lg transition-colors"
           >
             <span className="text-2xl mb-1">😅</span>
-            <span className="text-sm font-semibold text-orange-700">困難</span>
-            <span className="text-xs text-orange-600">3天</span>
+            <span className="text-sm font-semibold text-orange-700">{t('vocabulary.hard')}</span>
+            <span className="text-xs text-orange-600">{t('vocabulary.days3')}</span>
           </button>
 
           <button
@@ -349,8 +351,8 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
             className="flex flex-col items-center justify-center p-4 bg-green-100 hover:bg-green-200 border-2 border-green-400 rounded-lg transition-colors"
           >
             <span className="text-2xl mb-1">😊</span>
-            <span className="text-sm font-semibold text-green-700">良好</span>
-            <span className="text-xs text-green-600">7天</span>
+            <span className="text-sm font-semibold text-green-700">{t('vocabulary.good')}</span>
+            <span className="text-xs text-green-600">{t('vocabulary.days7')}</span>
           </button>
 
           <button
@@ -361,8 +363,8 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
             className="flex flex-col items-center justify-center p-4 bg-blue-100 hover:bg-blue-200 border-2 border-blue-400 rounded-lg transition-colors"
           >
             <span className="text-2xl mb-1">😎</span>
-            <span className="text-sm font-semibold text-blue-700">容易</span>
-            <span className="text-xs text-blue-600">14天</span>
+            <span className="text-sm font-semibold text-blue-700">{t('vocabulary.easy')}</span>
+            <span className="text-xs text-blue-600">{t('vocabulary.days14')}</span>
           </button>
         </div>
       )}
@@ -370,16 +372,16 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate, showRating = true }
       {/* Instructions (only show when not flipped) */}
       {!isFlipped && recordingState === 'idle' && (
         <div className="mt-4 text-center text-gray-500 text-sm">
-          先練習發音，然後翻轉卡片查看意思和詳細資料
+          {t('vocabulary.practiceFirst')}
         </div>
       )}
       {!isFlipped && recordingState === 'feedback' && pronunciationFeedback && (
         <div className="mt-4 text-center space-y-2">
           <div className="text-sm text-gray-600">
-            發音分數: <span className="font-bold text-lg">{pronunciationFeedback.score}/100</span>
+            {t('vocabulary.pronunciationScore')}: <span className="font-bold text-lg">{pronunciationFeedback.score}/100</span>
           </div>
           <div className="text-xs text-gray-500">
-            現在翻轉卡片查看詞彙意思，然後評估你的整體掌握程度
+            {t('vocabulary.flipToRate')}
           </div>
         </div>
       )}

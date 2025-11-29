@@ -88,9 +88,9 @@ export const VerseDisplay: React.FC<VerseDisplayProps> = ({ verse, onBack }) => 
 
       {/* Reference Header */}
       <div className="mb-8 text-center">
-        <div className="inline-flex items-center gap-3 mb-3 px-6 py-3 bg-sky-100 dark:bg-sky-900/30 rounded-full">
-          <BookOpen className="w-5 h-5 text-sky-600 dark:text-sky-400" />
-          <h2 className="text-2xl font-bold text-sky-800 dark:text-sky-300">{verse.reference}</h2>
+        <div className="inline-flex items-center gap-3 mb-3 px-6 py-3 bg-gray-100 dark:bg-gray-800/30 rounded-full">
+          <BookOpen className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+          <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-300">{verse.reference}</h2>
         </div>
       </div>
 
@@ -126,7 +126,7 @@ export const VerseDisplay: React.FC<VerseDisplayProps> = ({ verse, onBack }) => 
             </button>
           </div>
           <p
-            className="text-3xl md:text-4xl text-amber-900 dark:text-amber-200 leading-relaxed font-serif"
+            className="text-3xl md:text-4xl text-gray-700 dark:text-gray-300 leading-relaxed font-serif"
             dir={verse.language === 'Hebrew' ? 'rtl' : 'ltr'}
           >
             {verse.originalText}

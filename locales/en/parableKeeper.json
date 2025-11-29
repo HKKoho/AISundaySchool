@@ -1,0 +1,125 @@
+{
+  "gameTitle": "Parable Keeper: Catching Newcomers",
+  "gameSubtitle": "A frantic time-management game based on the Parable of the Sower.\nPlay as a Pastor, Deacon, or Member to nurture visitors and keep them rooted in the church.",
+  "buttons": {
+    "back": "Back to Games"
+  },
+  "roles": {
+    "pastor": {
+      "name": "Pastor",
+      "description": "Strong teaching. Good at deeply rooting Good Soil and Rocks."
+    },
+    "deacon": {
+      "name": "Deacon",
+      "description": "Fast mover. Excellent at removing Thorns (cares of life)."
+    },
+    "member": {
+      "name": "Member",
+      "description": "High energy. Best at catching those on the Path before they leave."
+    }
+  },
+  "stats": {
+    "speed": "Speed",
+    "teach": "Teaching",
+    "service": "Service",
+    "greet": "Greeting"
+  },
+  "hud": {
+    "visitorsInService": "in service"
+  },
+  "instructions": "Click to move. Click visitors to interact with them.",
+  "legendButton": "Game Guide",
+  "legend": {
+    "title": "Game Guide",
+    "close": "Got it!",
+    "visitorTypes": {
+      "title": "Visitor Types (Soil Types)",
+      "unknown": {
+        "name": "Unknown Visitor",
+        "description": "Interact to reveal their heart type"
+      },
+      "path": {
+        "name": "Path - Hardened Heart",
+        "description": "Needs quick greeting or leaves very fast (Mark 4:15)"
+      },
+      "rock": {
+        "name": "Rocky Ground - Shallow Faith",
+        "description": "Receives with joy but needs teaching to withstand testing (Mark 4:16-17)"
+      },
+      "thorns": {
+        "name": "Thorns - Distracted by Worries",
+        "description": "Needs constant service to overcome cares of life (Mark 4:18-19)"
+      },
+      "good": {
+        "name": "Good Soil - Receptive Heart",
+        "description": "Stable, needs deep teaching to bear much fruit (Mark 4:20)"
+      }
+    },
+    "playerRoles": {
+      "title": "Player Roles",
+      "pastor": {
+        "name": "Pastor",
+        "description": "Excels at teaching, best for Good Soil and Rocky Ground"
+      },
+      "deacon": {
+        "name": "Deacon",
+        "description": "Fast and service-oriented, best for Thorny Ground"
+      },
+      "member": {
+        "name": "Member",
+        "description": "Great at greeting, best for catching Path visitors quickly"
+      }
+    },
+    "visitorNeeds": {
+      "title": "Visitor Needs",
+      "description": "Visitors show icons when they need specific care:",
+      "greet": {
+        "name": "Greeting Needed",
+        "description": "Visitor needs a warm welcome"
+      },
+      "teach": {
+        "name": "Teaching Needed",
+        "description": "Visitor needs Biblical instruction"
+      },
+      "service": {
+        "name": "Service Needed",
+        "description": "Visitor needs practical help"
+      }
+    },
+    "hudElements": {
+      "title": "HUD Elements",
+      "score": {
+        "name": "Score",
+        "description": "Points earned from satisfied visitors"
+      },
+      "time": {
+        "name": "Time Remaining",
+        "description": "Game lasts 100 seconds"
+      },
+      "visitors": {
+        "name": "Visitors",
+        "description": "Current number of people in service"
+      },
+      "patienceBar": {
+        "name": "Patience Bar",
+        "description": "Green = patient, Red = about to leave"
+      }
+    }
+  },
+  "challenge": {
+    "title": "Distraction!",
+    "verifyPrompt": "Is this from the Bible?",
+    "question": "Real Bible verse?",
+    "yesButton": "Yes, Real",
+    "noButton": "No, Fake",
+    "speedInfo": "Correct answers boost your speed!"
+  },
+  "gameOver": {
+    "title": "Service Complete!",
+    "seedsRooted": "Seeds Rooted",
+    "lostToWorld": "Lost to the World",
+    "pastoralWord": "A Word from Scripture",
+    "reflection": "The farmer sows the word. Some people are like seed along the path... others, like seed sown on good soil, hear the word, accept it, and produce a crop. (Mark 4:14-20)",
+    "playAgain": "Play Again"
+  }
+}

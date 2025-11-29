@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import FlashCard from './FlashCard';
 import type { VocabularyCard, UserVocabularyProgress } from '../../language/vocabularyData';
 import {
@@ -22,6 +23,7 @@ type SessionType = 'review' | 'new' | 'mixed';
 type LanguageFilter = 'all' | 'Hebrew' | 'Greek';
 
 const VocabularyPractice: React.FC = () => {
+  const { t } = useTranslation('language');
   const [viewMode, setViewMode] = useState<ViewMode>('menu');
   const [sessionType, setSessionType] = useState<SessionType>('mixed');
   const [languageFilter, setLanguageFilter] = useState<LanguageFilter>('all');
@@ -193,10 +195,10 @@ const VocabularyPractice: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-800 mb-2">
-              聖經語言詞彙練習
+              {t('vocabulary.title')}
             </h1>
             <p className="text-gray-600">
-              使用間隔重複法掌握希伯來文和希臘文詞彙
+              {t('vocabulary.subtitle')}
             </p>
           </div>
 
@@ -206,9 +208,9 @@ const VocabularyPractice: React.FC = () => {
               <div className="text-3xl font-bold text-indigo-600">
                 {overallStats.totalStudied}
               </div>
-              <div className="text-sm text-gray-600 mt-1">已學習詞彙</div>
+              <div className="text-sm text-gray-600 mt-1">{t('vocabulary.studiedWords')}</div>
               <div className="text-xs text-gray-400 mt-1">
-                / {overallStats.totalCards} 總詞彙
+                / {overallStats.totalCards} {t('vocabulary.totalWords')}
               </div>
             </div>
 
@@ -216,9 +218,9 @@ const VocabularyPractice: React.FC = () => {
               <div className="text-3xl font-bold text-amber-600">
                 {overallStats.dueToday}
               </div>
-              <div className="text-sm text-gray-600 mt-1">今日待複習</div>
+              <div className="text-sm text-gray-600 mt-1">{t('vocabulary.dueToday')}</div>
               <div className="text-xs text-gray-400 mt-1">
-                需要你的注意
+                {t('vocabulary.needsAttention')}
               </div>
             </div>
 
@@ -226,9 +228,9 @@ const VocabularyPractice: React.FC = () => {
               <div className="text-3xl font-bold text-green-600">
                 {overallStats.mastered}
               </div>
-              <div className="text-sm text-gray-600 mt-1">已掌握</div>
+              <div className="text-sm text-gray-600 mt-1">{t('vocabulary.mastered')}</div>
               <div className="text-xs text-gray-400 mt-1">
-                完全記住的詞彙
+                {t('vocabulary.fullyMemorized')}
               </div>
             </div>
           </div>
@@ -237,11 +239,11 @@ const VocabularyPractice: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow-md p-6">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">
-                希伯來文進度
+                {t('vocabulary.hebrewProgress')}
               </h3>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>已學習:</span>
+                  <span>{t('vocabulary.studied')}:</span>
                   <span className="font-bold">{overallStats.hebrewStudied} / 50</span>
                 </div>
                 <div className="w-full bg-blue-200 rounded-full h-2">
@@ -255,11 +257,11 @@ const VocabularyPractice: React.FC = () => {
 
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg shadow-md p-6">
               <h3 className="text-lg font-semibold text-green-800 mb-3">
-                希臘文進度
+                {t('vocabulary.greekProgress')}
               </h3>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>已學習:</span>
+                  <span>{t('vocabulary.studied')}:</span>
                   <span className="font-bold">{overallStats.greekStudied} / 50</span>
                 </div>
                 <div className="w-full bg-green-200 rounded-full h-2">
@@ -278,7 +280,7 @@ const VocabularyPractice: React.FC = () => {
               <div className="text-4xl">💡</div>
               <div>
                 <h3 className="font-semibold text-indigo-900 mb-2">
-                  今日學習建議
+                  {t('vocabulary.todayRecommendation')}
                 </h3>
                 <p className="text-indigo-800">{recommendations.recommendation}</p>
               </div>
@@ -288,7 +290,7 @@ const VocabularyPractice: React.FC = () => {
           {/* Session Type Selection */}
           <div className="bg-amber-50 rounded-lg shadow-md p-6 mb-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              選擇練習模式
+              {t('vocabulary.selectPracticeMode')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <button
@@ -300,12 +302,12 @@ const VocabularyPractice: React.FC = () => {
                 }`}
               >
                 <div className="text-3xl mb-2">📚</div>
-                <div className="font-semibold">複習模式</div>
+                <div className="font-semibold">{t('vocabulary.reviewMode')}</div>
                 <div className="text-sm text-gray-600 mt-1">
-                  只複習到期的詞彙
+                  {t('vocabulary.reviewModeDesc')}
                 </div>
                 <div className="text-xs text-amber-600 mt-2 font-bold">
-                  {recommendations.dueCards.length} 張卡片
+                  {recommendations.dueCards.length} {t('vocabulary.cards')}
                 </div>
               </button>
 
@@ -318,12 +320,12 @@ const VocabularyPractice: React.FC = () => {
                 }`}
               >
                 <div className="text-3xl mb-2">✨</div>
-                <div className="font-semibold">新詞彙</div>
+                <div className="font-semibold">{t('vocabulary.newWords')}</div>
                 <div className="text-sm text-gray-600 mt-1">
-                  學習新的詞彙
+                  {t('vocabulary.newWordsDesc')}
                 </div>
                 <div className="text-xs text-indigo-600 mt-2 font-bold">
-                  最多 {recommendations.newCards} 張卡片
+                  {t('vocabulary.upTo')} {recommendations.newCards} {t('vocabulary.cards')}
                 </div>
               </button>
 
@@ -336,12 +338,12 @@ const VocabularyPractice: React.FC = () => {
                 }`}
               >
                 <div className="text-3xl mb-2">🎯</div>
-                <div className="font-semibold">混合模式</div>
+                <div className="font-semibold">{t('vocabulary.mixedMode')}</div>
                 <div className="text-sm text-gray-600 mt-1">
-                  複習 + 新詞彙
+                  {t('vocabulary.mixedModeDesc')}
                 </div>
                 <div className="text-xs text-green-600 mt-2 font-bold">
-                  平衡學習
+                  {t('vocabulary.balanced')}
                 </div>
               </button>
             </div>
@@ -349,7 +351,7 @@ const VocabularyPractice: React.FC = () => {
             {/* Language Filter */}
             <div className="mb-4">
               <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                語言選擇
+                {t('vocabulary.languageSelection')}
               </h4>
               <div className="flex gap-2">
                 <button
@@ -360,7 +362,7 @@ const VocabularyPractice: React.FC = () => {
                       : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                   }`}
                 >
-                  全部
+                  {t('vocabulary.all')}
                 </button>
                 <button
                   onClick={() => setLanguageFilter('Hebrew')}
@@ -370,7 +372,7 @@ const VocabularyPractice: React.FC = () => {
                       : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
                   }`}
                 >
-                  希伯來文
+                  {t('vocabulary.hebrew')}
                 </button>
                 <button
                   onClick={() => setLanguageFilter('Greek')}
@@ -380,7 +382,7 @@ const VocabularyPractice: React.FC = () => {
                       : 'bg-green-100 text-green-700 hover:bg-green-200'
                   }`}
                 >
-                  希臘文
+                  {t('vocabulary.greek')}
                 </button>
               </div>
             </div>
@@ -390,7 +392,7 @@ const VocabularyPractice: React.FC = () => {
               onClick={() => startSession(sessionType, languageFilter)}
               className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-lg shadow-lg transition-all transform hover:scale-105"
             >
-              開始練習
+              {t('vocabulary.startPractice')}
             </button>
           </div>
 
@@ -399,7 +401,7 @@ const VocabularyPractice: React.FC = () => {
             onClick={() => setViewMode('stats')}
             className="w-full py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-lg transition-all"
           >
-            查看詳細統計
+            {t('vocabulary.viewDetailedStats')}
           </button>
         </div>
       </div>
@@ -414,16 +416,16 @@ const VocabularyPractice: React.FC = () => {
           <div className="text-center">
             <div className="text-6xl mb-4">🎉</div>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              沒有需要複習的詞彙！
+              {t('vocabulary.noDueCards')}
             </h2>
             <p className="text-gray-600 mb-6">
-              所有詞彙都已完成，試試學習新詞彙吧！
+              {t('vocabulary.noDueCardsDesc')}
             </p>
             <button
               onClick={() => setViewMode('menu')}
               className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-all"
             >
-              返回主選單
+              {t('vocabulary.backToMenu')}
             </button>
           </div>
         </div>
@@ -440,17 +442,17 @@ const VocabularyPractice: React.FC = () => {
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
               <h2 className="text-2xl font-bold text-gray-800">
-                練習中 {sessionStats.completed + 1} / {sessionStats.total}
+                {t('vocabulary.practicing')} {sessionStats.completed + 1} / {sessionStats.total}
               </h2>
               <button
                 onClick={() => {
-                  if (confirm('確定要結束練習嗎？進度將不會被保存。')) {
+                  if (confirm(t('vocabulary.endPracticeConfirm'))) {
                     setViewMode('menu');
                   }
                 }}
                 className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-all"
               >
-                結束練習
+                {t('vocabulary.endPractice')}
               </button>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
@@ -462,9 +464,9 @@ const VocabularyPractice: React.FC = () => {
               />
             </div>
             <div className="flex justify-between text-sm text-gray-600 mt-2">
-              <span>已完成: {sessionStats.completed}</span>
+              <span>{t('vocabulary.completed')}: {sessionStats.completed}</span>
               <span>
-                正確率:{' '}
+                {t('vocabulary.accuracy')}:{' '}
                 {sessionStats.completed > 0
                   ? Math.round((sessionStats.correct / sessionStats.completed) * 100)
                   : 0}
@@ -483,17 +485,19 @@ const VocabularyPractice: React.FC = () => {
             <div className="text-center py-12">
               <div className="text-6xl mb-4">🎉</div>
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                練習完成！
+                {t('vocabulary.practiceComplete')}
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                完成 {sessionStats.total} 張卡片，正確率{' '}
-                {Math.round((sessionStats.correct / sessionStats.total) * 100)}%
+                {t('vocabulary.practiceCompleteDesc', {
+                  total: sessionStats.total,
+                  accuracy: Math.round((sessionStats.correct / sessionStats.total) * 100)
+                })}
               </p>
               <button
                 onClick={() => setViewMode('menu')}
                 className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-lg shadow-lg transition-all transform hover:scale-105"
               >
-                返回主選單
+                {t('vocabulary.backToMenu')}
               </button>
             </div>
           )}
@@ -516,44 +520,44 @@ const VocabularyPractice: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">詳細統計</h1>
+            <h1 className="text-3xl font-bold text-gray-800">{t('vocabulary.detailedStats')}</h1>
             <button
               onClick={() => setViewMode('menu')}
               className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-all"
             >
-              返回主選單
+              {t('vocabulary.backToMenu')}
             </button>
           </div>
 
           {/* Mastery Level Distribution */}
           <div className="bg-amber-50 rounded-lg shadow-md p-6 mb-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              掌握程度分布
+              {t('vocabulary.masteryDistribution')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="text-center p-4 bg-green-50 rounded-lg">
                 <div className="text-2xl font-bold text-green-600">
                   {overallStats.mastered}
                 </div>
-                <div className="text-sm text-gray-600">已掌握</div>
+                <div className="text-sm text-gray-600">{t('vocabulary.mastered')}</div>
               </div>
               <div className="text-center p-4 bg-blue-50 rounded-lg">
                 <div className="text-2xl font-bold text-blue-600">
                   {overallStats.advanced}
                 </div>
-                <div className="text-sm text-gray-600">進階</div>
+                <div className="text-sm text-gray-600">{t('vocabulary.advanced')}</div>
               </div>
               <div className="text-center p-4 bg-yellow-50 rounded-lg">
                 <div className="text-2xl font-bold text-yellow-600">
                   {overallStats.intermediate}
                 </div>
-                <div className="text-sm text-gray-600">中級</div>
+                <div className="text-sm text-gray-600">{t('vocabulary.intermediate')}</div>
               </div>
               <div className="text-center p-4 bg-orange-50 rounded-lg">
                 <div className="text-2xl font-bold text-orange-600">
                   {overallStats.learning}
                 </div>
-                <div className="text-sm text-gray-600">學習中</div>
+                <div className="text-sm text-gray-600">{t('vocabulary.learning')}</div>
               </div>
             </div>
           </div>
@@ -561,7 +565,7 @@ const VocabularyPractice: React.FC = () => {
           {/* Word List with Progress */}
           <div className="bg-amber-50 rounded-lg shadow-md p-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              詞彙進度詳情
+              {t('vocabulary.wordProgressDetails')}
             </h3>
             <div className="space-y-2 max-h-96 overflow-y-auto">
               {masteryBreakdown
@@ -587,10 +591,10 @@ const VocabularyPractice: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="text-xs text-gray-500">
-                          {stats.totalReviews} 次複習
+                          {stats.totalReviews} {t('vocabulary.reviews')}
                         </div>
                         <div className="text-xs text-gray-500">
-                          {Math.round(stats.retentionRate * 100)}% 正確
+                          {Math.round(stats.retentionRate * 100)}% {t('vocabulary.correct')}
                         </div>
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-semibold ${
@@ -604,12 +608,12 @@ const VocabularyPractice: React.FC = () => {
                           }`}
                         >
                           {stats.masteryLevel === 'mastered'
-                            ? '已掌握'
+                            ? t('vocabulary.mastered')
                             : stats.masteryLevel === 'advanced'
-                            ? '進階'
+                            ? t('vocabulary.advanced')
                             : stats.masteryLevel === 'intermediate'
-                            ? '中級'
-                            : '學習中'}
+                            ? t('vocabulary.intermediate')
+                            : t('vocabulary.learning')}
                         </span>
                       </div>
                     </div>

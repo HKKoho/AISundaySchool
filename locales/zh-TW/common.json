@@ -19,7 +19,9 @@
       "dungeonTitle": "逃離影子信念陷阱",
       "dungeonDesc": "信仰歷練，用神話語與祂相遇",
       "characterTitle": "性格決策遊戲",
-      "characterDesc": "發現你性格，向聖經人物學習"
+      "characterDesc": "發現你性格，向聖經人物學習",
+      "parableKeeperTitle": "接待新朋友",
+      "parableKeeperDesc": "基於撒種比喻培育訪客"
     },
     "language": {
       "description": "希伯來文和希臘文發音與AI對話"

@@ -37,13 +37,6 @@ const LanguageCard: React.FC<{
         <div className="text-sm opacity-90 text-stone-600">{t('modes.wordPracticeDesc')}</div>
       </button>
       <button
-        onClick={() => onSelectMode('verse-learning', language)}
-        className="p-6 bg-gradient-to-r from-orange-300 to-orange-400 hover:from-orange-400 hover:to-orange-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
-      >
-        <div className="text-lg font-bold mb-1 text-stone-700">{t('modes.verseLearning')}</div>
-        <div className="text-sm opacity-90 text-stone-600">{t('modes.verseLearningDesc')}</div>
-      </button>
-      <button
         onClick={() => onSelectMode('vocabulary-flashcards', language)}
         className="p-6 bg-gradient-to-r from-amber-300 to-amber-400 hover:from-amber-400 hover:to-amber-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
       >
@@ -63,6 +56,27 @@ const LanguageCard: React.FC<{
       >
         <div className="text-lg font-bold mb-1 text-stone-700">{t('modes.pronunciationChallenge')}</div>
         <div className="text-sm opacity-90 text-stone-600">{t('modes.pronunciationChallengeDesc')}</div>
+      </button>
+      <button
+        onClick={() => onSelectMode('translation-practice', language)}
+        className="p-6 bg-gradient-to-r from-teal-300 to-teal-400 hover:from-teal-400 hover:to-teal-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="text-lg font-bold mb-1 text-stone-700">{t('modes.translationPractice')}</div>
+        <div className="text-sm opacity-90 text-stone-600">{t('modes.translationPracticeDesc')}</div>
+      </button>
+      <button
+        onClick={() => onSelectMode('right-meanings', language)}
+        className="p-6 bg-gradient-to-r from-rose-300 to-rose-400 hover:from-rose-400 hover:to-rose-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="text-lg font-bold mb-1 text-stone-700">{t('modes.rightMeanings')}</div>
+        <div className="text-sm opacity-90 text-stone-600">{t('modes.rightMeaningsDesc')}</div>
+      </button>
+      <button
+        onClick={() => onSelectMode('verse-learning', language)}
+        className="p-6 bg-gradient-to-r from-orange-300 to-orange-400 hover:from-orange-400 hover:to-orange-500 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="text-lg font-bold mb-1 text-stone-700">{t('modes.verseLearning')}</div>
+        <div className="text-sm opacity-90 text-stone-600">{t('modes.verseLearningDesc')}</div>
       </button>
       <button
         onClick={() => onSelectMode('sentence-practice', language)}

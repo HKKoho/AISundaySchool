@@ -9,6 +9,7 @@ import enLanguage from '../locales/en/language.json';
 import enExplore from '../locales/en/explore.json';
 import enTheologyAssistant from '../locales/en/theologyAssistant.json';
 import enBibleStudy from '../locales/en/bibleStudy.json';
+import enParableKeeper from '../locales/en/parableKeeper.json';
 
 // Import Traditional Chinese translations
 import zhCommon from '../locales/zh-TW/common.json';
@@ -17,6 +18,7 @@ import zhLanguage from '../locales/zh-TW/language.json';
 import zhExplore from '../locales/zh-TW/explore.json';
 import zhTheologyAssistant from '../locales/zh-TW/theologyAssistant.json';
 import zhBibleStudy from '../locales/zh-TW/bibleStudy.json';
+import zhParableKeeper from '../locales/zh-TW/parableKeeper.json';
 
 const resources = {
   en: {
@@ -26,6 +28,7 @@ const resources = {
     explore: enExplore,
     theologyAssistant: enTheologyAssistant,
     bibleStudy: enBibleStudy,
+    parableKeeper: enParableKeeper,
   },
   'zh-TW': {
     common: zhCommon,
@@ -34,6 +37,7 @@ const resources = {
     explore: zhExplore,
     theologyAssistant: zhTheologyAssistant,
     bibleStudy: zhBibleStudy,
+    parableKeeper: zhParableKeeper,
   },
 };
 

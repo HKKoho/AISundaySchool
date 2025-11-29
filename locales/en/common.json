@@ -19,7 +19,9 @@
       "dungeonTitle": "Escape Shadow Belief Trap",
       "dungeonDesc": "Navigate a maze while learning about genuine encounters with God",
       "characterTitle": "Character Decision Game",
-      "characterDesc": "Discover your personality and learn from biblical characters"
+      "characterDesc": "Discover your personality and learn from biblical characters",
+      "parableKeeperTitle": "Catching Newcomers",
+      "parableKeeperDesc": "Nurture visitors based on the Parable of the Sower"
     },
     "language": {
       "description": "Hebrew and Greek pronunciation with AI"

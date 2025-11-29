@@ -96,7 +96,7 @@ export const AlphabetLearning: React.FC<AlphabetLearningProps> = ({ language, on
                   </h3>
                   <button
                     onClick={() => handlePlayAudio(selectedLetter)}
-                    className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-sky-100 dark:bg-sky-900/50 hover:bg-sky-200 dark:hover:bg-sky-800/50 rounded-lg transition-colors text-sky-700 dark:text-sky-300"
+                    className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-sky-600 dark:bg-sky-700 hover:bg-sky-700 dark:hover:bg-sky-800 rounded-lg transition-colors text-white"
                   >
                     <Volume2 className="w-4 h-4" />
                     <span className="text-sm">{t('buttons.playPronunciation')}</span>

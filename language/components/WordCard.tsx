@@ -47,7 +47,7 @@ export const WordCard: React.FC<WordCardProps> = ({ wordData, language }) => {
 
   return (
     <div className="w-full max-w-2xl bg-amber-50 rounded-2xl shadow-lg p-8 md:p-12 text-center transform transition-all duration-500 animate-fade-in-up border-2 border-amber-200">
-      <h2 className="text-6xl md:text-8xl font-serif text-sky-900 mb-4" lang="he" dir="rtl">{wordData.word}</h2>
+      <h2 className={`text-6xl md:text-8xl font-serif mb-4 ${language === 'Hebrew' ? 'text-blue-700' : 'text-purple-700'}`} lang="he" dir="rtl">{wordData.word}</h2>
       <div className="flex items-center justify-center gap-3 mb-2">
         <p className="text-2xl text-stone-700">{wordData.transliteration}</p>
         <button
