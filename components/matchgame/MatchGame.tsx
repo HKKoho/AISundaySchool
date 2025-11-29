@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { GoogleGenAI, Type } from "@google/genai";
+import { useTranslation } from 'react-i18next';
 import { translations } from './i18n';
 import { RoundResult, UserSelections, Round, SideItem, MatchItem } from './types';
 import Header from './Header';
@@ -14,7 +15,8 @@ interface MatchGameProps {
 }
 
 function MatchGame({ onBack }: MatchGameProps) {
-  const [language, setLanguage] = useState<Language>('en');
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState<Language>(i18n.language as Language || 'en');
   const [uiText, setUiText] = useState(() => translations[language]);
   const [selectedRoundIds, setSelectedRoundIds] = useState<number[]>(() => {
     // Select 10 random round IDs from all available rounds
@@ -43,6 +45,14 @@ function MatchGame({ onBack }: MatchGameProps) {
   const [shuffledRightSide, setShuffledRightSide] = useState(gameRoundsData[currentRoundIndex].rightSide);
 
   const currentRoundData: Round = useMemo(() => gameRoundsData[currentRoundIndex], [currentRoundIndex, gameRoundsData]);
+
+  useEffect(() => {
+    // Sync with global i18n language
+    const currentLang = i18n.language as Language;
+    if (currentLang !== language && (currentLang === 'en' || currentLang === 'zh-TW')) {
+      setLanguage(currentLang);
+    }
+  }, [i18n.language, language]);
 
   useEffect(() => {
     // Update UI text when language changes (but keep same round IDs)

@@ -90,18 +90,18 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
                   </div>
                 </button>
 
-                {/* Character Decision Game */}
+                {/* Bible Lens Game */}
                 <button
-                  onClick={() => handleGameModeSelect('character')}
-                  className="group relative bg-gradient-to-br from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                  onClick={() => handleGameModeSelect('bible-lens')}
+                  className="group relative bg-gradient-to-br from-rose-600 to-rose-800 hover:from-rose-500 hover:to-rose-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
                 >
                   <div className="flex flex-col items-center text-white">
                     <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
-                      <UserCircle className="w-20 h-20" />
+                      <BookImage className="w-20 h-20" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.characterTitle')}</h3>
+                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.bibleLensTitle')}</h3>
                     <p className="text-white/90 text-center">
-                      {t('features.bibleGame.characterDesc')}
+                      {t('features.bibleGame.bibleLensDesc')}
                     </p>
                   </div>
                 </button>
@@ -138,18 +138,18 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
                   </div>
                 </button>
 
-                {/* Bible Lens Game */}
+                {/* Character Decision Game */}
                 <button
-                  onClick={() => handleGameModeSelect('bible-lens')}
-                  className="group relative bg-gradient-to-br from-rose-600 to-rose-800 hover:from-rose-500 hover:to-rose-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                  onClick={() => handleGameModeSelect('character')}
+                  className="group relative bg-gradient-to-br from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 shadow-2xl"
                 >
                   <div className="flex flex-col items-center text-white">
                     <div className="mb-6 p-6 bg-white/20 rounded-full backdrop-blur-sm">
-                      <BookImage className="w-20 h-20" />
+                      <UserCircle className="w-20 h-20" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.bibleLensTitle')}</h3>
+                    <h3 className="text-2xl font-bold mb-4">{t('features.bibleGame.characterTitle')}</h3>
                     <p className="text-white/90 text-center">
-                      {t('features.bibleGame.bibleLensDesc')}
+                      {t('features.bibleGame.characterDesc')}
                     </p>
                   </div>
                 </button>

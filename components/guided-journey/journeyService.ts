@@ -25,7 +25,7 @@ export const generateRouteData = async (
   try {
     console.log(`[JourneyService] Generating route data for: ${routeTitle}`);
 
-    const model = "gemini-2.0-flash-exp";
+    const model = "gemini-2.5-flash";
 
     const prompt = `
       Generate a historical and biblical route for "${routeTitle}" (${routeTitleZh}).
@@ -81,11 +81,22 @@ export const generateRouteData = async (
       }
     });
 
+    console.log('[JourneyService] Raw response:', response);
+
     if (!response.text) {
+      console.error('[JourneyService] No text in response');
       throw new Error("No data received from Gemini");
     }
 
+    console.log('[JourneyService] Response text:', response.text);
     const data = JSON.parse(response.text) as RouteData;
+
+    // Validate the response has required fields
+    if (!data || !data.stops || !Array.isArray(data.stops)) {
+      console.error('[JourneyService] Invalid data structure:', data);
+      throw new Error("Invalid response structure from Gemini");
+    }
+
     console.log(`[JourneyService] Successfully generated ${data.stops.length} stops`);
     return data;
 
@@ -111,7 +122,7 @@ export const generateQuizForStep = async (
   try {
     console.log(`[JourneyService] Generating quiz: ${currentStopName} -> ${nextStopName}`);
 
-    const model = "gemini-2.0-flash-exp";
+    const model = "gemini-2.5-flash";
 
     const prompt = `
       The user is playing a game about the biblical route: "${routeTitle}".

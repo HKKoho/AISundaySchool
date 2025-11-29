@@ -1,6 +1,6 @@
 import { CellType, MazeGrid, Position } from '../../types/dungeon';
 
-export const MAZE_SIZE = 11; // Must be odd for this algorithm
+export const MAZE_SIZE = 15; // Must be odd for this algorithm - larger size for more challenge
 
 export const generateMaze = (size: number = MAZE_SIZE): { grid: MazeGrid; start: Position; exit: Position } => {
   // Initialize grid with walls
@@ -63,19 +63,22 @@ export const generateMaze = (size: number = MAZE_SIZE): { grid: MazeGrid; start:
   // Set Start
   grid[start.y][start.x].type = 'start';
 
-  // Set Exit (furthest point ideally, but for now just bottom right-ish)
-  let exitFound = false;
-  for (let y = size - 2; y > 0; y--) {
-    for (let x = size - 2; x > 0; x--) {
+  // Set Exit at the furthest point from start using Manhattan distance
+  let maxDistance = 0;
+  let exitPos: Position = { x: 1, y: 1 };
+
+  for (let y = 1; y < size - 1; y++) {
+    for (let x = 1; x < size - 1; x++) {
       if (grid[y][x].type === 'path') {
-        grid[y][x].type = 'exit';
-        exitFound = true;
-        return { grid, start, exit: { x, y } };
+        const distance = Math.abs(x - start.x) + Math.abs(y - start.y);
+        if (distance > maxDistance) {
+          maxDistance = distance;
+          exitPos = { x, y };
+        }
       }
     }
-    if (exitFound) break;
   }
-  
-  // Fallback
-  return { grid, start, exit: { x: 1, y: 1 } };
+
+  grid[exitPos.y][exitPos.x].type = 'exit';
+  return { grid, start, exit: exitPos };
 };
