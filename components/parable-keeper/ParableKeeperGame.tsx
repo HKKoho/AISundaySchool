@@ -26,7 +26,9 @@ interface ParableKeeperGameProps {
 }
 
 export const ParableKeeperGame: React.FC<ParableKeeperGameProps> = ({ onBack }) => {
-  const { t } = useTranslation('parableKeeper');
+  const { t, i18n } = useTranslation('parableKeeper');
+  const currentLanguage = i18n.language; // 'en' or 'zh-TW'
+  const isChineseMode = currentLanguage === 'zh-TW';
 
   // Game State
   const [gameState, setGameState] = useState<GameState>({
@@ -592,12 +594,12 @@ export const ParableKeeperGame: React.FC<ParableKeeperGameProps> = ({ onBack }) 
             <div className="p-6">
               <div className="mb-4">
                 <p className="text-stone-300 text-sm mb-2 opacity-80">
-                  📢 {gameState.currentChallenge.distractionText}
+                  📢 {isChineseMode ? gameState.currentChallenge.distractionTextZh : gameState.currentChallenge.distractionText}
                 </p>
                 <div className="bg-stone-800/50 p-4 rounded-lg border border-amber-600/30">
                   <p className="text-xs text-amber-600 mb-2">{t('challenge.verifyPrompt')}</p>
                   <p className="text-lg text-amber-300 italic font-serif leading-relaxed">
-                    "{gameState.currentChallenge.bibleStatement}"
+                    "{isChineseMode ? gameState.currentChallenge.bibleStatementZh : gameState.currentChallenge.bibleStatement}"
                   </p>
                 </div>
               </div>
