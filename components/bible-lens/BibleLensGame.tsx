@@ -10,7 +10,8 @@ interface BibleLensGameProps {
 }
 
 const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
-  const { t } = useTranslation('bibleLens');
+  const { t, i18n } = useTranslation('bibleLens');
+  const isChineseMode = i18n.language === 'zh-TW';
 
   const [gameState, setGameState] = useState<GameState>({
     status: 'START',
@@ -157,9 +158,15 @@ const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
                         className="w-20 h-20 rounded-lg object-cover"
                       />
                       <div className="flex-1">
-                        <h4 className="font-bold text-stone-900">{triple.objectName}</h4>
-                        <p className="text-sm text-stone-600 mb-1">{triple.chapterReference}</p>
-                        <p className="text-xs text-stone-500 italic line-clamp-2">{triple.verseText}</p>
+                        <h4 className="font-bold text-stone-900">
+                          {isChineseMode ? triple.objectNameZh : triple.objectName}
+                        </h4>
+                        <p className="text-sm text-stone-600 mb-1">
+                          {isChineseMode ? triple.chapterReferenceZh : triple.chapterReference}
+                        </p>
+                        <p className="text-xs text-stone-500 italic line-clamp-2">
+                          {isChineseMode ? triple.verseTextZh : triple.verseText}
+                        </p>
                       </div>
                     </div>
                   </div>
