@@ -1,5 +1,6 @@
 import React from 'react';
 import { Round, MatchItem, UserSelections, RoundResult } from './types';
+import { SpeakButton } from '../shared/SpeakButton';
 
 const LABELS = ['A', 'B', 'C', 'D'];
 
@@ -15,6 +16,7 @@ interface GameRoundProps {
   isLastRound: boolean;
   explanation: string;
   isGeneratingExplanation: boolean;
+  language: 'en' | 'zh-TW';
   uiText: {
     submit: string;
     correctMessage: string;
@@ -50,6 +52,7 @@ const GameRound: React.FC<GameRoundProps> = ({
   isLastRound,
   explanation,
   isGeneratingExplanation,
+  language,
   uiText
 }) => {
   const getBorderColor = (item: MatchItem) => {
@@ -123,7 +126,16 @@ const GameRound: React.FC<GameRoundProps> = ({
                     <p className="text-2xl font-bold text-red-600 dark:text-red-400">{uiText.incorrectMessage}</p>
                     <div className="mt-4 p-4 bg-slate-100 dark:bg-slate-700 rounded-lg text-left w-full max-w-2xl">
                         {isGeneratingExplanation && <p className="text-slate-600 dark:text-slate-300 animate-pulse">{uiText.generatingExplanation}</p>}
-                        {explanation && <p className="text-slate-700 dark:text-slate-200 whitespace-pre-wrap">{explanation}</p>}
+                        {explanation && (
+                          <div>
+                            <p className="text-slate-700 dark:text-slate-200 whitespace-pre-wrap mb-3">{explanation}</p>
+                            <SpeakButton
+                              text={explanation}
+                              language={language}
+                              variant="button"
+                            />
+                          </div>
+                        )}
                     </div>
                    </>
                 )}

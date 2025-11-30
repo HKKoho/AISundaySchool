@@ -284,6 +284,7 @@ function MatchGame({ onBack }: MatchGameProps) {
               isLastRound={currentRoundIndex === gameRoundsData.length - 1}
               explanation={explanation}
               isGeneratingExplanation={isGeneratingExplanation}
+              language={language}
               uiText={{
                  submit: uiText.submit,
                  correctMessage: uiText.correctMessage,

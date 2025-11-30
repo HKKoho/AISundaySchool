@@ -4,6 +4,7 @@ import { ArrowLeft, Play, Loader2, RefreshCw, Trophy, Clock, Book } from 'lucide
 import { GameState, BiblicalTriple } from './types';
 import { generateBiblicalTriples } from './bibleLensService';
 import MemoryGrid from './MemoryGrid';
+import { SpeakButton } from '../shared/SpeakButton';
 
 interface BibleLensGameProps {
   onBack: () => void;
@@ -155,18 +156,24 @@ const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
                       <img
                         src={triple.imageBase64}
                         alt={triple.objectName}
-                        className="w-20 h-20 rounded-lg object-cover"
+                        className="w-20 h-20 rounded-lg object-cover flex-shrink-0"
                       />
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <h4 className="font-bold text-stone-900">
                           {isChineseMode ? triple.objectNameZh : triple.objectName}
                         </h4>
                         <p className="text-sm text-stone-600 mb-1">
                           {isChineseMode ? triple.chapterReferenceZh : triple.chapterReference}
                         </p>
-                        <p className="text-xs text-stone-500 italic line-clamp-2">
+                        <p className="text-xs text-stone-500 italic line-clamp-2 mb-2">
                           {isChineseMode ? triple.verseTextZh : triple.verseText}
                         </p>
+                        <SpeakButton
+                          text={isChineseMode ? triple.verseTextZh : triple.verseText}
+                          language={isChineseMode ? 'zh-TW' : 'en'}
+                          variant="button"
+                          className="mt-1"
+                        />
                       </div>
                     </div>
                   </div>
