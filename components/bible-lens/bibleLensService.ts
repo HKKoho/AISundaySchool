@@ -174,54 +174,16 @@ async function generateImageWithGeminiVision(imagePrompt: string, objectName: st
 }
 
 /**
- * Generates a beautiful SVG placeholder with emoji representation (fallback)
+ * Generates a simple emoji-based SVG placeholder (fallback)
  */
 function generatePlaceholderImage(objectName: string): string {
   const emoji = getEmojiForObject(objectName);
 
-  // Create a unique ID that doesn't contain special characters
-  const uniqueId = Math.random().toString(36).substring(2, 9);
+  // Simple SVG with just emoji - no text to avoid encoding issues
+  const svg = `<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8B7355;stop-opacity:1"/><stop offset="100%" style="stop-color:#D4A574;stop-opacity:1"/></linearGradient></defs><rect width="400" height="400" fill="url(#g)"/><text x="200" y="240" font-size="120" text-anchor="middle">${emoji}</text></svg>`;
 
-  const svg = `
-    <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="grad-${uniqueId}" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#D4A574;stop-opacity:1" />
-        </linearGradient>
-        <filter id="shadow-${uniqueId}">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
-        </filter>
-      </defs>
-      <rect width="400" height="400" fill="url(#grad-${uniqueId})"/>
-      <circle cx="200" cy="160" r="80" fill="rgba(255,255,255,0.1)"/>
-      <text x="200" y="200" font-family="Arial" font-size="80" text-anchor="middle" filter="url(#shadow-${uniqueId})">
-        ${emoji}
-      </text>
-      <text x="200" y="280" font-family="Georgia, serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#fff" opacity="0.9">
-        ${escapeXml(objectName)}
-      </text>
-      <rect x="0" y="350" width="400" height="50" fill="rgba(0,0,0,0.2)"/>
-      <text x="200" y="380" font-family="Georgia, serif" font-size="16" text-anchor="middle" fill="#fff" opacity="0.8">
-        Biblical Object
-      </text>
-    </svg>
-  `;
-
-  // Use URL encoding instead of base64 to avoid btoa() Unicode issues
+  // Use URL encoding to handle Unicode emojis
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-}
-
-/**
- * Escapes XML special characters
- */
-function escapeXml(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
 }
 
 /**
@@ -301,26 +263,9 @@ function getEmojiForObject(objectName: string): string {
 
 // Fallback data for when API is unavailable
 function getFallbackTriples(): BiblicalTriple[] {
-  const placeholderSvg = (text: string) => {
-    const uniqueId = Math.random().toString(36).substring(2, 9);
-    const svg = `
-      <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="grad-${uniqueId}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#D4A574;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-        <rect width="400" height="400" fill="url(#grad-${uniqueId})"/>
-        <text x="200" y="200" font-family="Arial" font-size="80" text-anchor="middle">
-          ${text}
-        </text>
-        <text x="200" y="280" font-family="Georgia, serif" font-size="18" text-anchor="middle" fill="#fff" opacity="0.7">
-          Biblical Object
-        </text>
-      </svg>
-    `;
-    // Use URL encoding instead of base64 to handle Unicode (emojis)
+  const emojiSvg = (emoji: string) => {
+    // Simple SVG with just emoji - minimal and reliable
+    const svg = `<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8B7355;stop-opacity:1"/><stop offset="100%" style="stop-color:#D4A574;stop-opacity:1"/></linearGradient></defs><rect width="400" height="400" fill="url(#g)"/><text x="200" y="240" font-size="120" text-anchor="middle">${emoji}</text></svg>`;
     return `data:image/svg+xml,${encodeURIComponent(svg)}`;
   };
 
@@ -333,7 +278,7 @@ function getFallbackTriples(): BiblicalTriple[] {
       chapterReferenceZh: "馬可福音 11:13",
       verseText: "Seeing in the distance a fig tree in leaf, he went to find out if it had any fruit. When he reached it, he found nothing but leaves, because it was not the season for figs.",
       verseTextZh: "遠遠地看見一棵無花果樹，樹上有葉子，就往那裡去，或者在樹上可以找著什麼。到了樹下，竟找不著什麼，不過有葉子，因為不是收無花果的時候。",
-      imageBase64: placeholderSvg("🌳")
+      imageBase64: emojiSvg("🌳")
     },
     {
       id: 1,
@@ -343,7 +288,7 @@ function getFallbackTriples(): BiblicalTriple[] {
       chapterReferenceZh: "約翰福音 1:29",
       verseText: "The next day John saw Jesus coming toward him and said, 'Look, the Lamb of God, who takes away the sin of the world!'",
       verseTextZh: "次日，約翰看見耶穌來到他那裡，就說：「看哪，神的羔羊，除去世人罪孽的！」",
-      imageBase64: placeholderSvg("🐑")
+      imageBase64: emojiSvg("🐑")
     },
     {
       id: 2,
@@ -353,7 +298,7 @@ function getFallbackTriples(): BiblicalTriple[] {
       chapterReferenceZh: "約翰福音 6:35",
       verseText: "Then Jesus declared, 'I am the bread of life. Whoever comes to me will never go hungry, and whoever believes in me will never be thirsty.'",
       verseTextZh: "耶穌說：「我就是生命的糧。到我這裡來的，必定不餓；信我的，永遠不渴。」",
-      imageBase64: placeholderSvg("🍞")
+      imageBase64: emojiSvg("🍞")
     },
     {
       id: 3,
@@ -363,7 +308,7 @@ function getFallbackTriples(): BiblicalTriple[] {
       chapterReferenceZh: "羅馬書 11:17",
       verseText: "If some of the branches have been broken off, and you, though a wild olive shoot, have been grafted in among the others and now share in the nourishing sap from the olive root.",
       verseTextZh: "若有幾根枝子被折下來，你這野橄欖得接在其中，一同得著橄欖根的肥汁。",
-      imageBase64: placeholderSvg("🫒")
+      imageBase64: emojiSvg("🫒")
     },
     {
       id: 4,
@@ -373,7 +318,7 @@ function getFallbackTriples(): BiblicalTriple[] {
       chapterReferenceZh: "馬太福音 5:1",
       verseText: "Now when Jesus saw the crowds, he went up on a mountainside and sat down. His disciples came to him.",
       verseTextZh: "耶穌看見這許多的人，就上了山，既已坐下，門徒到他跟前來。",
-      imageBase64: placeholderSvg("⛰️")
+      imageBase64: emojiSvg("⛰️")
     }
   ];
 }
