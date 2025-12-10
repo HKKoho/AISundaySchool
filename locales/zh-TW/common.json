@@ -4,8 +4,9 @@
   "platformHome": "平台首頁",
   "navigation": {
     "home": "首頁",
-    "bibleGame": "聖經探索",
+    "bibleGame": "趣味探索聖經",
     "language": "原文學習",
+    "youtubeLearning": "YouTube 影音學習",
     "explore": "研經助手",
     "versionComparison": "譯本比較"
   },
@@ -32,8 +33,11 @@
     "language": {
       "description": "希伯來文和希臘文發音與AI對話"
     },
+    "youtubeLearning": {
+      "description": "透過 YouTube 影片學習聖經"
+    },
     "explore": {
-      "description": "神學對話、文檔問答、作業輔助"
+      "description": "神學對話、文檔問答"
     },
     "versionComparison": {
       "title": "借助 Step Bible",

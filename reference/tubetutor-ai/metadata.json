@@ -1,0 +1,5 @@
+{
+  "name": "TubeTutor AI",
+  "description": "An educational video analyzer that generates summaries and quizzes from video transcripts using Gemini 2.5 Flash.",
+  "requestFramePermissions": []
+}

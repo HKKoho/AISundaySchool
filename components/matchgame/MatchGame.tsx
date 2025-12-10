@@ -12,17 +12,24 @@ type GamePhase = 'playing' | 'over';
 
 interface MatchGameProps {
   onBack?: () => void;
+  difficultyFilter?: 'Preliminary' | 'Competent';
 }
 
-function MatchGame({ onBack }: MatchGameProps) {
+function MatchGame({ onBack, difficultyFilter }: MatchGameProps) {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState<Language>(i18n.language as Language || 'en');
   const [uiText, setUiText] = useState(() => translations[language]);
   const [selectedRoundIds, setSelectedRoundIds] = useState<number[]>(() => {
     // Select 10 random round IDs from all available rounds
     const allRounds = translations[language].gameRounds;
-    const shuffled = [...allRounds].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 10).map(r => r.id);
+
+    // Filter by difficulty if specified
+    const filteredRounds = difficultyFilter
+      ? allRounds.filter(r => r.difficulty === difficultyFilter)
+      : allRounds;
+
+    const shuffled = [...filteredRounds].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, Math.min(10, shuffled.length)).map(r => r.id);
   });
 
   // Get rounds by ID (will update when language changes, but same round IDs)
@@ -144,12 +151,18 @@ function MatchGame({ onBack }: MatchGameProps) {
   const handlePlayAgain = useCallback(() => {
     // Re-initialize with 10 random round IDs
     const allRounds = translations[language].gameRounds;
-    const shuffled = [...allRounds].sort(() => Math.random() - 0.5);
-    setSelectedRoundIds(shuffled.slice(0, 10).map(r => r.id));
+
+    // Filter by difficulty if specified
+    const filteredRounds = difficultyFilter
+      ? allRounds.filter(r => r.difficulty === difficultyFilter)
+      : allRounds;
+
+    const shuffled = [...filteredRounds].sort(() => Math.random() - 0.5);
+    setSelectedRoundIds(shuffled.slice(0, Math.min(10, shuffled.length)).map(r => r.id));
     setCurrentRoundIndex(0);
     setScore(0);
     setGamePhase('playing');
-  }, [language]);
+  }, [language, difficultyFilter]);
 
   const handleGenerateRound = async () => {
     setIsGeneratingRound(true);

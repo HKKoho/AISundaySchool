@@ -19,8 +19,11 @@ interface BibleGameProps {
 type GameMode = 'select' | 'exploration' | 'exploration-quiz' | 'matching' | 'dungeon' | 'character' | 'parable-keeper' | 'guided-journey' | 'bible-lens';
 
 export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const isChineseMode = i18n.language === 'zh-TW';
   const [gameMode, setGameMode] = useState<GameMode>('select');
+  const [attendance, setAttendance] = useState<'irregular' | 'regular'>('irregular');
+  const [experience, setExperience] = useState<'below5' | '5to14' | 'above14'>('below5');
 
   const handleGameModeSelect = (mode: GameMode) => {
     if (mode === 'matching') {
@@ -51,9 +54,87 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
 
           <div className="flex-grow p-8 pb-16">
             <div className="max-w-4xl w-full mx-auto">
-              <h2 className="text-4xl font-bold text-center text-white mb-12" style={{fontFamily: "'Trajan Pro', serif"}}>
+              <h2 className="text-4xl font-bold text-center text-white mb-8" style={{fontFamily: "'Trajan Pro', serif"}}>
                 {t('navigation.bibleGame')}
               </h2>
+
+              {/* Sunday School Attendance Survey - Single Row */}
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 mb-8 border border-white/20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Sunday School Attendance */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-white font-semibold text-xs">
+                      {isChineseMode ? '主日學出席' : 'Sunday School Attendance'}
+                    </label>
+                    <div className="flex flex-col gap-2">
+                      <label className="flex items-center gap-2 text-white cursor-pointer hover:text-amber-200 transition-colors">
+                        <input
+                          type="radio"
+                          name="attendance"
+                          value="irregular"
+                          checked={attendance === 'irregular'}
+                          onChange={(e) => setAttendance(e.target.value as 'irregular' | 'regular')}
+                          className="w-4 h-4 text-amber-600 focus:ring-amber-500"
+                        />
+                        <span className="text-xs">{isChineseMode ? '不定期' : 'Irregularly'}</span>
+                      </label>
+                      <label className="flex items-center gap-2 text-white cursor-pointer hover:text-amber-200 transition-colors">
+                        <input
+                          type="radio"
+                          name="attendance"
+                          value="regular"
+                          checked={attendance === 'regular'}
+                          onChange={(e) => setAttendance(e.target.value as 'irregular' | 'regular')}
+                          className="w-4 h-4 text-amber-600 focus:ring-amber-500"
+                        />
+                        <span className="text-xs">{isChineseMode ? '定期' : 'Regularly'}</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Sunday School Learning */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-white font-semibold text-xs">
+                      {isChineseMode ? '主日學學習' : 'Sunday School Learning'}
+                    </label>
+                    <div className="flex flex-col gap-2">
+                      <label className="flex items-center gap-2 text-white cursor-pointer hover:text-amber-200 transition-colors">
+                        <input
+                          type="radio"
+                          name="experience"
+                          value="below5"
+                          checked={experience === 'below5'}
+                          onChange={(e) => setExperience(e.target.value as 'below5' | '5to14' | 'above14')}
+                          className="w-4 h-4 text-amber-600 focus:ring-amber-500"
+                        />
+                        <span className="text-xs">{isChineseMode ? '5年以下' : 'Below 5 years'}</span>
+                      </label>
+                      <label className="flex items-center gap-2 text-white cursor-pointer hover:text-amber-200 transition-colors">
+                        <input
+                          type="radio"
+                          name="experience"
+                          value="5to14"
+                          checked={experience === '5to14'}
+                          onChange={(e) => setExperience(e.target.value as 'below5' | '5to14' | 'above14')}
+                          className="w-4 h-4 text-amber-600 focus:ring-amber-500"
+                        />
+                        <span className="text-xs">{isChineseMode ? '5-14年' : '5-14 years'}</span>
+                      </label>
+                      <label className="flex items-center gap-2 text-white cursor-pointer hover:text-amber-200 transition-colors">
+                        <input
+                          type="radio"
+                          name="experience"
+                          value="above14"
+                          checked={experience === 'above14'}
+                          onChange={(e) => setExperience(e.target.value as 'below5' | '5to14' | 'above14')}
+                          className="w-4 h-4 text-amber-600 focus:ring-amber-500"
+                        />
+                        <span className="text-xs">{isChineseMode ? '14年以上' : '14+ years'}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                 {/* Exploration Game - Hidden */}
@@ -187,10 +268,17 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
     );
   }
 
+  // Determine if user should see only Preliminary questions
+  // Preliminary: irregular attendance AND (below 5 years OR 5-14 years)
+  const showOnlyPreliminary = attendance === 'irregular' && (experience === 'below5' || experience === '5to14');
+
   if (gameMode === 'matching') {
     return (
       <div className="fixed inset-0">
-        <MatchGame onBack={() => setGameMode('select')} />
+        <MatchGame
+          onBack={() => setGameMode('select')}
+          difficultyFilter={showOnlyPreliminary ? 'Preliminary' : undefined}
+        />
       </div>
     );
   }
@@ -198,7 +286,10 @@ export const BibleGame: React.FC<BibleGameProps> = ({ onBack }) => {
   if (gameMode === 'dungeon') {
     return (
       <div className="fixed inset-0">
-        <DungeonCrawler onBack={() => setGameMode('select')} />
+        <DungeonCrawler
+          onBack={() => setGameMode('select')}
+          difficultyFilter={showOnlyPreliminary ? 'Preliminary' : undefined}
+        />
       </div>
     );
   }

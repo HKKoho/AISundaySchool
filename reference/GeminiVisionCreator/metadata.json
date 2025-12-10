@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Vision Creator",
+  "description": "A high-fidelity AI image generator powered by Google's Gemini 2.5 Flash Image model. Turn your text prompts into stunning visuals instantly.",
+  "requestFramePermissions": []
+}

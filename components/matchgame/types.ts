@@ -1,3 +1,4 @@
+export type QuestionDifficulty = 'Preliminary' | 'Competent';
 
 export interface SideItem {
   id: string;
@@ -13,6 +14,7 @@ export interface Round {
   category: string;
   leftSide: SideItem[];
   rightSide: MatchItem[];
+  difficulty: QuestionDifficulty;
 }
 
 export interface UserSelections {

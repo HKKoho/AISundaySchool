@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { BiblicalTriple } from "./types";
+import { BiblicalPair } from "./types";
 
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY || process.env.API_KEY) as string | undefined;
 
@@ -13,26 +13,26 @@ if (GEMINI_API_KEY) {
 }
 
 /**
- * Generates 5 Biblical triples with bilingual content
+ * Generates 8 Biblical pairs with bilingual content
  */
-export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
+export const generateBiblicalPairs = async (): Promise<BiblicalPair[]> => {
   if (!ai) {
-    console.log('[BibleLensService] Using fallback triples');
-    return getFallbackTriples();
+    console.log('[BibleLensService] Using fallback pairs');
+    return getFallbackPairs();
   }
 
   try {
-    console.log('[BibleLensService] Generating biblical triples with AI');
+    console.log('[BibleLensService] Generating biblical pairs with AI');
 
     const modelId = "gemini-2.5-flash";
 
     const prompt = `
-      Generate exactly 5 distinct Biblical objects for a memory matching game.
+      Generate exactly 8 distinct Biblical objects for a memory matching game.
 
       Requirements:
       1. Select objects from these categories: Plants, Animals, Food, or Places mentioned in the Bible
       2. Each object should be visually distinctive and recognizable
-      3. Choose specific Bible chapters (Book + Chapter) that clearly mention each object
+      3. Choose specific Bible verses (Book + Chapter:Verse) that clearly mention each object
       4. Include the actual Bible verse text that mentions the object
       5. Objects should be from different categories when possible
       6. Create detailed image prompts that will generate clear, biblical-style illustrations
@@ -40,7 +40,7 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
 
       Return pure JSON with this schema:
       {
-        "triples": [
+        "pairs": [
           {
             "objectName": "Fig Tree",
             "objectNameZh": "無花果樹",
@@ -50,7 +50,7 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
             "verseTextZh": "遠遠地看見一棵無花果樹，樹上有葉子，就往那裡去，或者在樹上可以找著什麼。",
             "imagePrompt": "A detailed biblical-style illustration of a fig tree..."
           },
-          ... (4 more)
+          ... (7 more)
         ]
       }
     `;
@@ -63,7 +63,7 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
         responseSchema: {
           type: Type.OBJECT,
           properties: {
-            triples: {
+            pairs: {
               type: Type.ARRAY,
               items: {
                 type: Type.OBJECT,
@@ -80,7 +80,7 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
               }
             }
           },
-          required: ["triples"]
+          required: ["pairs"]
         }
       }
     });
@@ -90,31 +90,31 @@ export const generateBiblicalTriples = async (): Promise<BiblicalTriple[]> => {
 
     const parsed = JSON.parse(text);
 
-    // Generate real images for each triple using Gemini Vision
-    console.log('[BibleLensService] Generating images for triples with Gemini Vision...');
-    const triples: BiblicalTriple[] = await Promise.all(
-      parsed.triples.map(async (triple: any, index: number) => {
-        const imageBase64 = await generateImageWithGeminiVision(triple.imagePrompt, triple.objectName);
+    // Generate real images for each pair using Gemini Vision
+    console.log('[BibleLensService] Generating images for pairs with Gemini Vision...');
+    const pairs: BiblicalPair[] = await Promise.all(
+      parsed.pairs.map(async (pair: any, index: number) => {
+        const imageBase64 = await generateImageWithGeminiVision(pair.imagePrompt, pair.objectName);
         return {
           id: index,
-          objectName: triple.objectName,
-          objectNameZh: triple.objectNameZh,
-          chapterReference: triple.chapterReference,
-          chapterReferenceZh: triple.chapterReferenceZh,
-          verseText: triple.verseText,
-          verseTextZh: triple.verseTextZh,
+          objectName: pair.objectName,
+          objectNameZh: pair.objectNameZh,
+          chapterReference: pair.chapterReference,
+          chapterReferenceZh: pair.chapterReferenceZh,
+          verseText: pair.verseText,
+          verseTextZh: pair.verseTextZh,
           imageBase64
         };
       })
     );
 
-    console.log('[BibleLensService] Successfully generated triples with images:', triples.length);
-    return triples;
+    console.log('[BibleLensService] Successfully generated pairs with images:', pairs.length);
+    return pairs;
 
   } catch (error) {
-    console.error('[BibleLensService] Error generating triples:', error);
+    console.error('[BibleLensService] Error generating pairs:', error);
     console.log('[BibleLensService] Falling back to preset data');
-    return getFallbackTriples();
+    return getFallbackPairs();
   }
 };
 
@@ -262,7 +262,7 @@ function getEmojiForObject(objectName: string): string {
 }
 
 // Fallback data for when API is unavailable
-function getFallbackTriples(): BiblicalTriple[] {
+function getFallbackPairs(): BiblicalPair[] {
   const emojiSvg = (emoji: string) => {
     // Simple SVG with just emoji - minimal and reliable
     const svg = `<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8B7355;stop-opacity:1"/><stop offset="100%" style="stop-color:#D4A574;stop-opacity:1"/></linearGradient></defs><rect width="400" height="400" fill="url(#g)"/><text x="200" y="240" font-size="120" text-anchor="middle">${emoji}</text></svg>`;
@@ -319,6 +319,36 @@ function getFallbackTriples(): BiblicalTriple[] {
       verseText: "Now when Jesus saw the crowds, he went up on a mountainside and sat down. His disciples came to him.",
       verseTextZh: "耶穌看見這許多的人，就上了山，既已坐下，門徒到他跟前來。",
       imageBase64: emojiSvg("⛰️")
+    },
+    {
+      id: 5,
+      objectName: "Dove",
+      objectNameZh: "鴿子",
+      chapterReference: "Matthew 3:16",
+      chapterReferenceZh: "馬太福音 3:16",
+      verseText: "As soon as Jesus was baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and alighting on him.",
+      verseTextZh: "耶穌受了洗，隨即從水裡上來。天忽然為他開了，他就看見神的靈彷彿鴿子降下，落在他身上。",
+      imageBase64: emojiSvg("🕊️")
+    },
+    {
+      id: 6,
+      objectName: "Wine",
+      objectNameZh: "酒",
+      chapterReference: "John 2:9",
+      chapterReferenceZh: "約翰福音 2:9",
+      verseText: "And the master of the banquet tasted the water that had been turned into wine. He did not realize where it had come from, though the servants who had drawn the water knew.",
+      verseTextZh: "管筵席的嘗了那水變的酒，並不知道是哪裡來的，只有舀水的用人知道。",
+      imageBase64: emojiSvg("🍷")
+    },
+    {
+      id: 7,
+      objectName: "Cross",
+      objectNameZh: "十字架",
+      chapterReference: "Matthew 27:32",
+      chapterReferenceZh: "馬太福音 27:32",
+      verseText: "As they were going out, they met a man from Cyrene, named Simon, and they forced him to carry the cross.",
+      verseTextZh: "他們出來的時候，遇見一個古利奈人，名叫西門，就勉強他同去，好背著耶穌的十字架。",
+      imageBase64: emojiSvg("✝️")
     }
   ];
 }

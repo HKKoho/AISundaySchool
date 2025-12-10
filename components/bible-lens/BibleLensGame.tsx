@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Play, Loader2, RefreshCw, Trophy, Clock, Book } from 'lucide-react';
-import { GameState, BiblicalTriple } from './types';
-import { generateBiblicalTriples } from './bibleLensService';
+import { GameState, BiblicalPair } from './types';
+import { generateBiblicalPairs } from './bibleLensService';
 import MemoryGrid from './MemoryGrid';
 import { SpeakButton } from '../shared/SpeakButton';
 
@@ -17,10 +17,10 @@ const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
   const [gameState, setGameState] = useState<GameState>({
     status: 'START',
     score: 0,
-    triples: [],
+    pairs: [],
     gridCards: [],
     flippedCards: [],
-    matchedTriples: [],
+    matchedPairs: [],
   });
 
   const [completionTime, setCompletionTime] = useState<number>(0);
@@ -33,17 +33,17 @@ const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
     }));
 
     try {
-      // Generate all 5 triples with images
-      const triples = await generateBiblicalTriples();
+      // Generate all 8 pairs with images
+      const pairs = await generateBiblicalPairs();
 
       setGameState(prev => ({
         ...prev,
         status: 'PLAYING',
-        triples,
+        pairs,
         score: 0,
         gridCards: [],
         flippedCards: [],
-        matchedTriples: [],
+        matchedPairs: [],
         startTime: Date.now(),
       }));
     } catch (error) {
@@ -75,10 +75,10 @@ const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
     setGameState({
       status: 'START',
       score: 0,
-      triples: [],
+      pairs: [],
       gridCards: [],
       flippedCards: [],
-      matchedTriples: [],
+      matchedPairs: [],
     });
     setCompletionTime(0);
   };
@@ -150,26 +150,26 @@ const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
                 {t('result.objectsLearned')}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {gameState.triples.map((triple) => (
-                  <div key={triple.id} className="bg-stone-50 rounded-lg p-4 border-2 border-amber-200">
+                {gameState.pairs.map((pair) => (
+                  <div key={pair.id} className="bg-stone-50 rounded-lg p-4 border-2 border-amber-200">
                     <div className="flex gap-4">
                       <img
-                        src={triple.imageBase64}
-                        alt={triple.objectName}
+                        src={pair.imageBase64}
+                        alt={pair.objectName}
                         className="w-20 h-20 rounded-lg object-cover flex-shrink-0"
                       />
                       <div className="flex-1 min-w-0">
                         <h4 className="font-bold text-stone-900">
-                          {isChineseMode ? triple.objectNameZh : triple.objectName}
+                          {isChineseMode ? pair.objectNameZh : pair.objectName}
                         </h4>
                         <p className="text-sm text-stone-600 mb-1">
-                          {isChineseMode ? triple.chapterReferenceZh : triple.chapterReference}
+                          {isChineseMode ? pair.chapterReferenceZh : pair.chapterReference}
                         </p>
                         <p className="text-xs text-stone-500 italic line-clamp-2 mb-2">
-                          {isChineseMode ? triple.verseTextZh : triple.verseText}
+                          {isChineseMode ? pair.verseTextZh : pair.verseText}
                         </p>
                         <SpeakButton
-                          text={isChineseMode ? triple.verseTextZh : triple.verseText}
+                          text={isChineseMode ? pair.verseTextZh : pair.verseText}
                           language={isChineseMode ? 'zh-TW' : 'en'}
                           variant="button"
                           className="mt-1"
@@ -203,7 +203,7 @@ const BibleLensGame: React.FC<BibleLensGameProps> = ({ onBack }) => {
 
   // Playing State
   if (gameState.status === 'PLAYING') {
-    return <MemoryGrid triples={gameState.triples} onComplete={handleComplete} />;
+    return <MemoryGrid pairs={gameState.pairs} onComplete={handleComplete} />;
   }
 
   // Start Screen

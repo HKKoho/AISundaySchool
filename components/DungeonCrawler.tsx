@@ -10,9 +10,11 @@ import { QuestionModal } from './dungeoncrawler/QuestionModal';
 import { X } from 'lucide-react';
 import { quests } from '../data/gameData';
 import { useTranslatedQuests } from '../hooks/useTranslatedQuest';
+import { QUESTIONS } from '../data/dungeon/questions';
 
 interface DungeonCrawlerProps {
   onBack?: () => void;
+  difficultyFilter?: 'Preliminary' | 'Competent';
 }
 
 const INITIAL_STATE: GameState = {
@@ -27,7 +29,7 @@ const INITIAL_STATE: GameState = {
   visitedJunctions: []
 };
 
-export default function DungeonCrawler({ onBack }: DungeonCrawlerProps) {
+export default function DungeonCrawler({ onBack, difficultyFilter }: DungeonCrawlerProps) {
   const { t, i18n } = useTranslation(['bibleGame', 'common']);
   const [gameState, setGameState] = useState<GameState>(INITIAL_STATE);
   const [aiImage, setAiImage] = useState<string | null>(null);
@@ -42,14 +44,16 @@ export default function DungeonCrawler({ onBack }: DungeonCrawlerProps) {
   const translatedQuests = useTranslatedQuests(quests);
 
   const getQuestions = useCallback((): DungeonQuestion[] => {
-    return translatedQuests.map((quest, index) => ({
-      id: index + 1,
-      question: quest.question,
-      options: quest.options,
-      correctAnswer: quest.correctAnswerIndex,
-      bibleReference: quest.character // Use character name as reference
-    }));
-  }, [translatedQuests]);
+    // Use the actual dungeon questions which have difficulty classifications
+    let questions = [...QUESTIONS];
+
+    // Filter by difficulty if specified
+    if (difficultyFilter) {
+      questions = questions.filter(q => q.difficulty === difficultyFilter);
+    }
+
+    return questions;
+  }, [difficultyFilter]);
 
   // Initialize Game
   const startGame = useCallback(() => {

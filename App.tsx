@@ -6,6 +6,7 @@ import { BibleGame } from './components/BibleGame';
 import { TheologyAssistant } from './components/TheologyAssistant';
 import { BiblicalLanguage } from './components/BiblicalLanguage';
 import { BibleStudy } from './components/BibleStudy';
+import { YouTubeLearning } from './components/YouTubeLearning';
 import { AppState } from './types';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import './config/i18n';
@@ -18,7 +19,7 @@ const App: React.FC = () => {
     setAppState(AppState.LANDING);
   };
 
-  const handleNavigateFromLanding = (destination: 'bible-game' | 'theology-search' | 'biblical-language' | 'version-comparison') => {
+  const handleNavigateFromLanding = (destination: 'bible-game' | 'theology-search' | 'biblical-language' | 'version-comparison' | 'youtube-learning') => {
     switch (destination) {
       case 'bible-game':
         setAppState(AppState.BIBLE);
@@ -31,6 +32,9 @@ const App: React.FC = () => {
         break;
       case 'version-comparison':
         setAppState(AppState.VERSION_COMPARISON);
+        break;
+      case 'youtube-learning':
+        setAppState(AppState.YOUTUBE_LEARNING);
         break;
     }
   }
@@ -57,6 +61,8 @@ const App: React.FC = () => {
             <BibleStudy />
           </div>
         );
+      case AppState.YOUTUBE_LEARNING:
+        return <YouTubeLearning onBack={handleBackToLanding} />;
       default:
         return <LandingPage onNavigate={handleNavigateFromLanding} />;
     }

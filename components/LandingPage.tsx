@@ -1,9 +1,9 @@
 import React from 'react';
-import { Gamepad2, Search, Languages, BookOpen } from 'lucide-react';
+import { Gamepad2, Search, Languages, BookOpen, Youtube } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface LandingPageProps {
-  onNavigate: (destination: 'bible-game' | 'theology-search' | 'biblical-language' | 'version-comparison') => void;
+  onNavigate: (destination: 'bible-game' | 'theology-search' | 'biblical-language' | 'version-comparison' | 'youtube-learning') => void;
 }
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
@@ -29,22 +29,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
       hoverColor: 'hover:from-amber-600 hover:to-amber-800',
     },
     {
+      id: 'youtube-learning' as const,
+      title: t('navigation.youtubeLearning', 'Quick Learning from Videos in YouTube'),
+      subtitle: 'YouTube Bible Teaching',
+      description: t('features.youtubeLearning.description', 'Learn bible through YouTube video talks'),
+      icon: Youtube,
+      color: 'from-red-500 to-red-700',
+      hoverColor: 'hover:from-red-600 hover:to-red-800',
+    },
+    {
       id: 'theology-search' as const,
       title: t('navigation.explore'),
       subtitle: 'Bible Explore Assistant',
-      description: t('features.explore.description'),
+      description: t('features.explore.description', 'Chat on theology, Q&A on doc'),
       icon: Search,
       color: 'from-green-500 to-green-700',
       hoverColor: 'hover:from-green-600 hover:to-green-800',
-    },
-    {
-      id: 'version-comparison' as const,
-      title: t('features.versionComparison.title'),
-      subtitle: t('features.versionComparison.subtitle'),
-      description: t('features.versionComparison.description'),
-      icon: BookOpen,
-      color: 'from-blue-500 to-blue-700',
-      hoverColor: 'hover:from-blue-600 hover:to-blue-800',
     },
   ];
 

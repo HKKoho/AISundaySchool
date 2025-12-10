@@ -64,6 +64,7 @@ export const translations: Translations = {
       {
         id: 1,
         category: "Patriarchs and Their Journeys",
+        difficulty: "Preliminary" as const,
         leftSide: [
           { id: 'A', text: "Abraham" },
           { id: 'B', text: "Isaac" },
@@ -80,6 +81,7 @@ export const translations: Translations = {
       {
         id: 2,
         category: "Theology of Pauline Epistles",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Romans" },
           { id: 'B', text: "1 Corinthians" },
@@ -96,6 +98,7 @@ export const translations: Translations = {
       {
         id: 3,
         category: "Gospels and Their Audience",
+        difficulty: "Preliminary" as const,
         leftSide: [
             { id: 'A', text: "Matthew" },
             { id: 'B', text: "Mark" },
@@ -112,6 +115,7 @@ export const translations: Translations = {
       {
         id: 4,
         category: "Kings of the United Monarchy",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "Saul" },
             { id: 'B', text: "David" },
@@ -128,6 +132,7 @@ export const translations: Translations = {
       {
         id: 5,
         category: "Major Prophets and Their Message",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Isaiah" },
           { id: 'B', text: "Jeremiah" },
@@ -144,6 +149,7 @@ export const translations: Translations = {
         {
         id: 6,
         category: "Books of the Pentateuch",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "Genesis" },
             { id: 'B', text: "Exodus" },
@@ -160,6 +166,7 @@ export const translations: Translations = {
       {
         id: 7,
         category: "Women of Faith",
+        difficulty: "Preliminary" as const,
         leftSide: [
             { id: 'A', text: "Ruth" },
             { id: 'B', text: "Esther" },
@@ -176,6 +183,7 @@ export const translations: Translations = {
       {
         id: 8,
         category: "Parables and Their Meanings",
+        difficulty: "Preliminary" as const,
         leftSide: [
             { id: 'A', text: "The Good Samaritan" },
             { id: 'B', text: "The Prodigal Son" },
@@ -192,6 +200,7 @@ export const translations: Translations = {
       {
         id: 9,
         category: "The 'I AM' Sayings in John",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "The Bread of Life" },
             { id: 'B', text: "The Light of the World" },
@@ -208,6 +217,7 @@ export const translations: Translations = {
       {
         id: 10,
         category: "Crucial Biblical Backgrounds",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "Hellenism" },
             { id: 'B', text: "Roman Empire" },
@@ -224,6 +234,7 @@ export const translations: Translations = {
       {
         id: 11,
         category: "General Epistles and Themes",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Hebrews" },
           { id: 'B', text: "James" },
@@ -240,6 +251,7 @@ export const translations: Translations = {
       {
         id: 12,
         category: "Types of Psalms",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Lament" },
           { id: 'B', text: "Praise" },
@@ -256,6 +268,7 @@ export const translations: Translations = {
         {
         id: 13,
         category: "Events in the Life of Jesus",
+        difficulty: "Preliminary" as const,
         leftSide: [
           { id: 'A', text: "The Baptism" },
           { id: 'B', text: "The Transfiguration" },
@@ -272,6 +285,7 @@ export const translations: Translations = {
       {
         id: 14,
         category: "Figures in the Early Church",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Stephen" },
           { id: 'B', text: "Philip the Evangelist" },
@@ -288,6 +302,7 @@ export const translations: Translations = {
       {
         id: 15,
         category: "Theology of Revelation",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "The Lamb" },
           { id: 'B', text: "Babylon the Great" },
@@ -304,6 +319,7 @@ export const translations: Translations = {
       {
         id: 16,
         category: "Old Testament Covenants",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Noahic Covenant" },
           { id: 'B', text: "Abrahamic Covenant" },
@@ -320,6 +336,7 @@ export const translations: Translations = {
       {
         id: 17,
         category: "Biblical Genres",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Law" },
           { id: 'B', text: "History" },
@@ -336,6 +353,7 @@ export const translations: Translations = {
       {
         id: 18,
         category: "Authority of Scripture",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Inspiration" },
           { id: 'B', text: "Inerrancy" },
@@ -352,6 +370,7 @@ export const translations: Translations = {
       {
         id: 19,
         category: "Minor Prophets",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Hosea" },
           { id: 'B', text: "Jonah" },
@@ -368,6 +387,7 @@ export const translations: Translations = {
       {
         id: 20,
         category: "Early Church Heresies",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Gnosticism" },
           { id: 'B', text: "Arianism" },
@@ -384,6 +404,7 @@ export const translations: Translations = {
       {
         id: 21,
         category: "Judges of Israel",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Gideon" },
           { id: 'B', text: "Samson" },
@@ -400,6 +421,7 @@ export const translations: Translations = {
       {
         id: 22,
         category: "The Twelve Apostles",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Peter" },
           { id: 'B', text: "Andrew" },
@@ -416,6 +438,7 @@ export const translations: Translations = {
       {
         id: 23,
         category: "Miracles of Jesus",
+        difficulty: "Preliminary" as const,
         leftSide: [
           { id: 'A', text: "Turning water into wine" },
           { id: 'B', text: "Healing the paralytic" },
@@ -432,6 +455,7 @@ export const translations: Translations = {
       {
         id: 24,
         category: "The Plagues of Egypt",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Plague of Blood" },
           { id: 'B', text: "Plague of Frogs" },
@@ -448,6 +472,7 @@ export const translations: Translations = {
       {
         id: 25,
         category: "Fruit of the Spirit (Galatians 5)",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Love, Joy, Peace" },
           { id: 'B', text: "Patience, Kindness, Goodness" },
@@ -464,6 +489,7 @@ export const translations: Translations = {
       {
         id: 26,
         category: "Armor of God (Ephesians 6)",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Belt of Truth" },
           { id: 'B', text: "Breastplate of Righteousness" },
@@ -480,6 +506,7 @@ export const translations: Translations = {
       {
         id: 27,
         category: "The Beatitudes (Matthew 5)",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Blessed are the poor in spirit" },
           { id: 'B', text: "Blessed are those who mourn" },
@@ -496,6 +523,7 @@ export const translations: Translations = {
       {
         id: 28,
         category: "Locations in the Holy Land",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Jerusalem" },
           { id: 'B', text: "Bethlehem" },
@@ -512,6 +540,7 @@ export const translations: Translations = {
       {
         id: 29,
         category: "Famous Last Words",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Jesus" },
           { id: 'B', text: "Stephen" },
@@ -528,6 +557,7 @@ export const translations: Translations = {
       {
         id: 30,
         category: "Poetic Books and Their Focus",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Job" },
           { id: 'B', text: "Psalms" },
@@ -544,6 +574,7 @@ export const translations: Translations = {
       {
         id: 31,
         category: "Post-Exilic Leaders",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Ezra" },
           { id: 'B', text: "Nehemiah" },
@@ -560,6 +591,7 @@ export const translations: Translations = {
       {
         id: 32,
         category: "Key Doctrines of Faith",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Trinity" },
           { id: 'B', text: "Incarnation" },
@@ -576,6 +608,7 @@ export const translations: Translations = {
       {
         id: 33,
         category: "Symbols in the Bible",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Dove" },
           { id: 'B', text: "Rainbow" },
@@ -592,6 +625,7 @@ export const translations: Translations = {
       {
         id: 34,
         category: "Mountains in the Bible",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Mount Sinai" },
           { id: 'B', text: "Mount Carmel" },
@@ -608,6 +642,7 @@ export const translations: Translations = {
       {
         id: 35,
         category: "Rivers and Seas in the Bible",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Jordan River" },
           { id: 'B', text: "Red Sea" },
@@ -624,6 +659,7 @@ export const translations: Translations = {
       {
         id: 36,
         category: "Feasts of Israel",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Passover" },
           { id: 'B', text: "Pentecost" },
@@ -640,6 +676,7 @@ export const translations: Translations = {
       {
         id: 37,
         category: "Significant Numbers in the Bible",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "7" },
           { id: 'B', text: "12" },
@@ -656,6 +693,7 @@ export const translations: Translations = {
       {
         id: 38,
         category: "Enemies of Israel",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Philistines" },
           { id: 'B', text: "Amalekites" },
@@ -672,6 +710,7 @@ export const translations: Translations = {
       {
         id: 39,
         category: "The Ten Commandments",
+        difficulty: "Preliminary" as const,
         leftSide: [
           { id: 'A', text: "1st Commandment" },
           { id: 'B', text: "4th Commandment" },
@@ -688,6 +727,7 @@ export const translations: Translations = {
       {
         id: 40,
         category: "Siblings in the Bible",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "Cain and Abel" },
           { id: 'B', text: "Mary, Martha, and Lazarus" },
@@ -734,6 +774,7 @@ export const translations: Translations = {
       {
         id: 1,
         category: "族長們和他們的旅程",
+        difficulty: "Preliminary" as const,
         leftSide: [
           { id: 'A', text: "亞伯拉罕" },
           { id: 'B', text: "以撒" },
@@ -750,6 +791,7 @@ export const translations: Translations = {
       {
         id: 2,
         category: "保羅書信的神學",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "羅馬書" },
           { id: 'B', text: "哥林多前書" },
@@ -766,6 +808,7 @@ export const translations: Translations = {
       {
         id: 3,
         category: "福音書及其讀者",
+        difficulty: "Preliminary" as const,
         leftSide: [
             { id: 'A', text: "馬太福音" },
             { id: 'B', text: "馬可福音" },
@@ -782,6 +825,7 @@ export const translations: Translations = {
       {
         id: 4,
         category: "統一王國時期的君王",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "掃羅" },
             { id: 'B', text: "大衛" },
@@ -798,6 +842,7 @@ export const translations: Translations = {
       {
         id: 5,
         category: "主要先知及其信息",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "以賽亞" },
           { id: 'B', text: "耶利米" },
@@ -814,6 +859,7 @@ export const translations: Translations = {
       {
         id: 6,
         category: "摩西五經",
+        difficulty: "Preliminary" as const,
         leftSide: [
             { id: 'A', text: "創世記" },
             { id: 'B', text: "出埃及記" },
@@ -830,6 +876,7 @@ export const translations: Translations = {
       {
         id: 7,
         category: "信心的婦女",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "路得" },
             { id: 'B', text: "以斯帖" },
@@ -846,6 +893,7 @@ export const translations: Translations = {
       {
         id: 8,
         category: "比喻及其意義",
+        difficulty: "Preliminary" as const,
         leftSide: [
             { id: 'A', text: "好撒馬利亞人" },
             { id: 'B', text: "浪子" },
@@ -862,6 +910,7 @@ export const translations: Translations = {
       {
         id: 9,
         category: "約翰福音中的「我是」宣告",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "生命的糧" },
             { id: 'B', text: "世界的光" },
@@ -878,6 +927,7 @@ export const translations: Translations = {
       {
         id: 10,
         category: "關鍵的聖經背景",
+        difficulty: "Competent" as const,
         leftSide: [
             { id: 'A', text: "希臘化" },
             { id: 'B', text: "羅馬帝國" },
@@ -894,6 +944,7 @@ export const translations: Translations = {
       {
         id: 11,
         category: "普通書信與主題",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "希伯來書" },
           { id: 'B', text: "雅各書" },
@@ -910,6 +961,7 @@ export const translations: Translations = {
       {
         id: 12,
         category: "詩篇的類型",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "哀歌" },
           { id: 'B', text: "讚美詩" },
@@ -926,6 +978,7 @@ export const translations: Translations = {
       {
         id: 13,
         category: "耶穌生平中的事件",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "洗禮" },
           { id: 'B', text: "登山變像" },
@@ -942,6 +995,7 @@ export const translations: Translations = {
       {
         id: 14,
         category: "初期教會的人物",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "司提反" },
           { id: 'B', text: "傳福音的腓利" },
@@ -958,6 +1012,7 @@ export const translations: Translations = {
       {
         id: 15,
         category: "啟示錄的神學",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "羔羊" },
           { id: 'B', text: "大巴比倫" },
@@ -974,6 +1029,7 @@ export const translations: Translations = {
       {
         id: 16,
         category: "舊約的聖約",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "挪亞之約" },
           { id: 'B', text: "亞伯拉罕之約" },
@@ -990,6 +1046,7 @@ export const translations: Translations = {
       {
         id: 17,
         category: "聖經文體",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "律法書" },
           { id: 'B', text: "歷史書" },
@@ -1006,6 +1063,7 @@ export const translations: Translations = {
       {
         id: 18,
         category: "聖經的權威",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "默示" },
           { id: 'B', text: "無誤" },
@@ -1022,6 +1080,7 @@ export const translations: Translations = {
       {
         id: 19,
         category: "小先知書",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "何西阿書" },
           { id: 'B', text: "約拿書" },
@@ -1038,6 +1097,7 @@ export const translations: Translations = {
       {
         id: 20,
         category: "早期教會的異端",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "諾斯底主義" },
           { id: 'B', text: "亞流主義" },
@@ -1054,6 +1114,7 @@ export const translations: Translations = {
       {
         id: 21,
         category: "以色列的士師",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "基甸" },
           { id: 'B', text: "參孫" },
@@ -1070,6 +1131,7 @@ export const translations: Translations = {
       {
         id: 22,
         category: "十二使徒",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "彼得" },
           { id: 'B', text: "安得烈" },
@@ -1086,6 +1148,7 @@ export const translations: Translations = {
       {
         id: 23,
         category: "耶穌所行的神蹟",
+        difficulty: "Preliminary" as const,
         leftSide: [
           { id: 'A', text: "變水為酒" },
           { id: 'B', text: "醫治癱子" },
@@ -1102,6 +1165,7 @@ export const translations: Translations = {
       {
         id: 24,
         category: "埃及十災",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "血災" },
           { id: 'B', text: "蛙災" },
@@ -1118,6 +1182,7 @@ export const translations: Translations = {
       {
         id: 25,
         category: "聖靈的果子 (加拉太書 5章)",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "仁愛、喜樂、和平" },
           { id: 'B', text: "忍耐、恩慈、良善" },
@@ -1134,6 +1199,7 @@ export const translations: Translations = {
       {
         id: 26,
         category: "上帝所賜的全副軍裝 (以弗所書 6章)",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "真理的腰帶" },
           { id: 'B', text: "公義的護心鏡" },
@@ -1150,6 +1216,7 @@ export const translations: Translations = {
       {
         id: 27,
         category: "八福 (馬太福音 5章)",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "虛心的人有福了" },
           { id: 'B', text: "哀慟的人有福了" },
@@ -1166,6 +1233,7 @@ export const translations: Translations = {
       {
         id: 28,
         category: "聖地中的地點",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "耶路撒冷" },
           { id: 'B', text: "伯利恆" },
@@ -1182,6 +1250,7 @@ export const translations: Translations = {
       {
         id: 29,
         category: "著名的遺言",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "耶穌" },
           { id: 'B', text: "司提反" },
@@ -1198,6 +1267,7 @@ export const translations: Translations = {
       {
         id: 30,
         category: "詩歌智慧書及其焦點",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "約伯記" },
           { id: 'B', text: "詩篇" },
@@ -1214,6 +1284,7 @@ export const translations: Translations = {
       {
         id: 31,
         category: "被擄回歸時期的領袖",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "以斯拉" },
           { id: 'B', text: "尼希米" },
@@ -1230,6 +1301,7 @@ export const translations: Translations = {
       {
         id: 32,
         category: "信仰的關鍵教義",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "三位一體" },
           { id: 'B', text: "道成肉身" },
@@ -1246,6 +1318,7 @@ export const translations: Translations = {
       {
         id: 33,
         category: "聖經中的象徵",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "鴿子" },
           { id: 'B', text: "彩虹" },
@@ -1262,6 +1335,7 @@ export const translations: Translations = {
       {
         id: 34,
         category: "聖經中的山脈",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "西奈山" },
           { id: 'B', text: "迦密山" },
@@ -1278,6 +1352,7 @@ export const translations: Translations = {
       {
         id: 35,
         category: "聖經中的河流與海洋",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "約旦河" },
           { id: 'B', text: "紅海" },
@@ -1294,6 +1369,7 @@ export const translations: Translations = {
       {
         id: 36,
         category: "以色列的節期",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "逾越節" },
           { id: 'B', text: "五旬節" },
@@ -1310,6 +1386,7 @@ export const translations: Translations = {
       {
         id: 37,
         category: "聖經中的重要數字",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "7" },
           { id: 'B', text: "12" },
@@ -1326,6 +1403,7 @@ export const translations: Translations = {
       {
         id: 38,
         category: "以色列的敵人",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "非利士人" },
           { id: 'B', text: "亞瑪力人" },
@@ -1342,6 +1420,7 @@ export const translations: Translations = {
       {
         id: 39,
         category: "十誡",
+        difficulty: "Preliminary" as const,
         leftSide: [
           { id: 'A', text: "第一誡" },
           { id: 'B', text: "第四誡" },
@@ -1358,6 +1437,7 @@ export const translations: Translations = {
       {
         id: 40,
         category: "聖經中的兄弟姐妹",
+        difficulty: "Competent" as const,
         leftSide: [
           { id: 'A', text: "該隱與亞伯" },
           { id: 'B', text: "馬利亞、馬大和拉撒路" },

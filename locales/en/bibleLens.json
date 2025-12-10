@@ -5,10 +5,10 @@
     "description": "Match biblical objects with their names and scripture references in this memory challenge game!",
     "howToPlay": {
       "title": "How to Play",
-      "step1": "The game generates 5 Biblical triples, each containing an image, object name, and Bible chapter reference",
-      "step2": "These 15 elements are randomly placed in a 4x4 grid (with one hint card)",
-      "step3": "Flip cards to reveal their contents and match 3 cards that form a complete triple",
-      "step4": "Complete all 5 triples as fast as you can!"
+      "step1": "The game generates 8 Biblical pairs, each containing an image and Bible chapter reference",
+      "step2": "These 16 elements are randomly placed in a 4x4 grid",
+      "step3": "Flip cards to reveal their contents and match 2 cards that form a complete pair",
+      "step4": "Complete all 8 pairs as fast as you can!"
     },
     "scoring": {
       "title": "Scoring",
@@ -32,9 +32,9 @@
     "instructions": {
       "title": "Instructions",
       "step1": "Click cards to flip them over",
-      "step2": "Find matching triples (Image + Name + Chapter)",
-      "step3": "You can flip up to 3 cards at once",
-      "step4": "Match all 5 triples to win!"
+      "step2": "Find matching pairs (Image + Chapter)",
+      "step3": "You can flip up to 2 cards at once",
+      "step4": "Match all 8 pairs to win!"
     }
   },
   "result": {

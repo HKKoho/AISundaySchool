@@ -21,12 +21,15 @@ export interface Cell {
 
 export type MazeGrid = Cell[][];
 
+export type QuestionDifficulty = 'Preliminary' | 'Competent';
+
 export interface DungeonQuestion {
   id: number;
   question: string;
   options: string[];
   correctAnswer: number;
   bibleReference: string;
+  difficulty: QuestionDifficulty;
 }
 
 export interface GameState {

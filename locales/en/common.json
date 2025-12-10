@@ -4,8 +4,9 @@
   "platformHome": "Platform Home",
   "navigation": {
     "home": "Home",
-    "bibleGame": "Bible Exploration",
+    "bibleGame": "Explore Bible with Fun",
     "language": "Original Language Learning",
+    "youtubeLearning": "Quick Learning from Videos in YouTube",
     "explore": "Biblical Study Assistant",
     "versionComparison": "Version Comparison"
   },
@@ -32,8 +33,11 @@
     "language": {
       "description": "Hebrew and Greek pronunciation with AI"
     },
+    "youtubeLearning": {
+      "description": "Learn bible through YouTube video talks"
+    },
     "explore": {
-      "description": "Theology chat, document Q&A, assignment help"
+      "description": "Chat on theology, Q&A on doc"
     },
     "versionComparison": {
       "title": "Leverage Step Bible",
