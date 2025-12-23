@@ -6,12 +6,14 @@
 import { GoogleGenAI } from "@google/genai";
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+const OLLAMA_API_KEY = process.env.OLLAMA_API_KEY || '';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
 
-if (!GEMINI_API_KEY) {
-  console.warn('GEMINI_API_KEY not configured - search will not work');
+if (!GEMINI_API_KEY && !OLLAMA_API_KEY && !OPENAI_API_KEY) {
+  console.warn('No AI API keys configured - search will not work');
 }
 
-const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+const ai = GEMINI_API_KEY ? new GoogleGenAI({ apiKey: GEMINI_API_KEY }) : null;
 
 export interface ResourceSearchResult {
   title: string;
@@ -149,46 +151,215 @@ ${typeFilter}請列出：
       break;
   }
 
+  const modeDescriptions = {
+    [SearchMode.GOOGLE_SEARCH]: 'Google Search',
+    [SearchMode.URL_CONTEXT]: 'URL Context',
+    [SearchMode.CODE_EXECUTION]: 'Code Execution Analysis',
+    [SearchMode.GENERAL_KNOWLEDGE]: 'Knowledge Base'
+  };
+
+  // URL category descriptions for better source info
+  const urlCategoryDescriptions: Record<string, string> = {
+    reformed: '改革宗資源',
+    catholic: '天主教資源',
+    orthodox: '東正教資源',
+    academic: '學術資源',
+    chinese: '華人神學資源'
+  };
+
+  let searchText: string | null = null;
+  let lastError: string | null = null;
+  let providerUsed = '';
+
+  // Try Gemini first (supports MCP tools)
+  if (GEMINI_API_KEY && ai) {
+    try {
+      console.log('  Attempting theology search with Gemini...');
+
+      // Build config
+      const config: any = {
+        temperature: configOverrides.temperature ?? 0.3,
+        topP: 0.9,
+        maxOutputTokens: 3000,
+        ...(tools.length > 0 && { tools })
+      };
+
+      const response = await ai.models.generateContent({
+        model: "gemini-2.0-flash",
+        contents: searchPrompt,
+        config
+      });
+
+      searchText = response.text;
+      providerUsed = 'Gemini';
+      console.log('✓ Theology search completed with Gemini');
+    } catch (geminiError: any) {
+      console.error('  Gemini theology search failed:', geminiError);
+      lastError = `Gemini: ${geminiError.message || JSON.stringify(geminiError)}`;
+
+      // Check if it's a quota error
+      if (geminiError.status === 429 ||
+          geminiError.message?.includes('quota') ||
+          geminiError.message?.includes('RESOURCE_EXHAUSTED')) {
+        console.log('  Gemini quota exceeded, falling back to Ollama Cloud...');
+      } else {
+        // Re-throw non-quota errors
+        throw geminiError;
+      }
+    }
+  }
+
+  // Try Ollama Cloud if Gemini failed (no MCP tools support)
+  if (!searchText && OLLAMA_API_KEY) {
+    try {
+      console.log('  Attempting theology search with Ollama Cloud...');
+
+      // Simplify prompt for non-MCP providers (use general knowledge mode)
+      const simplifiedPrompt = `
+你是一位神學研究專家。請根據你的知識庫提供關於「${query}」的神學資源推薦。
+
+${typeFilter}請列出相關的：
+1. 神學書籍（標題和作者）
+2. 學術文章和論文
+3. 聖經註釋
+4. 神學百科條目
+5. 推薦的神學網站
+
+對於每個資源，請提供：
+- 準確的標題（中文或英文）
+- 作者姓名
+- 資源類型（書籍、文章、註釋、百科、論文、網站）
+- 簡短描述（2-3句話）
+- 相關標籤
+
+請優先考慮正統基督教神學資源，並確保信息的準確性和學術性。
+`;
+
+      const response = await fetch('https://ollama.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${OLLAMA_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'kimi-k2:1t',
+          messages: [
+            {
+              role: 'system',
+              content: '你是神學研究專家，專門推薦神學資源和文獻。'
+            },
+            {
+              role: 'user',
+              content: simplifiedPrompt
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 3000
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Ollama API error: ${errorData.error?.message || response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      // Clean markdown code blocks if present
+      let content = data.choices[0].message.content.trim();
+      if (content.startsWith('```')) {
+        content = content.replace(/^```[a-z]*\s*/, '').replace(/```\s*$/, '');
+      }
+
+      searchText = content.trim();
+      providerUsed = 'Ollama Cloud';
+      console.log('✓ Theology search completed with Ollama Cloud (fallback)');
+    } catch (ollamaError: any) {
+      console.error('  Ollama Cloud theology search failed:', ollamaError.message);
+      lastError = lastError ? `${lastError}. Ollama: ${ollamaError.message}` : `Ollama: ${ollamaError.message}`;
+    }
+  }
+
+  // Try OpenAI if both Gemini and Ollama failed (no MCP tools support)
+  if (!searchText && OPENAI_API_KEY) {
+    try {
+      console.log('  Attempting theology search with OpenAI...');
+
+      // Simplify prompt for non-MCP providers (use general knowledge mode)
+      const simplifiedPrompt = `
+你是一位神學研究專家。請根據你的知識庫提供關於「${query}」的神學資源推薦。
+
+${typeFilter}請列出相關的：
+1. 神學書籍（標題和作者）
+2. 學術文章和論文
+3. 聖經註釋
+4. 神學百科條目
+5. 推薦的神學網站
+
+對於每個資源，請提供：
+- 準確的標題（中文或英文）
+- 作者姓名
+- 資源類型（書籍、文章、註釋、百科、論文、網站）
+- 簡短描述（2-3句話）
+- 相關標籤
+
+請優先考慮正統基督教神學資源，並確保信息的準確性和學術性。
+`;
+
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
+              content: '你是神學研究專家，專門推薦神學資源和文獻。'
+            },
+            {
+              role: 'user',
+              content: simplifiedPrompt
+            }
+          ],
+          temperature: 0.7
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`OpenAI API error: ${errorData.error?.message || response.statusText}`);
+      }
+
+      const data = await response.json();
+      searchText = data.choices[0].message.content;
+      providerUsed = 'OpenAI';
+      console.log('✓ Theology search completed with OpenAI (final fallback)');
+    } catch (openaiError: any) {
+      console.error('  OpenAI theology search failed:', openaiError.message);
+      lastError = lastError ? `${lastError}. OpenAI: ${openaiError.message}` : `OpenAI: ${openaiError.message}`;
+    }
+  }
+
+  // If all providers failed, throw error
+  if (!searchText) {
+    console.error('All AI providers failed for theology search');
+    throw new Error(`搜尋失敗 - 所有 AI 提供商都無法使用。${lastError || '請檢查 API 密鑰配置。'}`);
+  }
+
   try {
-    // Build config
-    const config: any = {
-      temperature: configOverrides.temperature ?? 0.3,
-      topP: 0.9,
-      maxOutputTokens: 3000,
-      ...(tools.length > 0 && { tools })
-    };
-
-    const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
-      contents: searchPrompt,
-      config
-    });
-
-    const searchText = response.text;
-
     // Parse the response to extract structured results
     const results = parseSearchResults(searchText);
 
-    const modeDescriptions = {
-      [SearchMode.GOOGLE_SEARCH]: 'Google Search',
-      [SearchMode.URL_CONTEXT]: 'URL Context',
-      [SearchMode.CODE_EXECUTION]: 'Code Execution Analysis',
-      [SearchMode.GENERAL_KNOWLEDGE]: 'Knowledge Base'
-    };
-
-    // URL category descriptions for better source info
-    const urlCategoryDescriptions: Record<string, string> = {
-      reformed: '改革宗資源',
-      catholic: '天主教資源',
-      orthodox: '東正教資源',
-      academic: '學術資源',
-      chinese: '華人神學資源'
-    };
-
     // Add source information to all results
-    let sourceLabel = `Gemini MCP: ${modeDescriptions[searchMode]}`;
+    let sourceLabel = providerUsed === 'Gemini'
+      ? `Gemini MCP: ${modeDescriptions[searchMode]}`
+      : `${providerUsed} (General Knowledge)`;
+
     if (searchMode === SearchMode.URL_CONTEXT && urlSourceCategory) {
-      sourceLabel = `${urlCategoryDescriptions[urlSourceCategory] || urlSourceCategory} (URL Context)`;
+      sourceLabel = `${urlCategoryDescriptions[urlSourceCategory] || urlSourceCategory} (${providerUsed})`;
     }
 
     const resultsWithSource = results.map(result => ({
@@ -196,14 +367,16 @@ ${typeFilter}請列出：
       source: result.source || sourceLabel
     }));
 
+    const summaryMode = providerUsed === 'Gemini' ? modeDescriptions[searchMode] : `${providerUsed} 知識庫`;
+
     return {
       results: resultsWithSource,
-      summary: `透過 ${modeDescriptions[searchMode]} 找到 ${results.length} 個關於「${query}」的神學資源`
+      summary: `透過 ${summaryMode} 找到 ${results.length} 個關於「${query}」的神學資源`
     };
 
   } catch (error: any) {
-    console.error('Theology search error:', error);
-    throw new Error(`搜尋失敗：${error.message}`);
+    console.error('Theology search parsing error:', error);
+    throw new Error(`搜尋結果解析失敗：${error.message}`);
   }
 }
 
